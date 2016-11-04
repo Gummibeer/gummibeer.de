@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% if title is defined %}
+            {{ title }} |
+        {% endif %}
+        Tom Witkowski
+    </title>
+
+    <link href="{{ asset('styles.min.css', 'css') }}" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+    <script src="{{ asset('html5shiv.min.js', 'js') }}"></script>
+    <script src="{{ asset('respond.min.js', 'js') }}"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <header id="header">
+            <nav class="navbar navbar-dark">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="nav-menu">
+                    {% block menu %}{% endblock %}
+                </div>
+            </nav>
+        </header>
+        <article id="content">
+            {% block content %}{% endblock %}
+        </article>
+        <footer id="footer">
+            <div class="top">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>Find me</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://facebook.com/tkwitkowski" target="_blank" class="social-facebook circle-40 inline-block">
+                                    <i class="icon fa-facebook font-size-16"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/Gummibeer" target="_blank" class="social-github circle-40 inline-block">
+                                    <i class="icon fa-github font-size-16"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/dev.gummibeer" target="_blank" class="social-instagram circle-40 inline-block">
+                                    <i class="icon fa-instagram font-size-16"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://steamcommunity.com/id/gummibeer" target="_blank" class="social-steam circle-40 inline-block">
+                                    <i class="icon fa-steam font-size-16"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Contact me</h3>
+                        <ul class="list-icons list-unstyled">
+                            <li>
+                                <i class="icon fa-phone text-primary"></i>
+                                +49 162 1525105
+                            </li>
+                            <li>
+                                <i class="icon fa-envelope-o text-primary"></i>
+                                dev.gummibeer@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <span class="copyright">
+                    &copy; Copyright 2015 - {{ "now"|date('Y') }} by Tom Witkowski. All rights reserved
+                </span>
+            </div>
+        </footer>
+    </div>
+
+    {#<script src="{{ asset('jquery.min.js', 'js') }}"></script>#}
+    {#<script src="{{ asset('jquery.bootstrap.min.js', 'js') }}"></script>#}
+    {#<script src="{{ asset('jquery.main.js', 'js') }}"></script>#}
+</body>
+</html>

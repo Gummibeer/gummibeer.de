@@ -1,0 +1,17 @@
+{
+  "name": "gummibeer/cv-resume",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tom Witkowski",
+      "email": "dev.gummibeer@gmail.com"
+    }
+  ],
+  "require": {
+    "silex/silex": "^2.0",
+    "twig/twig": "^1.27",
+    "symfony/asset": "^3.1",
+    "symfony/twig-bridge": "^3.1"
+  }
+}

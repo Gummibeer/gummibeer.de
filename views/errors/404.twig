@@ -1,0 +1,8 @@
+{% extends "master.twig" %}
+
+{% block content %}
+    <h1>404</h1>
+    <p>
+        Die Seite "{{ request.getRequestUri() }}" wurde nicht gefunden.
+    </p>
+{% endblock %}

@@ -1,0 +1,44 @@
+#header {
+  background: @color-grey-1000;
+  padding: 10px 0;
+
+  .navbar.navbar-dark {
+    position: relative;
+    min-height: 0;
+    margin-bottom: 0;
+    border: none;
+
+    .navbar-nav {
+      > li {
+        > a {
+          padding: 15px 25px;
+          background: @color-grey-800;
+          color: @color-white;
+          font-size: 14px;
+          line-height: 1em;
+          text-transform: uppercase;
+
+          &:hover,
+          &:active,
+          &:focus {
+            background: @color-grey-800;
+            color: @brand-primary;
+          }
+        }
+
+        &.active {
+          > a {
+            background: @brand-primary;
+            color: @color-black;
+
+            &:hover,
+            &:active,
+            &:focus {
+              color: @color-white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
