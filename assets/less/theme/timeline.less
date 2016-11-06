@@ -1,0 +1,50 @@
+ul.timeline {
+    position: relative;
+    list-style: none;
+    padding: 30px 0 15px 45px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 5px;
+        background: @color-grey-800;
+    }
+
+    > li {
+        list-style: none;
+        background: @brand-primary;
+        padding: 15px;
+        position: relative;
+        display: block;
+
+        + li {
+            margin-top: 30px;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-color: transparent @brand-primary transparent transparent;
+            border-style: solid;
+            border-width: 0 30px 30px 0;
+        }
+
+        h3 {
+            padding: 0;
+            margin: 0;
+            font-size: 2em;
+            font-family: Raleway, sans-serif;
+
+            i {
+                float: right;
+            }
+        }
+    }
+}

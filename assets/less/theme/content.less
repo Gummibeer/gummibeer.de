@@ -1,7 +1,20 @@
 #content {
   .section {
-    padding: 30px;
+    padding: 30px 60px;
     background: @color-white;
+    position: relative;
+
+    + .section {
+      &:before {
+        content: '';
+        position: absolute;
+        height: 1px;
+        top: 0;
+        left: 60px;
+        right: 60px;
+        background: @color-grey-500;
+      }
+    }
 
     .hgroup {
       .clearfix;
@@ -43,7 +56,7 @@
         float: left;
         font-family: Montserrat, sans-serif;
 
-        &:before {
+        &:after {
           content: '';
           position: absolute;
           bottom: 0;
@@ -53,7 +66,7 @@
           background: @brand-primary;
         }
 
-        &:after {
+        &:before {
           position: absolute;
           top: 0;
           right: 0;

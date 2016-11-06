@@ -3,16 +3,19 @@
 {% block menu %}
     <ul class="nav navbar-nav">
         <li class="active">
-            <a href="#about-me">About me</a>
+            <a class="smooth" href="#about">About</a>
         </li>
         <li>
-            <a href="#">Link</a>
+            <a class="smooth" href="#resume">Resume</a>
+        </li>
+        <li>
+            <a class="smooth" href="#projects">Projects</a>
         </li>
     </ul>
 {% endblock %}
 
 {% block content %}
-    {% for block in ['about-me'] %}
+    {% for block in ['about', 'resume', 'projects'] %}
         {{ include('pages/index/blocks/' ~ block ~ '.twig') }}
     {% endfor %}
 {% endblock %}

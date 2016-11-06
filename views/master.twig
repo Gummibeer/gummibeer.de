@@ -20,6 +20,8 @@
 </head>
 <body>
     <div class="container">
+        <!-- ToDo: fixed header -->
+        <!-- ToDo: scroll spy -->
         <header id="header">
             <nav class="navbar navbar-dark">
                 <div class="navbar-header">
@@ -83,15 +85,17 @@
                 </div>
             </div>
             <div class="bottom">
-                <span class="copyright">
+                <div class="copyright">
                     &copy; Copyright 2015 - {{ "now"|date('Y') }} by Tom Witkowski. All rights reserved
-                </span>
+                </div>
             </div>
         </footer>
     </div>
 
-    {#<script src="{{ asset('jquery.min.js', 'js') }}"></script>#}
-    {#<script src="{{ asset('jquery.bootstrap.min.js', 'js') }}"></script>#}
-    {#<script src="{{ asset('jquery.main.js', 'js') }}"></script>#}
+    <script src="{{ asset('jquery.min.js', 'js') }}"></script>
+    <script src="{{ asset('jquery.smooth-scroll.js', 'js') }}"></script>
+    <script src="{{ asset('jquery.count-to.js', 'js') }}"></script>
+    <script src="{{ asset('jquery.bootstrap.min.js', 'js') }}"></script>
+    <script src="{{ asset('jquery.main.js', 'js') }}"></script>
 </body>
 </html>
