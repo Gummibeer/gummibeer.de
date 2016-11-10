@@ -18,26 +18,25 @@
     <script src="{{ asset('respond.min.js', 'js') }}"></script>
     <![endif]-->
 </head>
-<body>
-    <div class="container">
-        <!-- ToDo: fixed header -->
-        <!-- ToDo: scroll spy -->
-        <header id="header">
-            <nav class="navbar navbar-dark">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
+<body data-spy="scroll" data-target="#nav-menu" data-offset="64">
+    <header id="header" class="container">
+        <nav class="navbar navbar-dark">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
 
-                <div class="collapse navbar-collapse" id="nav-menu">
-                    {% block menu %}{% endblock %}
-                </div>
-            </nav>
-        </header>
+            <div class="collapse navbar-collapse" id="nav-menu">
+                {% block menu %}{% endblock %}
+            </div>
+        </nav>
+    </header>
+
+    <div class="container padding-0">
         <article id="content">
             {% block content %}{% endblock %}
         </article>
@@ -85,9 +84,17 @@
                 </div>
             </div>
             <div class="bottom">
-                <div class="copyright">
-                    &copy; Copyright 2015 - {{ "now"|date('Y') }} by Tom Witkowski. All rights reserved
-                </div>
+                <ul class="copyright list-inline">
+                    <li>
+                        &copy; Copyright 2015 - {{ "now"|date('Y') }} by Tom Witkowski. All rights reserved.
+                    </li>
+                    <li>
+                        <a href="/imprint">Imprint</a>
+                    </li>
+                    <li>
+                        <a href="/privacy">Privacy</a>
+                    </li>
+                </ul>
             </div>
         </footer>
     </div>

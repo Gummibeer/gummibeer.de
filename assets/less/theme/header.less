@@ -1,6 +1,11 @@
 #header {
   background: @color-grey-1000;
   padding: 10px 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: @zindex-navbar-fixed;
 
   .navbar.navbar-dark {
     position: relative;
@@ -17,12 +22,17 @@
           font-size: 14px;
           line-height: 1em;
           text-transform: uppercase;
+          transition: background 250ms ease-in-out;
 
-          &:hover,
+          &:hover {
+            background: @color-grey-800;
+            color: @brand-primary;
+          }
+
           &:active,
           &:focus {
             background: @color-grey-800;
-            color: @brand-primary;
+            color: @color-white;
           }
         }
 

@@ -37,6 +37,14 @@ $app->get('/', function () use ($app) {
     return $app['twig']->render('pages/index/index.twig', []);
 });
 
+$app->get('/imprint', function () use ($app) {
+    return $app['twig']->render('pages/imprint.twig', []);
+});
+
+$app->get('/privacy', function () use ($app) {
+    return $app['twig']->render('pages/privacy.twig', []);
+});
+
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if (in_array($code, [404])) {
         return $app['twig']->render('errors/'.$code . '.twig', [
