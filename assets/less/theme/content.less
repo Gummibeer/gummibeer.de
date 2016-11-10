@@ -1,8 +1,12 @@
 #content {
   .section {
-    padding: 30px 60px;
+    padding: 30px 30px;
     background: @color-white;
     position: relative;
+
+    @media (min-width: @screen-md-min) {
+      padding: 30px 60px;
+    }
 
     + .section {
       &:before {
@@ -66,18 +70,20 @@
           background: @brand-primary;
         }
 
-        &:before {
-          position: absolute;
-          top: 0;
-          right: 0;
-          color: @color-grey-500;
-          font-size: 3em;
-          line-height: 1em;
-          padding: 0;
-          content: attr(title);
-          opacity: 0.2;
-          white-space: nowrap;
-          font-family: Montserrat, sans-serif;
+        @media (min-width: @screen-md-min) {
+          &:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: @color-grey-500;
+            font-size: 3em;
+            line-height: 1em;
+            padding: 0;
+            content: attr(title);
+            opacity: 0.2;
+            white-space: nowrap;
+            font-family: Montserrat, sans-serif;
+          }
         }
       }
     }

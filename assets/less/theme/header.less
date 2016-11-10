@@ -13,6 +13,28 @@
     margin-bottom: 0;
     border: none;
 
+    .navbar-header {
+      .navbar-toggle {
+        border-color: @color-white;
+        background-color: transparent;
+        margin-top: 5px;
+        margin-bottom: 5px;
+
+        .icon-bar {
+          background-color: @color-white;
+        }
+
+        &:hover,
+        &:focus {
+          border-color: @brand-primary;
+
+          .icon-bar {
+            background-color: @brand-primary;
+          }
+        }
+      }
+    }
+
     .navbar-nav {
       > li {
         > a {
