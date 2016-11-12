@@ -1,17 +1,9 @@
 <?php
-error_reporting(E_ALL);
-
-require realpath('../vendor/autoload.php');
-
-use Silex\Application;
 use Silex\Provider\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Provider\AssetServiceProvider;
 
-define('BASEDIR', realpath(__DIR__ . '/..'));
-
-$app = new Application();
-$app['debug'] = true;
+$app = require '../app.php';
 
 $app->register(new TwigServiceProvider(), [
     'twig.path' => BASEDIR . '/views',
@@ -34,7 +26,10 @@ $app->register(new AssetServiceProvider(), [
 ]);
 
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('pages/index/index.twig', []);
+    return $app['twig']->render('pages/index/index.twig', [
+        'commits' => file_get_contents(BASEDIR.'/data/commits.txt'),
+        'playtime' => file_get_contents(BASEDIR.'/data/playtime.txt'),
+    ]);
 });
 
 $app->get('/imprint', function () use ($app) {
@@ -47,7 +42,7 @@ $app->get('/privacy', function () use ($app) {
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if (in_array($code, [404])) {
-        return $app['twig']->render('errors/'.$code . '.twig', [
+        return $app['twig']->render('errors/' . $code . '.twig', [
             'request' => $request,
             'title' => $code,
         ]);

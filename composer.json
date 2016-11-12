@@ -12,6 +12,11 @@
     "silex/silex": "^2.0",
     "twig/twig": "^1.27",
     "symfony/asset": "^3.1",
-    "symfony/twig-bridge": "^3.1"
+    "symfony/twig-bridge": "^3.1",
+    "knplabs/github-api": "^1.7",
+    "illuminate/support": "^5.3",
+    "nesbot/carbon": "^1.21",
+    "vlucas/phpdotenv": "^2.4",
+    "guzzle/guzzle": "~3.7"
   }
 }

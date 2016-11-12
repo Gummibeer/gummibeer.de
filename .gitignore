@@ -2,3 +2,7 @@
 /node_modules
 /public/css/*
 !/public/css/.gitkeep
+/composer.phar
+/composer.lock
+/.idea
+/.env
