@@ -1,1 +1,29 @@
-{{ exception.getMessage() }}
+{% extends "master.twig" %}
+
+{% block menu %}
+    <ul class="nav navbar-nav">
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/imprint">Imprint</a>
+        </li>
+        <li>
+            <a href="/privacy">Privacy</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="hgroup">
+            <h3>Error {{ code }}</h3>
+            <h2 title="{{ code }}">{{ title }}</h2>
+        </div>
+        <p>
+            {{ message }}
+            In difference to most other pages I don't have any trained monkeys and won't care automatically about this error.
+            If you are sure that this is an error and I have to fix it - write me an email <a href="mailto:dev.gummibeer@gmail.com">dev.gummibeer@gmail.com</a>.
+        </p>
+    </section>
+{% endblock %}

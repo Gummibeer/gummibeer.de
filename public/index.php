@@ -33,23 +33,33 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('/imprint', function () use ($app) {
-    return $app['twig']->render('pages/imprint.twig', []);
+    return $app['twig']->render('pages/imprint.twig', [
+        'title' => 'Imprint',
+    ]);
 });
 
 $app->get('/privacy', function () use ($app) {
-    return $app['twig']->render('pages/privacy.twig', []);
+    return $app['twig']->render('pages/privacy.twig', [
+        'title' => 'Privacy',
+    ]);
 });
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
-    if (in_array($code, [404])) {
-        return $app['twig']->render('errors/' . $code . '.twig', [
-            'request' => $request,
-            'title' => $code,
-        ]);
+    switch($code) {
+        case 404:
+            $title = 'Page not found';
+            $message = 'The page you\'ve request isn\'t here.';
+            break;
+        default:
+            $title = 'Server Error';
+            $message = 'Sorry, an undefined error occurred.';
+            break;
     }
     return $app['twig']->render('errors/error.twig', [
         'exception' => $e,
-        'title' => 'Fehler',
+        'title' => $title,
+        'message' => $message,
+        'code' => $code,
     ]);
 });
 
