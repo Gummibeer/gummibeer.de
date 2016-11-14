@@ -3,6 +3,6 @@
 /public/css/*
 !/public/css/.gitkeep
 /composer.phar
-/composer.lock
+/*.lock
 /.idea
 /.env
