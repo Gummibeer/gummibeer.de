@@ -1,5 +1,5 @@
 <?php
-require realpath('../vendor/autoload.php');
+require realpath(__DIR__.'/vendor/autoload.php');
 
 use Dotenv\Dotenv;
 use Silex\Application;

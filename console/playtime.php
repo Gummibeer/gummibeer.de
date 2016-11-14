@@ -1,5 +1,5 @@
 <?php
-$app = require '../app.php';
+$app = require realpath(__DIR__.'/../app.php');
 
 use Guzzle\Http\Client;
 

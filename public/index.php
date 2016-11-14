@@ -1,9 +1,9 @@
 <?php
+$app = require realpath(__DIR__.'/../app.php');
+
 use Silex\Provider\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Provider\AssetServiceProvider;
-
-$app = require '../app.php';
 
 $app->register(new TwigServiceProvider(), [
     'twig.path' => BASEDIR . '/views',
