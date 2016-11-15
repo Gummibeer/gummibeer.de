@@ -1,5 +1,5 @@
 <?php
-$app = require '../app.php';
+$app = require realpath(__DIR__.'/../app.php');
 
 use Github\Client;
 use Github\HttpClient\CachedHttpClient;
