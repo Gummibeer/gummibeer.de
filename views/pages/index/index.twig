@@ -11,11 +11,14 @@
         <li>
             <a class="smooth" href="#projects">Projects</a>
         </li>
+        <li>
+            <a class="smooth" href="#games">Games</a>
+        </li>
     </ul>
 {% endblock %}
 
 {% block content %}
-    {% for block in ['about', 'resume', 'projects'] %}
+    {% for block in ['about', 'resume', 'projects', 'games'] %}
         {{ include('pages/index/blocks/' ~ block ~ '.twig') }}
     {% endfor %}
 {% endblock %}

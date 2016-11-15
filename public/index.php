@@ -22,6 +22,10 @@ $app->register(new AssetServiceProvider(), [
             'version' => $version,
             'base_path' => '/js',
         ],
+        'img' => [
+            'version' => $version,
+            'base_path' => '/img',
+        ],
     ],
 ]);
 
