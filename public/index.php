@@ -5,6 +5,10 @@ use Silex\Provider\TwigServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Provider\AssetServiceProvider;
 
+function title($title = '') {
+    return implode(' | ', array_filter([$title, 'Tom Witkowski']));
+}
+
 $app->register(new TwigServiceProvider(), [
     'twig.path' => BASEDIR . '/views',
 ]);
@@ -33,18 +37,19 @@ $app->get('/', function () use ($app) {
     return $app['twig']->render('pages/index/index.twig', [
         'commits' => file_get_contents(BASEDIR.'/data/commits.txt'),
         'playtime' => file_get_contents(BASEDIR.'/data/playtime.txt'),
+        'title' => title(),
     ]);
 });
 
 $app->get('/imprint', function () use ($app) {
     return $app['twig']->render('pages/imprint.twig', [
-        'title' => 'Imprint',
+        'title' => title('Imprint'),
     ]);
 });
 
 $app->get('/privacy', function () use ($app) {
     return $app['twig']->render('pages/privacy.twig', [
-        'title' => 'Privacy',
+        'title' => title('Privacy'),
     ]);
 });
 

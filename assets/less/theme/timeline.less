@@ -15,10 +15,18 @@ ul.timeline {
 
     > li {
         list-style: none;
-        background: @brand-primary;
+        background: @color-grey-800;
         padding: 15px;
         position: relative;
         display: block;
+
+        &.active {
+            background: @brand-primary;
+
+            &:before {
+                border-color: transparent @brand-primary transparent transparent;
+            }
+        }
 
         + li {
             margin-top: 30px;
@@ -31,7 +39,7 @@ ul.timeline {
             top: 0;
             width: 0;
             height: 0;
-            border-color: transparent @brand-primary transparent transparent;
+            border-color: transparent @color-grey-800 transparent transparent;
             border-style: solid;
             border-width: 0 30px 30px 0;
         }
@@ -44,6 +52,24 @@ ul.timeline {
 
             i {
                 float: right;
+            }
+        }
+        
+        strong {
+            color: @color-white;
+            display: block;
+        }
+
+        time {
+            display: block;
+            text-transform: uppercase;
+        }
+
+        &:not(.active) {
+            color: @color-white;
+
+            h3 {
+                color: @color-white;
             }
         }
     }

@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#212121" />
-    <title>
-        {% if title is defined %}
-            {{ title }} |
-        {% endif %}
-        Tom Witkowski
-    </title>
+    <title>{{ title }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png', 'img') }}" />
+
+    <meta name="og:url" content="{{ app.request_stack.getCurrentRequest.getUri }}" />
+    <meta name="og:title" content="{{ title }}" />
+    <meta name="og:description" content="I'm an enthusiastic web developer and free time gamer from Hamburg, Germany." />
+    <meta name="og:image" content="{{ asset('og_banner.png', 'img') }}" />
 
     <link href="{{ asset('styles.min.css', 'css') }}" rel="stylesheet" />
 
@@ -44,7 +45,7 @@
         <footer id="footer">
             <div class="top">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <h3>Find me</h3>
                         <ul class="list-inline">
                             <li>
@@ -121,5 +122,7 @@
     <script src="{{ asset('jquery.masonry.min.js', 'js') }}"></script>
     <script src="{{ asset('jquery.bootstrap.min.js', 'js') }}"></script>
     <script src="{{ asset('jquery.main.js', 'js') }}"></script>
+
+    {% include 'tracking.html' ignore missing %}
 </body>
 </html>
