@@ -6,3 +6,4 @@
 /*.lock
 /.idea
 /.env
+/views/tracking.html
