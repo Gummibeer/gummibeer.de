@@ -1,33 +1,64 @@
 <?php
-$app = require realpath(__DIR__.'/../app.php');
-
+use Silex\Application;
 use Silex\Provider\TwigServiceProvider;
-use Symfony\Component\HttpFoundation\Request;
 use Silex\Provider\AssetServiceProvider;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+$app = require realpath(__DIR__.'/../app.php');
+if(!($app instanceof Application)) {
+    throw new RuntimeException('Failed to create app instance.');
+}
+$app['version'] = $app['debug'] ? time() : '1.1.6';
+$app['cache_path'] = realpath(__DIR__.'/../cache');
 
 function title($title = '') {
     return implode(' | ', array_filter([$title, 'Tom Witkowski']));
 }
 
+$app->before(function (Request $request, Application $app) {
+    $path = str_slug($request->getPathInfo()) ?: 'home';
+    $version = $app['version'];
+    $file = str_slug($path.'_'.$version, '_').'.html';
+    $path = $app['cache_path'].'/'.$file;
+    if(file_exists($path)) {
+        return new Response(file_get_contents($path), 200, [
+            'X-Cached' => 'true',
+        ]);
+    }
+    return null;
+});
+
+$app->after(function (Request $request, Response $response, Application $app) {
+    if($response->headers->has('X-Cached')) {
+        return $response;
+    }
+    $path = str_slug($request->getPathInfo()) ?: 'home';
+    $version = $app['version'];
+    $file = str_slug($path.'_'.$version, '_').'.html';
+    $path = $app['cache_path'].'/'.$file;
+    file_put_contents($path, $response->getContent());
+    return $response;
+});
+
 $app->register(new TwigServiceProvider(), [
     'twig.path' => BASEDIR . '/views',
 ]);
 
-$version = $app['debug'] ? time() : '1.0';
 $app->register(new AssetServiceProvider(), [
-    'assets.version' => $version,
+    'assets.version' => $app['version'],
     'assets.version_format' => '%s?version=%s',
     'assets.named_packages' => [
         'css' => [
-            'version' => $version,
+            'version' => $app['version'],
             'base_path' => '/css',
         ],
         'js' => [
-            'version' => $version,
+            'version' => $app['version'],
             'base_path' => '/js',
         ],
         'img' => [
-            'version' => $version,
+            'version' => $app['version'],
             'base_path' => '/img',
         ],
     ],

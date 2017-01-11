@@ -7,3 +7,4 @@
 /.idea
 /.env
 /views/tracking.html
+/public/js/scripts.min.js
