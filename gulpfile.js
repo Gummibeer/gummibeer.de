@@ -25,6 +25,7 @@ gulp.task('scripts', function() {
         './assets/js/jquery.smooth-scroll.min.js',
         './assets/js/jquery.count-to.min.js',
         './assets/js/jquery.masonry.min.js',
+        // './assets/js/jquery.owl.carousel.min.js',
         './assets/js/webfont.min.js',
         './assets/js/jquery.main.js'
     ])
