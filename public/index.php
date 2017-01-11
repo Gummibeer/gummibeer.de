@@ -5,23 +5,30 @@ use Silex\Provider\AssetServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-$app = require realpath(__DIR__.'/../app.php');
-if(!($app instanceof Application)) {
+$app = require realpath(__DIR__ . '/../app.php');
+if (!($app instanceof Application)) {
     throw new RuntimeException('Failed to create app instance.');
 }
 $app['version'] = $app['debug'] ? time() : '1.1.6';
-$app['cache_path'] = realpath(__DIR__.'/../cache');
+$app['cache_path'] = realpath(__DIR__ . '/../cache');
 
-function title($title = '') {
+function title($title = '')
+{
     return implode(' | ', array_filter([$title, 'Tom Witkowski']));
 }
 
-$app->before(function (Request $request, Application $app) {
+function cacheFile(Request $request, Application $app)
+{
     $path = str_slug($request->getPathInfo()) ?: 'home';
     $version = $app['version'];
-    $file = str_slug($path.'_'.$version, '_').'.html';
-    $path = $app['cache_path'].'/'.$file;
-    if(file_exists($path)) {
+    $date = date('Ymd');
+    $file = str_slug($path . ' ' . $version . ' ' . $date, '_') . '.html';
+    return $app['cache_path'] . '/' . $file;
+}
+
+$app->before(function (Request $request, Application $app) {
+    $path = cacheFile($request, $app);
+    if (file_exists($path)) {
         return new Response(file_get_contents($path), 200, [
             'X-Cached' => 'true',
         ]);
@@ -30,14 +37,10 @@ $app->before(function (Request $request, Application $app) {
 });
 
 $app->after(function (Request $request, Response $response, Application $app) {
-    if($response->headers->has('X-Cached')) {
+    if ($response->headers->has('X-Cached')) {
         return $response;
     }
-    $path = str_slug($request->getPathInfo()) ?: 'home';
-    $version = $app['version'];
-    $file = str_slug($path.'_'.$version, '_').'.html';
-    $path = $app['cache_path'].'/'.$file;
-    file_put_contents($path, $response->getContent());
+    file_put_contents(cacheFile($request, $app), $response->getContent());
     return $response;
 });
 
@@ -66,8 +69,8 @@ $app->register(new AssetServiceProvider(), [
 
 $app->get('/', function () use ($app) {
     return $app['twig']->render('pages/index/index.twig', [
-        'commits' => file_get_contents(BASEDIR.'/data/commits.txt'),
-        'playtime' => file_get_contents(BASEDIR.'/data/playtime.txt'),
+        'commits' => file_get_contents(BASEDIR . '/data/commits.txt'),
+        'playtime' => file_get_contents(BASEDIR . '/data/playtime.txt'),
         'title' => title(),
     ]);
 });
@@ -85,7 +88,7 @@ $app->get('/privacy', function () use ($app) {
 });
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
-    switch($code) {
+    switch ($code) {
         case 404:
             $title = 'Page not found';
             $message = 'The page you\'ve request isn\'t here.';
