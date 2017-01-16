@@ -14,17 +14,17 @@ jQuery(window).on('load', function () {
     jQuery('.masonry-container').masonry({
         itemSelector: '.masonry-item'
     });
-    jQuery('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            768: {
-                items: 2
-            }
-        }
-    });
+    // jQuery('.owl-carousel').owlCarousel({
+    //     loop: true,
+    //     margin: 10,
+    //     nav: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1
+    //         },
+    //         768: {
+    //             items: 2
+    //         }
+    //     }
+    // });
 });
