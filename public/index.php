@@ -37,7 +37,11 @@ $app->before(function (Request $request, Application $app) {
 });
 
 $app->after(function (Request $request, Response $response, Application $app) {
-    if ($response->headers->has('X-Cached')) {
+    if (
+        $response->headers->has('X-Cached')
+        || $response->getStatusCode() != 200
+        || $app['debug']
+    ) {
         return $response;
     }
     file_put_contents(cacheFile($request, $app), $response->getContent());
