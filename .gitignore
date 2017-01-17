@@ -8,3 +8,4 @@
 /.env
 /views/tracking.html
 /public/js/scripts.min.js
+/public/google*.html
