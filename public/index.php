@@ -9,7 +9,7 @@ $app = require realpath(__DIR__ . '/../app.php');
 if (!($app instanceof Application)) {
     throw new RuntimeException('Failed to create app instance.');
 }
-$app['version'] = $app['debug'] ? time() : '1.3.9';
+$app['version'] = $app['debug'] ? time() : '1.3.10';
 $app['cache_path'] = realpath(__DIR__ . '/../cache');
 
 function title($title = '')
@@ -88,6 +88,12 @@ $app->get('/imprint', function () use ($app) {
 $app->get('/privacy', function () use ($app) {
     return $app['twig']->render('pages/privacy.twig', [
         'title' => title('Privacy'),
+    ]);
+});
+
+$app->get('/privacy-app', function () use ($app) {
+    return $app['twig']->render('pages/privacy-app.twig', [
+        'title' => title('App Privacy'),
     ]);
 });
 
