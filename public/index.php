@@ -9,7 +9,7 @@ $app = require realpath(__DIR__ . '/../app.php');
 if (!($app instanceof Application)) {
     throw new RuntimeException('Failed to create app instance.');
 }
-$app['version'] = $app['debug'] ? time() : '1.3.10';
+$app['version'] = $app['debug'] ? time() : '1.3.11';
 $app['cache_path'] = realpath(__DIR__ . '/../cache');
 
 function title($title = '')
