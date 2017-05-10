@@ -9,7 +9,7 @@ $app = require realpath(__DIR__ . '/../app.php');
 if (!($app instanceof Application)) {
     throw new RuntimeException('Failed to create app instance.');
 }
-$app['version'] = $app['debug'] ? time() : '1.3.11';
+$app['version'] = $app['debug'] ? time() : '1.4.0';
 $app['cache_path'] = realpath(__DIR__ . '/../cache');
 
 function title($title = '')
@@ -73,7 +73,7 @@ $app->register(new AssetServiceProvider(), [
 
 $app->get('/', function () use ($app) {
     return $app['twig']->render('pages/index/index.twig', [
-        'commits' => file_get_contents(BASEDIR . '/data/commits.txt'),
+        'contribute' => file_get_contents(BASEDIR . '/data/contribute.txt'),
         'playtime' => file_get_contents(BASEDIR . '/data/playtime.txt'),
         'title' => title(),
     ]);
