@@ -204,12 +204,7 @@ class GithubStats extends AbstractApi
                         ];
                     }
 
-                    $branches = array_column($this->get('repos/'.rawurlencode($data['owner']).'/'.rawurlencode($data['repo']).'/branches'), 'name');
-                    if(array_key_exists('branches', $data)) {
-                        $data['branches'] = array_unique(array_merge($data['branches'], $branches));
-                    } else {
-                        $data['branches'] = $branches;
-                    }
+                    $data['branches'] = array_column($this->get('repos/'.rawurlencode($data['owner']).'/'.rawurlencode($data['repo']).'/branches'), 'name');
                     if(array_key_exists('commits', $data)) {
                         $data['commits'] = new Collection($data['commits']);
                     } else {
@@ -226,7 +221,9 @@ class GithubStats extends AbstractApi
                                 'per_page' => $perPage,
                                 'page' => $page,
                             ]);
-                            $data['commits'] = $data['commits']->merge(array_column($commits, 'sha'));
+                            $data['commits'] = $data['commits']
+                                ->merge(array_column($commits, 'sha'))
+                                ->unique();
                             $page++;
                         } while (count($commits) > 0);
                     }
@@ -251,6 +248,7 @@ class GithubStats extends AbstractApi
                     $key = $issue['repo']['owner'].'.'.$issue['repo']['repo'].'.issues';
                     $issues = array_get($contributions, $key, []);
                     $issues[] = $issue['id'];
+                    $issues = array_unique($issues);
                     array_set($contributions, $key, $issues);
                 });
 
@@ -259,6 +257,7 @@ class GithubStats extends AbstractApi
                     $key = $comment['repo']['owner'].'.'.$comment['repo']['repo'].'.comments';
                     $comments = array_get($contributions, $key, []);
                     $comments[] = $comment['id'];
+                    $comments = array_unique($comments);
                     array_set($contributions, $key, $comments);
                 });
 
@@ -267,6 +266,7 @@ class GithubStats extends AbstractApi
                     $key = $repo['owner'].'.'.$repo['repo'].'.commits';
                     $commits = array_get($contributions, $key, []);
                     $commits = array_merge($commits, $repo['commits']);
+                    $commits = array_unique($commits);
                     array_set($contributions, $key, $commits);
                 });
 
