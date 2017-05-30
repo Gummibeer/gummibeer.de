@@ -21,12 +21,12 @@ class GithubStats extends AbstractApi
         'comments' => false,
     ];
 
-    protected static $file = BASEDIR.'/data/github_stats.json';
+    protected static $file = BASEDIR . '/data/github_stats.json';
 
     public static function make(Client $client)
     {
         $instance = new GithubStats($client);
-        if(file_exists(self::$file)) {
+        if (file_exists(self::$file)) {
             $data = json_decode(file_get_contents(self::$file), true);
             $instance->repos = new Collection($data['repos']);
             $instance->issues = new Collection($data['issues']);
@@ -46,7 +46,7 @@ class GithubStats extends AbstractApi
 
     public function me()
     {
-        if(is_null($this->me)) {
+        if (is_null($this->me)) {
             $this->me = $this->get('user');
         }
         return $this->me;
@@ -62,7 +62,7 @@ class GithubStats extends AbstractApi
      */
     public function issues()
     {
-        if(!($this->issues instanceof Collection) || !$this->refreshed['issues']) {
+        if (!($this->issues instanceof Collection) || !$this->refreshed['issues']) {
             $this->issues = new Collection($this->issues);
             $page = 1;
             do {
@@ -76,8 +76,8 @@ class GithubStats extends AbstractApi
             } while (count($issues['items']) > 0);
             $this->issues = $this->issues
                 ->unique('id')
-                ->map(function($issue) {
-                    if(!array_key_exists('created_at', $issue)) {
+                ->map(function ($issue) {
+                    if (!array_key_exists('created_at', $issue)) {
                         return $issue;
                     }
                     $issue['repository'] = $this->getRepoByUrl($issue['repository_url']);
@@ -112,7 +112,7 @@ class GithubStats extends AbstractApi
     {
         $user = $this->me();
         return $this->issues()
-            ->filter(function($issue) use ($user) {
+            ->filter(function ($issue) use ($user) {
                 return ($issue['assignee']['id'] == $user['id'] || $issue['author']['id'] == $user['id']);
             });
     }
@@ -123,7 +123,7 @@ class GithubStats extends AbstractApi
     public function commentedIssues()
     {
         return $this->issues()
-            ->filter(function($issue) {
+            ->filter(function ($issue) {
                 return $issue['comments'] > 0;
             });
     }
@@ -133,24 +133,26 @@ class GithubStats extends AbstractApi
      */
     public function comments()
     {
-        if(!($this->comments instanceof Collection) || !$this->refreshed['comments']) {
+        if (!($this->comments instanceof Collection) || !$this->refreshed['comments']) {
             $this->comments = new Collection($this->comments);
             $this->commentedIssues()
-                ->each(function($issue) {
-                    $page = 1;
-                    do {
-                        $comments = $this->get('repos/' . rawurlencode($issue['repo']['owner']) . '/' . rawurlencode($issue['repo']['repo']) . '/issues/' . rawurlencode($issue['number']) . '/comments', [
-                            'page' => $page,
-                        ]);
-                        $this->comments = $this->comments->merge($comments);
-                        $page++;
-                    } while(count($comments) < $issue['comments'] && count($comments) > 0);
+                ->each(function ($issue) {
+                    if ($this->isRepoAvailable($issue['repo']['owner'], $issue['repo']['repo'])) {
+                        $page = 1;
+                        do {
+                            $comments = $this->get('repos/' . rawurlencode($issue['repo']['owner']) . '/' . rawurlencode($issue['repo']['repo']) . '/issues/' . rawurlencode($issue['number']) . '/comments', [
+                                'page' => $page,
+                            ]);
+                            $this->comments = $this->comments->merge($comments);
+                            $page++;
+                        } while (count($comments) < $issue['comments'] && count($comments) > 0);
+                    }
                 });
             $user = $this->me();
             $this->comments = $this->comments
                 ->unique('id')
-                ->map(function($comment) {
-                    if(!array_key_exists('created_at', $comment)) {
+                ->map(function ($comment) {
+                    if (!array_key_exists('created_at', $comment)) {
                         return $comment;
                     }
                     $comment['repository'] = $this->getRepoByUrl($comment['url']);
@@ -167,7 +169,7 @@ class GithubStats extends AbstractApi
                         ],
                     ];
                 })
-                ->filter(function($comment) use ($user) {
+                ->filter(function ($comment) use ($user) {
                     return $comment['author']['id'] == $user['id'];
                 });
             $this->refreshed['comments'] = true;
@@ -180,7 +182,7 @@ class GithubStats extends AbstractApi
      */
     public function repos()
     {
-        if(!($this->repos instanceof Collection) || !$this->refreshed['repos']) {
+        if (!($this->repos instanceof Collection) || !$this->refreshed['repos']) {
             $this->repos = new Collection($this->repos);
             $page = 1;
             do {
@@ -192,11 +194,11 @@ class GithubStats extends AbstractApi
                 $page++;
             } while (count($repos) > 0);
             $this->repos = $this->repos
-                ->map(function($repo) {
+                ->map(function ($repo) {
                     $perPage = 100;
 
                     $data = $repo;
-                    if(array_key_exists('full_name', $repo)) {
+                    if (array_key_exists('full_name', $repo)) {
                         $parts = explode('/', $repo['full_name']);
                         $data = [
                             'owner' => $parts[0],
@@ -204,28 +206,37 @@ class GithubStats extends AbstractApi
                         ];
                     }
 
-                    $data['branches'] = array_column($this->get('repos/'.rawurlencode($data['owner']).'/'.rawurlencode($data['repo']).'/branches'), 'name');
-                    if(array_key_exists('commits', $data)) {
+                    try {
+                        $data['branches'] = array_column($this->get('repos/' . rawurlencode($data['owner']) . '/' . rawurlencode($data['repo']) . '/branches'), 'name');
+                        $data['not_found'] = false;
+                    } catch (\Exception $ex) {
+                        var_dump($data['owner'].'/'.$data['repo']);
+                        // repo doesn't exist anymore
+                        $data['not_found'] = true;
+                    }
+                    if (array_key_exists('commits', $data)) {
                         $data['commits'] = new Collection($data['commits']);
                     } else {
                         $data['commits'] = new Collection();
                     }
-                    foreach ($data['branches'] as $branch) {
-                        $page = 1;
-                        do {
-                            $commits = $this->get('repos/'.rawurlencode($data['owner']).'/'.rawurlencode($data['repo']).'/commits', [
-                                'sha' => $branch,
-                                'author' => $this->myLogin(),
-                                'since' => (new Carbon(date('Y-m-d H:i:s', 0), 'UTC'))->toIso8601String(),
-                                'until' => Carbon::now('UTC')->toIso8601String(),
-                                'per_page' => $perPage,
-                                'page' => $page,
-                            ]);
-                            $data['commits'] = $data['commits']
-                                ->merge(array_column($commits, 'sha'))
-                                ->unique();
-                            $page++;
-                        } while (count($commits) > 0);
+                    if (is_array($data['branches']) && !$data['not_found']) {
+                        foreach ($data['branches'] as $branch) {
+                            $page = 1;
+                            do {
+                                $commits = $this->get('repos/' . rawurlencode($data['owner']) . '/' . rawurlencode($data['repo']) . '/commits', [
+                                    'sha' => $branch,
+                                    'author' => $this->myLogin(),
+                                    'since' => (new Carbon(date('Y-m-d H:i:s', 0), 'UTC'))->toIso8601String(),
+                                    'until' => Carbon::now('UTC')->toIso8601String(),
+                                    'per_page' => $perPage,
+                                    'page' => $page,
+                                ]);
+                                $data['commits'] = $data['commits']
+                                    ->merge(array_column($commits, 'sha'))
+                                    ->unique();
+                                $page++;
+                            } while (count($commits) > 0);
+                        }
                     }
                     $data['commits'] = $data['commits']
                         ->unique()
@@ -240,12 +251,21 @@ class GithubStats extends AbstractApi
 
     public function contributions()
     {
-        if(!is_array($this->contributions)) {
+        if (!is_array($this->contributions)) {
             $contributions = [];
 
+            $this->repos()
+                ->each(function ($repo) use (&$contributions) {
+                    $key = $repo['owner'] . '.' . $repo['repo'] . '.commits';
+                    $commits = array_get($contributions, $key, []);
+                    $commits = array_merge($commits, $repo['commits']);
+                    $commits = array_unique($commits);
+                    array_set($contributions, $key, $commits);
+                });
+
             $this->myIssues()
-                ->each(function($issue) use (&$contributions) {
-                    $key = $issue['repo']['owner'].'.'.$issue['repo']['repo'].'.issues';
+                ->each(function ($issue) use (&$contributions) {
+                    $key = $issue['repo']['owner'] . '.' . $issue['repo']['repo'] . '.issues';
                     $issues = array_get($contributions, $key, []);
                     $issues[] = $issue['id'];
                     $issues = array_unique($issues);
@@ -253,21 +273,12 @@ class GithubStats extends AbstractApi
                 });
 
             $this->comments()
-                ->each(function($comment) use (&$contributions) {
-                    $key = $comment['repo']['owner'].'.'.$comment['repo']['repo'].'.comments';
+                ->each(function ($comment) use (&$contributions) {
+                    $key = $comment['repo']['owner'] . '.' . $comment['repo']['repo'] . '.comments';
                     $comments = array_get($contributions, $key, []);
                     $comments[] = $comment['id'];
                     $comments = array_unique($comments);
                     array_set($contributions, $key, $comments);
-                });
-
-            $this->repos()
-                ->each(function($repo) use (&$contributions) {
-                    $key = $repo['owner'].'.'.$repo['repo'].'.commits';
-                    $commits = array_get($contributions, $key, []);
-                    $commits = array_merge($commits, $repo['commits']);
-                    $commits = array_unique($commits);
-                    array_set($contributions, $key, $commits);
                 });
 
             $this->contributions = $contributions;
@@ -279,8 +290,8 @@ class GithubStats extends AbstractApi
     public function contributionsCount()
     {
         $count = 0;
-        foreach($this->contributions() as $owner => $repos) {
-            foreach($repos as $repo => $details) {
+        foreach ($this->contributions() as $owner => $repos) {
+            foreach ($repos as $repo => $details) {
                 $count += count(array_get($details, 'commits', []));
                 $count += count(array_get($details, 'issues', []));
                 $count += count(array_get($details, 'comments', []));
@@ -301,6 +312,11 @@ class GithubStats extends AbstractApi
     protected function getApiUrl($path = '')
     {
         $baseUrl = $this->client->getOption('base_url');
-        return rtrim($baseUrl, '/').'/'.trim($path, '/');
+        return rtrim($baseUrl, '/') . '/' . trim($path, '/');
+    }
+
+    protected function isRepoAvailable($owner, $repo)
+    {
+        return !array_get($this->repos()->where('owner', $owner)->where('repo', $repo)->first(), 'not_found', false);
     }
 }
