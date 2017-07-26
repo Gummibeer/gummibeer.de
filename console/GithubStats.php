@@ -4,6 +4,7 @@ namespace App;
 use Carbon\Carbon;
 use Github\Api\AbstractApi;
 use Github\Client;
+use Github\Exception\ApiLimitExceedException;
 use Illuminate\Support\Collection;
 
 class GithubStats extends AbstractApi
@@ -65,15 +66,17 @@ class GithubStats extends AbstractApi
         if (!($this->issues instanceof Collection) || !$this->refreshed['issues']) {
             $this->issues = new Collection($this->issues);
             $page = 1;
-            do {
-                $issues = $this->get('search/issues', [
-                    'q' => 'involves:' . $this->myLogin(),
-                    'per_page' => 100,
-                    'page' => $page,
-                ]);
-                $this->issues = $this->issues->merge($issues['items']);
-                $page++;
-            } while (count($issues['items']) > 0);
+            try {
+                do {
+                    $issues = $this->get('search/issues', [
+                        'q' => 'involves:' . $this->myLogin(),
+                        'per_page' => 100,
+                        'page' => $page,
+                    ]);
+                    $this->issues = $this->issues->merge($issues['items']);
+                    $page++;
+                } while (count($issues['items']) > 0);
+            } catch(\Exception $ex) {}
             $this->issues = $this->issues
                 ->unique('id')
                 ->map(function ($issue) {
@@ -139,13 +142,15 @@ class GithubStats extends AbstractApi
                 ->each(function ($issue) {
                     if ($this->isRepoAvailable($issue['repo']['owner'], $issue['repo']['repo'])) {
                         $page = 1;
-                        do {
-                            $comments = $this->get('repos/' . rawurlencode($issue['repo']['owner']) . '/' . rawurlencode($issue['repo']['repo']) . '/issues/' . rawurlencode($issue['number']) . '/comments', [
-                                'page' => $page,
-                            ]);
-                            $this->comments = $this->comments->merge($comments);
-                            $page++;
-                        } while (count($comments) < $issue['comments'] && count($comments) > 0);
+                        try {
+                            do {
+                                $comments = $this->get('repos/' . rawurlencode($issue['repo']['owner']) . '/' . rawurlencode($issue['repo']['repo']) . '/issues/' . rawurlencode($issue['number']) . '/comments', [
+                                    'page' => $page,
+                                ]);
+                                $this->comments = $this->comments->merge($comments);
+                                $page++;
+                            } while (count($comments) < $issue['comments'] && count($comments) > 0);
+                        } catch(\Exception $ex) {}
                     }
                 });
             $user = $this->me();
@@ -209,8 +214,10 @@ class GithubStats extends AbstractApi
                     try {
                         $data['branches'] = array_column($this->get('repos/' . rawurlencode($data['owner']) . '/' . rawurlencode($data['repo']) . '/branches'), 'name');
                         $data['not_found'] = false;
+                    } catch (ApiLimitExceedException $ex) {
+                        return $data;
                     } catch (\Exception $ex) {
-                        var_dump($data['owner'].'/'.$data['repo']);
+                        echo $data['owner'] . '/' . $data['repo'].PHP_EOL;
                         // repo doesn't exist anymore
                         $data['not_found'] = true;
                     }
@@ -222,20 +229,23 @@ class GithubStats extends AbstractApi
                     if (is_array($data['branches']) && !$data['not_found']) {
                         foreach ($data['branches'] as $branch) {
                             $page = 1;
-                            do {
-                                $commits = $this->get('repos/' . rawurlencode($data['owner']) . '/' . rawurlencode($data['repo']) . '/commits', [
-                                    'sha' => $branch,
-                                    'author' => $this->myLogin(),
-                                    'since' => (new Carbon(date('Y-m-d H:i:s', 0), 'UTC'))->toIso8601String(),
-                                    'until' => Carbon::now('UTC')->toIso8601String(),
-                                    'per_page' => $perPage,
-                                    'page' => $page,
-                                ]);
-                                $data['commits'] = $data['commits']
-                                    ->merge(array_column($commits, 'sha'))
-                                    ->unique();
-                                $page++;
-                            } while (count($commits) > 0);
+                            try {
+                                do {
+                                    $commits = $this->get('repos/' . rawurlencode($data['owner']) . '/' . rawurlencode($data['repo']) . '/commits', [
+                                        'sha' => $branch,
+                                        'author' => $this->myLogin(),
+                                        'since' => (new Carbon(date('Y-m-d H:i:s', 0), 'UTC'))->toIso8601String(),
+                                        'until' => Carbon::now('UTC')->toIso8601String(),
+                                        'per_page' => $perPage,
+                                        'page' => $page,
+                                    ]);
+                                    $data['commits'] = $data['commits']
+                                        ->merge(array_column($commits, 'sha'))
+                                        ->unique();
+                                    $page++;
+                                } while (count($commits) > 0);
+                            } catch(\Exception $ex) {
+                            }
                         }
                     }
                     $data['commits'] = $data['commits']
@@ -253,6 +263,21 @@ class GithubStats extends AbstractApi
     {
         if (!is_array($this->contributions)) {
             $contributions = [];
+
+            try {
+                $this->repos();
+            } catch (\Exception $ex) {
+            }
+
+            try {
+                $this->myIssues();
+            } catch (\Exception $ex) {
+            }
+
+            try {
+                $this->comments();
+            } catch (\Exception $ex) {
+            }
 
             $this->repos()
                 ->each(function ($repo) use (&$contributions) {
@@ -318,5 +343,15 @@ class GithubStats extends AbstractApi
     protected function isRepoAvailable($owner, $repo)
     {
         return !array_get($this->repos()->where('owner', $owner)->where('repo', $repo)->first(), 'not_found', false);
+    }
+
+    public function singleRefresh($key)
+    {
+        $this->refreshed = [
+            'repos' => true,
+            'issues' => true,
+            'comments' => true,
+        ];
+        $this->refreshed[$key] = false;
     }
 }
