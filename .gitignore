@@ -1,11 +1,3 @@
 /vendor
 /node_modules
-/public/css/*
-!/public/css/.gitkeep
-/composer.phar
-/*.lock
-/.idea
 /.env
-/views/tracking.html
-/public/js/scripts.min.js
-/public/google*.html

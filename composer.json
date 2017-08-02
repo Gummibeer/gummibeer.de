@@ -1,22 +1,30 @@
 {
-  "name": "gummibeer/cv-resume",
-  "minimum-stability": "stable",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Tom Witkowski",
-      "email": "dev.gummibeer@gmail.com"
-    }
-  ],
-  "require": {
-    "silex/silex": "^2.0",
-    "twig/twig": "^1.27",
-    "symfony/asset": "^3.1",
-    "symfony/twig-bridge": "^3.1",
-    "knplabs/github-api": "^1.7",
-    "illuminate/support": "^5.3",
-    "nesbot/carbon": "^1.21",
-    "vlucas/phpdotenv": "^2.4",
-    "guzzle/guzzle": "~3.7"
-  }
+    "name": "gummibeer/cv-resume",
+    "description": "My personal website including cv & resume.",
+    "keywords": [],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/lumen-framework": "5.4.*",
+        "vlucas/phpdotenv": "~2.2",
+        "php-http/guzzle6-adapter": "^1.1",
+        "knplabs/github-api": "^2.5",
+        "nesbot/carbon": "^1.22",
+        "predis/predis": "^1.1",
+        "illuminate/redis": "^5.4",
+        "cache/redis-adapter": "^1.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ]
+    },
+    "prefer-stable": true
 }

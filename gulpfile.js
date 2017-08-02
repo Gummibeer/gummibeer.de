@@ -9,7 +9,7 @@ var concat = require('gulp-concat');
 gulp.task('default', ['watch']);
 
 gulp.task('less', function () {
-    return gulp.src('./assets/less/styles.less')
+    return gulp.src('./resources/assets/less/styles.less')
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(cssmin())
@@ -20,19 +20,18 @@ gulp.task('less', function () {
 
 gulp.task('scripts', function() {
     return gulp.src([
-        './assets/js/jquery.min.js',
-        './assets/js/jquery.bootstrap.min.js',
-        './assets/js/jquery.smooth-scroll.min.js',
-        './assets/js/jquery.count-to.min.js',
-        './assets/js/jquery.masonry.min.js',
-        // './assets/js/jquery.owl.carousel.min.js',
-        './assets/js/webfont.min.js',
-        './assets/js/jquery.main.js'
+        './resources/assets/js/jquery.min.js',
+        './resources/assets/js/jquery.bootstrap.min.js',
+        './resources/assets/js/jquery.smooth-scroll.min.js',
+        './resources/assets/js/jquery.count-to.min.js',
+        './resources/assets/js/jquery.masonry.min.js',
+        './resources/assets/js/webfont.min.js',
+        './resources/assets/js/jquery.main.js'
     ])
         .pipe(concat('scripts.min.js'))
         .pipe(gulp.dest('./public/js'));
 });
 
 gulp.task('watch', function () {
-    gulp.watch('./assets/less/**/*.less', ['less']);
+    gulp.watch('./resources/assets/less/**/*.less', ['less']);
 });
