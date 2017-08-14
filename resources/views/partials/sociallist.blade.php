@@ -30,7 +30,7 @@
         </a>
     </li>
     <li>
-        <a href="https://www.twitch.tv/gummibeer93" target="_blank" class="social-twitch" data-toggle="tooltip" title="Twitch">
+        <a href="https://twitch.tv/gummibeer93" target="_blank" class="social-twitch" data-toggle="tooltip" title="Twitch">
             <i class="fa-twitch"></i>
         </a>
     </li>
@@ -82,6 +82,11 @@
     <li>
         <a href="https://gummibeer.signup.team" target="_blank" class="social-slack" data-toggle="tooltip" title="Slack">
             <i class="fa-slack"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://goo.gl/maps/5QmCgN9jRH52" target="_blank" class="social-google-plus" data-toggle="tooltip" title="Google Maps">
+            <i class="fa-map-marker"></i>
         </a>
     </li>
 </ul>
