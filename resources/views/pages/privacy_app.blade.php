@@ -23,7 +23,7 @@
     <h4>Crashlytics</h4>
     <p>
         I use <em>Crashlytics</em> in my apps to know about bugs and usage of these. I don't collect any sensitive information from the user.
-        <a href="http://crashlytics.com/terms" target="_blank">Crashlytics privacy policy</a>
+        <a href="http://crashlytics.com/terms" target="_blank" rel="noopener">Crashlytics privacy policy</a>
     </p>
 </section>
 @endsection
