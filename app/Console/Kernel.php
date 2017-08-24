@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\StatsGithub;
 use App\Console\Commands\StatsSteam;
+use App\Console\Commands\StatsStrava;
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
 
@@ -17,6 +18,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         StatsGithub::class,
         StatsSteam::class,
+        StatsStrava::class,
     ];
 
     /**
@@ -28,6 +30,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('stats:steam')->hourly();
+        $schedule->command('stats:strava')->twiceDaily();
         $schedule->command('stats:github')->twiceDaily();
     }
 }

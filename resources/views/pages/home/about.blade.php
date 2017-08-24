@@ -34,7 +34,7 @@
                     <i class="icon fa-steam fa-4x pull-left margin-right-15"></i>
                     <strong class="text-uppercase">Playtime</strong>
                     <br/>
-                    <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ $playtime }}" data-speed="2000">{{ $playtime }}</span>
+                    <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ $playtime }}" data-speed="2000">{{ $playtime }}</span>h
                 </div>
                 <div class="col-md-4 font-montserrat">
                     <i class="icon fa-gamepad fa-4x pull-left margin-right-15"></i>

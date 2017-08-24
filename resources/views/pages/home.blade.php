@@ -6,6 +6,9 @@
         <a class="smooth" href="#about">About</a>
     </li>
     <li>
+        <a class="smooth" href="#biking">Biking</a>
+    </li>
+    <li>
         <a class="smooth" href="#resume">Resume</a>
     </li>
     <li>
@@ -21,7 +24,7 @@
 @endsection
 
 @section('content')
-    @foreach(['about', 'resume', 'projects', 'games', 'pages'] as $block)
+    @foreach(['about', 'biking', 'resume', 'projects', 'games', 'pages'] as $block)
         @include('pages.home.'.$block)
     @endforeach
 @endsection

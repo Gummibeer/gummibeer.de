@@ -8,7 +8,18 @@ $app->get('/', function () use ($app) {
     return view('pages.home')->with([
         'contribute' => file_get_contents(storage_path('app/stats/contributions.txt')),
         'playtime' => file_get_contents(storage_path('app/stats/playtime.txt')),
+        'rideDistance' => file_get_contents(storage_path('app/stats/ride_distance.txt')),
+        'rideElevation' => file_get_contents(storage_path('app/stats/ride_elevation.txt')),
+        'rideTime' => file_get_contents(storage_path('app/stats/ride_time.txt')),
         'title' => title(),
+        'countries' => [
+            'bg' => 'Bulgaria',
+            'cz' => 'Czechia',
+            'de' => 'Germany',
+            'es' => 'Spain',
+            'fr' => 'France',
+            'pl' => 'Poland',
+        ],
     ]);
 });
 
