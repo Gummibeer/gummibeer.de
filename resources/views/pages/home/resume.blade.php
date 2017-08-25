@@ -16,10 +16,18 @@
         <li class="active">
             <h3>
                 <i class="icon fa-briefcase"></i>
+                Even on Sunday
+            </h3>
+            <strong>Backend Developer</strong>
+            <time>2017 - now</time>
+        </li>
+        <li>
+            <h3>
+                <i class="icon fa-briefcase"></i>
                 Absolute Software GmbH
             </h3>
             <strong>Junior Software Developer</strong>
-            <time>2015 - now</time>
+            <time>2015 - 2017</time>
         </li>
         <li>
             <h3>
