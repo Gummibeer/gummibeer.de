@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('stats:steam')->hourly();
-        $schedule->command('stats:strava')->twiceDaily();
+        $schedule->command('stats:strava')->hourly();
         $schedule->command('stats:github')->twiceDaily();
     }
 }
