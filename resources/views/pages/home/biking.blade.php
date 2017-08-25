@@ -1,6 +1,6 @@
 <section id="biking" class="section">
     <div class="hgroup">
-        <h3>Let's ride</h3>
+        <h3>Where I ride</h3>
         <h2 title="Biking">Biking</h2>
     </div>
 

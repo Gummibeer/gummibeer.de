@@ -1,6 +1,6 @@
 <section id="pages" class="section">
     <div class="hgroup">
-        <h3>What I host</h3>
+        <h3>Who I host</h3>
         <h2 title="Pages">Pages</h2>
     </div>
     <div class="row masonry-container">
