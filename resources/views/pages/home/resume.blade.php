@@ -23,7 +23,7 @@
         </li>
         <li>
             <h3>
-                <i class="icon fa-university"></i>
+                <i class="icon fa-graduation-cap"></i>
                 Medienwerft GmbH
             </h3>
             <strong>Training: Software Developer</strong>
