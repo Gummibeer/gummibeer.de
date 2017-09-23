@@ -20,11 +20,14 @@
     <li>
         <a class="smooth" href="#pages">Pages</a>
     </li>
+    <li>
+        <a class="smooth" href="#consulting">Consulting</a>
+    </li>
 </ul>
 @endsection
 
 @section('content')
-    @foreach(['about', 'biking', 'resume', 'projects', 'games', 'pages'] as $block)
+    @foreach(['about', 'biking', 'resume', 'projects', 'games', 'pages', 'consulting'] as $block)
         @include('pages.home.'.$block)
     @endforeach
 @endsection
