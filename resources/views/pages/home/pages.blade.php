@@ -39,6 +39,9 @@
                         <i class="icon fa-pencil pull-right"></i>
                     </h3>
                 </div>
+                <div class="panel-body">
+                    Online art shop selling creative colouring pictures.
+                </div>
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
@@ -94,6 +97,9 @@
                         Maximko
                         <i class="icon fa-paint-brush pull-right"></i>
                     </h3>
+                </div>
+                <div class="panel-body">
+                    German Freelance Artist online portfolio - Illustrations, Concept Art and Art classes.
                 </div>
                 <div class="panel-footer">
                     <div class="row">
