@@ -13,10 +13,10 @@ svg {
 .jvectormap-tip {
     position: absolute;
     display: none;
-    border: solid 1px #CDCDCD;
+    border: solid 1px #eeeeee;
     border-radius: 3px;
-    background: #292929;
-    color: white;
+    background: #424242;
+    color: #ffffff;
     font-family: sans-serif, Verdana;
     font-size: smaller;
     padding: 3px;
@@ -26,9 +26,9 @@ svg {
     position: absolute;
     left: 10px;
     border-radius: 3px;
-    background: #292929;
+    background: #424242;
     padding: 3px;
-    color: white;
+    color: #ffffff;
     cursor: pointer;
     line-height: 10px;
     text-align: center;
