@@ -34,9 +34,11 @@
     <div class="row margin-top-30">
         @foreach($countries as $iso => $country)
         <div class="col-md-1 col-sm-2 col-xs-3">
-            <img src="{{ url('img/flag/'.$iso.'.png') }}" alt="{{ $country }}" class="img-responsive margin-bottom-30" data-toggle="tooltip" data-title="{{ $country }}" />
+            <img src="{{ url('img/flag/'.strtolower($iso).'.png') }}" alt="{{ $country }}" class="img-responsive margin-bottom-30" data-toggle="tooltip" data-title="{{ $country }}" />
         </div>
         @endforeach
     </div>
+
+    <div id="biking-map" data-countries="{{ json_encode(array_keys($countries)) }}"></div>
 
 </section>

@@ -13,12 +13,12 @@ $app->get('/', function () use ($app) {
         'rideTime' => file_get_contents(storage_path('app/stats/ride_time.txt')),
         'title' => title(),
         'countries' => [
-            'bg' => 'Bulgaria',
-            'cz' => 'Czechia',
-            'de' => 'Germany',
-            'es' => 'Spain',
-            'fr' => 'France',
-            'pl' => 'Poland',
+            'BG' => 'Bulgaria',
+            'CZ' => 'Czechia',
+            'DE' => 'Germany',
+            'ES' => 'Spain',
+            'FR' => 'France',
+            'PL' => 'Poland',
         ],
     ]);
 });
