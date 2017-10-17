@@ -82,9 +82,9 @@
     </footer>
 </div>
 
-<script src="{{ url('js/scripts.min.js?') }}"></script>
+<script src="{{ url('js/scripts.min.js') }}"></script>
 <script src="{{ url('js/jquery.vectormap.min.js') }}"></script>
-<script src="{{ url('js/jquery.vectormap.world_mill.min.js') }}"></script>
+<script src="{{ url('js/jquery.vectormap.europe_mill.min.js') }}"></script>
 
 <script type="application/ld+json">
     {
