@@ -14,7 +14,7 @@ $app->get('/', function () use ($app) {
         'title' => title(),
         'countries' => [
             'BG' => 'Bulgaria',
-            'CZ' => 'Czechia',
+            'CZ' => 'Czech Republic',
             'DE' => 'Germany',
             'ES' => 'Spain',
             'FR' => 'France',
