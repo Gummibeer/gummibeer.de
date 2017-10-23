@@ -5,6 +5,7 @@ use Cache\Adapter\Redis\RedisCachePool;
 use Carbon\Carbon;
 use Github\Client;
 use Github\Exception\RuntimeException as GithubRuntimeException;
+use Github\Exception\RuntimeException;
 use Github\HttpClient\Message\ResponseMediator;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
@@ -66,6 +67,7 @@ class StatsGithub extends Command
         $this->dataCounts();
         $this->line('');
 
+        $this->rateLimit();
         $this->line(sprintf(
             '[<info>%s</info>] total contributions: <comment>%d</comment>',
             getenv('GH_USER'),
@@ -86,16 +88,20 @@ class StatsGithub extends Command
             foreach($repo['issues']['data'] as $issue) {
                 $page = 1;
                 do {
-                    $comments = $this->request('repos/' . rawurlencode($repo['data']['owner']) . '/' . rawurlencode($repo['data']['repo']) . '/issues/' . rawurlencode($issue) . '/comments', [
-                        'page' => $page,
-                    ]);
-                    $comments = array_filter($comments, function($comment) {
-                        return $comment['user']['login'] == getenv('GH_USER');
-                    });
-                    $repo['comments'] = [
-                        'updated_at' => $this->now(),
-                        'data' => array_unique(array_merge($repo['comments']['data'], array_column($comments, 'id'))),
-                    ];
+                    try {
+                        $comments = $this->request('repos/' . rawurlencode($repo['data']['owner']) . '/' . rawurlencode($repo['data']['repo']) . '/issues/' . rawurlencode($issue) . '/comments', [
+                            'page' => $page,
+                        ]);
+                        $comments = array_filter($comments, function($comment) {
+                            return $comment['user']['login'] == getenv('GH_USER');
+                        });
+                        $repo['comments'] = [
+                            'updated_at' => $this->now(),
+                            'data' => array_unique(array_merge($repo['comments']['data'], array_column($comments, 'id'))),
+                        ];
+                    } catch(GithubRuntimeException $ex) {
+                        $comments = [];
+                    }
                     $repo['updated_at'] = $this->now();
                     $page++;
                 } while (count($comments) > 0);
@@ -190,6 +196,9 @@ class StatsGithub extends Command
 
         $bar = $this->progressBar($this->data->count());
         $this->data = $this->data->map(function($repo) use ($bar) {
+            if(!$repo['exists']) {
+                return $repo;
+            }
             try {
                 $branches = $this->request('repos/' . rawurlencode($repo['data']['owner']) . '/' . rawurlencode($repo['data']['repo']) . '/branches');
                 $repo['branches'] = [
