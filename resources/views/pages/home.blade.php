@@ -23,7 +23,6 @@
     <li>
         <a class="smooth" href="#consulting">Consulting</a>
     </li>
-    </li>
     <li>
         <a class="smooth" href="#charity">Charity</a>
     </li>
