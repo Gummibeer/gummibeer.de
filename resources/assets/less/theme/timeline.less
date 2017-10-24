@@ -28,6 +28,14 @@ ul.timeline {
             }
         }
 
+        &.unimportant {
+            background: @color-grey-500;
+
+            &:before {
+                border-color: transparent @color-grey-500 transparent transparent;
+            }
+        }
+
         + li {
             margin-top: 30px;
         }
