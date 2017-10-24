@@ -15,6 +15,8 @@
     <meta name="og:image" content="{{ url('img/og_banner.png') }}" />
 
     <link href="{{ url('css/jquery.vectormap.css') }}" rel="stylesheet" />
+    <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet" />
     <link href="{{ url('css/styles.min.css') }}" rel="stylesheet" />
 
     <!--[if lt IE 9]>
