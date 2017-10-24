@@ -14,10 +14,7 @@
     <meta name="og:description" content="I'm an enthusiastic web developer and free time gamer from Hamburg, Germany." />
     <meta name="og:image" content="{{ url('img/og_banner.png') }}" />
 
-    <link href="{{ url('css/jquery.vectormap.css') }}" rel="stylesheet" />
-    <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet" />
-    <link href="{{ url('css/styles.min.css') }}" rel="stylesheet" />
+    <link href="{{ url('css/styles.min.css?t='.time()) }}" rel="stylesheet" />
 
     <!--[if lt IE 9]>
     <script src="{{ url('js/html5shiv.min.js') }}"></script>
@@ -84,9 +81,7 @@
     </footer>
 </div>
 
-<script src="{{ url('js/scripts.min.js') }}"></script>
-<script src="{{ url('js/jquery.vectormap.min.js') }}"></script>
-<script src="{{ url('js/jquery.vectormap.europe_mill.min.js') }}"></script>
+<script src="{{ url('js/scripts.min.js?t='.time()) }}"></script>
 
 <script type="application/ld+json">
     {

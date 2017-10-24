@@ -25,6 +25,8 @@ gulp.task('scripts', function() {
         './resources/assets/js/jquery.smooth-scroll.min.js',
         './resources/assets/js/jquery.count-to.min.js',
         './resources/assets/js/jquery.masonry.min.js',
+        './resources/assets/js/jquery.vectormap.min.js',
+        './resources/assets/js/jquery.vectormap.europe_mill.min.js',
         './resources/assets/js/webfont.min.js',
         './resources/assets/js/jquery.main.js'
     ])

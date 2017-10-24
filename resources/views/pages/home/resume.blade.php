@@ -37,5 +37,13 @@
             <strong>Training: Software Developer</strong>
             <time>2013 - 2015</time>
         </li>
+        <li class="unimportant">
+            <h3>
+                <i class="icon fa-certificate"></i>
+                Digital-Workshop by Google
+            </h3>
+            <strong>Certificate: Online-Marketing-Basics</strong>
+            <time>2016-11-17</time>
+        </li>
     </ul>
 </section>
