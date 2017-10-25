@@ -39,11 +39,16 @@
         </li>
         <li class="unimportant">
             <h3>
+                <i class="icon fa-users"></i>
+                Web Summit 2017
+            </h3>
+        </li>
+        <li class="unimportant">
+            <h3>
                 <i class="icon fa-certificate"></i>
                 Digital-Workshop by Google
             </h3>
-            <strong>Certificate: Online-Marketing-Basics</strong>
-            <time>2016-11-17</time>
+            <span>Certificate: Online-Marketing-Basics</span>
         </li>
     </ul>
 </section>
