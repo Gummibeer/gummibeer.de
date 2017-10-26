@@ -95,7 +95,7 @@
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
-                            <a href="https://facebook.com/kibase.games" target="_blank" rel="noopener">
+                            <a href="https://facebook.com/pg/redpandagames.official" target="_blank" rel="noopener">
                                 <i class="icon fa-facebook fa-2x"></i>
                             </a>
                         </div>
@@ -123,7 +123,7 @@
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
-                            <a href="https://facebook.com/kibase.games" target="_blank" rel="noopener">
+                            <a href="https://facebook.com/pg/redpandagames.official" target="_blank" rel="noopener">
                                 <i class="icon fa-facebook fa-2x"></i>
                             </a>
                         </div>
