@@ -8,6 +8,46 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
+                        L33t vs Cr33p
+                        <i class="icon fa-globe pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    You are a hacker and want to know what happens in the big research facility. But some of the projects are free, so you have to run while you hack the server.
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <a href="https://github.com/Redpanda-Games/igjam12" target="_blank" rel="noopener">
+                                <i class="icon fa-github fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <a href="http://lvsc.gummibeer.de" target="_blank" rel="noopener">
+                                <i class="icon fa-gamepad fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Cooper's Creepy Carousel
+                        <i class="icon fa-desktop pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    You are a maintenance guy in an old amusement park. After an accident the old owners ghost awakens his little helpers and they want to kill you. Can you survive?
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
                         GravCore
                         <i class="icon fa-globe pull-right"></i>
                     </h3>
@@ -24,7 +64,7 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
-                            <a href="https://github.com/Gummibeer/ggj2017" target="_blank" rel="noopener">
+                            <a href="https://github.com/Redpanda-Games/ggj2017" target="_blank" rel="noopener">
                                 <i class="icon fa-github fa-2x"></i>
                             </a>
                         </div>
@@ -57,7 +97,7 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
-                            <a href="https://github.com/Gummibeer/igjam10" target="_blank" rel="noopener">
+                            <a href="https://github.com/Redpanda-Games/igjam10" target="_blank" rel="noopener">
                                 <i class="icon fa-github fa-2x"></i>
                             </a>
                         </div>
@@ -153,7 +193,7 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
-                            <a href="https://github.com/Gummibeer/ggj2016" target="_blank" rel="noopener">
+                            <a href="https://github.com/Redpanda-Games/ggj2016" target="_blank" rel="noopener">
                                 <i class="icon fa-github fa-2x"></i>
                             </a>
                         </div>
@@ -185,7 +225,7 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-6 text-center">
-                            <a href="https://github.com/Gummibeer/igjam9" target="_blank" rel="noopener">
+                            <a href="https://github.com/Redpanda-Games/igjam9" target="_blank" rel="noopener">
                                 <i class="icon fa-github fa-2x"></i>
                             </a>
                         </div>
@@ -210,7 +250,7 @@
                     You are falling through time and space and have to defeat/avoid a lot of enemies.
                 </div>
                 <div class="panel-footer text-center">
-                    <a href="https://github.com/Gummibeer/igjam7" target="_blank" rel="noopener">
+                    <a href="https://github.com/Redpanda-Games/igjam7" target="_blank" rel="noopener">
                         <i class="icon fa-github fa-2x"></i>
                     </a>
                 </div>
