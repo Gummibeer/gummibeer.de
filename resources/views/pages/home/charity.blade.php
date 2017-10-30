@@ -15,17 +15,17 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
-                            <a href="http://wwf.de" target="_blank" rel="noopener">
+                            <a href="http://wwf.de" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <a href="https://facebook.com/wwfde" target="_blank" rel="noopener">
+                            <a href="https://facebook.com/wwfde" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-facebook fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <a href="https://instagram.com/wwf" target="_blank" rel="noopener">
+                            <a href="https://instagram.com/wwf" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-instagram fa-2x"></i>
                             </a>
                         </div>
@@ -44,17 +44,17 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
-                            <a href="http://unicef.de" target="_blank" rel="noopener">
+                            <a href="http://unicef.de" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <a href="https://facebook.com/UNICEFdeutschland" target="_blank" rel="noopener">
+                            <a href="https://facebook.com/UNICEFdeutschland" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-facebook fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <a href="https://instagram.com/unicef" target="_blank" rel="noopener">
+                            <a href="https://instagram.com/unicef" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-instagram fa-2x"></i>
                             </a>
                         </div>
@@ -73,12 +73,12 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-6 text-center">
-                            <a href="https://wikimediafoundation.org" target="_blank" rel="noopener">
+                            <a href="https://wikimediafoundation.org" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
-                            <a href="https://facebook.com/wikimediafoundation" target="_blank" rel="noopener">
+                            <a href="https://facebook.com/wikimediafoundation" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-facebook fa-2x"></i>
                             </a>
                         </div>
@@ -97,12 +97,12 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-6 text-center">
-                            <a href="http://hamburger-tierschutzverein.de" target="_blank" rel="noopener">
+                            <a href="http://hamburger-tierschutzverein.de" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
-                            <a href="https://facebook.com/HamburgerTierschutzverein" target="_blank" rel="noopener">
+                            <a href="https://facebook.com/HamburgerTierschutzverein" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-facebook fa-2x"></i>
                             </a>
                         </div>
@@ -121,17 +121,17 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
-                            <a href="http://tiertafelhamburg.de" target="_blank" rel="noopener">
+                            <a href="http://tiertafelhamburg.de" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <a href="https://facebook.com/tiertafelhamburg" target="_blank" rel="noopener">
+                            <a href="https://facebook.com/tiertafelhamburg" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-facebook fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <a href="https://instagram.com/tiertafelhamburg_e.v" target="_blank" rel="noopener">
+                            <a href="https://instagram.com/tiertafelhamburg_e.v" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-instagram fa-2x"></i>
                             </a>
                         </div>
@@ -150,17 +150,17 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
-                            <a href="https://haema.de" target="_blank" rel="noopener">
+                            <a href="https://haema.de" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <a href="https://facebook.com/HaemaBlutspendedienst" target="_blank" rel="noopener">
+                            <a href="https://facebook.com/HaemaBlutspendedienst" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-facebook fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <a href="https://instagram.com/haemablutspendedienst" target="_blank" rel="noopener">
+                            <a href="https://instagram.com/haemablutspendedienst" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-instagram fa-2x"></i>
                             </a>
                         </div>
@@ -179,7 +179,7 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-12 text-center">
-                            <a href="https://facebook.com/tschuess.rasseliste" target="_blank" rel="noopener">
+                            <a href="https://facebook.com/tschuess.rasseliste" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-facebook fa-2x"></i>
                             </a>
                         </div>

@@ -18,12 +18,12 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-6 text-center">
-                            <a href="https://github.com/fenos/Notifynder" target="_blank" rel="noopener">
+                            <a href="https://github.com/fenos/Notifynder" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
-                            <a href="http://notifynder.info" target="_blank" rel="noopener">
+                            <a href="http://notifynder.info" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fa-globe fa-2x"></i>
                             </a>
                         </div>
@@ -43,7 +43,7 @@
                     Backuplay is a command-line backup package for Laravel. It has options to tell which folders/files should be backuped and wat to do before/after a backup.
                 </div>
                 <div class="panel-footer text-center">
-                    <a href="https://github.com/Astrotomic/laravel-backuplay" target="_blank" rel="noopener">
+                    <a href="https://github.com/Astrotomic/laravel-backuplay" target="_blank" rel="noopener noreferrer">
                         <i class="icon fa-github fa-2x"></i>
                     </a>
                 </div>
@@ -61,7 +61,7 @@
                     Monolog is a bootstrap package for Laravel. It allows to configure monolog handlers, formatters and processors in a simple Laravel array config file.
                 </div>
                 <div class="panel-footer text-center">
-                    <a href="https://github.com/Astrotomic/laravel-monolog-config" target="_blank" rel="noopener">
+                    <a href="https://github.com/Astrotomic/laravel-monolog-config" target="_blank" rel="noopener noreferrer">
                         <i class="icon fa-github fa-2x"></i>
                     </a>
                 </div>
