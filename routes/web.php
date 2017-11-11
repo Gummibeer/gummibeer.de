@@ -19,6 +19,7 @@ $app->get('/', function () use ($app) {
             'ES' => 'Spain',
             'FR' => 'France',
             'PL' => 'Poland',
+            'PT' => 'Portugal',
         ],
     ]);
 });
