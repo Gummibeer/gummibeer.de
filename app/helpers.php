@@ -5,6 +5,12 @@ if(!function_exists('asset')) {
     }
 }
 
+if(!function_exists('title')) {
+    function title($title = '') {
+        return implode(' | ', array_filter([trim($title), 'Tom Witkowski']));
+    }
+}
+
 if(!function_exists('selected_countries')) {
     function selected_countries() {
         $allCountries = require resource_path('all_countries.php');
