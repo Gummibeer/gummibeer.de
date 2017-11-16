@@ -7,7 +7,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
-use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\HttpException as SymfonyHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -18,7 +18,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         AuthorizationException::class,
-        HttpException::class,
+        SymfonyHttpException::class,
         ModelNotFoundException::class,
         ValidationException::class,
     ];
@@ -45,6 +45,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if($e instanceof SymfonyHttpException) {
+            $e = HttpException::make($e);
+            return response(view('errors.error')->with([
+                'exception' => $e,
+                'title' =>  $e->getStatusCode() .' ' . $e->getStatusText() . ' | Error',
+            ]), $e->getStatusCode());
+        }
         return parent::render($request, $e);
     }
 }
