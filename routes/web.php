@@ -1,9 +1,5 @@
 <?php
 
-function title($title = '') {
-    return implode(' | ', array_filter([trim($title), 'Tom Witkowski']));
-}
-
 $app->get('/', function () use ($app) {
     return view('pages.home')->with([
         'contribute' => file_get_contents(storage_path('app/stats/contributions.txt')),

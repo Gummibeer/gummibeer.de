@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
             $e = HttpException::make($e);
             return response(view('errors.error')->with([
                 'exception' => $e,
-                'title' =>  $e->getStatusCode() .' ' . $e->getStatusText() . ' | Error',
+                'title' => title($e->getStatusCode() .' ' . $e->getStatusText()),
             ]), $e->getStatusCode());
         }
         return parent::render($request, $e);
