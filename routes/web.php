@@ -12,15 +12,7 @@ $app->get('/', function () use ($app) {
         'rideElevation' => file_get_contents(storage_path('app/stats/ride_elevation.txt')),
         'rideTime' => file_get_contents(storage_path('app/stats/ride_time.txt')),
         'title' => title(),
-        'countries' => [
-            'BG' => 'Bulgaria',
-            'CZ' => 'Czech Republic',
-            'DE' => 'Germany',
-            'ES' => 'Spain',
-            'FR' => 'France',
-            'PL' => 'Poland',
-            'PT' => 'Portugal',
-        ],
+        'countries' => selected_countries(),
     ]);
 });
 
