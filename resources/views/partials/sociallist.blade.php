@@ -89,4 +89,9 @@
             <i class="fa-map-marker"></i>
         </a>
     </li>
+    <li>
+        <a href="https://www.fiverr.com/gummibeer" target="_blank" rel="noopener noreferrer" class="social-fiverr" data-toggle="tooltip" title="Fiverr">
+            <i class="fa-shopping-cart"></i>
+        </a>
+    </li>
 </ul>
