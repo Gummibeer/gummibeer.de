@@ -187,5 +187,92 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Ecosia
+                        <i class="icon fa-search pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-4 text-center">
+                            <a href="https://ecosia.org" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-globe fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://facebook.com/ecosia" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-facebook fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://instagram.com/ecosiaorg" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        The Ocean Cleanup
+                        <i class="icon fa-money pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-4 text-center">
+                            <a href="https://theoceancleanup.com" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-globe fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://facebook.com/TheOceanCleanup" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-facebook fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://instagram.com/theoceancleanup" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Reforestum
+                        <i class="icon fa-money pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-4 text-center">
+                            <a href="https://reforestum.com" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-globe fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://facebook.com/reforestum" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-facebook fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://instagram.com/reforestum_app" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
