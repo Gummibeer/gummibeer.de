@@ -90,7 +90,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
-                        Hamburger Tierschutzverein von 1841 e.V.
+                        Hamburger Tierschutzverein e.V.
                         <i class="icon fa-money pull-right"></i>
                     </h3>
                 </div>
