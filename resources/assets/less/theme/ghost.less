@@ -1,183 +1,62 @@
 .ghost {
-  width: 125px;
-  height: 200px;
-  background-color: @color-grey-200;
-  border: 3px solid @color-grey-850;
-  position: relative;
-  margin: 25px auto 100px;
-  border-radius: 150px 150px 7px 7px;
-  -webkit-animation: ghost 1.5s ease-in-out alternate infinite;
-  animation: ghost 1.5s ease-in-out alternate infinite;
-  z-index: 1;
-  box-sizing: content-box;
+  width: 130px;
+  margin: 0 auto;
 
-  &:hover {
-    border-color: @color-primary-500;
+  > svg {
+    animation: float 3s ease-out infinite;
+    transform-origin: center center;
+
+    .body {
+      fill: #f0f0f0;
+    }
 
     .eye,
     .mouth {
-      background-color: @color-primary-500;
+      fill: @gray-base;
     }
 
-    .corner {
-      border-color: @color-primary-500;
+    .sparkle {
+      fill: @gray;
     }
 
-    .text {
-      color: @color-primary-500;
+    .outline {
+      fill: @gray;
+      stroke: @gray;
     }
-
-    .shadow {
-      background: @color-primary-700;
-    }
-  }
-
-  div {
-    box-sizing: content-box;
-  }
-
-  .corner {
-    width: 21px;
-    height: 20px;
-    border-radius: 5px;
-    background-color: @color-white;
-    border: 3px solid @color-grey-850;
-    position: absolute;
-    margin-top: 188px;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    z-index: -1;
-
-    &.two {
-      margin-left: 33px;
-    }
-
-    &.three {
-      margin-left: 66px;
-    }
-
-    &.four {
-      margin-left: 98px;
-    }
-  }
-
-  .over {
-    width: 27px;
-    height: 26px;
-    border-radius: 3px;
-    background-color: @color-white;
-    position: absolute;
-    margin-top: 188px;
-    -webkit-transform: rotate(45deg) translateX(3px) translateY(3px);
-    transform: rotate(45deg) translateX(3px) translateY(3px);
-
-    &.two {
-      margin-left: 33px;
-    }
-
-    &.three {
-      margin-left: 66px;
-    }
-
-    &.four {
-      margin-left: 98px;
-    }
-  }
-
-  .eye {
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    background-color: @color-grey-850;
-    position: absolute;
-    margin: 50px auto;
-    left: 0;
-    right: 0;
-    -webkit-transform: translateX(-25px);
-    transform: translateX(-25px);
-
-    &.two {
-      -webkit-transform: translateX(25px);
-      transform: translateX(25px);
-    }
-  }
-
-  .mouth {
-    width: 40px;
-    height: 4px;
-    border-radius: 10px;
-    background-color: @color-grey-850;
-    position: absolute;
-    margin: 75px auto;
-    left: 0;
-    right: 0;
   }
 
   .shadow {
-    width: 120px;
-    height: 30px;
-    border-radius: 100%;
-    background-color: @color-grey-500;
-    position: absolute;
-    margin: 230px auto;
-    left: 0;
-    right: 0;
-    -webkit-animation: shadow 1.5s ease-in-out alternate infinite;
-    animation: shadow 1.5s ease-in-out alternate infinite;
-  }
+    width: 130px;
+    margin-top: 15px;
 
-  .text {
-    position: absolute;
-    text-align: center;
-    margin: auto;
-    left: 0;
-    right: 0;
-    bottom: 20px;
-    font-family: @font-family-sans-serif;
-    font-size: 3em;
+    > svg {
+      animation: shrink 3s ease-out infinite;
+      transform-origin: center center;
+      ellipse {
+        transform-origin: center center;
+        fill: @gray-light;
+      }
+    }
   }
 }
 
-@-webkit-keyframes shadow {
-  0% {
-    -webkit-transform: scale(1) translateY(0px);
-    transform: scale(1) translateY(0px);
-  }
-  100% {
-    -webkit-transform: scale(0.8) translateY(75px);
-    transform: scale(0.8) translateY(75px);
+@keyframes float {
+  50% {
+    transform: translate(0, 20px);
   }
 }
 
-@keyframes shadow {
+@keyframes shrink {
   0% {
-    -webkit-transform: scale(1) translateY(0px);
-    transform: scale(1) translateY(0px);
+    width: 90%;
+    margin: 0 5%;
+  }
+  50% {
+    width: 60%;
+    margin: 0 18%;
   }
   100% {
-    -webkit-transform: scale(0.8) translateY(75px);
-    transform: scale(0.8) translateY(75px);
-  }
-}
-
-@-webkit-keyframes ghost {
-  0% {
-    -webkit-transform: scale(1) translateY(0px);
-    transform: scale(1) translateY(0px)
-  }
-  100% {
-    -webkit-transform: scale(1) translateY(-40px);
-    transform: scale(1) translateY(-40px)
-  }
-}
-
-@keyframes ghost {
-  0% {
-    -webkit-transform: scale(1) translateY(0px);
-    transform: scale(1) translateY(0px)
-  }
-  100% {
-    -webkit-transform: scale(1) translateY(-40px);
-    transform: scale(1) translateY(-40px)
+    width: 90%;
+    margin: 0 5%;
   }
 }
