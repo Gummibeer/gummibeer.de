@@ -155,22 +155,28 @@ class StatsGithub extends Command
 
         $page = 1;
         do {
-            $issues = $this->request('search/issues', [
-                'q' => 'involves:' . getenv('GH_USER'),
-                'page' => $page,
-            ])['items'];
-            foreach ($issues as $issue) {
-                $name = $this->getRepoByUrl($issue['repository_url']);
-                $this->addRepo($name);
-                $repo = $this->data->get($name);
-                $repo['issues'] = [
-                    'updated_at' => $this->now(),
-                    'data' => array_unique(array_merge($repo['issues']['data'], [$issue['number']])),
-                ];
-                $repo['updated_at'] = $this->now();
-                $this->data->put($name, $repo);
+            try {
+                $issues = $this->request('search/issues', [
+                    'q' => 'involves:' . getenv('GH_USER'),
+                    'sort' => 'updated',
+                    'order' => 'desc',
+                    'page' => $page,
+                ])['items'];
+                foreach ($issues as $issue) {
+                    $name = $this->getRepoByUrl($issue['repository_url']);
+                    $this->addRepo($name);
+                    $repo = $this->data->get($name);
+                    $repo['issues'] = [
+                        'updated_at' => $this->now(),
+                        'data' => array_unique(array_merge($repo['issues']['data'], [$issue['number']])),
+                    ];
+                    $repo['updated_at'] = $this->now();
+                    $this->data->put($name, $repo);
+                }
+                $page++;
+            } catch(GithubRuntimeException $ex) {
+                $issues = [];
             }
-            $page++;
         } while (count($issues) > 0);
     }
 

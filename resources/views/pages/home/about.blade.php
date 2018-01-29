@@ -40,7 +40,7 @@
                     <i class="icon fa-gamepad fa-4x pull-left margin-right-15"></i>
                     <strong class="text-uppercase">GameJams</strong>
                     <br/>
-                    <span class="count-to font-size-2em text-primary" data-from="0" data-to="10" data-speed="2000">10</span>
+                    <span class="count-to font-size-2em text-primary" data-from="0" data-to="11" data-speed="2000">11</span>
                 </div>
             </div>
         </div>
