@@ -8,6 +8,54 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
+                        Octopus.EXE
+                        <i class="icon fa-globe pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    Try OCTOPUS.EXE one month for free! The software for any DNA related projects and other experimental purposes.
+                    Why insert so much generated DNA into a creature, you ask? The answer is simple... FOR SCIENCE!
+                    Use the software with mouse and at your own risk.
+                    <br/>
+                    <br/>
+                    This is the first Game we developed in three versions (Web, CLI, Unity3D).
+                </div>
+                <div class="panel-footer">
+                    <span data-toggle="tooltip" data-placement="top" data-title="Special Price">
+                        <i class="icon fa-trophy cyan-500"></i>
+                        3 Games in one Jam
+                    </span>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-3 text-center">
+                            <a href="https://github.com/Redpanda-Games/ggj2018-web" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-github fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-3 text-center">
+                            <a href="https://github.com/Redpanda-Games/ggj2018-cli" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-github fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-3 text-center">
+                            <a href="https://github.com/Redpanda-Games/ggj2018-unity" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-github fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-3 text-center">
+                            <a href="http://oexe.gummibeer.de" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fa-gamepad fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
                         L33t vs Cr33p
                         <i class="icon fa-globe pull-right"></i>
                     </h3>
