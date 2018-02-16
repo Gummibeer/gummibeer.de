@@ -5,7 +5,6 @@ use Cache\Adapter\Redis\RedisCachePool;
 use Carbon\Carbon;
 use Github\Client;
 use Github\Exception\RuntimeException as GithubRuntimeException;
-use Github\Exception\RuntimeException;
 use Github\HttpClient\Message\ResponseMediator;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
