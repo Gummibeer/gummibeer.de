@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Console\Commands;
 
 use GuzzleHttp\Client;
@@ -25,8 +26,8 @@ class StatsSteam extends Command
         ]);
 
         $client = new Client();
-        $response = $client->request('GET', $url.'?'.$query);
-        if($response->getStatusCode() == 200) {
+        $response = $client->request('GET', $url . '?' . $query);
+        if ($response->getStatusCode() == 200) {
             $this->data = new Collection(json_decode($response->getBody()->__toString(), true)['response']['games']);
             $this->line(sprintf(
                 '[<info>%s</info>] games: <comment>%d</comment> with total playtime: <comment>%d</comment>',
@@ -40,9 +41,9 @@ class StatsSteam extends Command
 
     protected function filePath($file)
     {
-        $filepath =  storage_path('app/stats/'.$file);
+        $filepath = storage_path('app/stats/' . $file);
         $filedir = dirname($filepath);
-        if(!is_dir($filedir)) {
+        if (!is_dir($filedir)) {
             mkdir($filedir, 0777, true);
         }
         return $filepath;
