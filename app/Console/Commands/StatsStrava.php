@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Console\Commands;
 
 use GuzzleHttp\Client;
@@ -17,15 +18,15 @@ class StatsStrava extends Command
 
     public function handle()
     {
-        $url = 'https://www.strava.com/api/v3/athletes/'.getenv('STRAVA_ID').'/stats';
+        $url = 'https://www.strava.com/api/v3/athletes/' . getenv('STRAVA_ID') . '/stats';
 
         $client = new Client();
         $response = $client->request('GET', $url, [
             'headers' => [
-                'Authorization' => 'Bearer '.getenv('STRAVA_TOKEN'),
+                'Authorization' => 'Bearer ' . getenv('STRAVA_TOKEN'),
             ],
         ]);
-        if($response->getStatusCode() == 200) {
+        if ($response->getStatusCode() == 200) {
             $this->data = new Collection(json_decode($response->getBody()->__toString(), true)['all_ride_totals']);
             $this->line(sprintf(
                 '[<info>%s</info>] count: <comment>%d</comment> | distance: <comment>%d</comment> | elevation: <comment>%d</comment> | time: <comment>%d</comment>',
@@ -41,9 +42,9 @@ class StatsStrava extends Command
 
     protected function filePath($file)
     {
-        $filepath =  storage_path('app/stats/'.$file);
+        $filepath = storage_path('app/stats/' . $file);
         $filedir = dirname($filepath);
-        if(!is_dir($filedir)) {
+        if (!is_dir($filedir)) {
             mkdir($filedir, 0777, true);
         }
         return $filepath;
@@ -53,7 +54,7 @@ class StatsStrava extends Command
     {
         $this->line('save data to file ...');
         file_put_contents($this->filePath('strava.json'), $this->data->toJson());
-        file_put_contents($this->filePath('ride_distance.txt'), intval($this->data->get('distance') / 1000 ));
+        file_put_contents($this->filePath('ride_distance.txt'), intval($this->data->get('distance') / 1000));
         file_put_contents($this->filePath('ride_elevation.txt'), intval($this->data->get('elevation_gain')));
         file_put_contents($this->filePath('ride_time.txt'), intval($this->data->get('moving_time') / 60 / 60));
     }
