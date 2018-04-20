@@ -6,25 +6,25 @@
 
     <div class="row">
         <div class="col-md-3 font-montserrat">
-            <i class="icon fa-compass fa-4x pull-left margin-right-15"></i>
+            <i class="icon far fa-compass fa-4x pull-left margin-right-15"></i>
             <strong class="text-uppercase">distance</strong>
             <br/>
             <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ $rideDistance }}" data-speed="2000">{{ $rideDistance }}</span>km
         </div>
         <div class="col-md-3 font-montserrat">
-            <i class="icon fa-hourglass-2 fa-4x pull-left margin-right-15"></i>
+            <i class="icon far fa-hourglass-half fa-4x pull-left margin-right-15"></i>
             <strong class="text-uppercase">movingtime</strong>
             <br/>
             <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ $rideTime }}" data-speed="2000">{{ $rideTime }}</span>h
         </div>
         <div class="col-md-3 font-montserrat">
-            <i class="icon fa-angle-double-up fa-4x pull-left margin-right-15"></i>
+            <i class="icon far fa-angle-double-up fa-4x pull-left margin-right-15"></i>
             <strong class="text-uppercase">elevation</strong>
             <br/>
             <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ $rideElevation }}" data-speed="2000">{{ $rideElevation }}</span>m
         </div>
         <div class="col-md-3 font-montserrat">
-            <i class="icon fa-globe fa-4x pull-left margin-right-15"></i>
+            <i class="icon far fa-globe fa-4x pull-left margin-right-15"></i>
             <strong class="text-uppercase">countries</strong>
             <br/>
             <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ count($countries) }}" data-speed="2000">{{ count($countries) }}</span>

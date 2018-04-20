@@ -25,19 +25,19 @@
 
             <div class="row">
                 <div class="col-md-4 font-montserrat">
-                    <i class="icon fa-github fa-4x pull-left margin-right-15"></i>
+                    <i class="icon fab fa-github fa-4x pull-left margin-right-15"></i>
                     <strong class="text-uppercase">Contribute</strong>
                     <br/>
                     <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ $contribute }}" data-speed="2000">{{ $contribute }}</span>
                 </div>
                 <div class="col-md-4 font-montserrat">
-                    <i class="icon fa-steam fa-4x pull-left margin-right-15"></i>
+                    <i class="icon fab fa-steam fa-4x pull-left margin-right-15"></i>
                     <strong class="text-uppercase">Playtime</strong>
                     <br/>
                     <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ $playtime }}" data-speed="2000">{{ $playtime }}</span>h
                 </div>
                 <div class="col-md-4 font-montserrat">
-                    <i class="icon fa-gamepad fa-4x pull-left margin-right-15"></i>
+                    <i class="icon fas fa-user-secret fa-4x pull-left margin-right-15"></i>
                     <strong class="text-uppercase">GameJams</strong>
                     <br/>
                     <span class="count-to font-size-2em text-primary" data-from="0" data-to="11" data-speed="2000">11</span>

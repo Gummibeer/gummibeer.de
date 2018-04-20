@@ -25,7 +25,8 @@
     <meta name="og:description" content="I'm an enthusiastic web developer and free time gamer from Hamburg, Germany." />
     <meta name="og:image" content="{{ url('img/og_banner.png') }}" />
 
-    <link href="{{ asset('css/styles.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/styles.min.css') }}" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-KwxQKNj2D0XKEW5O/Y6haRH39PE/xry8SAoLbpbCMraqlX7kUP6KHOnrlrtvuJLR" crossorigin="anonymous" />
 
     <!--[if lt IE 9]>
     <script src="{{ url('js/html5shiv.min.js') }}"></script>
@@ -65,11 +66,11 @@
                     <h3>Contact me</h3>
                     <ul class="list-icons list-unstyled">
                         <li>
-                            <i class="icon fa-phone text-primary"></i>
+                            <i class="icon far fa-phone text-primary"></i>
                             +49 162 1525105
                         </li>
                         <li>
-                            <i class="icon fa-envelope-o text-primary"></i>
+                            <i class="icon far fa-envelope text-primary"></i>
                             dev.gummibeer@gmail.com
                         </li>
                     </ul>

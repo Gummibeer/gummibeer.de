@@ -9,7 +9,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Notifynder
-                        <i class="icon fa-comment pull-right"></i>
+                        <i class="icon far fa-comment-alt pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -19,12 +19,12 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <a href="https://github.com/fenos/Notifynder" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-github fa-2x"></i>
+                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
                             <a href="http://notifynder.info" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-globe fa-2x"></i>
+                                <i class="icon far fa-globe fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Backuplay
-                        <i class="icon fa-archive pull-right"></i>
+                        <i class="icon far fa-archive pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="panel-footer text-center">
                     <a href="https://github.com/Astrotomic/laravel-backuplay" target="_blank" rel="noopener noreferrer">
-                        <i class="icon fa-github fa-2x"></i>
+                        <i class="icon fab fa-github fa-2x"></i>
                     </a>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Monolog Config
-                        <i class="icon fa-cog pull-right"></i>
+                        <i class="icon far fa-cog pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="panel-footer text-center">
                     <a href="https://github.com/Astrotomic/laravel-monolog-config" target="_blank" rel="noopener noreferrer">
-                        <i class="icon fa-github fa-2x"></i>
+                        <i class="icon fab fa-github fa-2x"></i>
                     </a>
                 </div>
             </div>

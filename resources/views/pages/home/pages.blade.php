@@ -9,7 +9,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Shootager
-                        <i class="icon fa-camera-retro pull-right"></i>
+                        <i class="icon far fa-camera-retro pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -19,12 +19,12 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <a href="http://shootager.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-globe fa-2x"></i>
+                                <i class="icon far fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
                             <a href="https://github.com/Gummibeer/shootager" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-github fa-2x"></i>
+                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Tentangli
-                        <i class="icon fa-pencil pull-right"></i>
+                        <i class="icon far fa-pencil pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -46,17 +46,17 @@
                     <div class="row">
                         <div class="col-xs-4 text-center">
                             <a href="http://tentangli.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-globe fa-2x"></i>
+                                <i class="icon far fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="https://facebook.com/tentangli" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="https://instagram.com/tentangli" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-instagram fa-2x"></i>
+                                <i class="icon fab fa-instagram fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Pandorya Photography
-                        <i class="icon fa-camera-retro pull-right"></i>
+                        <i class="icon far fa-camera-retro pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -78,12 +78,12 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <a href="https://facebook.com/pandorya.photo" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
                             <a href="https://instagram.com/pandorya.photo" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-instagram fa-2x"></i>
+                                <i class="icon fab fa-instagram fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Maximko
-                        <i class="icon fa-paint-brush pull-right"></i>
+                        <i class="icon far fa-paint-brush pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -105,17 +105,17 @@
                     <div class="row">
                         <div class="col-xs-4 text-center">
                             <a href="http://maximko.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-globe fa-2x"></i>
+                                <i class="icon far fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="https://facebook.com/maximkoart" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="https://instagram.com/maximkoart" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-instagram fa-2x"></i>
+                                <i class="icon fab fa-instagram fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Finanzdiskurs
-                        <i class="icon fa-money pull-right"></i>
+                        <i class="icon far fa-money-bill pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -137,12 +137,12 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <a href="http://finanzdiskurs.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-globe fa-2x"></i>
+                                <i class="icon far fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
                             <a href="https://facebook.com/Finanzdiskurs" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Dogfit - Fitness mit Hund
-                        <i class="icon fa-paw pull-right"></i>
+                        <i class="icon far fa-paw pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -164,12 +164,12 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <a href="http://dogfit-fitness.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-globe fa-2x"></i>
+                                <i class="icon far fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
                             <a href="https://facebook.com/DogfitFitnessMitHund" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                     </div>

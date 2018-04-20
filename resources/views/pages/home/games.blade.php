@@ -10,7 +10,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Octopus.EXE
-                        <i class="icon fa-globe pull-right"></i>
+                        <i class="icon far fa-globe pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="panel-footer">
                     <span data-toggle="tooltip" data-placement="top" data-title="Special Price">
-                        <i class="icon fa-trophy cyan-500"></i>
+                        <i class="icon far fa-trophy cyan-500"></i>
                         3 Games in one Jam
                     </span>
                 </div>
@@ -31,22 +31,22 @@
                     <div class="row">
                         <div class="col-xs-3 text-center">
                             <a href="https://github.com/Redpanda-Games/ggj2018-web" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-github fa-2x"></i>
+                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-3 text-center">
                             <a href="https://github.com/Redpanda-Games/ggj2018-cli" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-github fa-2x"></i>
+                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-3 text-center">
                             <a href="https://github.com/Redpanda-Games/ggj2018-unity" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-github fa-2x"></i>
+                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-3 text-center">
                             <a href="http://oexe.gummibeer.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-gamepad fa-2x"></i>
+                                <i class="icon far fa-gamepad fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         L33t vs Cr33p
-                        <i class="icon fa-globe pull-right"></i>
+                        <i class="icon far fa-globe pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -69,12 +69,12 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <a href="https://github.com/Redpanda-Games/igjam12" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-github fa-2x"></i>
+                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
                             <a href="http://lvsc.gummibeer.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-gamepad fa-2x"></i>
+                                <i class="icon far fa-gamepad fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Cooper's Creepy Carousel
-                        <i class="icon fa-desktop pull-right"></i>
+                        <i class="icon far fa-desktop pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -100,7 +100,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         GravCore
-                        <i class="icon fa-globe pull-right"></i>
+                        <i class="icon far fa-globe pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -108,7 +108,7 @@
                 </div>
                 <div class="panel-footer">
                     <span data-toggle="tooltip" data-placement="top" data-title="3rd place">
-                        <i class="icon fa-trophy medal-bronze"></i>
+                        <i class="icon far fa-trophy medal-bronze"></i>
                         InnoGames Jammer Voting
                     </span>
                 </div>
@@ -116,17 +116,17 @@
                     <div class="row">
                         <div class="col-xs-4 text-center">
                             <a href="https://github.com/Redpanda-Games/ggj2017" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-github fa-2x"></i>
+                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="http://gc.gummibeer.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-gamepad fa-2x"></i>
+                                <i class="icon far fa-gamepad fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="https://facebook.com/GravCore" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Ant General
-                        <i class="icon fa-globe pull-right"></i>
+                        <i class="icon far fa-globe pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -150,17 +150,17 @@
                     <div class="row">
                         <div class="col-xs-4 text-center">
                             <a href="https://github.com/Redpanda-Games/igjam10" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-github fa-2x"></i>
+                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="http://ct.gummibeer.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-gamepad fa-2x"></i>
+                                <i class="icon far fa-gamepad fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="https://facebook.com/ameisengeneral" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Bubble Picker
-                        <i class="icon fa-android pull-right"></i>
+                        <i class="icon fab fa-android pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -183,12 +183,12 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <a href="https://play.google.com/store/apps/details?id=com.kibasegames.bubble_picker" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-gamepad fa-2x"></i>
+                                <i class="icon far fa-gamepad fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
                             <a href="https://facebook.com/pg/redpandagames.official" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -200,7 +200,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Tap Pong
-                        <i class="icon fa-android pull-right"></i>
+                        <i class="icon fab fa-android pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -211,12 +211,12 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <a href="https://play.google.com/store/apps/details?id=com.kibasegames.tap_pong" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-gamepad fa-2x"></i>
+                                <i class="icon far fa-gamepad fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
                             <a href="https://facebook.com/pg/redpandagames.official" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Mean Bean Machine
-                        <i class="icon fa-globe pull-right"></i>
+                        <i class="icon far fa-globe pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -239,7 +239,7 @@
                 </div>
                 <div class="panel-footer">
                     <span data-toggle="tooltip" data-placement="top" data-title="2nd place">
-                        <i class="icon fa-trophy medal-silver"></i>
+                        <i class="icon far fa-trophy medal-silver"></i>
                         InnoGames Jammer Voting
                     </span>
                 </div>
@@ -247,17 +247,17 @@
                     <div class="row">
                         <div class="col-xs-4 text-center">
                             <a href="https://github.com/Redpanda-Games/ggj2016" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-github fa-2x"></i>
+                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="http://mbm.gummibeer.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-gamepad fa-2x"></i>
+                                <i class="icon far fa-gamepad fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="https://facebook.com/MeanBeanMachineGame" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -270,7 +270,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Go Golem Go
-                        <i class="icon fa-globe pull-right"></i>
+                        <i class="icon far fa-globe pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -280,12 +280,12 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <a href="https://github.com/Redpanda-Games/igjam9" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-github fa-2x"></i>
+                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
                             <a href="https://facebook.com/gogolemgo" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fa-facebook fa-2x"></i>
+                                <i class="icon fab fa-facebook fa-2x"></i>
                             </a>
                         </div>
                     </div>
@@ -297,7 +297,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         The impossible Timefall
-                        <i class="icon fa-globe pull-right"></i>
+                        <i class="icon far fa-globe pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -305,7 +305,7 @@
                 </div>
                 <div class="panel-footer text-center">
                     <a href="https://github.com/Redpanda-Games/igjam7" target="_blank" rel="noopener noreferrer">
-                        <i class="icon fa-github fa-2x"></i>
+                        <i class="icon fab fa-github fa-2x"></i>
                     </a>
                 </div>
             </div>

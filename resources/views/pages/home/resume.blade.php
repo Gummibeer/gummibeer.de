@@ -7,7 +7,7 @@
     <ul class="timeline">
         <li class="active">
             <h3>
-                <i class="icon fa-github"></i>
+                <i class="icon far fa-space-shuttle"></i>
                 Astrotomic
             </h3>
             <strong>Founder & Developer</strong>
@@ -15,7 +15,7 @@
         </li>
         <li class="active">
             <h3>
-                <i class="icon fa-briefcase"></i>
+                <i class="icon far fa-briefcase"></i>
                 Even on Sunday
             </h3>
             <strong>Backend Developer</strong>
@@ -23,7 +23,7 @@
         </li>
         <li>
             <h3>
-                <i class="icon fa-briefcase"></i>
+                <i class="icon far fa-briefcase"></i>
                 Absolute Software GmbH
             </h3>
             <strong>Junior Software Developer</strong>
@@ -31,7 +31,7 @@
         </li>
         <li>
             <h3>
-                <i class="icon fa-graduation-cap"></i>
+                <i class="icon far fa-graduation-cap"></i>
                 Medienwerft GmbH
             </h3>
             <strong>Training: Software Developer</strong>
@@ -39,13 +39,13 @@
         </li>
         <li class="unimportant">
             <h3>
-                <i class="icon fa-users"></i>
+                <i class="icon far fa-calendar-alt"></i>
                 Web Summit 2017
             </h3>
         </li>
         <li class="unimportant">
             <h3>
-                <i class="icon fa-certificate"></i>
+                <i class="icon far fa-badge-check"></i>
                 Digital-Workshop by Google
             </h3>
             <span>Certificate: Online-Marketing-Basics</span>
