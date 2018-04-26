@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-md-3 font-montserrat">
-            <i class="icon far fa-compass fa-4x pull-left margin-right-15"></i>
+            <i class="icon far fa-route fa-4x pull-left margin-right-15"></i>
             <strong class="text-uppercase">distance</strong>
             <br/>
             <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ $rideDistance }}" data-speed="2000">{{ $rideDistance }}</span>km
