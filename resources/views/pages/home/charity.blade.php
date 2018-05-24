@@ -6,6 +6,7 @@
     <div class="row masonry-container">
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/wwf.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         World Wildlife Fund
@@ -35,6 +36,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/unicef.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Unicef
@@ -64,6 +66,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/wikimedia.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Wikimedia Foundation
@@ -88,6 +91,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/hamburgertierschutzverein.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Hamburger Tierschutzverein e.V.
@@ -112,6 +116,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/tiertafelhamburg.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Tiertafel Hamburg e.V.
@@ -141,6 +146,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/haema.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Haema
@@ -170,6 +176,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/ecosia.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Ecosia
@@ -199,6 +206,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/theoceancleanup.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         The Ocean Cleanup
@@ -228,6 +236,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/reforestum.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Reforestum
@@ -257,6 +266,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/vivaconagua.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Viva con Agua
@@ -286,6 +296,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/thegreatbubblebarrier.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         The Great Bubble Barrier
@@ -315,6 +326,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/seashepherd.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Sea Shepherd

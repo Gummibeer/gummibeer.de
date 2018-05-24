@@ -33,6 +33,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/tentangli.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Tentangli
@@ -92,6 +93,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/maximko.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Maximko
@@ -151,6 +153,7 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/dogfit.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Dogfit - Fitness mit Hund
