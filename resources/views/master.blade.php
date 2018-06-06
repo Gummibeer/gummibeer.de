@@ -25,8 +25,8 @@
     <meta name="og:description" content="I'm an enthusiastic web developer and free time gamer from Hamburg, Germany." />
     <meta name="og:image" content="{{ url('img/og_banner.png') }}" />
 
+    <link rel="stylesheet" href="{{ asset('css/fonts.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/styles.min.css') }}" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-KwxQKNj2D0XKEW5O/Y6haRH39PE/xry8SAoLbpbCMraqlX7kUP6KHOnrlrtvuJLR" crossorigin="anonymous" />
 
     <!--[if lt IE 9]>
     <script src="{{ url('js/html5shiv.min.js') }}"></script>

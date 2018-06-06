@@ -5,8 +5,9 @@ var sourcemaps = require('gulp-sourcemaps');
 var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
+var googleWebFonts = require('gulp-google-webfonts');
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['less', 'scripts', 'googlefonts']);
 
 gulp.task('less', function () {
     gulp.src('./resources/assets/less/styles.less')
@@ -16,6 +17,8 @@ gulp.task('less', function () {
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public/css'));
+    gulp.src(['./node_modules/@fortawesome/fontawesome-pro-webfonts/webfonts/**/*'])
+        .pipe(gulp.dest('public/fonts'));
     gulp.run('touch');
 });
 
@@ -28,11 +31,17 @@ gulp.task('scripts', function() {
         './resources/assets/js/jquery.masonry.min.js',
         './resources/assets/js/jquery.vectormap.min.js',
         './resources/assets/js/jquery.vectormap.europe_mill.min.js',
-        './resources/assets/js/webfont.min.js',
-        './resources/assets/js/jquery.main.js'
+        './resources/assets/js/jquery.main.js',
     ])
         .pipe(concat('scripts.min.js'))
         .pipe(gulp.dest('./public/js'));
+    gulp.run('touch');
+});
+
+gulp.task('googlefonts', function () {
+    gulp.src('./fonts.list')
+        .pipe(googleWebFonts({}))
+        .pipe(gulp.dest('public/css'));
     gulp.run('touch');
 });
 
