@@ -33,6 +33,44 @@
         </div>
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/moinhund.jpg') }}" class="img-responsive" />
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Moin Hund
+                        <i class="icon far fa-utensils pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    Local store and online shop for dog food and accessoires.
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-3 text-center">
+                            <a href="https://moinhund.hamburg" target="_blank" rel="noopener noreferrer">
+                                <i class="icon far fa-globe fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-3 text-center">
+                            <a href="https://facebook.com/MoinHund" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fab fa-facebook fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-3 text-center">
+                            <a href="https://instagram.com/moin_hund" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fab fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-3 text-center">
+                            <a href="https://google.com/maps?cid=9367165860801608956" target="_blank" rel="noopener noreferrer">
+                                <i class="icon far fa-map-marker fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/tentangli.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
