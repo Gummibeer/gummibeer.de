@@ -42,13 +42,15 @@
                 <i class="icon far fa-calendar-alt"></i>
                 Web Summit 2017
             </h3>
+            <strong>Open Source Developer Attendee</strong>
         </li>
         <li class="unimportant">
             <h3>
                 <i class="icon far fa-badge-check"></i>
                 Digital-Workshop by Google
             </h3>
-            <span>Certificate: Online-Marketing-Basics</span>
+            <strong>Certificate: Online-Marketing-Basics</strong>
+            <span>Certificate-ID: Q57 3RV FYS</span>
         </li>
     </ul>
 </section>
