@@ -8,6 +8,24 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
+                        Translatable
+                        <i class="icon far fa-language pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    Translatable is a model translation package for Laravel. It allows to add database model translations.
+                </div>
+                <div class="panel-footer text-center">
+                    <a href="https://github.com/dimsav/laravel-translatable" target="_blank" rel="noopener noreferrer">
+                        <i class="icon fab fa-github fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
                         Notifynder
                         <i class="icon far fa-comment-alt pull-right"></i>
                     </h3>
@@ -15,19 +33,10 @@
                 <div class="panel-body">
                     Notifynder is a notification manager package for Laravel. It provides multiple pre-built senders and is extendable with custom senders.
                 </div>
-                <div class="panel-footer">
-                    <div class="row">
-                        <div class="col-xs-6 text-center">
-                            <a href="https://github.com/fenos/Notifynder" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fab fa-github fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="col-xs-6 text-center">
-                            <a href="http://notifynder.info" target="_blank" rel="noopener noreferrer">
-                                <i class="icon far fa-globe fa-2x"></i>
-                            </a>
-                        </div>
-                    </div>
+                <div class="panel-footer text-center">
+                    <a href="https://github.com/fenos/Notifynder" target="_blank" rel="noopener noreferrer">
+                        <i class="icon fab fa-github fa-2x"></i>
+                    </a>
                 </div>
             </div>
         </div>
