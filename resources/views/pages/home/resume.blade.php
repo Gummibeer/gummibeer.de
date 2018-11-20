@@ -40,6 +40,13 @@
         <li class="unimportant">
             <h3>
                 <i class="icon far fa-calendar-alt"></i>
+                Web Summit 2018
+            </h3>
+            <strong>Open Source Developer Attendee</strong>
+        </li>
+        <li class="unimportant">
+            <h3>
+                <i class="icon far fa-calendar-alt"></i>
                 Web Summit 2017
             </h3>
             <strong>Open Source Developer Attendee</strong>
