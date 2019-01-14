@@ -8,6 +8,24 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
+                        Activity Log
+                        <i class="icon far fa-history pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    Easy to use functions to log the activities of the users of your Laravel app. It can also automatically log model events.
+                </div>
+                <div class="panel-footer text-center">
+                    <a href="https://github.com/spatie/laravel-activitylog" target="_blank" rel="noopener noreferrer">
+                        <i class="icon fab fa-github fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
                         Translatable
                         <i class="icon far fa-language pull-right"></i>
                     </h3>
