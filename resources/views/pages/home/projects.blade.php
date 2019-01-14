@@ -4,98 +4,39 @@
         <h2 title="Projects">Projects</h2>
     </div>
     <div class="row masonry-container">
+        @foreach(collect($packages)->sortByDesc('downloads.total')->values() as $package)
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title clearfix">
-                        Activity Log
-                        <i class="icon far fa-history pull-right"></i>
-                    </h3>
+                    <h3 class="panel-title">{{ $package['title'] }}</h3>
                 </div>
+                @if(!empty($package['description']))
                 <div class="panel-body">
-                    Easy to use functions to log the activities of the users of your Laravel app. It can also automatically log model events.
+                    {{ $package['description'] }}
+                </div>
+                @endif
+                <div class="panel-footer">
+                    <ul class="list-inline margin-0">
+                        <li class="margin-0">
+                            <strong class="text-muted">{{ $package['language'] }}</strong>
+                        </li>
+                        <li class="margin-0">
+                            <i class="icon far fa-download text-muted margin-right-3"></i>
+                            {{ number_format($package['downloads']['total'], 0, '', '.') }}
+                        </li>
+                        <li class="margin-0">
+                            <i class="icon far fa-star text-muted margin-right-3"></i>
+                            {{ number_format($package['favers'], 0, '', '.') }}
+                        </li>
+                    </ul>
                 </div>
                 <div class="panel-footer text-center">
-                    <a href="https://github.com/spatie/laravel-activitylog" target="_blank" rel="noopener noreferrer">
+                    <a href="{{ $package['repository'] }}" target="_blank" rel="noopener noreferrer">
                         <i class="icon fab fa-github fa-2x"></i>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title clearfix">
-                        Translatable
-                        <i class="icon far fa-language pull-right"></i>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    Translatable is a model translation package for Laravel. It allows to add database model translations.
-                </div>
-                <div class="panel-footer text-center">
-                    <a href="https://github.com/dimsav/laravel-translatable" target="_blank" rel="noopener noreferrer">
-                        <i class="icon fab fa-github fa-2x"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title clearfix">
-                        Notifynder
-                        <i class="icon far fa-comment-alt pull-right"></i>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    Notifynder is a notification manager package for Laravel. It provides multiple pre-built senders and is extendable with custom senders.
-                </div>
-                <div class="panel-footer text-center">
-                    <a href="https://github.com/fenos/Notifynder" target="_blank" rel="noopener noreferrer">
-                        <i class="icon fab fa-github fa-2x"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title clearfix">
-                        Backuplay
-                        <i class="icon far fa-archive pull-right"></i>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    Backuplay is a command-line backup package for Laravel. It has options to tell which folders/files should be backuped and wat to do before/after a backup.
-                </div>
-                <div class="panel-footer text-center">
-                    <a href="https://github.com/Astrotomic/laravel-backuplay" target="_blank" rel="noopener noreferrer">
-                        <i class="icon fab fa-github fa-2x"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title clearfix">
-                        Monolog Config
-                        <i class="icon far fa-cog pull-right"></i>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    Monolog is a bootstrap package for Laravel. It allows to configure monolog handlers, formatters and processors in a simple Laravel array config file.
-                </div>
-                <div class="panel-footer text-center">
-                    <a href="https://github.com/Astrotomic/laravel-monolog-config" target="_blank" rel="noopener noreferrer">
-                        <i class="icon fab fa-github fa-2x"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="well">
-        And some more laravel packages and projects in progress for the "Astrotomic" developer collective. And some older/abandoned Wordpress plugins.
+        @endforeach
     </div>
 </section>

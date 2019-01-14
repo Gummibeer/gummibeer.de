@@ -7,6 +7,7 @@ $app->get('/', function () use ($app) {
         'rideDistance' => file_get_contents(storage_path('app/stats/ride_distance.txt')),
         'rideElevation' => file_get_contents(storage_path('app/stats/ride_elevation.txt')),
         'rideTime' => file_get_contents(storage_path('app/stats/ride_time.txt')),
+        'packages' => json_decode(file_get_contents(storage_path('app/stats/packagist.json')), true),
         'title' => title(),
         'countries' => selected_countries(),
     ]);

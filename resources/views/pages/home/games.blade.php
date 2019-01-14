@@ -23,7 +23,7 @@
                 </div>
                 <div class="panel-footer">
                     <span data-toggle="tooltip" data-placement="top" data-title="Special Price">
-                        <i class="icon far fa-trophy cyan-500"></i>
+                        <i class="icon far fa-trophy cyan-500 margin-right-3"></i>
                         3 Games in one Jam
                     </span>
                 </div>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="panel-footer">
                     <span data-toggle="tooltip" data-placement="top" data-title="3rd place">
-                        <i class="icon far fa-trophy medal-bronze"></i>
+                        <i class="icon far fa-trophy medal-bronze margin-right-3"></i>
                         InnoGames Jammer Voting
                     </span>
                 </div>
@@ -239,7 +239,7 @@
                 </div>
                 <div class="panel-footer">
                     <span data-toggle="tooltip" data-placement="top" data-title="2nd place">
-                        <i class="icon far fa-trophy medal-silver"></i>
+                        <i class="icon far fa-trophy medal-silver margin-right-3"></i>
                         InnoGames Jammer Voting
                     </span>
                 </div>

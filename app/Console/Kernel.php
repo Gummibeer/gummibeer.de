@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\StatsGithub;
+use App\Console\Commands\StatsPackagist;
 use App\Console\Commands\StatsSteam;
 use App\Console\Commands\StatsStrava;
 use Illuminate\Console\Scheduling\Schedule;
@@ -19,6 +20,7 @@ class Kernel extends ConsoleKernel
         StatsGithub::class,
         StatsSteam::class,
         StatsStrava::class,
+        StatsPackagist::class,
     ];
 
     /**
@@ -32,5 +34,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('stats:steam')->hourly();
         $schedule->command('stats:strava')->hourly();
         $schedule->command('stats:github')->twiceDaily();
+        $schedule->command('stats:packagist')->twiceDaily();
     }
 }
