@@ -35,11 +35,10 @@ class StatsPackagist extends Command
         ]);
 
         foreach($vendors as $vendor) {
-            try {
-                $packageNames = $packageNames->merge(array_get($packagist->getPackagesByVendor($vendor), 'packageNames', []));
-            } catch (\Exception $ex) {}
+            $packageNames = $packageNames->merge(array_get($packagist->getPackagesByVendor($vendor), 'packageNames', []));
         }
 
+        $abandoned = [];
         $packages = collect();
         foreach($packageNames->unique() as $packageName) {
             $package = data_get($packagist->findPackageByName($packageName), 'package');
@@ -53,15 +52,43 @@ class StatsPackagist extends Command
             $package['name'] = explode('/', $package['name'])[1];
             $package['title'] = title_case(str_replace('-', ' ', $package['name']));
 
-            $packages->push($package);
+            if(!empty($package['abandoned'])) {
+                if(!isset($abandoned[$package['abandoned']])) {
+                    $abandoned[$package['abandoned']] = [];
+                }
+
+                $abandoned[$package['abandoned']][] = $package;
+                continue;
+            }
+
+            $packages->put($package['repo_name'], $package);
+        }
+
+        foreach($abandoned as $parentName => $abandonedPackages) {
+            $parentPackage = $packages->get($parentName, data_get($packagist->findPackageByName($parentName), 'package'));
+            if(empty($parentPackage)) {
+                continue;
+            }
+
+            foreach($abandonedPackages as $abandonedPackage) {
+                $parentPackage['downloads']['total'] += $abandonedPackage['downloads']['total'];
+                $parentPackage['favers'] += $abandonedPackage['favers'];
+            }
+
+            $packages->put($parentName, $parentPackage);
         }
 
         if ($packages->isNotEmpty()) {
             $this->data = $packages->filter();
             $this->line(sprintf(
-                '[<info>packagist</info>] packages: <comment>%d</comment> | downloads: <comment>%d</comment>',
+                '[<info>packagist</info>] packages: <comment>%d</comment> | downloads: <comment>%d</comment> | favers: <comment>%d</comment>',
                 $this->data->count(),
-                $this->data->sum('downloads.total')
+                $this->data->sum('downloads.total'),
+                $this->data->sum('favers')
+            ));
+            $this->line(sprintf(
+                '[<info>packagist</info>] abandoned: <comment>%d</comment>',
+                count($abandoned)
             ));
             $this->save();
         }

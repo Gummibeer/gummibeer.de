@@ -8,6 +8,7 @@
         <div class="col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
+                    <small>{{ $package['vendor'] }}</small>
                     <h3 class="panel-title">{{ $package['title'] }}</h3>
                 </div>
                 @if(!empty($package['description']))
