@@ -5,7 +5,7 @@
     </div>
     <div class="row masonry-container">
         @foreach(collect($packages)->sortByDesc('downloads.total')->values() as $package)
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <small>{{ $package['vendor'] }}</small>

@@ -4,10 +4,10 @@
         <h2 title="About">About</h2>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-sm-4">
             <img src="{{ url('img/avatar.min.png') }}" class="img-responsive" />
         </div>
-        <div class="col-md-8">
+        <div class="col-sm-8">
             <strong class="text-muted">Tom Witkowski</strong>
             <h4>
                 Web <span class="text-primary">Developer</span> and <span class="text-primary">Gamer</span> from Hamburg
@@ -19,24 +19,26 @@
                 <br/>
                 I've developed some <a class="smooth" href="#projects">packages</a> for Laravel/Lumen and host some WordPress, Symfony2 and Laravel pages.
             </p>
+        </div>
+        <div class="col-xs-12">
             <p>
                 In my free time I try to create simple <a class="smooth" href="#games">games</a> with JavaScript or Unity3D and join the GameJams at InnoGames in Hamburg. I'm also interested in mountain biking and train for a triathlon.
             </p>
 
             <div class="row">
-                <div class="col-md-4 font-montserrat">
+                <div class="col-sm-4 font-montserrat">
                     <i class="icon fab fa-github fa-4x pull-left margin-right-15"></i>
                     <strong class="text-uppercase">Contribute</strong>
                     <br/>
                     <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ $contribute }}" data-speed="2000">{{ $contribute }}</span>
                 </div>
-                <div class="col-md-4 font-montserrat">
+                <div class="col-sm-4 font-montserrat">
                     <i class="icon fab fa-steam fa-4x pull-left margin-right-15"></i>
                     <strong class="text-uppercase">Playtime</strong>
                     <br/>
                     <span class="count-to font-size-2em text-primary" data-from="0" data-to="{{ $playtime }}" data-speed="2000">{{ $playtime }}</span>h
                 </div>
-                <div class="col-md-4 font-montserrat">
+                <div class="col-sm-4 font-montserrat">
                     <i class="icon fas fa-user-secret fa-4x pull-left margin-right-15"></i>
                     <strong class="text-uppercase">GameJams</strong>
                     <br/>

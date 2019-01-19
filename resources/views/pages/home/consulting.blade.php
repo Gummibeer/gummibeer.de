@@ -4,7 +4,7 @@
         <h2 title="Consulting">Consulting</h2>
     </div>
     <div class="row masonry-container">
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/maximko.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/dogfit.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
@@ -92,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/moinhund.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
@@ -130,7 +130,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/hundeklick.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
@@ -163,7 +163,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/barfital.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">

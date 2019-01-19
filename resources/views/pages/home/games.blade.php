@@ -4,7 +4,7 @@
         <h2 title="Games">Games</h2>
     </div>
     <div class="row masonry-container">
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/octopus-exe.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/leet-vs-creep.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/gravcore.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
@@ -133,7 +133,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/ant-general.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
@@ -167,7 +167,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
@@ -195,7 +195,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
@@ -223,7 +223,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/mean-bean-machine.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
@@ -264,7 +264,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/go-golem-go.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
@@ -292,7 +292,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12 masonry-item">
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">

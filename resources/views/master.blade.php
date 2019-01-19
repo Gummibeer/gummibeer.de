@@ -37,6 +37,7 @@
 <header id="header" class="container">
     <nav class="navbar navbar-dark">
         <div class="navbar-header">
+            <a href="{{ url() }}">Gummibeer</a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -78,7 +79,7 @@
             </div>
         </div>
         <div class="bottom">
-            <ul class="copyright list-inline">
+            <ul class="copyright list-inline margin-0">
                 <li>
                     &copy; Copyright 2015 - {{ date('Y') }} by Tom Witkowski. All rights reserved.
                 </li>
