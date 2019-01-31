@@ -6,6 +6,34 @@
     <div class="row masonry-container">
         <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/bring-shroomi-home.jpg') }}" class="img-responsive" />
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Bring Shroomi Home
+                        <i class="icon far fa-globe pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    Little Shroomi's lost his way. Help him find his way back to his family.
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <a href="https://github.com/Redpanda-Games/ggj2019" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fab fa-github fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <a href="http://shroomi.gummibeer.de" target="_blank" rel="noopener noreferrer">
+                                <i class="icon far fa-gamepad fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
                 <img src="{{ asset('img/banner/octopus-exe.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
