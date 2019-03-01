@@ -94,4 +94,14 @@
             <i class="fas fa-shopping-bag"></i>
         </a>
     </li>
+    <li>
+        <a href="http://git-awards.com/users/search?login=Gummibeer" target="_blank" rel="noopener noreferrer" class="social-gitawards" data-toggle="tooltip" title="Git Awards">
+            <i class="fas fa-award"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://profile.codersrank.io/user/gummibeer" target="_blank" rel="noopener noreferrer" class="social-codersrank" data-toggle="tooltip" title="CordersRank">
+            <i class="fas fa-trophy"></i>
+        </a>
+    </li>
 </ul>
