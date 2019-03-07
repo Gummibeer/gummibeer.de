@@ -247,6 +247,7 @@
         </div>
         <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/villapsili.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Villa Psili & Villa Astoria

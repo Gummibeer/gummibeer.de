@@ -354,5 +354,35 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/aufstehen_gegen_rassismus.jpg') }}" class="img-responsive" />
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Aufstehen gegen Rassismus
+                        <i class="icon far fa-rainbow pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-4 text-center">
+                            <a href="https://agr-hamburg.org" target="_blank" rel="noopener noreferrer">
+                                <i class="icon far fa-globe fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://facebook.com/AgRHamburg" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fab fa-facebook fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://instagram.com/aufstehen_gegen_rassismus_hh" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fab fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
