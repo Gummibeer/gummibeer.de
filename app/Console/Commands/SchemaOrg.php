@@ -42,8 +42,7 @@ class SchemaOrg extends Command
             ->accessModeSufficient('textual')
             ->inLanguage(Schema::language()->name('English')->alternateName('en'))
             ->isAccessibleForFree(true)
-            ->license('https://github.com/Gummibeer/cv-resume/blob/master/LICENSE')
-        ;
+            ->license('https://github.com/Gummibeer/cv-resume/blob/master/LICENSE');
 
         $graph->country()->name('DE')->alternateName('Germany');
         $graph->postalAddress()
