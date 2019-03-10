@@ -94,13 +94,37 @@ class SchemaOrg extends Command
                         Schema::person()
                             ->name('Janek Feldmann')
                             ->givenName('Janek')
-                            ->familyName('Feldmann'),
+                            ->familyName('Feldmann')
+                            ->jobTitle('Managing Partner')
+                            ->email('jfe@even-on-sunday.com'),
                         Schema::person()
                             ->name('David Pérez González')
                             ->givenName('David')
                             ->additionalName('Pérez')
                             ->familyName('González')
+                            ->jobTitle('Managing Partner')
+                            ->email('dpg@even-on-sunday.com')
                     ])
+                ->employees([
+                    Schema::person()
+                        ->name('Carola Born')
+                        ->givenName('Carola')
+                        ->familyName('Born')
+                        ->jobTitle('Chief Creative Officer')
+                        ->email('cbo@even-on-sunday.com'),
+                    Schema::person()
+                        ->name('Ina Offermann')
+                        ->givenName('Ina')
+                        ->familyName('Offermann')
+                        ->jobTitle('Chief Product Officer')
+                        ->email('iof@even-on-sunday.com'),
+                    Schema::person()
+                        ->name('Benedikt Spellmeyer')
+                        ->givenName('Benedikt')
+                        ->familyName('Spellmeyer')
+                        ->jobTitle('Head of Development')
+                        ->email('bsp@even-on-sunday.com'),
+                ])
             )
         ;
 
