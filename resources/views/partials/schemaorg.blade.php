@@ -1,3 +1,3 @@
-@if(file_exists(storage_path('app/schema-org.html')))
-    {!! file_get_contents(storage_path('app/schema-org.html')) !!}
+@if(file_exists($schemaPath = storage_path('app/schema-org.json')))
+    <script type="application/ld+json">{!! file_get_contents($schemaPath) !!}</script>
 @endif
