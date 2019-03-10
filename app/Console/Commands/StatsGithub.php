@@ -2,13 +2,13 @@
 
 namespace App\Console\Commands;
 
-use Cache\Adapter\Redis\RedisCachePool;
 use Carbon\Carbon;
 use Github\Client;
-use Github\Exception\RuntimeException as GithubRuntimeException;
-use Github\HttpClient\Message\ResponseMediator;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
+use Cache\Adapter\Redis\RedisCachePool;
+use Github\HttpClient\Message\ResponseMediator;
+use Github\Exception\RuntimeException as GithubRuntimeException;
 
 class StatsGithub extends Command
 {
@@ -82,14 +82,14 @@ class StatsGithub extends Command
 
         $bar = $this->progressBar($this->data->pluck('issues.data')->flatten()->count());
         $this->data = $this->data->map(function ($repo) use ($bar) {
-            if (!$repo['exists']) {
+            if (! $repo['exists']) {
                 return $repo;
             }
             foreach ($repo['issues']['data'] as $issue) {
                 $page = 1;
                 do {
                     try {
-                        $comments = $this->request('repos/' . rawurlencode($repo['data']['owner']) . '/' . rawurlencode($repo['data']['repo']) . '/issues/' . rawurlencode($issue) . '/comments', [
+                        $comments = $this->request('repos/'.rawurlencode($repo['data']['owner']).'/'.rawurlencode($repo['data']['repo']).'/issues/'.rawurlencode($issue).'/comments', [
                             'page' => $page,
                         ]);
                         $comments = array_filter($comments, function ($comment) {
@@ -108,6 +108,7 @@ class StatsGithub extends Command
                 $bar->advance();
             }
             $repo['updated_at'] = $this->now();
+
             return $repo;
         });
         $bar->finish();
@@ -120,13 +121,13 @@ class StatsGithub extends Command
 
         $bar = $this->progressBar($this->data->pluck('branches.data')->flatten()->count());
         $this->data = $this->data->map(function ($repo) use ($bar) {
-            if (!$repo['exists']) {
+            if (! $repo['exists']) {
                 return $repo;
             }
             foreach ($repo['branches']['data'] as $branch) {
                 $page = 1;
                 do {
-                    $commits = $this->request('repos/' . rawurlencode($repo['data']['owner']) . '/' . rawurlencode($repo['data']['repo']) . '/commits', [
+                    $commits = $this->request('repos/'.rawurlencode($repo['data']['owner']).'/'.rawurlencode($repo['data']['repo']).'/commits', [
                         'sha' => $branch,
                         'author' => getenv('GH_USER'),
                         'since' => (new Carbon(date('Y-m-d H:i:s', 0), 'UTC'))->toIso8601String(),
@@ -143,6 +144,7 @@ class StatsGithub extends Command
                 $bar->advance();
             }
             $repo['updated_at'] = $this->now();
+
             return $repo;
         });
         $bar->finish();
@@ -157,7 +159,7 @@ class StatsGithub extends Command
         do {
             try {
                 $issues = $this->request('search/issues', [
-                    'q' => 'involves:' . getenv('GH_USER'),
+                    'q' => 'involves:'.getenv('GH_USER'),
                     'sort' => 'updated',
                     'order' => 'desc',
                     'page' => $page,
@@ -202,11 +204,11 @@ class StatsGithub extends Command
 
         $bar = $this->progressBar($this->data->count());
         $this->data = $this->data->map(function ($repo) use ($bar) {
-            if (!$repo['exists']) {
+            if (! $repo['exists']) {
                 return $repo;
             }
             try {
-                $branches = $this->request('repos/' . rawurlencode($repo['data']['owner']) . '/' . rawurlencode($repo['data']['repo']) . '/branches');
+                $branches = $this->request('repos/'.rawurlencode($repo['data']['owner']).'/'.rawurlencode($repo['data']['repo']).'/branches');
                 $repo['branches'] = [
                     'updated_at' => $this->now(),
                     'data' => array_column($branches, 'name'),
@@ -218,6 +220,7 @@ class StatsGithub extends Command
             }
             $repo['updated_at'] = $this->now();
             $bar->advance();
+
             return $repo;
         });
         $bar->finish();
@@ -249,11 +252,12 @@ class StatsGithub extends Command
 
     protected function filePath($file)
     {
-        $filepath = storage_path('app/stats/' . $file);
+        $filepath = storage_path('app/stats/'.$file);
         $filedir = dirname($filepath);
-        if (!is_dir($filedir)) {
+        if (! is_dir($filedir)) {
             mkdir($filedir, 0777, true);
         }
+
         return $filepath;
     }
 
@@ -276,19 +280,20 @@ class StatsGithub extends Command
 
     protected function request($path, array $parameters = [])
     {
-        if (!array_key_exists('per_page', $parameters)) {
+        if (! array_key_exists('per_page', $parameters)) {
             $parameters['per_page'] = 100;
         }
         if (count($parameters) > 0) {
-            $path .= '?' . http_build_query($parameters);
+            $path .= '?'.http_build_query($parameters);
         }
         $response = $this->github->getHttpClient()->get($path);
+
         return ResponseMediator::getContent($response);
     }
 
     protected function addRepo($name)
     {
-        if (!$this->data->has($name)) {
+        if (! $this->data->has($name)) {
             $this->data->put($name, [
                 'updated_at' => $this->now(),
                 'exists' => true,
@@ -325,6 +330,7 @@ class StatsGithub extends Command
     protected function getRepoByUrl($url)
     {
         $parts = explode('/', trim(str_replace('https://api.github.com/repos/', '', $url), '/'));
+
         return implode('/', [
             $parts[0],
             $parts[1],
@@ -340,6 +346,7 @@ class StatsGithub extends Command
         $bar->setBarCharacter('=');
         $bar->setEmptyBarCharacter(' ');
         $bar->setProgressCharacter('>');
+
         return $bar;
     }
 }

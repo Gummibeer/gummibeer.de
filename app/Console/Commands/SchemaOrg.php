@@ -3,12 +3,12 @@
 namespace App\Console\Commands;
 
 use Carbon\Carbon;
-use Illuminate\Console\Command;
-use Spatie\SchemaOrg\Country;
-use Spatie\SchemaOrg\GenderType;
 use Spatie\SchemaOrg\Graph;
-use Spatie\SchemaOrg\PostalAddress;
 use Spatie\SchemaOrg\Schema;
+use Spatie\SchemaOrg\Country;
+use Illuminate\Console\Command;
+use Spatie\SchemaOrg\GenderType;
+use Spatie\SchemaOrg\PostalAddress;
 
 class SchemaOrg extends Command
 {
@@ -25,8 +25,7 @@ class SchemaOrg extends Command
             ->addressRegion('Hamburg')
             ->addressLocality('Hamburg')
             ->postalCode('22307')
-            ->streetAddress('Benzenbergweg 3')
-        ;
+            ->streetAddress('Benzenbergweg 3');
         $graph->person()
             ->name('Tom Witkowski')
             ->givenName('Tom')
@@ -72,7 +71,7 @@ class SchemaOrg extends Command
                     ->givenName('Kay')
                     ->familyName('Franke')
                     ->gender(GenderType::Male)
-                    ->nationality($graph->country())
+                    ->nationality($graph->country()),
             ])
             ->memberOf(
                 Schema::organization()
@@ -103,7 +102,7 @@ class SchemaOrg extends Command
                             ->additionalName('Pérez')
                             ->familyName('González')
                             ->jobTitle('Managing Partner')
-                            ->email('dpg@even-on-sunday.com')
+                            ->email('dpg@even-on-sunday.com'),
                     ])
                 ->employees([
                     Schema::person()
@@ -125,13 +124,11 @@ class SchemaOrg extends Command
                         ->jobTitle('Head of Development')
                         ->email('bsp@even-on-sunday.com'),
                 ])
-            )
-        ;
+            );
 
         $graph
             ->hide(Country::class)
-            ->hide(PostalAddress::class)
-        ;
+            ->hide(PostalAddress::class);
 
         file_put_contents(storage_path('app/schema-org.html'), $graph->toScript());
     }

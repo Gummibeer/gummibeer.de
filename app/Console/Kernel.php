@@ -3,10 +3,10 @@
 namespace App\Console;
 
 use App\Console\Commands\SchemaOrg;
-use App\Console\Commands\StatsGithub;
-use App\Console\Commands\StatsPackagist;
 use App\Console\Commands\StatsSteam;
+use App\Console\Commands\StatsGithub;
 use App\Console\Commands\StatsStrava;
+use App\Console\Commands\StatsPackagist;
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
 
