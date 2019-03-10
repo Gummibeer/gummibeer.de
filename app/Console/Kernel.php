@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\SchemaOrg;
 use App\Console\Commands\StatsGithub;
 use App\Console\Commands\StatsPackagist;
 use App\Console\Commands\StatsSteam;
@@ -21,6 +22,7 @@ class Kernel extends ConsoleKernel
         StatsSteam::class,
         StatsStrava::class,
         StatsPackagist::class,
+        SchemaOrg::class,
     ];
 
     /**
@@ -35,5 +37,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('stats:strava')->hourly();
         $schedule->command('stats:github')->twiceDaily();
         $schedule->command('stats:packagist')->twiceDaily();
+        $schedule->command('schema-org')->daily();
     }
 }

@@ -96,28 +96,7 @@
 
 <script src="{{ asset('js/scripts.min.js') }}"></script>
 
-<script type="application/ld+json">
-    {
-        "@context": "http://schema.org/",
-        "type": "Person",
-        "address": {
-            "type": "PostalAddress",
-            "addressCountry": {
-                "type": "Country",
-                "name": "Germany"
-            },
-            "addressLocality": "Hamburg",
-            "postalCode": "22307",
-            "streetAddress": "Benzenbergweg 3"
-        },
-        "birthDate": "1993-01-25",
-        "description": "I'm an enthusiastic web developer and free time gamer from Hamburg, Germany.",
-        "email": "dev.gummibeer@gmail.com",
-        "jobTitle": "Software Developer",
-        "name": "Tom Witkowski",
-        "telephone": "+49 162 1525105",
-        "url": "http://gummibeer.de"
-    }
-</script>
+@include('partials.schemaorg')
+
 </body>
 </html>

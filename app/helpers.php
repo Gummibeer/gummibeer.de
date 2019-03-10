@@ -23,3 +23,10 @@ if (!function_exists('selected_countries')) {
         return $countries;
     }
 }
+
+if (!function_exists('social_links')) {
+    function social_links()
+    {
+        return require resource_path('sociallinks.php');
+    }
+}

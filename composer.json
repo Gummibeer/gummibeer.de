@@ -15,7 +15,8 @@
         "illuminate/redis": "^5.4",
         "cache/redis-adapter": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
-        "spatie/packagist-api": "^1.2"
+        "spatie/packagist-api": "^1.2",
+        "spatie/schema-org": "^2.1"
     },
     "autoload": {
         "psr-4": {
