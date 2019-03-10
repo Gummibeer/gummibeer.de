@@ -156,6 +156,6 @@ class SchemaOrg extends Command
             ->hide(Country::class)
             ->hide(PostalAddress::class);
 
-        file_put_contents(storage_path('app/schema-org.json'), json_encode($graph->toArray(), JSON_PRETTY_PRINT));
+        file_put_contents(storage_path('app/schema-org.json'), json_encode($graph->toArray()));
     }
 }
