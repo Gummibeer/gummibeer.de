@@ -2,7 +2,13 @@
 
 namespace App\Console\Commands;
 
+use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Spatie\SchemaOrg\Country;
+use Spatie\SchemaOrg\GenderType;
+use Spatie\SchemaOrg\Graph;
+use Spatie\SchemaOrg\PostalAddress;
+use Spatie\SchemaOrg\Schema;
 
 class SchemaOrg extends Command
 {
@@ -11,7 +17,7 @@ class SchemaOrg extends Command
 
     public function handle()
     {
-        $graph = new \Spatie\SchemaOrg\Graph();
+        $graph = new Graph();
 
         $graph->country()->name('DE')->alternateName('Germany');
         $graph->postalAddress()
@@ -25,24 +31,21 @@ class SchemaOrg extends Command
             ->name('Tom Witkowski')
             ->givenName('Tom')
             ->familyName('Witkowski')
-            ->gender(\Spatie\SchemaOrg\GenderType::Male)
+            ->gender(GenderType::Male)
             ->alternateName('Gummibeer')
-            ->birthDate(\Carbon\Carbon::create(1993, 1, 25, 17, 0, 0, '+01:00'))
+            ->birthDate(Carbon::create(1993, 1, 25, 0, 0, 0, '+01:00'))
             ->birthPlace(
-                \Spatie\SchemaOrg\Schema::place()
-                    ->name('Städtisches Klinikum Dresden, Standort Neustadt')
+                Schema::place()
+                    ->name('Dresden')
                     ->address(
-                        \Spatie\SchemaOrg\Schema::postalAddress()
+                        Schema::postalAddress()
                             ->addressCountry($graph->country())
                             ->addressRegion('Saxony')
                             ->addressLocality('Dresden')
-                            ->postalCode('01129')
-                            ->streetAddress('Industriestraße 40')
                     )
-                    ->url('https://www.klinikum-dresden.de/Neustadt_Trachau-p-54.html')
             )
-            ->url('https://gummibeer.de')
-            ->email('dev.gummibeer@gmail.com')
+            ->url(url('/'))
+            ->email('dev@gummibeer.de')
             ->telephone('+491621525105')
             ->jobTitle('PHP Backend Developer')
             ->description('I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.')
@@ -50,17 +53,59 @@ class SchemaOrg extends Command
             ->address($graph->postalAddress())
             ->nationality($graph->country())
             ->owns(
-                \Spatie\SchemaOrg\Schema::ownershipInfo()
+                Schema::ownershipInfo()
                     ->name('Shootager')
                     ->url('https://shootager.app')
-                    ->ownedFrom(\Carbon\Carbon::create(2017, 9, 7, 16, 44, 14, 'UTC'))
+                    ->ownedFrom(Carbon::create(2017, 9, 7, 16, 44, 14, 'UTC'))
             )
             ->sameAs(array_column(social_links(), 'href'))
+            ->parents([
+                Schema::person()
+                    ->name('Sylvia Witkowski')
+                    ->givenName('Sylvia')
+                    ->familyName('Witkowski')
+                    ->gender(GenderType::Female)
+                    ->birthDate(Carbon::create(1972, 6, 29, 0, 0, 0, '+01:00'))
+                    ->nationality($graph->country()),
+                Schema::person()
+                    ->name('Kay Franke')
+                    ->givenName('Kay')
+                    ->familyName('Franke')
+                    ->gender(GenderType::Male)
+                    ->nationality($graph->country())
+            ])
+            ->memberOf(
+                Schema::organization()
+                    ->name('EVEN ON SUNDAY')
+                    ->legalName('EVEN ON SUNDAY GmbH')
+                    ->address(
+                        Schema::postalAddress()
+                            ->addressCountry($graph->country())
+                            ->addressRegion('Lower Saxony')
+                            ->addressLocality('Osnabrück')
+                            ->postalCode('49080')
+                            ->streetAddress('Heinrichstraße 14c')
+                    )
+                    ->telephone('+4954198268610')
+                    ->email('hello@even-on-sunday.com')
+                    ->vatID('DE298290088')
+                    ->founders([
+                        Schema::person()
+                            ->name('Janek Feldmann')
+                            ->givenName('Janek')
+                            ->familyName('Feldmann'),
+                        Schema::person()
+                            ->name('David Pérez González')
+                            ->givenName('David')
+                            ->additionalName('Pérez')
+                            ->familyName('González')
+                    ])
+            )
         ;
 
         $graph
-            ->hide(\Spatie\SchemaOrg\Country::class)
-            ->hide(\Spatie\SchemaOrg\PostalAddress::class)
+            ->hide(Country::class)
+            ->hide(PostalAddress::class)
         ;
 
         file_put_contents(storage_path('app/schema-org.html'), $graph->toScript());
