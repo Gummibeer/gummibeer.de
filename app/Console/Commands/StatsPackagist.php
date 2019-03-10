@@ -4,8 +4,8 @@ namespace App\Console\Commands;
 
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 use Spatie\Packagist\Packagist;
+use Illuminate\Support\Collection;
 
 class StatsPackagist extends Command
 {
@@ -35,16 +35,16 @@ class StatsPackagist extends Command
             'absolutehh/dotenv-manipulator',
         ]);
 
-        foreach($vendors as $vendor) {
+        foreach ($vendors as $vendor) {
             $packageNames = $packageNames->merge(array_get($packagist->getPackagesByVendor($vendor), 'packageNames', []));
         }
 
         $abandoned = [];
         $packages = collect();
-        foreach($packageNames->unique() as $packageName) {
+        foreach ($packageNames->unique() as $packageName) {
             $package = data_get($packagist->findPackageByName($packageName), 'package');
 
-            if(empty($package)) {
+            if (empty($package)) {
                 continue;
             }
 
@@ -53,8 +53,8 @@ class StatsPackagist extends Command
             $package['name'] = explode('/', $package['name'])[1];
             $package['title'] = title_case(str_replace('-', ' ', $package['name']));
 
-            if(!empty($package['abandoned'])) {
-                if(!isset($abandoned[$package['abandoned']])) {
+            if (! empty($package['abandoned'])) {
+                if (! isset($abandoned[$package['abandoned']])) {
                     $abandoned[$package['abandoned']] = [];
                 }
 
@@ -65,13 +65,13 @@ class StatsPackagist extends Command
             $packages->put($package['repo_name'], $package);
         }
 
-        foreach($abandoned as $parentName => $abandonedPackages) {
+        foreach ($abandoned as $parentName => $abandonedPackages) {
             $parentPackage = $packages->get($parentName, data_get($packagist->findPackageByName($parentName), 'package'));
-            if(empty($parentPackage)) {
+            if (empty($parentPackage)) {
                 continue;
             }
 
-            foreach($abandonedPackages as $abandonedPackage) {
+            foreach ($abandonedPackages as $abandonedPackage) {
                 $parentPackage['downloads']['total'] += $abandonedPackage['downloads']['total'];
                 $parentPackage['favers'] += $abandonedPackage['favers'];
             }
@@ -97,11 +97,12 @@ class StatsPackagist extends Command
 
     protected function filePath($file)
     {
-        $filepath = storage_path('app/stats/' . $file);
+        $filepath = storage_path('app/stats/'.$file);
         $filedir = dirname($filepath);
-        if (!is_dir($filedir)) {
+        if (! is_dir($filedir)) {
             mkdir($filedir, 0777, true);
         }
+
         return $filepath;
     }
 

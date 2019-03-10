@@ -18,12 +18,12 @@ class StatsStrava extends Command
 
     public function handle()
     {
-        $url = 'https://www.strava.com/api/v3/athletes/' . getenv('STRAVA_ID') . '/stats';
+        $url = 'https://www.strava.com/api/v3/athletes/'.getenv('STRAVA_ID').'/stats';
 
         $client = new Client();
         $response = $client->request('GET', $url, [
             'headers' => [
-                'Authorization' => 'Bearer ' . getenv('STRAVA_TOKEN'),
+                'Authorization' => 'Bearer '.getenv('STRAVA_TOKEN'),
             ],
         ]);
         if ($response->getStatusCode() == 200) {
@@ -42,11 +42,12 @@ class StatsStrava extends Command
 
     protected function filePath($file)
     {
-        $filepath = storage_path('app/stats/' . $file);
+        $filepath = storage_path('app/stats/'.$file);
         $filedir = dirname($filepath);
-        if (!is_dir($filedir)) {
+        if (! is_dir($filedir)) {
             mkdir($filedir, 0777, true);
         }
+
         return $filepath;
     }
 
