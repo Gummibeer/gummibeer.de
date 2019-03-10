@@ -10,7 +10,7 @@ if (! function_exists('asset')) {
 if (! function_exists('title')) {
     function title($title = '')
     {
-        return implode(' | ', array_filter([trim($title), 'Tom Witkowski']));
+        return implode(' | ', array_filter([trim($title), 'Tom Witkowski - Gummibeer']));
     }
 }
 
