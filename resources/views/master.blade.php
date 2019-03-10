@@ -72,7 +72,7 @@
                         </li>
                         <li>
                             <i class="icon far fa-envelope text-primary"></i>
-                            dev.gummibeer@gmail.com
+                            dev@gummibeer.de
                         </li>
                     </ul>
                 </div>
