@@ -149,8 +149,7 @@ class SchemaOrg extends Command
                             ->jobTitle('Head of Development')
                             ->email('bsp@even-on-sunday.com'),
                     ])
-                )
-        ;
+                );
 
         $graph
             ->hide(Country::class)
