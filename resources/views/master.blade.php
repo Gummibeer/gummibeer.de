@@ -96,7 +96,5 @@
 
 <script src="{{ asset('js/scripts.min.js') }}"></script>
 
-@include('partials.schemaorg')
-
 </body>
 </html>

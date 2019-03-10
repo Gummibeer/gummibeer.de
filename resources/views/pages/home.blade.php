@@ -33,4 +33,5 @@
     @foreach(['about', 'biking', 'resume', 'projects', 'games', 'pages', 'consulting', 'charity'] as $block)
         @include('pages.home.'.$block)
     @endforeach
+    @include('partials.schemaorg')
 @endsection
