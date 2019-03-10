@@ -110,7 +110,7 @@ class SchemaOrg extends Command
                             ->postalCode('49080')
                             ->streetAddress('Heinrichstraße 14c')
                     )
-                    ->url('https://even-on-sunday.com')
+                    ->url('https://www.even-on-sunday.com')
                     ->telephone('+4954198268610')
                     ->email('hello@even-on-sunday.com')
                     ->vatID('DE298290088')
