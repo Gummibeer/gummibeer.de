@@ -278,7 +278,7 @@ class StatsGithub extends Command
         file_put_contents($this->filePath('contributions.txt'), $this->data->pluck('commits.data')->flatten()->count() + $this->data->pluck('issues.data')->flatten()->count() + $this->data->pluck('comments.data')->flatten()->count());
     }
 
-    protected function request($path, array $parameters = [])
+    public function request($path, array $parameters = [])
     {
         if (! array_key_exists('per_page', $parameters)) {
             $parameters['per_page'] = 100;

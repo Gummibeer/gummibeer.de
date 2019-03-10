@@ -19,6 +19,32 @@ class SchemaOrg extends Command
     {
         $graph = new Graph();
 
+        /** @var StatsGithub $statsGithub */
+        $statsGithub = app(StatsGithub::class);
+        $response = $statsGithub->request('repos/Gummibeer/cv-resume');
+        $graph->website()
+            ->url(url('/'))
+            ->name(title())
+            ->provider($graph->person())
+            ->creator($graph->person())
+            ->accountablePerson($graph->person())
+            ->about($graph->person())
+            ->mainEntity($graph->person())
+            ->copyrightHolder($graph->person())
+            ->copyrightYear(2015)
+            ->dateCreated(Carbon::parse($response['created_at']))
+            ->datePublished(Carbon::parse($response['created_at']))
+            ->dateModified(Carbon::parse($response['updated_at']))
+            ->accessMode([
+                'textual',
+                'visual',
+            ])
+            ->accessModeSufficient('textual')
+            ->inLanguage(Schema::language()->name('English')->alternateName('en'))
+            ->isAccessibleForFree(true)
+            ->license('https://github.com/Gummibeer/cv-resume/blob/master/LICENSE')
+        ;
+
         $graph->country()->name('DE')->alternateName('Germany');
         $graph->postalAddress()
             ->addressCountry($graph->country())
@@ -64,7 +90,7 @@ class SchemaOrg extends Command
                     ->givenName('Sylvia')
                     ->familyName('Witkowski')
                     ->gender(GenderType::Female)
-                    ->birthDate(Carbon::create(1972, 6, 29, 0, 0, 0, '+01:00'))
+                    ->birthDate(Carbon::create(1972, 6, 29, 0, 0, 0, '+02:00'))
                     ->nationality($graph->country()),
                 Schema::person()
                     ->name('Kay Franke')
