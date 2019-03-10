@@ -129,27 +129,28 @@ class SchemaOrg extends Command
                             ->jobTitle('Managing Partner')
                             ->email('dpg@even-on-sunday.com'),
                     ])
-                ->employees([
-                    Schema::person()
-                        ->name('Carola Born')
-                        ->givenName('Carola')
-                        ->familyName('Born')
-                        ->jobTitle('Chief Creative Officer')
-                        ->email('cbo@even-on-sunday.com'),
-                    Schema::person()
-                        ->name('Ina Offermann')
-                        ->givenName('Ina')
-                        ->familyName('Offermann')
-                        ->jobTitle('Chief Product Officer')
-                        ->email('iof@even-on-sunday.com'),
-                    Schema::person()
-                        ->name('Benedikt Spellmeyer')
-                        ->givenName('Benedikt')
-                        ->familyName('Spellmeyer')
-                        ->jobTitle('Head of Development')
-                        ->email('bsp@even-on-sunday.com'),
-                ])
-            );
+                    ->employees([
+                        Schema::person()
+                            ->name('Carola Born')
+                            ->givenName('Carola')
+                            ->familyName('Born')
+                            ->jobTitle('Chief Creative Officer')
+                            ->email('cbo@even-on-sunday.com'),
+                        Schema::person()
+                            ->name('Ina Offermann')
+                            ->givenName('Ina')
+                            ->familyName('Offermann')
+                            ->jobTitle('Chief Product Officer')
+                            ->email('iof@even-on-sunday.com'),
+                        Schema::person()
+                            ->name('Benedikt Spellmeyer')
+                            ->givenName('Benedikt')
+                            ->familyName('Spellmeyer')
+                            ->jobTitle('Head of Development')
+                            ->email('bsp@even-on-sunday.com'),
+                    ])
+                )
+        ;
 
         $graph
             ->hide(Country::class)
