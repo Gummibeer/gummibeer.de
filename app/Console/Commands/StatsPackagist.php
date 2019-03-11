@@ -30,6 +30,7 @@ class StatsPackagist extends Command
         $packageNames = collect([
             'spatie/laravel-activitylog',
             'spatie/schema-org',
+            'spatie/laravel-csp',
             'dimsav/laravel-translatable',
             'fenos/notifynder',
             'absolutehh/dotenv-manipulator',
