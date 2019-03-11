@@ -72,6 +72,20 @@ ul.timeline {
             display: block;
             text-transform: uppercase;
         }
+        
+        a {
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            text-underline-position: under;
+            color: @color-white;
+            font-weight: 300;
+            font-size: 87.5%;
+
+            &:hover {
+                text-decoration-style: solid;
+                color: @color-white;
+            }
+        }
 
         &:not(.active) {
             color: @color-white;
