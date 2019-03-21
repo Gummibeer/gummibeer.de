@@ -28,6 +28,7 @@ class StatsPackagist extends Command
             'curlyspoon',
         ];
         $packageNames = collect([
+            'spatie/enum',
             'spatie/laravel-activitylog',
             'spatie/schema-org',
             'spatie/laravel-csp',
