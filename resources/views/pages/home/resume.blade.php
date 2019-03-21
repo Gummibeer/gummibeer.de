@@ -21,7 +21,14 @@
             </h3>
             <strong>Open Source Developer</strong>
             <time>2015 - now</time>
-            <a href="https://spatie.be" target="_blank" rel="noopener noreferrer">https://spatie.be</a>
+            <ul class="list-inline margin-0">
+                <li class="margin-0">
+                    <a href="https://spatie.be" target="_blank" rel="noopener noreferrer">https://spatie.be</a>
+                </li>
+                <li class="margin-0">
+                    <a href="https://10million.spatie.be/Gummibeer" target="_blank" rel="noopener noreferrer">https://10million.spatie.be/Gummibeer</a>
+                </li>
+            </ul>
         </li>
         <li class="active">
             <h3>
