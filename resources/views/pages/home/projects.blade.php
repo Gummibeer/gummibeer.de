@@ -3,6 +3,34 @@
         <h3>What I do</h3>
         <h2 title="Projects">Projects</h2>
     </div>
+    <div class="well">
+        <div class="row">
+            <div class="col-sm-3 col-xs-6 text-center">
+                <span data-toggle="tooltip" data-title="Downloads">
+                    <i class="icon far fa-download text-muted margin-right-3"></i>
+                    {{ number_format(collect($packages)->sum('downloads.total'), 0, '', '.') }}
+                </span>
+            </div>
+            <div class="col-sm-3 col-xs-6 text-center">
+                <span data-toggle="tooltip" data-title="Stars">
+                    <i class="icon far fa-star text-muted margin-right-3"></i>
+                    {{ number_format(collect($packages)->sum('favers'), 0, '', '.') }}
+                </span>
+            </div>
+            <div class="col-sm-3 col-xs-6 text-center">
+                <span data-toggle="tooltip" data-title="Watchers">
+                    <i class="icon far fa-eye text-muted margin-right-3"></i>
+                    {{ number_format(collect($packages)->sum('github_watchers'), 0, '', '.') }}
+                </span>
+            </div>
+            <div class="col-sm-3 col-xs-6 text-center">
+                <span data-toggle="tooltip" data-title="Dependents">
+                    <i class="icon far fa-link text-muted margin-right-3"></i>
+                    {{ number_format(collect($packages)->sum('dependents'), 0, '', '.') }}
+                </span>
+            </div>
+        </div>
+    </div>
     <div class="row masonry-container">
         @foreach(collect($packages)->sortByDesc('downloads.total')->values() as $package)
         <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
