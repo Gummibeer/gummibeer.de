@@ -29,6 +29,7 @@ class StatsPackagist extends Command
         ];
         $packageNames = collect([
             'spatie/enum',
+            'spatie/emoji',
             'spatie/laravel-activitylog',
             'spatie/schema-org',
             'spatie/laravel-csp',
