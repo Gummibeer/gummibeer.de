@@ -74,7 +74,7 @@ class StatsPackagist extends Command
                 continue;
             }
 
-            if (!array_key_exists('repo_name', $parentPackage)) {
+            if (! array_key_exists('repo_name', $parentPackage)) {
                 $parentPackage['repo_name'] = $parentPackage['name'];
                 $parentPackage['vendor'] = explode('/', $parentPackage['repo_name'])[0];
                 $parentPackage['name'] = explode('/', $parentPackage['repo_name'])[1];
