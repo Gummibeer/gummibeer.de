@@ -102,7 +102,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    Online-Strategy, Testing, Debugging
+                    Online-Strategy, Testing, Debugging, Development
                 </div>
                 <div class="panel-footer">
                     <div class="row">
@@ -205,6 +205,9 @@
                         <i class="icon far fa-rainbow pull-right"></i>
                     </h3>
                 </div>
+                <div class="panel-body">
+                    Hosting, Development
+                </div>
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
@@ -219,6 +222,39 @@
                         </div>
                         <div class="col-xs-4 text-center">
                             <a href="https://instagram.com/aufstehen_gegen_rassismus_hh" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fab fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/aromagran.jpg') }}" class="img-responsive" />
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Aromagran
+                        <i class="icon far fa-tint pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    Hosting, Online-Strategy
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-4 text-center">
+                            <a href="https://aromagran.de" target="_blank" rel="noopener noreferrer">
+                                <i class="icon far fa-globe fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://facebook.com/aromagran" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fab fa-facebook fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://instagram.com/aromagran" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fab fa-instagram fa-2x"></i>
                             </a>
                         </div>
