@@ -244,7 +244,7 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
-                            <a href="https://aromagran.de" target="_blank" rel="noopener noreferrer">
+                            <a href="http://aromagran.de" target="_blank" rel="noopener noreferrer">
                                 <i class="icon far fa-globe fa-2x"></i>
                             </a>
                         </div>
