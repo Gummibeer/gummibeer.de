@@ -7,6 +7,15 @@
     <ul class="timeline">
         <li class="active">
             <h3>
+                <i class="icon far fa-briefcase"></i>
+                Even on Sunday
+            </h3>
+            <strong>Backend Developer</strong>
+            <time>2017 - now</time>
+            <a href="https://www.even-on-sunday.com" target="_blank" rel="noopener noreferrer">https://www.even-on-sunday.com</a>
+        </li>
+        <li class="active">
+            <h3>
                 <i class="icon far fa-space-shuttle"></i>
                 Astrotomic
             </h3>
@@ -29,15 +38,6 @@
                     <a href="https://10million.spatie.be/Gummibeer" target="_blank" rel="noopener noreferrer">https://10million.spatie.be/Gummibeer</a>
                 </li>
             </ul>
-        </li>
-        <li class="active">
-            <h3>
-                <i class="icon far fa-briefcase"></i>
-                Even on Sunday
-            </h3>
-            <strong>Backend Developer</strong>
-            <time>2017 - now</time>
-            <a href="https://www.even-on-sunday.com" target="_blank" rel="noopener noreferrer">https://www.even-on-sunday.com</a>
         </li>
         <li>
             <h3>
