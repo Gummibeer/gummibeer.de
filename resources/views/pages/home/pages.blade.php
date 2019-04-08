@@ -71,39 +71,6 @@
         </div>
         <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
-                <img src="{{ asset('img/banner/tentangli.jpg') }}" class="img-responsive" />
-                <div class="panel-heading">
-                    <h3 class="panel-title clearfix">
-                        Tentangli
-                        <i class="icon far fa-pencil pull-right"></i>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    Online art shop selling creative colouring pictures.
-                </div>
-                <div class="panel-footer">
-                    <div class="row">
-                        <div class="col-xs-4 text-center">
-                            <a href="http://tentangli.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon far fa-globe fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="col-xs-4 text-center">
-                            <a href="https://facebook.com/tentangli" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fab fa-facebook fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="col-xs-4 text-center">
-                            <a href="https://instagram.com/tentangli" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fab fa-instagram fa-2x"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
-            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Pandorya Photography
@@ -122,39 +89,6 @@
                         </div>
                         <div class="col-xs-6 text-center">
                             <a href="https://instagram.com/pandorya.photo" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fab fa-instagram fa-2x"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
-            <div class="panel panel-primary">
-                <img src="{{ asset('img/banner/maximko.jpg') }}" class="img-responsive" />
-                <div class="panel-heading">
-                    <h3 class="panel-title clearfix">
-                        Maximko
-                        <i class="icon far fa-paint-brush pull-right"></i>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    German Freelance Artist online portfolio - Illustrations, Concept Art and Art classes.
-                </div>
-                <div class="panel-footer">
-                    <div class="row">
-                        <div class="col-xs-4 text-center">
-                            <a href="http://maximko.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon far fa-globe fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="col-xs-4 text-center">
-                            <a href="https://facebook.com/maximkoart" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fab fa-facebook fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="col-xs-4 text-center">
-                            <a href="https://instagram.com/maximkoart" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fab fa-instagram fa-2x"></i>
                             </a>
                         </div>
@@ -270,6 +204,53 @@
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-default">
+                <img src="{{ asset('img/banner/maximko.jpg') }}" class="img-responsive" />
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Maximko
+                        <i class="icon far fa-paint-brush pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    German Freelance Artist online portfolio - Illustrations, Concept Art and Art classes.
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-4 text-center">
+                            <a href="http://maximko.de" target="_blank" rel="noopener noreferrer">
+                                <i class="icon far fa-globe fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://facebook.com/maximkoart" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fab fa-facebook fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="https://instagram.com/maximkoart" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fab fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-default">
+                <img src="{{ asset('img/banner/tentangli.jpg') }}" class="img-responsive" />
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Tentangli
+                        <i class="icon far fa-pencil pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    Online art shop selling creative colouring pictures.
                 </div>
             </div>
         </div>
