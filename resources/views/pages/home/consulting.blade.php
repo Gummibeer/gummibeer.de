@@ -262,5 +262,28 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/kategorie1.jpg') }}" class="img-responsive" />
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Kategorie 1 - Leben mit Listenhund
+                        <i class="icon far fa-dog pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    Graphic-Design
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <a href="https://facebook.com/Kategorie1.LebenmitListenhund" target="_blank" rel="noopener noreferrer">
+                                <i class="icon fab fa-facebook fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
