@@ -31,6 +31,7 @@ class StatsPackagist extends Command
             'spatie/enum',
             'spatie/emoji',
             'spatie/laravel-activitylog',
+            'spatie/laravel-enum',
             'spatie/schema-org',
             'spatie/laravel-csp',
             'dimsav/laravel-translatable',
