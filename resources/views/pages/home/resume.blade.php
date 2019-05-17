@@ -29,7 +29,7 @@
                 Spatie
             </h3>
             <strong>Open Source Developer</strong>
-            <time>2015 - now</time>
+            <time>2016 - now</time>
             <ul class="list-inline margin-0">
                 <li class="margin-0">
                     <a href="https://spatie.be" target="_blank" rel="noopener noreferrer">https://spatie.be</a>
