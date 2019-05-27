@@ -17,14 +17,9 @@
                 </div>
                 <div class="panel-footer">
                     <div class="row">
-                        <div class="col-xs-6 text-center">
+                        <div class="col-xs-12 text-center">
                             <a href="http://shootager.de" target="_blank" rel="noopener noreferrer">
                                 <i class="icon far fa-globe fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="col-xs-6 text-center">
-                            <a href="https://github.com/Gummibeer/shootager" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fab fa-github fa-2x"></i>
                             </a>
                         </div>
                     </div>
