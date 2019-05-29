@@ -44,7 +44,11 @@
                     {{ $package['description'] }}
                 </div>
                 @endif
-                <div class="panel-footer">
+                <div class="panel-footer padding-vertical-10">
+                    <i class="icon fab fa-github text-muted margin-right-3"></i>
+                    {{ ucfirst($package['role']) }}
+                </div>
+                <div class="panel-footer padding-vertical-10">
                     <ul class="list-inline margin-0">
                         <li class="margin-0">
                             <strong class="text-muted">{{ $package['language'] }}</strong>

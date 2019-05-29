@@ -9,6 +9,11 @@ use Illuminate\Support\Collection;
 
 class StatsPackagist extends Command
 {
+    const ROLE_OWNER = 'owner';
+    const ROLE_MEMBER = 'member';
+    const ROLE_COLLABORATOR = 'collaborator';
+    const ROLE_CONTRIBUTOR = 'contributor';
+
     protected $name = 'stats:packagist';
     protected $description = 'Load packagist statistics.';
 
@@ -23,29 +28,33 @@ class StatsPackagist extends Command
         $packagist = new Packagist($client);
 
         $vendors = [
-            'gummibeer',
-            'astrotomic',
-            'curlyspoon',
+            'gummibeer' => self::ROLE_OWNER,
+            'astrotomic' => self::ROLE_MEMBER,
+            'curlyspoon' => self::ROLE_MEMBER,
         ];
         $packageNames = collect([
-            'spatie/enum',
-            'spatie/emoji',
-            'spatie/laravel-activitylog',
-            'spatie/laravel-enum',
-            'spatie/schema-org',
-            'spatie/laravel-csp',
-            'dimsav/laravel-translatable',
-            'fenos/notifynder',
-            'absolutehh/dotenv-manipulator',
+            'spatie/enum' => self::ROLE_COLLABORATOR,
+            'spatie/emoji' => self::ROLE_CONTRIBUTOR,
+            'spatie/laravel-activitylog' => self::ROLE_COLLABORATOR,
+            'spatie/laravel-enum' => self::ROLE_COLLABORATOR,
+            'spatie/schema-org' => self::ROLE_COLLABORATOR,
+            'spatie/laravel-csp' => self::ROLE_CONTRIBUTOR,
+            'dimsav/laravel-translatable' => self::ROLE_COLLABORATOR,
+            'fenos/notifynder' => self::ROLE_COLLABORATOR,
+            'absolutehh/dotenv-manipulator' => self::ROLE_CONTRIBUTOR,
         ]);
 
-        foreach ($vendors as $vendor) {
-            $packageNames = $packageNames->merge(array_get($packagist->getPackagesByVendor($vendor), 'packageNames', []));
+        foreach ($vendors as $vendor => $role) {
+            $vendorPackageNames = collect(array_get($packagist->getPackagesByVendor($vendor), 'packageNames', []))->flip()->map(function() use ($role) {
+                return $role;
+            });
+
+            $packageNames = $packageNames->merge($vendorPackageNames);
         }
 
         $abandoned = [];
         $packages = collect();
-        foreach ($packageNames->unique() as $packageName) {
+        foreach ($packageNames as $packageName => $role) {
             $package = data_get($packagist->findPackageByName($packageName), 'package');
 
             if (empty($package)) {
@@ -57,6 +66,7 @@ class StatsPackagist extends Command
             $package['name'] = explode('/', $package['name'])[1];
             $package['title'] = title_case(str_replace('-', ' ', $package['name']));
             $package['abandoned'] = $package['abandoned'] ?? null;
+            $package['role'] = $role;
 
             if (! empty($package['abandoned'])) {
                 if (! isset($abandoned[$package['abandoned']])) {
@@ -86,6 +96,7 @@ class StatsPackagist extends Command
                 $parentPackage['vendor'] = explode('/', $parentPackage['repo_name'])[0];
                 $parentPackage['name'] = explode('/', $parentPackage['repo_name'])[1];
                 $parentPackage['title'] = title_case(str_replace('-', ' ', $parentPackage['name']));
+                $parentPackage['role'] = self::ROLE_CONTRIBUTOR;
             }
 
             foreach ($abandonedPackages as $abandonedPackage) {
