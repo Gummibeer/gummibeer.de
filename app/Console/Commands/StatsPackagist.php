@@ -56,6 +56,7 @@ class StatsPackagist extends Command
             $package['vendor'] = explode('/', $package['name'])[0];
             $package['name'] = explode('/', $package['name'])[1];
             $package['title'] = title_case(str_replace('-', ' ', $package['name']));
+            $package['abandoned'] = $package['abandoned'] ?? null;
 
             if (! empty($package['abandoned'])) {
                 if (! isset($abandoned[$package['abandoned']])) {
@@ -70,10 +71,15 @@ class StatsPackagist extends Command
         }
 
         foreach ($abandoned as $parentName => $abandonedPackages) {
-            $parentPackage = $packages->get($parentName, data_get($packagist->findPackageByName($parentName), 'package'));
-            if (empty($parentPackage)) {
-                continue;
-            }
+            do {
+                $parentPackage = $packages->get($parentName, data_get($packagist->findPackageByName($parentName), 'package'));
+                $parentPackage['abandoned'] = $parentPackage['abandoned'] ?? null;
+                $parentName = $parentPackage['abandoned'] ?: $parentName;
+
+                if (empty($parentPackage)) {
+                    continue(2);
+                }
+            } while($parentPackage['abandoned']);
 
             if (! array_key_exists('repo_name', $parentPackage)) {
                 $parentPackage['repo_name'] = $parentPackage['name'];
