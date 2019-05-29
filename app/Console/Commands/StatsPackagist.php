@@ -29,8 +29,8 @@ class StatsPackagist extends Command
 
         $vendors = [
             'gummibeer' => self::ROLE_OWNER,
-            'astrotomic' => self::ROLE_MEMBER,
-            'curlyspoon' => self::ROLE_MEMBER,
+            'astrotomic' => self::ROLE_OWNER,
+            'curlyspoon' => self::ROLE_OWNER,
         ];
         $packageNames = collect([
             'spatie/enum' => self::ROLE_COLLABORATOR,
