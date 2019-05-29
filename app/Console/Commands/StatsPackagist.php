@@ -45,7 +45,7 @@ class StatsPackagist extends Command
         ]);
 
         foreach ($vendors as $vendor => $role) {
-            $vendorPackageNames = collect(array_get($packagist->getPackagesByVendor($vendor), 'packageNames', []))->flip()->map(function() use ($role) {
+            $vendorPackageNames = collect(array_get($packagist->getPackagesByVendor($vendor), 'packageNames', []))->flip()->map(function () use ($role) {
                 return $role;
             });
 
@@ -87,9 +87,9 @@ class StatsPackagist extends Command
                 $parentName = $parentPackage['abandoned'] ?: $parentName;
 
                 if (empty($parentPackage)) {
-                    continue(2);
+                    continue 2;
                 }
-            } while($parentPackage['abandoned']);
+            } while ($parentPackage['abandoned']);
 
             if (! array_key_exists('repo_name', $parentPackage)) {
                 $parentPackage['repo_name'] = $parentPackage['name'];
