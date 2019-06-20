@@ -19,7 +19,7 @@
                 <i class="icon far fa-space-shuttle"></i>
                 Astrotomic
             </h3>
-            <strong>Founder & Developer</strong>
+            <strong>Founder & Open Source Developer</strong>
             <time>2016 - now</time>
             <a href="https://github.com/Astrotomic" target="_blank" rel="noopener noreferrer">https://github.com/Astrotomic</a>
         </li>
