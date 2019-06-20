@@ -74,7 +74,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    Online-Strategy
+                    Online-Strategy, Development
                 </div>
                 <div class="panel-footer">
                     <div class="row">
@@ -279,6 +279,34 @@
                         <div class="col-xs-12 text-center">
                             <a href="https://facebook.com/Kategorie1.LebenmitListenhund" target="_blank" rel="noopener noreferrer">
                                 <i class="icon fab fa-facebook fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
+            <div class="panel panel-primary">
+                <img src="{{ asset('img/banner/janine_pantzek.jpg') }}" class="img-responsive" />
+                <div class="panel-heading">
+                    <h3 class="panel-title clearfix">
+                        Dr. med. Janine Pantzek
+                        <i class="icon far fa-medkit pull-right"></i>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    Online-Strategy, Development
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <a href="https://janine-pantzek.de" target="_blank" rel="noopener noreferrer">
+                                <i class="icon far fa-globe fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <a href="https://google.com/maps?cid=8583081260335926423" target="_blank" rel="noopener noreferrer">
+                                <i class="icon far fa-map-marker fa-2x"></i>
                             </a>
                         </div>
                     </div>
