@@ -17,7 +17,7 @@
                 <br/>
                 I'm a mid-twenty enthusiastic web developer and free time gamer from Hamburg, Germany. My core programming language is PHP but also JavaScript and a bit C# and Java.
                 <br/>
-                I've developed some <a class="smooth" href="#projects">packages</a> for Laravel/Lumen and host some WordPress, Symfony2 and Laravel pages.
+                I've developed some <a class="smooth" href="#projects">packages</a> for Laravel/Lumen and host some <del>WordPress</del>, <del>Symfony2</del>, Lumen and Laravel pages.
             </p>
         </div>
         <div class="col-xs-12">
