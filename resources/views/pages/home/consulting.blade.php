@@ -318,7 +318,7 @@
                 <img src="{{ asset('img/banner/tierphysiotherapie-hamburg.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
-                        Tierphysiotherapie Maj-Britt Thiesen
+                        Tierphysiotherapie Hamburg
                         <i class="icon far fa-dog pull-right"></i>
                     </h3>
                 </div>
