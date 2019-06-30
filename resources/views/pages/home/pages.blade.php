@@ -232,7 +232,7 @@
         </div>
         <div class="col-sm-6 col-md-4 col-xs-12 masonry-item">
             <div class="panel panel-primary">
-                <img src="{{ asset('img/banner/aufstehen_gegen_rassismus.jpg') }}" class="img-responsive" />
+                <img src="{{ asset('img/banner/aufstehen-gegen-rassismus.jpg') }}" class="img-responsive" />
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         Aufstehen gegen Rassismus
