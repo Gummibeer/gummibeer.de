@@ -22,7 +22,7 @@
         </div>
         <div class="col-xs-12">
             <p>
-                In my free time I try to create simple <a class="smooth" href="#games">games</a> with JavaScript or Unity3D and join the GameJams at InnoGames in Hamburg. I'm also interested in mountain biking and train for a triathlon.
+                In my free time I try to create simple <a class="smooth" href="#games">games</a> with JavaScript or Unity3D and join the GameJams at InnoGames in Hamburg. I'm also interested in mountain biking and long distance rides.
             </p>
 
             <div class="row">
