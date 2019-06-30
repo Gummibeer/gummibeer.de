@@ -329,7 +329,7 @@
                     <div class="row">
                         <div class="col-xs-6 text-center">
                             <a href="http://tierphysiohh.de" target="_blank" rel="noopener noreferrer">
-                                <i class="icon fab fa-globe fa-2x"></i>
+                                <i class="icon far fa-globe fa-2x"></i>
                             </a>
                         </div>
                         <div class="col-xs-6 text-center">
