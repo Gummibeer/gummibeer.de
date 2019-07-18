@@ -99,11 +99,11 @@ class StatsGithub extends Command
                             'updated_at' => $this->now(),
                             'data' => array_unique(array_merge($repo['comments']['data'], array_column($comments, 'id'))),
                         ];
+                        $repo['updated_at'] = $this->now();
+                        $page++;
                     } catch (GithubRuntimeException $ex) {
                         $comments = [];
                     }
-                    $repo['updated_at'] = $this->now();
-                    $page++;
                 } while (count($comments) > 0);
                 $bar->advance();
             }
@@ -127,19 +127,23 @@ class StatsGithub extends Command
             foreach ($repo['branches']['data'] as $branch) {
                 $page = 1;
                 do {
-                    $commits = $this->request('repos/'.rawurlencode($repo['data']['owner']).'/'.rawurlencode($repo['data']['repo']).'/commits', [
-                        'sha' => $branch,
-                        'author' => getenv('GH_USER'),
-                        'since' => (new Carbon(date('Y-m-d H:i:s', 0), 'UTC'))->toIso8601String(),
-                        'until' => Carbon::now('UTC')->toIso8601String(),
-                        'page' => $page,
-                    ]);
-                    $repo['commits'] = [
-                        'updated_at' => $this->now(),
-                        'data' => array_unique(array_merge($repo['commits']['data'], array_column($commits, 'sha'))),
-                    ];
-                    $repo['updated_at'] = $this->now();
-                    $page++;
+                    try {
+                        $commits = $this->request('repos/' . rawurlencode($repo['data']['owner']) . '/' . rawurlencode($repo['data']['repo']) . '/commits', [
+                            'sha' => $branch,
+                            'author' => getenv('GH_USER'),
+                            'since' => (new Carbon(date('Y-m-d H:i:s', 0), 'UTC'))->toIso8601String(),
+                            'until' => Carbon::now('UTC')->toIso8601String(),
+                            'page' => $page,
+                        ]);
+                        $repo['commits'] = [
+                            'updated_at' => $this->now(),
+                            'data' => array_unique(array_merge($repo['commits']['data'], array_column($commits, 'sha'))),
+                        ];
+                        $repo['updated_at'] = $this->now();
+                        $page++;
+                    } catch (GithubRuntimeException $ex) {
+                        $commits = [];
+                    }
                 } while (count($commits) > 0);
                 $bar->advance();
             }
