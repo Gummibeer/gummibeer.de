@@ -13,6 +13,10 @@
             <strong>Backend Developer</strong>
             <time>2017 - now</time>
             <a href="https://www.even-on-sunday.com" target="_blank" rel="noopener noreferrer">https://www.even-on-sunday.com</a>
+            <ul class="list-inline margin-vertical-0">
+                <li class="margin-vertical-0"><span class="label label-dark">Symfony</span></li>
+                <li class="margin-vertical-0"><span class="label label-dark">Lumen</span></li>
+            </ul>
         </li>
         <li class="active">
             <h3>
@@ -22,6 +26,9 @@
             <strong>Founder & Open Source Developer</strong>
             <time>2016 - now</time>
             <a href="https://github.com/Astrotomic" target="_blank" rel="noopener noreferrer">https://github.com/Astrotomic</a>
+            <ul class="list-inline margin-vertical-0">
+                <li class="margin-vertical-0"><span class="label label-dark">Laravel</span></li>
+            </ul>
         </li>
         <li class="active">
             <h3>
@@ -30,13 +37,16 @@
             </h3>
             <strong>Open Source Developer</strong>
             <time>2016 - now</time>
-            <ul class="list-inline margin-0">
-                <li class="margin-0">
+            <ul class="list-inline margin-vertical-0">
+                <li class="margin-vertical-0">
                     <a href="https://spatie.be" target="_blank" rel="noopener noreferrer">https://spatie.be</a>
                 </li>
-                <li class="margin-0">
+                <li class="margin-vertical-0">
                     <a href="https://10million.spatie.be/Gummibeer" target="_blank" rel="noopener noreferrer">https://10million.spatie.be/Gummibeer</a>
                 </li>
+            </ul>
+            <ul class="list-inline margin-vertical-0">
+                <li class="margin-vertical-0"><span class="label label-dark">Laravel</span></li>
             </ul>
         </li>
         <li>
@@ -47,6 +57,10 @@
             <strong>Junior Software Developer</strong>
             <time>2015 - 2017</time>
             <a href="https://absolute.de" target="_blank" rel="noopener noreferrer">https://absolute.de</a>
+            <ul class="list-inline margin-vertical-0">
+                <li class="margin-vertical-0"><span class="label label-dark">Laravel</span></li>
+                <li class="margin-vertical-0"><span class="label label-dark">Lumen</span></li>
+            </ul>
         </li>
         <li>
             <h3>
@@ -56,6 +70,10 @@
             <strong>Training: Software Developer</strong>
             <time>2013 - 2015</time>
             <a href="https://medienwerft.de" target="_blank" rel="noopener noreferrer">https://medienwerft.de</a>
+            <ul class="list-inline margin-vertical-0">
+                <li class="margin-vertical-0"><span class="label label-dark">TYPO 3</span></li>
+                <li class="margin-vertical-0"><span class="label label-dark">WordPress</span></li>
+            </ul>
         </li>
         <li class="unimportant">
             <h3>
