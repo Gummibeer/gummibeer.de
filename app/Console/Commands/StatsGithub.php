@@ -128,7 +128,7 @@ class StatsGithub extends Command
                 $page = 1;
                 do {
                     try {
-                        $commits = $this->request('repos/' . rawurlencode($repo['data']['owner']) . '/' . rawurlencode($repo['data']['repo']) . '/commits', [
+                        $commits = $this->request('repos/'.rawurlencode($repo['data']['owner']).'/'.rawurlencode($repo['data']['repo']).'/commits', [
                             'sha' => $branch,
                             'author' => getenv('GH_USER'),
                             'since' => (new Carbon(date('Y-m-d H:i:s', 0), 'UTC'))->toIso8601String(),
