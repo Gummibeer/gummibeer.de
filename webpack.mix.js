@@ -1,6 +1,6 @@
 let mix = require('laravel-mix');
 require('laravel-mix-sri');
-const GoogleFontsPlugin = require('google-fonts-webpack-plugin')
+const GoogleFontsPlugin = require('google-fonts-webpack-plugin');
 
 mix
     .less('resources/assets/less/styles.less', 'public/css/styles.min.css')
