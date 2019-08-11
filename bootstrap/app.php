@@ -3,7 +3,7 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 try {
-    (new Dotenv\Dotenv(__DIR__.'/../'))->load();
+    Dotenv\Dotenv::create(__DIR__.'/../')->load();
 } catch (Dotenv\Exception\InvalidPathException $e) {
     //
 }
@@ -26,7 +26,7 @@ $app->singleton(
 
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
 
-$app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
+$app->router->group([], function (Laravel\Lumen\Routing\Router $router) {
     require __DIR__.'/../routes/web.php';
 });
 

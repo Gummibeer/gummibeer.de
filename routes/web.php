@@ -1,6 +1,8 @@
 <?php
 
-$app->get('/', function () use ($app) {
+/** @var \Laravel\Lumen\Routing\Router $router */
+
+$router->get('/', function () {
     return view('pages.home')->with([
         'contribute' => file_get_contents(storage_path('app/stats/contributions.txt')),
         'playtime' => file_get_contents(storage_path('app/stats/playtime.txt')),
@@ -13,19 +15,19 @@ $app->get('/', function () use ($app) {
     ]);
 });
 
-$app->get('imprint', function () use ($app) {
+$router->get('imprint', function () {
     return view('pages.imprint')->with([
         'title' => title('Imprint'),
     ]);
 });
 
-$app->get('privacy', function () use ($app) {
+$router->get('privacy', function () {
     return view('pages.privacy')->with([
         'title' => title('Privacy'),
     ]);
 });
 
-$app->get('privacy-app', function () use ($app) {
+$router->get('privacy-app', function () {
     return view('pages.privacy_app')->with([
         'title' => title('App Privacy'),
     ]);
