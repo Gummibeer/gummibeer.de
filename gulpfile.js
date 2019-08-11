@@ -18,7 +18,7 @@ function task_less() {
 }
 
 function task_fonts() {
-    return gulp.src(['./node_modules/@fortawesome/fontawesome-pro-webfonts/webfonts/**/*'])
+    return gulp.src(['./node_modules/@fortawesome/fontawesome-pro/webfonts/**/*'])
         .pipe(gulp.dest('public/fonts'));
 }
 
