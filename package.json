@@ -1,13 +1,32 @@
 {
   "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
   "devDependencies": {
-    "@fortawesome/fontawesome-pro": "^5.7.2",
-    "gulp": "^4.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-cssmin": "^0.1.7",
-    "gulp-google-webfonts": "^1.1.1",
-    "gulp-less": "^3.3.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "^2.2.0"
+    "@fortawesome/fontawesome-pro": "^5.10",
+    "bootstrap": "^3.3.5",
+    "chalk": "^2.4.1",
+    "cross-env": "^5.1",
+    "google-fonts-webpack-plugin": "^0.4.4",
+    "jquery": "^3.3.1",
+    "laravel-mix": "^2.0",
+    "laravel-mix-sri": "^0.0.3",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "node-dir": "^0.1.17",
+    "node-fetch": "^2.1.2",
+    "popper.js": "^1.14.3",
+    "standard": "^10.0",
+    "strip-comments": "^1.0.2",
+    "strip-css-comments": "^3.0.0",
+    "uglify-js": "^3.4.2",
+    "uglifycss": "^0.0.29"
   }
 }
