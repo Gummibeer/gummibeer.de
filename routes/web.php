@@ -1,7 +1,6 @@
 <?php
 
 /** @var \Laravel\Lumen\Routing\Router $router */
-
 $router->get('/', function () {
     return view('pages.home')->with([
         'contribute' => file_get_contents(storage_path('app/stats/contributions.txt')),
