@@ -3,3 +3,4 @@
 /.env
 /.version
 /.npmrc
+/public/mix-manifest.json
