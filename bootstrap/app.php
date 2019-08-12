@@ -12,6 +12,8 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
+$app->withFacades();
+
 $app->configure('database');
 
 $app->singleton(
@@ -25,6 +27,8 @@ $app->singleton(
 );
 
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
+$app->register(Spatie\BladeX\BladeXServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
 
 $app->router->group([], function (Laravel\Lumen\Routing\Router $router) {
     require __DIR__.'/../routes/web.php';
