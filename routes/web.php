@@ -32,3 +32,9 @@ $router->get('privacy-app', function () {
         'title' => title('App Privacy'),
     ]);
 });
+
+$router->get('slides/{slide}', function (string $slide) {
+    return view('slides.'.\Illuminate\Support\Str::slug($slide, '_'))->with([
+        'title' => title(str_replace('-', ' ', $slide).' | Slides'),
+    ]);
+});
