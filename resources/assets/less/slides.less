@@ -1,0 +1,99 @@
+@import "~@fortawesome/fontawesome-pro/less/light";
+@import "~@fortawesome/fontawesome-pro/less/regular";
+@import "~@fortawesome/fontawesome-pro/less/solid";
+@import "~@fortawesome/fontawesome-pro/less/duotone";
+@import "~@fortawesome/fontawesome-pro/less/brands";
+@import "~@fortawesome/fontawesome-pro/less/fontawesome";
+
+@import "bootstrap";
+
+@import "slides/deck.core.min.css";
+@import "slides/horizontal-slide.min.css";
+
+@import "vars/vars";
+@import "mixins/mixins";
+@import "helpers/helpers";
+@import "theme/colors";
+@import "theme/content";
+
+html,
+body {
+  font-size: @font-size-base * 1.25;
+}
+
+#content.deck-container {
+  #deck-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    display: flex;
+    flex-direction: row;
+    background: @color-grey-500;
+    z-index: 9999;
+
+    .bar {
+      height: 100%;
+      width: 100%;
+      transition: background-color 0.5s linear;
+
+      &.done {
+        background: @color-primary-500;
+      }
+
+      &.current {
+        background: @color-primary-500;
+      }
+    }
+  }
+
+  .slide.section {
+    position: absolute;
+
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    min-width: 100vw;
+    width: 100vw;
+    max-width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+
+    &:not([class*="deck-"]) {
+      display: none;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &.split-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    > .hgroup {
+      margin: 0 0 45px;
+    }
+
+    > .content {
+      flex-grow: 1;
+
+      .fa-ul {
+        margin-left: 2em;
+
+        > li:not(:last-child) {
+          margin-bottom: 0.75rem;
+        }
+      }
+    }
+
+    .fad {
+      --fa-primary-color: @color-grey-800;
+      --fa-secondary-color: @color-grey-500;
+    }
+  }
+}
