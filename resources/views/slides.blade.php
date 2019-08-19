@@ -31,7 +31,9 @@
 <body id="content" class="deck-container">
 <div id="deck-progress"></div>
 
+@include('slides.partials.about')
 @yield('content')
+@include('slides.partials.end')
 
 <script src="{{ asset('js/slides.min.js') }}"></script>
 </body>
