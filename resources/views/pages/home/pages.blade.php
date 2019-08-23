@@ -239,9 +239,6 @@
                         <i class="icon far fa-rainbow pull-right"></i>
                     </h3>
                 </div>
-                <div class="panel-body">
-                    Hosting, Development
-                </div>
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center">
@@ -273,7 +270,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    Hosting, Development
+                    German designer.
                 </div>
                 <div class="panel-footer">
                     <div class="row">
