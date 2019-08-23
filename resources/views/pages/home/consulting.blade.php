@@ -347,7 +347,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title clearfix">
                         The Niche Traveller
-                        <i class="icon far fa-dog pull-right"></i>
+                        <i class="icon far fa-paper-plane pull-right"></i>
                     </h3>
                 </div>
                 <div class="panel-body">
