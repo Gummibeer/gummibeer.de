@@ -77,7 +77,7 @@
         </li>
         <li class="unimportant">
             <h3>
-                <i class="icon far fa-calendar-alt"></i>
+                <i class="icon far fa-jack-o-lantern"></i>
                 Hacktoberfest 2019
             </h3>
             <strong>Open Source Developer & Maintainer</strong>
@@ -91,7 +91,7 @@
         </li>
         <li class="unimportant">
             <h3>
-                <i class="icon far fa-calendar-alt"></i>
+                <i class="icon far fa-jack-o-lantern"></i>
                 Hacktoberfest 2018
             </h3>
             <strong>Open Source Developer</strong>
