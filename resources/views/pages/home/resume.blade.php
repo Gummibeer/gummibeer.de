@@ -78,7 +78,7 @@
         <li class="unimportant">
             <h3>
                 <i class="icon far fa-jack-o-lantern"></i>
-                Hacktoberfest & Orbtoberfest 2019
+                Hacktoberfest 2019
             </h3>
             <strong>Open Source Developer & Maintainer</strong>
         </li>
