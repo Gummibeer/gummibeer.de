@@ -13,6 +13,7 @@
         "illuminate/redis": "^5.8",
         "knplabs/github-api": "^2.11",
         "laravel/lumen-framework": "5.8.*",
+        "league/commonmark": "^1.1",
         "nesbot/carbon": "^2.22",
         "php-http/guzzle6-adapter": "^1.1",
         "predis/predis": "^1.1",
