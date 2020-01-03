@@ -5,9 +5,9 @@ namespace App\Console\Commands;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Spatie\Packagist\Packagist;
-use Illuminate\Support\Collection;
 
 class StatsPackagist extends Command
 {
