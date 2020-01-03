@@ -41,10 +41,10 @@ $router->get('slides/{slide}', function (string $slide) {
 $router->get('blog/{post}', function (string $post) {
     try {
         return view('pages.post')->with([
-            'title' => title(str_replace('-', ' ', $post) . ' | Blog'),
-            'content' => file_get_contents(resource_path('posts/' . $post . '.md')),
+            'title' => title(str_replace('-', ' ', $post).' | Blog'),
+            'content' => file_get_contents(resource_path('posts/'.$post.'.md')),
         ]);
-    } catch(Exception $ex) {
+    } catch (Exception $ex) {
         abort(404);
     }
 });
