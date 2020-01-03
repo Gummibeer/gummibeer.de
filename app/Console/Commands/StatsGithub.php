@@ -2,14 +2,14 @@
 
 namespace App\Console\Commands;
 
+use Cache\Adapter\Redis\RedisCachePool;
 use Carbon\Carbon;
 use Exception;
 use Github\Client;
+use Github\Exception\RuntimeException as GithubRuntimeException;
+use Github\HttpClient\Message\ResponseMediator;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use Cache\Adapter\Redis\RedisCachePool;
-use Github\HttpClient\Message\ResponseMediator;
-use Github\Exception\RuntimeException as GithubRuntimeException;
 use Redis;
 
 class StatsGithub extends Command
@@ -34,7 +34,7 @@ class StatsGithub extends Command
             $config = app('config')->get('database.redis.default');
             $redis->connect($config['host'], $config['port']);
             $client->addCache(new RedisCachePool($redis));
-        } catch(Exception $ex) {
+        } catch (Exception $ex) {
         }
         $client->authenticate(getenv('GH_TOKEN'), null, Client::AUTH_HTTP_TOKEN);
 

@@ -3,12 +3,12 @@
 namespace App\Console\Commands;
 
 use Carbon\Carbon;
-use Spatie\SchemaOrg\Graph;
-use Spatie\SchemaOrg\Schema;
-use Spatie\SchemaOrg\Country;
 use Illuminate\Console\Command;
+use Spatie\SchemaOrg\Country;
 use Spatie\SchemaOrg\GenderType;
+use Spatie\SchemaOrg\Graph;
 use Spatie\SchemaOrg\PostalAddress;
+use Spatie\SchemaOrg\Schema;
 
 class SchemaOrg extends Command
 {
