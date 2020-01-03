@@ -42,6 +42,7 @@ $router->get('blog/{post}', function (string $post) {
     try {
         return view('pages.post')->with([
             'title' => title(str_replace('-', ' ', $post) . ' | Blog'),
+            'slug' => $post,
             'content' => file_get_contents(resource_path('posts/' . $post . '.md')),
         ]);
     } catch(Exception $ex) {

@@ -17,7 +17,7 @@
 @section('content')
 <section class="section">
     <div class="hgroup">
-        <h3>Week 01/2020 recap</h3>
+        <h3>{{ Illuminate\Support\Str::title(str_replace('-', ' ', $slug)) }}</h3>
         <h2 title="Blog">Blog</h2>
     </div>
 
