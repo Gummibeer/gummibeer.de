@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
@@ -19,11 +20,12 @@ class StatsStrava extends Command
     public function handle()
     {
         $url = 'https://www.strava.com/api/v3/athletes/'.getenv('STRAVA_ID').'/stats';
+        $token = $this->authenticate();
 
         $client = new Client();
         $response = $client->request('GET', $url, [
             'headers' => [
-                'Authorization' => 'Bearer '.getenv('STRAVA_TOKEN'),
+                'Authorization' => 'Bearer '.$token,
             ],
         ]);
         if ($response->getStatusCode() == 200) {
@@ -37,6 +39,22 @@ class StatsStrava extends Command
                 $this->data->get('moving_time')
             ));
             $this->save();
+        }
+    }
+
+    protected function authenticate()
+    {
+        $url = sprintf(
+            'https://www.strava.com/api/v3/oauth/token?grant_type=refresh_token&refresh_token=%s&client_id=%s&client_secret=%s',
+            getenv('STRAVA_REFRESH_TOKEN'),
+            getenv('STRAVA_CLIENT_ID'),
+            getenv('STRAVA_CLIENT_SECRET')
+        );
+
+        $client = new Client();
+        $response = $client->request('POST', $url);
+        if ($response->getStatusCode() == 200) {
+            return json_decode($response->getBody()->__toString(), true)['access_token'];
         }
     }
 

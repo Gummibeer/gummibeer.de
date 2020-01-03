@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Spatie\Packagist\Packagist;
 use Illuminate\Support\Collection;
 
@@ -45,7 +47,7 @@ class StatsPackagist extends Command
         ]);
 
         foreach ($vendors as $vendor => $role) {
-            $vendorPackageNames = collect(array_get($packagist->getPackagesByVendor($vendor), 'packageNames', []))->flip()->map(function () use ($role) {
+            $vendorPackageNames = collect(Arr::get($packagist->getPackagesByVendor($vendor), 'packageNames', []))->flip()->map(function () use ($role) {
                 return $role;
             });
 
@@ -64,7 +66,7 @@ class StatsPackagist extends Command
             $package['repo_name'] = $package['name'];
             $package['vendor'] = explode('/', $package['name'])[0];
             $package['name'] = explode('/', $package['name'])[1];
-            $package['title'] = title_case(str_replace('-', ' ', $package['name']));
+            $package['title'] = Str::title(str_replace('-', ' ', $package['name']));
             $package['abandoned'] = $package['abandoned'] ?? null;
             $package['role'] = $role;
 
