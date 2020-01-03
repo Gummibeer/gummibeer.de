@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
