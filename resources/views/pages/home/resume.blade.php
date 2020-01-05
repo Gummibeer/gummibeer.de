@@ -8,13 +8,13 @@
         <li class="active">
             <h3>
                 <i class="icon far fa-briefcase"></i>
-                Even on Sunday
+                Elbgoods GmbH
             </h3>
-            <strong>Backend Developer</strong>
-            <time>2017 - now</time>
-            <a href="https://www.even-on-sunday.com" target="_blank" rel="noopener noreferrer">https://www.even-on-sunday.com</a>
+            <strong>Lead Backend Developer</strong>
+            <time>2020 - now</time>
+            <a href="http://www.internetagentur-elbgoods.de" target="_blank" rel="noopener noreferrer">http://www.internetagentur-elbgoods.de</a>
             <ul class="list-inline margin-vertical-0">
-                <li class="margin-vertical-0"><span class="label label-dark">Symfony</span></li>
+                <li class="margin-vertical-0"><span class="label label-dark">Laravel</span></li>
                 <li class="margin-vertical-0"><span class="label label-dark">Lumen</span></li>
             </ul>
         </li>
@@ -47,6 +47,19 @@
             </ul>
             <ul class="list-inline margin-vertical-0">
                 <li class="margin-vertical-0"><span class="label label-dark">Laravel</span></li>
+            </ul>
+        </li>
+        <li>
+            <h3>
+                <i class="icon far fa-briefcase"></i>
+                Even on Sunday
+            </h3>
+            <strong>Backend Developer</strong>
+            <time>2017 - 2019</time>
+            <a href="https://www.even-on-sunday.com" target="_blank" rel="noopener noreferrer">https://www.even-on-sunday.com</a>
+            <ul class="list-inline margin-vertical-0">
+                <li class="margin-vertical-0"><span class="label label-dark">Symfony</span></li>
+                <li class="margin-vertical-0"><span class="label label-dark">Lumen</span></li>
             </ul>
         </li>
         <li>
