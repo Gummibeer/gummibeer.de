@@ -24,7 +24,7 @@
                 Astrotomic
             </h3>
             <strong>Founder & Open Source Developer</strong>
-            <time>2016 - now</time>
+            <time>2015 - now</time>
             <a href="https://astrotomic.info" target="_blank" rel="noopener noreferrer">https://astrotomic.info</a>
             <ul class="list-inline margin-vertical-0">
                 <li class="margin-vertical-0"><span class="label label-dark">Laravel</span></li>
