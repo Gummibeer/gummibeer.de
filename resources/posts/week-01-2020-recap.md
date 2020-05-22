@@ -17,7 +17,7 @@ Because it reminds to document things and possibly also make things easier that 
 
 Some of my real problems, I will try to fix during the next weeks, were:
 
-### Bitbucket Cloud doesn't have personal access tokens (PAT)
+## Bitbucket Cloud doesn't have personal access tokens (PAT)
 
 This sounds like a pretty low issue but it grows if you have to use private packages in composer or npm without your own registry server.
 In this case the "only" way is to use your SSH-keys.
@@ -27,7 +27,7 @@ Because until now I've lived in a "beautiful" GitHub world this is something sup
 
 But because the docker containers have some more serious issues it's not on top of my priorities right now.
 
-### Docker COPY instead of volumes
+## Docker COPY instead of volumes
 
 Most of the docker users will know the difference - I don't guarantee a perfect definition but for me the major difference is:
 
@@ -41,7 +41,7 @@ Same vice-versa, if you create files in the container they will arrive on your l
 To speed up development and make it easier to change things I will change all the copy calls to volumes.
 With some more optimisations, like mounting the composer cache and so on.
 
-### Mix of docker and local machine
+## Mix of docker and local machine
 
 In most containers no composer was installed - so the way to go was installing all dependencies on the local machine, build the container and check.
 The major problem: we have a mixed team of Mac & Linux users, all containers are linux based and I have PHP7.4 installed while the containers are on PHP7.3.
@@ -54,20 +54,20 @@ But it's also the perfect demonstration why docker was invented and which proble
 
 But I do it for the learning and what would I learn if everything is perfect?
 
-### Guidelines
+## Guidelines
 
 One of the first things I've started to do was writing down guidelines, thanks to the [spatie ones](https://guidelines.spatie.be/) for some inspiration.
 They are relative basic right now but having one at all is an important step.
 We will discuss them during the next week/s and after approval they will be released and I will also write some more about them.
 
-### Nord theme & Starship
+## Nord theme & Starship
 
 During my christmas holidays I've found my new theme for all my tools the [Nord theme](https://www.nordtheme.com/).
 And after reading through [webwide.io - Let's talk about terminals](https://webwide.io/threads/lets-talk-about-terminals.592/post-4012) I've found my new shell prompt - [Starship](https://starship.rs/).
 
 For me the nord theme is super calming - something most of the other dark themes are missing.
 
-### DIY flavored oils & sugars
+## DIY flavored oils & sugars
 
 And my last section will be about self made oils & sugars, a perfect present for your friends & family.
 It's super easy to do and they are perfect to pimp your next soup, salad, cake or simply eat some bread with oil.
