@@ -20,7 +20,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: composer-${{ hashFiles('**/composer.json') }}
+          key: composer-${{ hashFiles('composer.json') }}
           restore-keys: composer-
 
       - name: Install Composer dependencies

@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('laravel-mix-sri');
 
 Mix.listen('configReady', webpackConfig => {
     webpackConfig.module.rules.forEach(rule => {
@@ -13,10 +14,8 @@ Mix.listen('configReady', webpackConfig => {
 });
 
 mix
-    .setPublicPath('public')
-    .setResourceRoot('resources')
     .sass('resources/scss/app.scss', 'public/css')
-    .babel('resources/js/app.js', 'public/js/app.js')
+    .js('resources/js/app.js', 'public/js')
     .options({
         processCssUrls: true,
         postCss: [
@@ -27,4 +26,7 @@ mix
         ],
     })
     .version()
+    .generateIntegrityHash({
+        enabled: true,
+    })
 ;

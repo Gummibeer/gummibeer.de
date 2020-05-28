@@ -14,8 +14,11 @@
     ],
     "require": {
         "php": "^7.4",
+        "astrotomic/laravel-weserv-images": "^0.5.0",
+        "elhebert/laravel-sri": "^2.2",
         "guzzlehttp/guzzle": "^6.3",
-        "laravel/framework": "^7.0"
+        "laravel/framework": "^7.0",
+        "spatie/laravel-export": "^0.3.2"
     },
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.4",

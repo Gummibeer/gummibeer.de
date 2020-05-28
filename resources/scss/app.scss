@@ -1,3 +1,13 @@
+@import "~typeface-inter";
+@import "~typeface-fira-code";
+
+@import "~@fortawesome/fontawesome-pro/scss/brands";
+@import "~@fortawesome/fontawesome-pro/scss/duotone";
+@import "~@fortawesome/fontawesome-pro/scss/light";
+@import "~@fortawesome/fontawesome-pro/scss/regular";
+@import "~@fortawesome/fontawesome-pro/scss/solid";
+@import "~@fortawesome/fontawesome-pro/scss/fontawesome";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
