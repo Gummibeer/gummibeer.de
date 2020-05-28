@@ -47,5 +47,13 @@
             "@composer bin all update --ansi"
         ],
         "bin": "echo 'bin not installed'"
-    }
+    },
+    "authors": [
+        {
+            "name": "Tom Witkowski",
+            "email": "dev@gummibeer.de",
+            "homepage": "https://gummibeer.de",
+            "role": "Developer"
+        }
+    ]
 }
