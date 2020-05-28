@@ -4,6 +4,14 @@
     "description": "Website of Gummibeer",
     "keywords": [],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom Witkowski",
+            "email": "dev@gummibeer.de",
+            "homepage": "https://gummibeer.de",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^7.4",
         "guzzlehttp/guzzle": "^6.3",
@@ -32,10 +40,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
         "post-install-cmd": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate --ansi",
@@ -46,14 +50,10 @@
             "@php artisan key:generate --ansi",
             "@composer bin all update --ansi"
         ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
         "bin": "echo 'bin not installed'"
-    },
-    "authors": [
-        {
-            "name": "Tom Witkowski",
-            "email": "dev@gummibeer.de",
-            "homepage": "https://gummibeer.de",
-            "role": "Developer"
-        }
-    ]
+    }
 }
