@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "elbgoods/ci-test-tools": "^1.9"
+    }
+}
