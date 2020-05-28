@@ -1,0 +1,34 @@
+name: php cs fix
+
+on:
+  push:
+    paths:
+      - '**.php'
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-dir)"
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader --no-interaction
+
+      - name: fix php cs
+        run: vendor/bin/php-cs-fix
+
+      - uses: stefanzweifel/git-auto-commit-action@v4.0.0
+        with:
+          commit_message: fix php cs
