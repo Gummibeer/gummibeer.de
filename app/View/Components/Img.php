@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Picture extends Component
+class Img extends Component
 {
     private Factory $weserv;
 
@@ -39,7 +39,7 @@ class Picture extends Component
             $this->src()->output(Output::JSON)->toUrl()
         )->json();
 
-        return view('components.picture', [
+        return view('components.img', [
             'width' => $json['width'],
             'height' => $json['height'],
         ]);
@@ -60,5 +60,16 @@ class Picture extends Component
                 fn(Url $url): Url => $url->fit(Fit::INSIDE)
             )
         ;
+    }
+
+    public function base64(): string
+    {
+        return Http::get(
+            $this->weserv->make($this->src()->toUrl())
+                ->w(5)
+                ->we()
+                ->output(Output::GIF)
+                ->base64()
+        )->body();
     }
 }
