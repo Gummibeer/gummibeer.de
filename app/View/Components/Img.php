@@ -48,18 +48,17 @@ class Img extends Component
     public function src(): Url
     {
         return $this->weserv->make($this->src)
-            ->when($this->width !== null, fn(Url $url): Url => $url->w($this->width))
-            ->when($this->height !== null, fn(Url $url): Url => $url->h($this->height))
+            ->when($this->width !== null, fn (Url $url): Url => $url->w($this->width))
+            ->when($this->height !== null, fn (Url $url): Url => $url->h($this->height))
             ->we()
             ->when(
                 $this->crop,
-                fn(Url $url): Url => $url->fit(Fit::COVER)->align('attention')
+                fn (Url $url): Url => $url->fit(Fit::COVER)->align('attention')
             )
             ->when(
-                !$this->crop,
-                fn(Url $url): Url => $url->fit(Fit::INSIDE)
-            )
-        ;
+                ! $this->crop,
+                fn (Url $url): Url => $url->fit(Fit::INSIDE)
+            );
     }
 
     public function base64(): string
