@@ -69,11 +69,11 @@ class Img extends Component
         );
 
         $dirname = pathinfo(public_path($path), PATHINFO_DIRNAME);
-        if(!file_exists($dirname)) {
+        if (!file_exists($dirname)) {
             mkdir($dirname, 0777, true);
         }
 
-        if(!file_exists($path)) {
+        if (!file_exists($path)) {
             $this->img($dpr)->save($path, 75);
         }
 
