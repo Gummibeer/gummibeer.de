@@ -2,16 +2,15 @@
     <picture>
         <source
             type="image/webp"
-            srcset="{{ (string) $src()->output('webp')->dpr(1) }} 1x, {{ (string) $src()->output('webp')->dpr(2) }} 2x"
+            srcset="{{ $src('webp', 1) }} 1x, {{ $src('webp', 2) }} 2x"
         />
         <img
-            src="{{ (string) $src() }}"
-            srcset="{{ (string) $src()->dpr(1) }} 1x, {{ (string) $src()->dpr(2) }} 2x"
-            width="{{ $width }}"
-            height="{{ $height }}"
+            src="{{ $src() }}"
+            srcset="{{ $src(null, 1) }} 1x, {{ $src(null, 2) }} 2x"
+            width="{{ $img()->width() }}"
+            height="{{ $img()->height() }}"
             loading="lazy"
-            style="background-image:url({{ $base64() }});"
-            {{ $attributes->merge(['class' => 'w-full h-auto bg-cover bg-no-repeat']) }}
+            {{ $attributes->merge(['class' => 'w-full h-auto']) }}
         />
     </picture>
     @if(!empty((string) $slot))

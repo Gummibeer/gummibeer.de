@@ -16,13 +16,12 @@
     </p>
 
     <x-img
-        src="https://source.unsplash.com/mDskFDLX16k/3000x2000"
+        src="https://source.unsplash.com/mDskFDLX16k/2048x1024"
         width="1024"
         height="512"
         alt="lazy image test"
         :crop="true"
     >This crazy lazy image component</x-img>
-    <pre><code class="block p-2 bg-gray-100">class MyClass {}</code></pre>
 </div>
 
 @mixSri('js/app.js')

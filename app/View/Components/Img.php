@@ -2,73 +2,100 @@
 
 namespace App\View\Components;
 
-use Astrotomic\Weserv\Images\Enums\Fit;
-use Astrotomic\Weserv\Images\Enums\Output;
-use Astrotomic\Weserv\Images\Laravel\Factory;
-use Astrotomic\Weserv\Images\Laravel\Url;
-use Illuminate\Support\Facades\Http;
+use Astrotomic\LaravelMime\Facades\MimeTypes;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use Intervention\Image\Constraint;
+use Intervention\Image\Image;
+use Intervention\Image\ImageManager;
 
 class Img extends Component
 {
-    private Factory $weserv;
+    private ImageManager $manager;
+    private Image $img;
 
     private string $src;
     private ?int $width;
     private ?int $height;
     private bool $crop;
 
+    private string $hash;
+    private string $extension;
+
     public function __construct(
-        Factory $weserv,
+        ImageManager $manager,
         string $src,
         ?int $width = null,
         ?int $height = null,
         bool $crop = false
     ) {
-        $this->weserv = $weserv;
+        $this->manager = $manager;
         $this->src = $src;
         $this->width = $width;
         $this->height = $height;
         $this->crop = $crop;
+
+        $this->img = $manager->make(
+            Str::startsWith($src, ['http://', 'https://'])
+                ? $src
+                : public_path($src)
+        );
+
+        $img = $this->img();
+        $this->hash = hash('md5', $img->encode('data-url'));
+        $this->extension = Arr::first(MimeTypes::getExtensions($img->mime()));
+        $this->width = $img->width();
+        $this->height = $img->height();
     }
 
     public function render(): View
     {
-        $json = Http::get(
-            $this->src()->output(Output::JSON)->toUrl()
-        )->json();
-
-        return view('components.img', [
-            'width' => $json['width'],
-            'height' => $json['height'],
-        ]);
+        return view('components.img');
     }
 
-    public function src(): Url
+    public function src(?string $format = null, int $dpr = 1): string
     {
-        return $this->weserv->make($this->src)
-            ->when($this->width !== null, fn (Url $url): Url => $url->w($this->width))
-            ->when($this->height !== null, fn (Url $url): Url => $url->h($this->height))
-            ->we()
-            ->when(
-                $this->crop,
-                fn (Url $url): Url => $url->fit(Fit::COVER)->align('attention')
-            )
-            ->when(
-                ! $this->crop,
-                fn (Url $url): Url => $url->fit(Fit::INSIDE)
-            );
+        $format ??= $this->extension;
+        $path = sprintf(
+            'images/%s/%s-%dx%d@%dx.%s',
+            substr($this->hash, 0, 2),
+            $this->hash,
+            $this->width,
+            $this->height,
+            $dpr,
+            $format
+        );
+
+        $dirname = pathinfo(public_path($path), PATHINFO_DIRNAME);
+        if(!file_exists($dirname)) {
+            mkdir($dirname, 0777, true);
+        }
+
+        if(!file_exists($path)) {
+            $this->img($dpr)->save($path, 75);
+        }
+
+        return asset($path);
     }
 
-    public function base64(): string
+    public function img(int $dpr = 1): Image
     {
-        return Http::get(
-            $this->weserv->make($this->src()->toUrl())
-                ->w(5)
-                ->we()
-                ->output(Output::GIF)
-                ->base64()
-        )->body();
+        $img = clone $this->img;
+
+        if ($this->width !== null && $this->height !== null && $this->crop) {
+            return $img->fit($this->width * $dpr, $this->height * $dpr, fn (Constraint $constraint) => $constraint->upsize());
+        }
+
+        if ($this->width !== null) {
+            $img->widen($this->width * $dpr, fn (Constraint $constraint) => $constraint->upsize());
+        }
+
+        if ($this->height !== null) {
+            $img->heighten($this->height * $dpr, fn (Constraint $constraint) => $constraint->upsize());
+        }
+
+        return $img;
     }
 }
