@@ -46,17 +46,23 @@
         "post-install-cmd": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate --ansi",
-            "@composer bin all install --ansi"
+            "@composer bin all install --ansi",
+            "@composer normalize --ansi",
+            "@composer thanks --ansi"
         ],
         "post-update-cmd": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate --ansi",
-            "@composer bin all update --ansi"
+            "@composer bin all update --ansi",
+            "@composer normalize --ansi",
+            "@composer thanks --ansi"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
-        "bin": "echo 'bin not installed'"
+        "bin": "echo 'bin not installed'",
+        "normalize": "echo 'normalize not installed'",
+        "thanks": "echo 'thanks not installed'"
     }
 }
