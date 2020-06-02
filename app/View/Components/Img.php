@@ -74,7 +74,7 @@ class Img extends Component
         }
 
         if (! file_exists($path)) {
-            $this->img($dpr)->save($path, 75);
+            $this->img($dpr)->save(public_path($path), 75);
         }
 
         return asset($path);
