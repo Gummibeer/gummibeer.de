@@ -55,9 +55,8 @@ class Img extends Component
         return view('components.img');
     }
 
-    public function src(?string $format = null, int $dpr = 1): string
+    public function src(?string $extension = null, int $dpr = 1): string
     {
-        $format ??= $this->extension;
         $path = sprintf(
             'images/%s/%s-%dx%d@%dx.%s',
             substr($this->hash, 0, 2),
@@ -65,7 +64,7 @@ class Img extends Component
             $this->width,
             $this->height,
             $dpr,
-            $format
+            $extension ?? $this->extension
         );
 
         $dirname = pathinfo(public_path($path), PATHINFO_DIRNAME);
