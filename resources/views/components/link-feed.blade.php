@@ -1,5 +1,6 @@
 <?php /** @var Illuminate\View\ComponentAttributeBag $attributes */ ?>
 <?php /** @var Illuminate\Support\HtmlString $slot */ ?>
+<?php /** @var array $parameters */ ?>
 
 @php($route = app('router')->getRoutes()->getByName($route))
 
