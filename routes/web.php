@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 use Steein\Robots\Robots;
 
 Route::get('/', HomeController::class)->name('home');
-Route::view('/me', 'pages.me')->name('me');
-Route::view('/uses', 'pages.uses', sheets()->collection('static')->get('uses')->toArray())->name('uses');
+Route::view('/me', 'pages.me', sheets()->get('me')->toArray())->name('me');
+Route::view('/uses', 'pages.uses', sheets()->get('uses')->toArray())->name('uses');
 
 Route::prefix('blog')->name('blog.')->group(function (): void {
     Route::get('{page?}', Blog\IndexController::class)->middleware(Paginated::class)->name('index');
