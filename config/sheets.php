@@ -5,7 +5,7 @@ use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;
 use Spatie\Sheets\PathParsers\SlugWithDateParser;
 
 return [
-    'default_collection' => null,
+    'default_collection' => 'static',
 
     'collections' => [
         'static',
