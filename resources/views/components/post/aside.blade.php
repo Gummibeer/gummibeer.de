@@ -6,7 +6,9 @@
     <ul class="flex flex-col sm:flex-row list-none sm:space-x-4">
         <li>
             <x-icon class="fa-calendar"></x-icon>
-            <time datetime="{{ $post->date->format('Y-m-d') }}">{{ $post->date->format('D, jS \o\f M, Y') }}</time>
+            <a href="{{ route('blog.year.index', $post->date->year) }}" class="hover:text-brand">
+                <time datetime="{{ $post->date->format('Y-m-d') }}">{{ $post->date->format('D, jS \o\f M, Y') }}</time>
+            </a>
         </li>
         <li>
             <x-icon class="fa-clock"></x-icon>
