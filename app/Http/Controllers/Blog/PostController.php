@@ -4,16 +4,9 @@ namespace App\Http\Controllers\Blog;
 
 use App\Post;
 use App\Services\MetaBag;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Spatie\Browsershot\Browsershot;
 use Spatie\Image\Manipulations;
-use Spatie\SchemaOrg\Graph;
-use Spatie\SchemaOrg\Person;
-use Spatie\SchemaOrg\Schema;
 
 class PostController
 {

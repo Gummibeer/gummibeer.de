@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Blog;
 
 use App\Post;
 use App\Services\Feed;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Contracts\Support\Responsable;
 
 class FeedController
 {

@@ -11,12 +11,8 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use League\CommonMark\Block\Element\FencedCode;
-use League\CommonMark\Block\Element\IndentedCode;
 use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\ConverterInterface;
-use League\CommonMark\Environment;
-use Spatie\CommonMarkHighlighter\IndentedCodeRenderer;
-use Spatie\SchemaOrg\Graph;
 
 class AppServiceProvider extends ServiceProvider
 {

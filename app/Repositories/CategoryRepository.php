@@ -19,7 +19,7 @@ class CategoryRepository
     public function all(): Collection
     {
         return $this->postRepository->all()
-            ->map(fn(Post $post): Collection => $post->categories())
+            ->map(fn (Post $post): Collection => $post->categories())
             ->collapse()
             ->unique('slug');
     }
@@ -27,6 +27,6 @@ class CategoryRepository
     public function find(string $slug): Category
     {
         return $this->all()
-            ->first(fn(Category $category): bool => Str::kebab($category->slug) === Str::kebab($slug));
+            ->first(fn (Category $category): bool => Str::kebab($category->slug) === Str::kebab($slug));
     }
 }

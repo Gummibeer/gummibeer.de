@@ -14,12 +14,11 @@ abstract class Model extends Sheet implements UrlRoutable
 {
     public function getRouteKeyName()
     {
-        return null;
     }
 
     public function resolveRouteBinding($value, $field = null)
     {
-        if($field !== null) {
+        if ($field !== null) {
             return $this->all()->firstWhere($field, $value);
         }
 

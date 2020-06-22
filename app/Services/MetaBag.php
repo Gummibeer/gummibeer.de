@@ -4,8 +4,6 @@ namespace App\Services;
 
 use Illuminate\Support\Fluent;
 use Illuminate\Support\Str;
-use Spatie\SchemaOrg\Graph;
-use function Symfony\Component\String\s;
 
 /**
  * @property string $title
@@ -22,7 +20,7 @@ class MetaBag extends Fluent
 
     public function setTitleAttribute(string $title): string
     {
-        if(Str::endsWith($title, config('app.name'))) {
+        if (Str::endsWith($title, config('app.name'))) {
             return $title;
         }
 
@@ -39,7 +37,7 @@ class MetaBag extends Fluent
 
     public function offsetSet($key, $value)
     {
-        if($this->hasSetMutator($key)) {
+        if ($this->hasSetMutator($key)) {
             $this->attributes[$key] = $this->{'set'.Str::studly($key).'Attribute'}($value);
 
             return;

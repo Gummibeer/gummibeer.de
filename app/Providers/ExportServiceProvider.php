@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use App\Category;
 use App\Post;
-use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Export\Exporter;
 
@@ -17,15 +16,15 @@ class ExportServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        if($this->app->runningInConsole()) {
-            $this->app->booted(fn() => $this->app->call([$this, 'booted']));
+        if ($this->app->runningInConsole()) {
+            $this->app->booted(fn () => $this->app->call([$this, 'booted']));
         }
     }
 
     public function booted(Exporter $exporter): void
     {
         Post::all()
-            ->each(function(Post $post) use ($exporter): void {
+            ->each(function (Post $post) use ($exporter): void {
                 $exporter
                     ->urls($post->url, route('blog.post.jpg', $post))
                     ->urls(route('blog.year.index', ['year' => $post->date->year]))
@@ -36,7 +35,7 @@ class ExportServiceProvider extends ServiceProvider
                     ])
                     ->urls(
                         collect($post->categories())
-                            ->map(function(Category $category) {
+                            ->map(function (Category $category) {
                                 return [
                                     $category->url,
                                     route('blog.category.feed', ['category' => $category, 'format' => 'rss']),
@@ -45,8 +44,7 @@ class ExportServiceProvider extends ServiceProvider
                             })
                             ->flatten()
                             ->all()
-                    )
-                ;
+                    );
             });
     }
 }
