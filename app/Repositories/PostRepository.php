@@ -10,7 +10,7 @@ class PostRepository
     public function all(): Collection
     {
         return sheets()->collection('posts')->all()
-            ->reject(fn(Post $post) => $post->date->isFuture())
+            ->reject(fn (Post $post) => $post->date->isFuture())
             ->sortByDesc('date');
     }
 
@@ -24,6 +24,6 @@ class PostRepository
         [$year, $slug] = explode('/', $slug);
 
         return $this->all()
-            ->first(fn(Post $post): bool => $post->date->year == $year && $post->slug == $slug);
+            ->first(fn (Post $post): bool => $post->date->year == $year && $post->slug == $slug);
     }
 }

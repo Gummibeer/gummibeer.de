@@ -17,10 +17,10 @@ class Feed extends SpatieFeed
         abort_if($items->isEmpty(), 404);
 
         return new static(
-            $title.' | ' . config('app.name'),
+            $title.' | '.config('app.name'),
             $items,
             request()->url(),
-            'feed::' . $format,
+            'feed::'.$format,
             $description,
             app()->getLocale()
         );

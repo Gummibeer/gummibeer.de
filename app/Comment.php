@@ -2,14 +2,8 @@
 
 namespace App;
 
-use App\Repositories\PostRepository;
-use App\Services\Model;
 use Carbon\Carbon;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Fluent;
 use Illuminate\Support\HtmlString;
-use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
 use Spatie\Sheets\Sheet;
 
 /**

@@ -2,14 +2,10 @@
 
 namespace App;
 
-use App\Repositories\AuthorRepository;
 use App\Repositories\CategoryRepository;
-use App\Repositories\PostRepository;
 use App\Services\Model;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Fluent;
 use Illuminate\Support\Str;
-use Spatie\Sheets\Sheet;
 
 /**
  * @property-read string $slug
@@ -25,7 +21,7 @@ final class Category extends Model
      */
     public function posts(): Collection
     {
-        return Post::all()->filter(fn(Post $post): bool => in_array($this->slug, $post->categories));
+        return Post::all()->filter(fn (Post $post): bool => in_array($this->slug, $post->categories));
     }
 
     public function getRouteKey()

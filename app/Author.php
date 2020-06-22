@@ -3,12 +3,9 @@
 namespace App;
 
 use App\Repositories\AuthorRepository;
-use App\Repositories\PostRepository;
 use App\Services\Model;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Fluent;
 use Illuminate\Support\Str;
-use Spatie\Sheets\Sheet;
 
 /**
  * @property-read string $nickname
@@ -30,7 +27,7 @@ final class Author extends Model
      */
     public function posts(): Collection
     {
-        return Post::all()->filter(fn(Post $post): bool => $post->author->nickname === $this->nickname);
+        return Post::all()->filter(fn (Post $post): bool => $post->author->nickname === $this->nickname);
     }
 
     public function getRouteKey()

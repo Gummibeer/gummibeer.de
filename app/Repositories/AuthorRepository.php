@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Author;
-use App\Post;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
@@ -26,6 +25,6 @@ class AuthorRepository
     public function find(string $nickname): Author
     {
         return $this->all()
-            ->first(fn(Author $author): bool => Str::slug($author->nickname) === Str::slug($nickname));
+            ->first(fn (Author $author): bool => Str::slug($author->nickname) === Str::slug($nickname));
     }
 }

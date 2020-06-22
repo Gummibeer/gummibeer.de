@@ -3,9 +3,6 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Post;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 
 class IndexController
 {

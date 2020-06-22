@@ -8,7 +8,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use Spatie\Sheets\Sheet;
 
 /**
  * @property-read string $title
@@ -35,7 +34,7 @@ final class Post extends Model implements Feedable
     public function categories(): Collection
     {
         return collect($this->categories)
-            ->map(fn(string $slug): array => ['slug' => $slug])
+            ->map(fn (string $slug): array => ['slug' => $slug])
             ->mapInto(Category::class);
     }
 
@@ -77,8 +76,7 @@ final class Post extends Model implements Feedable
             ->summary($this->description)
             ->updated($this->date)
             ->link($this->url)
-            ->category(...$this->categories)
-        ;
+            ->category(...$this->categories);
     }
 
     public function __call($name, $arguments)
