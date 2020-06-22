@@ -12,21 +12,8 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v2
 
-      - name: Get Yarn Cache Directory
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Yarn
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: yarn-${{ hashFiles('package.json') }}
-          restore-keys: yarn-
-
-      - name: Install Yarn Dependencies
-        run: |
-          npm config set "@fortawesome:registry" https://npm.fontawesome.com/
-          npm config set "//npm.fontawesome.com/:_authToken" ${{ secrets.FONTAWESOME_TOKEN }}
-          yarn install
+      - name: Install Alex.js
+        run: yarn global add alex
 
       - name: Run alex
         run: alex resources/content/**/*.md
