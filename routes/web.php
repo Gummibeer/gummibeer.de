@@ -3,7 +3,6 @@
 use App\Http\Controllers\Blog;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\Paginated;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Steein\Robots\Robots;
 
