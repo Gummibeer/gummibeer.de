@@ -12,6 +12,6 @@ class IndexController
             ->paginate($page)
             ->withRoute('blog.index');
 
-        return view('pages.blog', compact('posts'));
+        return view('pages.blog.index', compact('posts'));
     }
 }

@@ -15,7 +15,7 @@ Route::prefix('blog')->name('blog.')->group(function (): void {
     Route::get('{page?}', Blog\IndexController::class)->middleware(Paginated::class)->name('index');
     Route::get('feed.{format}', Blog\FeedController::class)->name('feed');
 
-    Route::get('{year}/{page?}', fn (Request $request) => $request->route()->parameters())->middleware(Paginated::class)->name('year.index');
+    Route::get('{year}/{page?}', Blog\Year\IndexController::class)->middleware(Paginated::class)->name('year.index');
 
     Route::prefix('@{author}')->name('author.')->group(function (): void {
         Route::get('{page?}', Blog\Author\IndexController::class)->middleware(Paginated::class)->name('index');

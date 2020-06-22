@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\Blog\Category;
 
 use App\Category;
+use App\Services\MetaBag;
 
 class IndexController
 {
-    public function __invoke(Category $category, int $page = 1)
+    public function __invoke(MetaBag $meta, Category $category, int $page = 1)
     {
+        $meta->title = sprintf('Blog posts about "%s"', $category->slug);
+
         $posts = $category->posts()
             ->paginate($page)
             ->withRoute('blog.category.index', compact('category'));
 
-        return view('pages.blog', compact('posts'));
+        return view('pages.blog.category', compact('category', 'posts'));
     }
 }
