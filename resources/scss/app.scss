@@ -1,5 +1,6 @@
 @import "~typeface-inter";
 @import "~typeface-fira-code";
+@import "~typeface-permanent-marker";
 
 @import "~@fortawesome/fontawesome-pro/scss/brands";
 @import "~@fortawesome/fontawesome-pro/scss/duotone";
@@ -11,3 +12,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "prismjs";
+@import "mburger";
+.markdown {
+  @import "markdown";
+}
+
+.flex-basis-full {
+  flex-basis: 100%;
+}
+
+.shadow {
+  @apply shadow-light;
+  @screen dark {
+    @apply shadow-dark;
+  }
+}
+
+.hover\:underlined {
+  background-image: linear-gradient(
+    90deg,
+    rgba(#ffb300, 0.75),
+    rgba(#ffb300, 0.75)
+  );
+  background-repeat: no-repeat;
+  background-position-x: left;
+  background-position-y: bottom;
+  background-size: 100% 10%;
+  transition-property: background-size, background-image;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+
+  @media (prefers-reduced-motion) {
+    transition-duration: 750ms;
+    transition-timing-function: linear;
+  }
+
+  &:hover {
+    background-image: linear-gradient(90deg, #ffb300, #ffb300);
+    background-size: 100% 30%;
+  }
+}
+
+.bg-dotted {
+  background-position: 0;
+  background-size: 10px 10px;
+  background-repeat: repeat;
+  background-image: radial-gradient(rgba(#000, 0.25) 0.5px, transparent 0.5px);
+
+  @screen dark {
+    background-image: radial-gradient(
+      rgba(#fff, 0.25) 0.5px,
+      transparent 0.5px
+    );
+  }
+}
+
+.bg-dotted-lg {
+  background-position: 0;
+  background-size: 10px 10px;
+  background-repeat: repeat;
+  background-image: radial-gradient(rgba(#000, 0.25) 1px, transparent 1px);
+
+  @screen dark {
+    background-image: radial-gradient(rgba(#fff, 0.25) 1px, transparent 1px);
+  }
+}
+
+a[href] {
+  cursor: pointer;
+
+  transition-property: all;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+
+  @media (prefers-reduced-motion) {
+    transition-duration: 500ms;
+    transition-timing-function: linear;
+  }
+}

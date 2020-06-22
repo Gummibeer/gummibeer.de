@@ -1,4 +1,7 @@
-<figure @if(!empty((string) $slot)) role="group" @endif>
+<?php /** @var Illuminate\View\ComponentAttributeBag $attributes */ ?>
+<?php /** @var Illuminate\Support\HtmlString $slot */ ?>
+
+<figure @if(!empty((string) $slot)) role="group" @endif class="overflow-hidden">
     <picture>
         <source
             type="image/webp"
@@ -7,13 +10,13 @@
         <img
             src="{{ $src() }}"
             srcset="{{ $src(null, 1) }} 1x, {{ $src(null, 2) }} 2x"
-            width="{{ $img()->width() }}"
-            height="{{ $img()->height() }}"
+            width="{{ $width }}"
+            height="{{ $height }}"
             loading="lazy"
-            {{ $attributes->merge(['class' => 'w-full h-auto']) }}
+            {{ $attributes->merge(['class' => 'w-full h-auto dark:opacity-75 dark:hover:opacity-100 transition-opacity duration-500 ease-out']) }}
         />
     </picture>
     @if(!empty((string) $slot))
-        <figcaption>{{ $slot }}</figcaption>
+        <figcaption class="text-snow-20 dark:text-snow-10 text-center">{{ $slot }}</figcaption>
     @endif
 </figure>

@@ -17,8 +17,8 @@ class Img extends Component
     private Image $img;
 
     private string $src;
-    private ?int $width;
-    private ?int $height;
+    public ?int $width;
+    public ?int $height;
     private bool $crop;
 
     private string $hash;
@@ -42,9 +42,9 @@ class Img extends Component
                 ? $src
                 : public_path($src)
         );
+        $this->hash = hash('md5', $this->img->encode('data-url'));
 
         $img = $this->img();
-        $this->hash = hash('md5', $img->encode('data-url'));
         $this->extension = Arr::first(MimeTypes::getExtensions($img->mime()));
         $this->width = $img->width();
         $this->height = $img->height();

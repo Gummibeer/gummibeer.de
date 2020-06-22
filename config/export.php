@@ -15,7 +15,11 @@ return [
      * For example: "about", "posts/featured"
      */
     'paths' => [
-        '/',
+        '/blog',
+        '/blog/feed.rss',
+        '/blog/feed.atom',
+        '/sitemap.xml',
+        '/robots.txt',
     ],
 
     /*

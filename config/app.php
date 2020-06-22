@@ -54,9 +54,9 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_url' => env('ASSET_URL', null),
+    'asset_url' => env('ASSET_URL', env('APP_URL', null)),
 
-    'mix_url' => env('MIX_URL', env('ASSET_URL', null)),
+    'mix_url' => env('MIX_URL', env('ASSET_URL', env('APP_URL', null))),
 
     /*
     |--------------------------------------------------------------------------
@@ -173,6 +173,8 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\MacroServiceProvider::class,
+        App\Providers\ExportServiceProvider::class,
 
     ],
 
