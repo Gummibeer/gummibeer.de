@@ -16,4 +16,4 @@ jobs:
         run: yarn global add alex
 
       - name: Run alex
-        run: alex resources/content/**/*.md
+        run: $(yarn global bin)/alex resources/content/**/*.md
