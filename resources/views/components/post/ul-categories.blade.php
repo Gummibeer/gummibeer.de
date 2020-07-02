@@ -4,6 +4,12 @@
 
 <ul {{ $attributes->except('post')->merge(['class' => 'flex list-none space-x-4 uppercase']) }}>
     @foreach($post->categories() as $category)
-        <li><strong><a href="{{ $category->url }}" class="text-brand">{{ $category->slug }}</a></strong></li>
+        <li>
+            <strong>
+                <a href="{{ $category->url }}" class="text-brand">
+                    {{ $category->slug }}
+                </a>
+            </strong>
+        </li>
     @endforeach
 </ul>

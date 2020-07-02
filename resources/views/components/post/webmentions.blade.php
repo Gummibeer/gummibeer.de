@@ -15,7 +15,7 @@
                             width="32"
                             height="32"
                             class="rounded-full min-w-8"
-                            :alt="$webmention->author->name"></x-img>
+                            :alt="$webmention->author->name"/>
                     </a>
                     <a href="{{ $webmention->author->url }}" class="block leading-none hover:text-brand">
                         <strong>{{ $webmention->author->name }}</strong>

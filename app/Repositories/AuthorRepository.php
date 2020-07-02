@@ -17,6 +17,7 @@ class AuthorRepository
                 'firstname' => 'Tom',
                 'lastname' => 'Witkowski',
                 'payment_pointer' => '$ilp.uphold.com/EagWEdJU64mN',
+                'twitter' => '@devgummibeer',
             ],
         ])
             ->mapInto(Author::class);

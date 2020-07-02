@@ -7,18 +7,18 @@
         <x-img
             src="{{ $post->image }}"
             width="768"
-            height="329"
+            :ratio="21/9"
             :alt="$post->title"
-            :crop="true"></x-img>
+            :crop="true"/>
     </a>
     <div class="p-4">
-        <x-post.ul-categories :post="$post" class="mb-4"></x-post.ul-categories>
+        <x-post.ul-categories :post="$post" class="mb-4"/>
         <h3 class="text-2xl font-bold text-night-0 dark:text-white leading-none mb-4">
             <a href="{{ $post->url }}" class="hover:underlined">
                 {{ $post->title }}
             </a>
         </h3>
-        <x-post.aside :post="$post" class="mb-4 text-sm"></x-post.aside>
+        <x-post.aside :post="$post" class="mb-4 text-sm"/>
         <p>{{ $post->description }}</p>
     </div>
 </article>

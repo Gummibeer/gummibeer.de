@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
  * @property-read string $url
  * @property-read string $avatar
  * @property-read string $payment_pointer
+ * @property-read string $twitter
  *
  * @method static Collection|Author[] all()
  * @method static Author find(string $nickname)

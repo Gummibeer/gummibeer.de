@@ -2,10 +2,11 @@
 
 @extends('web')
 
-@section('head')
-    <x-link-feed route="blog.feed"></x-link-feed>
-    <x-link-pagination :paginator="$posts"></x-link-pagination>
-@endsection
+@push('head')
+    <x-og.website/>
+    <x-link-pagination :paginator="$posts"/>
+    <x-link-feed route="blog.feed"/>
+@endpush
 
 @section('content')
     <x-section>

@@ -3,9 +3,10 @@
 
 @extends('web')
 
-@section('head')
-    <x-link-pagination :paginator="$posts"></x-link-pagination>
-@endsection
+@push('head')
+    <x-og.website/>
+    <x-link-pagination :paginator="$posts"/>
+@endpush
 
 @section('content')
     <x-section>

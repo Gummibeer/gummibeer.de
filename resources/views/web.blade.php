@@ -27,9 +27,7 @@
     <link rel="pingback" href="https://webmention.io/gummibeer.de/xmlrpc">
     <link rel="sitemap" type="application/xml" href="{{ route('sitemap.xml') }}">
     <link rel="canonical" href="{{ request()->url() }}">
-    @yield('head')
-    @yield('monetization')
-    @yield('open-graph')
+    @stack('head')
 </head>
 <body class="min-h-screen bg-snow-0 text-night-0 dark:bg-night-0 dark:text-snow-0 line-numbers">
 <x-menu></x-menu>

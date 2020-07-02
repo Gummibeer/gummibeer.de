@@ -29,6 +29,7 @@ class Img extends Component
         string $src,
         ?int $width = null,
         ?int $height = null,
+        ?float $ratio = null,
         bool $crop = false
     ) {
         $this->manager = $manager;
@@ -36,6 +37,15 @@ class Img extends Component
         $this->width = $width;
         $this->height = $height;
         $this->crop = $crop;
+
+        if($ratio !== null) {
+            if($this->width !== null && $this->height === null) {
+                $this->height = round($this->width / $ratio);
+            }
+        if($this->width === null && $this->height !== null) {
+            $this->width = round($this->height * $ratio);
+        }
+        }
 
         $this->img = $manager->make(
             Str::startsWith($src, ['http://', 'https://'])
@@ -58,8 +68,7 @@ class Img extends Component
     public function src(?string $extension = null, int $dpr = 1): string
     {
         $path = sprintf(
-            'images/%s/%s-%dx%d@%dx.%s',
-            substr($this->hash, 0, 2),
+            'images/%s/%dx%d@%dx.%s',
             $this->hash,
             $this->width,
             $this->height,

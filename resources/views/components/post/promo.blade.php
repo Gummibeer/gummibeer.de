@@ -8,20 +8,20 @@
             <x-img
                 src="{{ $post->image }}"
                 width="768"
-                height="768"
+                :ratio="1/1"
                 :alt="$post->title"
                 class="rounded-4 shadow"
-                :crop="true"></x-img>
+                :crop="true"/>
         </a>
     </div>
     <div class="w-full md:w-1/2 lg:w-2/3">
-        <x-post.ul-categories :post="$post" class="mb-8 md:text-xl"></x-post.ul-categories>
+        <x-post.ul-categories :post="$post" class="mb-8 md:text-xl"/>
         <h3 class="text-3xl font-bold text-night-0 dark:text-white leading-none mb-8">
             <a href="{{ $post->url }}" class="hover:underlined">
                 {{ $post->title }}
             </a>
         </h3>
-        <x-post.aside :post="$post" class="mb-4"></x-post.aside>
+        <x-post.aside :post="$post" class="mb-4"/>
         <p>{{ $post->description }}</p>
     </div>
 </article>

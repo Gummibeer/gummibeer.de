@@ -9,7 +9,7 @@ class IndexController
 {
     public function __invoke(MetaBag $meta, Author $author, int $page = 1)
     {
-        $meta->title = sprintf('Blog posts written by %s', $author->name);
+        $meta->title = sprintf('Posts by %s | Blog', $author->name);
 
         $posts = $author->posts()
             ->paginate($page)

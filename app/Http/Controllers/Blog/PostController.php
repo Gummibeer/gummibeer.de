@@ -14,6 +14,7 @@ class PostController
     {
         $meta->title = $post->title.' | Blog';
         $meta->description = $post->description;
+        $meta->image = route('blog.post.jpg', $post);
 
         return view('pages.post', compact('post'));
     }

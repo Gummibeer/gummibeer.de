@@ -9,7 +9,7 @@ class IndexController
 {
     public function __invoke(MetaBag $meta, int $year, int $page = 1)
     {
-        $meta->title = sprintf('Blog posts written in %d', $year);
+        $meta->title = sprintf('Posts from %d | Blog', $year);
 
         $posts = Post::all()
             ->filter(fn (Post $post): bool => $post->date->year == $year)
