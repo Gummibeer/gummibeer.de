@@ -31,6 +31,7 @@
         "steein/robots": "^1.4"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.7",
         "facade/ignition": "^2.0",
         "nunomaduro/collision": "^5.0"
     },
@@ -70,6 +71,10 @@
             "@php artisan view:clear --ansi --no-interaction --quiet",
             "@php artisan cache:clear --ansi --no-interaction --quiet",
             "@php artisan route:clear --ansi --no-interaction --quiet"
+        ],
+        "ide-helper": [
+            "@php artisan ide-helper:generate --ansi --no-interaction --quiet",
+            "@php artisan ide-helper:meta --ansi --no-interaction --quiet"
         ],
         "normalize": "echo 'composer global require ergebnis/composer-normalize'",
         "thanks": "echo 'composer global require symfony/thanks'"
