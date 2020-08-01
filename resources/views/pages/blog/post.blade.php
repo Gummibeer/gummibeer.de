@@ -23,7 +23,9 @@
                 :alt="$post->title"
                 :crop="true"/>
             @endisset
-            <x-post.ul-categories :post="$post" class="mb-4"/>
+            @if($post->categories()->isNotEmpty())
+                <x-post.ul-categories :post="$post" class="mb-4"/>
+            @endif
             <x-post.aside :post="$post"/>
         </header>
         <main class="prose md:prose-lg lg:prose-xl">

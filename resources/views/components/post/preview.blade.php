@@ -14,7 +14,9 @@
     </a>
     @endisset
     <div class="p-4">
-        <x-post.ul-categories :post="$post" class="mb-4"/>
+        @if($post->categories()->isNotEmpty())
+            <x-post.ul-categories :post="$post" class="mb-4"/>
+        @endif
         <h3 class="text-2xl font-bold text-night-0 dark:text-white leading-none mb-4">
             <a href="{{ $post->url }}" class="hover:underlined">
                 {{ $post->title }}
