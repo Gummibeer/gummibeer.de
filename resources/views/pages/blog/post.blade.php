@@ -14,13 +14,15 @@
 @section('content')
     <x-article class="markdown">
         <header class="mb-8">
+            @isset($post->image)
             <x-img
                 :src="$post->image"
                 width="768"
-                :ratio="16/9"
+                ratio="16:9"
                 class="mb-8"
                 :alt="$post->title"
                 :crop="true"/>
+            @endisset
             <x-post.ul-categories :post="$post" class="mb-4"/>
             <x-post.aside :post="$post"/>
         </header>

@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 require('laravel-mix-sri');
+const glob = require('glob');
+const path = require('path');
 
 Mix.listen('configReady', webpackConfig => {
     webpackConfig.module.rules.forEach(rule => {
@@ -30,3 +32,7 @@ mix
         enabled: true,
     })
 ;
+
+glob.sync(path.resolve(__dirname, 'resources', 'images') + '/**/*.png').forEach(img => {
+    mix.copy(img, img.replace(path.resolve(__dirname, 'resources', 'images'), 'public/images'));
+});

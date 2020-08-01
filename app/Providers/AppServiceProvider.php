@@ -10,6 +10,7 @@ use App\Services\MetaBag;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Imgix\UrlBuilder;
 use League\CommonMark\Block\Element\FencedCode;
 use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\ConverterInterface;
@@ -21,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
         $this->registerMeta();
         $this->registerRepositories();
         $this->registerCommonmark();
+        $this->registerImgix();
     }
 
     public function boot(): void
@@ -50,5 +52,16 @@ class AppServiceProvider extends ServiceProvider
         );
         $environment = $commonMark->getEnvironment();
         $environment->addBlockRenderer(FencedCode::class, new FencedCodeRenderer());
+    }
+
+    public function registerImgix(): void
+    {
+        $builder = new UrlBuilder(config('services.imgix.domain'));
+        $builder->setUseHttps(true);
+        if (config('services.imgix.sign_key')) {
+            $builder->setSignKey(config('services.imgix.sign_key'));
+        }
+
+        $this->app->instance(UrlBuilder::class, $builder);
     }
 }

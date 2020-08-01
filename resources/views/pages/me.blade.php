@@ -3,7 +3,7 @@
 @extends('web')
 
 @push('head')
-    <x-og.website/>
+    <x-og.profile/>
 @endpush
 
 @section('content')

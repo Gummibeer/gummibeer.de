@@ -20,6 +20,7 @@
         "astrotomic/php-open-graph": "^0.2.3",
         "elhebert/laravel-sri": "^2.2",
         "guzzlehttp/guzzle": "^6.3",
+        "imgix/imgix-php": "^3.3",
         "intervention/image": "^2.5",
         "laravel/framework": "^7.0",
         "league/commonmark": "^1.4",

@@ -7,57 +7,64 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use Imgix\UrlBuilder;
 use Intervention\Image\Constraint;
 use Intervention\Image\Image;
 use Intervention\Image\ImageManager;
 
 class Img extends Component
 {
-    private ImageManager $manager;
-    private Image $img;
-
+    private UrlBuilder $builder;
+    private array $params = [];
     private string $src;
+
     public ?int $width;
     public ?int $height;
-    private bool $crop;
-
-    private string $hash;
-    private string $extension;
 
     public function __construct(
-        ImageManager $manager,
+        UrlBuilder $builder,
         string $src,
         ?int $width = null,
         ?int $height = null,
-        ?float $ratio = null,
+        ?string $ratio = null,
         bool $crop = false
     ) {
-        $this->manager = $manager;
-        $this->src = $src;
+        $this->builder = $builder;
         $this->width = $width;
         $this->height = $height;
-        $this->crop = $crop;
 
-        if($ratio !== null) {
-            if($this->width !== null && $this->height === null) {
-                $this->height = round($this->width / $ratio);
+        if (Str::startsWith($src, ['http://', 'https://'])) {
+            $path = public_path(sprintf(
+                'images/http/%s',
+                hash('md5', ltrim($src, '/'))
+            ));
+            @mkdir(dirname($path), 0755, true);
+            if(empty(glob($path.'.*'))) {
+                file_put_contents($path, file_get_contents($src));
+                $extension = Arr::first(MimeTypes::getExtensions(MimeTypes::guessMimeType($path)));
+                rename($path, $path.'.'.$extension);
             }
-        if($this->width === null && $this->height !== null) {
-            $this->width = round($this->height * $ratio);
-        }
+            $this->src = str_replace(public_path(), '', Arr::first(glob($path.'.*')));
+        } else {
+            $this->src = $src;
         }
 
-        $this->img = $manager->make(
-            Str::startsWith($src, ['http://', 'https://'])
-                ? $src
-                : public_path($src)
-        );
-        $this->hash = hash('md5', $this->img->encode('data-url'));
+        if($crop) {
+            $this->params['fit'] = 'crop';
+            $this->params['crop'] = 'edges';
+        }
 
-        $img = $this->img();
-        $this->extension = Arr::first(MimeTypes::getExtensions($img->mime()));
-        $this->width = $img->width();
-        $this->height = $img->height();
+        if($ratio) {
+            $this->params['ar'] = $ratio;
+        }
+
+        if($width) {
+            $this->params['w'] = $width;
+        }
+
+        if($height) {
+            $this->params['h'] = $height;
+        }
     }
 
     public function render(): View
@@ -65,45 +72,28 @@ class Img extends Component
         return view('components.img');
     }
 
-    public function src(?string $extension = null, int $dpr = 1): string
+    public function src(?string $format = null): string
     {
-        $path = sprintf(
-            'images/%s/%dx%d@%dx.%s',
-            $this->hash,
-            $this->width,
-            $this->height,
-            $dpr,
-            $extension ?? $this->extension
+        if(app()->environment('local')) {
+            return asset($this->src);
+        }
+
+        return $this->builder->createURL(
+            $this->src,
+            array_merge($this->params, array_filter(['fm' => $format]))
         );
-
-        $dirname = pathinfo(public_path($path), PATHINFO_DIRNAME);
-        if (! file_exists($dirname)) {
-            mkdir($dirname, 0777, true);
-        }
-
-        if (! file_exists($path)) {
-            $this->img($dpr)->save(public_path($path), 75);
-        }
-
-        return asset($path);
     }
 
-    public function img(int $dpr = 1): Image
+    public function srcSet(?string $format = null, array $options = []): string
     {
-        $img = clone $this->img;
-
-        if ($this->width !== null && $this->height !== null && $this->crop) {
-            return $img->fit($this->width * $dpr, $this->height * $dpr, fn (Constraint $constraint) => $constraint->upsize());
+        if(app()->environment('local')) {
+            return asset($this->src).' 1x';
         }
 
-        if ($this->width !== null) {
-            $img->widen($this->width * $dpr, fn (Constraint $constraint) => $constraint->upsize());
-        }
-
-        if ($this->height !== null) {
-            $img->heighten($this->height * $dpr, fn (Constraint $constraint) => $constraint->upsize());
-        }
-
-        return $img;
+        return $this->builder->createSrcSet(
+            $this->src,
+            array_merge($this->params, array_filter(['fm' => $format])),
+            $options
+        );
     }
 }

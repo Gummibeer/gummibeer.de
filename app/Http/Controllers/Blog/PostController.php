@@ -16,7 +16,7 @@ class PostController
         $meta->description = $post->description;
         $meta->image = route('blog.post.jpg', $post);
 
-        return view('pages.post', compact('post'));
+        return view('pages.blog.post', compact('post'));
     }
 
     public function image(ImageManager $manager, Post $post)

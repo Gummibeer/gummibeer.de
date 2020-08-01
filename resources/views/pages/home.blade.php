@@ -11,6 +11,7 @@
         <x-post.promo :post="\App\Post::latest()"/>
     </x-section>
 
+    @if(\App\Post::all()->reject(\App\Post::latest())->isNotEmpty())
     <x-section class="bg-dotted">
         <h2 class="text-4xl font-bold text-night-0 dark:text-white leading-none mb-8">Latest Posts</h2>
         <x-grid>
@@ -19,4 +20,5 @@
             @endforeach
         </x-grid>
     </x-section>
+    @endif
 @endsection

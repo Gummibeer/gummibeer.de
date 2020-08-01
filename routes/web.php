@@ -4,11 +4,13 @@ use App\Http\Controllers\Blog;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\Paginated;
 use Illuminate\Support\Facades\Route;
+use Spatie\Sitemap\Sitemap;
 use Steein\Robots\Robots;
 
 Route::get('/', HomeController::class)->name('home');
 Route::view('/me', 'pages.me', sheets()->get('me')->toArray())->name('me');
 Route::view('/uses', 'pages.uses', sheets()->get('uses')->toArray())->name('uses');
+Route::view('/charity', 'pages.charity', sheets()->get('charity')->toArray())->name('charity');
 
 Route::prefix('blog')->name('blog.')->group(function (): void {
     Route::get('{page?}', Blog\IndexController::class)->middleware(Paginated::class)->name('index');
@@ -31,7 +33,7 @@ Route::prefix('blog')->name('blog.')->group(function (): void {
 });
 
 Route::get('404.html', fn () => '404');
-Route::get('sitemap.xml', fn () => 'sitemap')->name('sitemap.xml');
+Route::get('sitemap.xml', fn () => Sitemap::create())->name('sitemap.xml');
 Route::get('robots.txt', function () {
     return Robots::getInstance()
         ->userAgent('*')

@@ -1,17 +1,17 @@
 <?php /** @var Illuminate\View\ComponentAttributeBag $attributes */ ?>
 <?php /** @var Illuminate\Support\HtmlString $slot */ ?>
+<?php /** @var Closure $src */ ?>
+<?php /** @var Closure $srcSet */ ?>
 
 <figure @if(!empty((string) $slot)) role="group" @endif class="overflow-hidden">
     <picture>
-        <source
-            type="image/webp"
-            srcset="{{ $src('webp', 1) }} 1x, {{ $src('webp', 2) }} 2x"
-        />
+        <source type="image/webp" srcset="{{ $srcSet('webp') }}"/>
+        <source type="image/jp2" srcset="{{ $srcSet('jp2') }}"/>
         <img
             src="{{ $src() }}"
-            srcset="{{ $src(null, 1) }} 1x, {{ $src(null, 2) }} 2x"
-            width="{{ $width }}"
-            height="{{ $height }}"
+            srcset="{{ $srcSet() }}"
+            @if($width) width="{{ $width }}" @endif
+            @if($height) height="{{ $height }}" @endif
             loading="lazy"
             {{ $attributes->merge(['class' => 'w-full h-auto dark:opacity-75 dark:hover:opacity-100 transition-opacity duration-500 ease-out']) }}
         />

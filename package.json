@@ -12,6 +12,7 @@
     "devDependencies": {
         "alex": "^8.1.1",
         "cross-env": "^7.0",
+        "glob": "^7.1.6",
         "laravel-mix": "^5.0.1",
         "laravel-mix-sri": "^0.0.4",
         "postcss-discard-comments": "^4.0.2",
