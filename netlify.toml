@@ -8,8 +8,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer-when-downgrade"
-    Feature-Policy = "accelerometer 'none';ambient-light-sensor 'none';autoplay 'none';camera 'none';encrypted-media 'none';fullscreen 'none';geolocation 'none';gyroscope 'none';magnetometer 'none';microphone 'none';midi 'none';payment 'none';picture-in-picture 'none';speaker 'none';usb 'none';vr 'none'"
-    Content-Security-Policy = "default-src 'self';base-uri 'self';connect-src 'none';form-action 'none';frame-src 'none';frame-ancestors 'none';child-src 'none';font-src 'self';img-src 'self' https://gummibeer.imgix.net https://gummibeer-netlify.imgix.net;media-src 'none';object-src 'none';script-src 'self';style-src 'self' 'unsafe-inline'"
+    Content-Security-Policy = "default-src 'self';base-uri 'self';connect-src 'none';form-action 'none';frame-src 'none';frame-ancestors 'none';child-src 'none';font-src 'self';img-src 'self' https://gummibeer.imgix.com https://gummibeer-netlify.imgix.com;media-src 'none';object-src 'none';script-src 'self' 'unsafe-eval';style-src 'self' 'unsafe-inline'"
 
 [[headers]]
   for = "/css/*"
