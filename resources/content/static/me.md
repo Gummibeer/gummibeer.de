@@ -1,3 +1,3 @@
 # Tom Witkowski
 
-Here I will add some crazy stuff about myself.
+Here I will add some stuff about myself.
