@@ -7,9 +7,11 @@
 @endpush
 
 @section('content')
+    @if(\App\Post::isNotEmpty())
     <x-section>
         <x-post.promo :post="\App\Post::latest()"/>
     </x-section>
+    @endif
 
     @if(\App\Post::all()->reject(\App\Post::latest())->isNotEmpty())
     <x-section class="bg-dotted">
