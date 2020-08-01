@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Imgix\UrlBuilder;
+use InvalidArgumentException;
 
 class Img extends Component
 {
@@ -31,6 +32,14 @@ class Img extends Component
         $this->setHeight($height);
 
         if (Str::startsWith($src, ['http://', 'https://'])) {
+            if(!app()->environment('local')) {
+                throw new InvalidArgumentException(sprintf(
+                    'Only local images allowed on "%s" - you requested "%s".',
+                    app()->environment(),
+                    $src
+                ));
+            }
+
             $path = public_path(sprintf(
                 'images/http/%s',
                 hash('md5', ltrim($src, '/'))
@@ -45,6 +54,8 @@ class Img extends Component
         } else {
             $this->src = $src;
         }
+
+        $this->src .= '?v='.hash_file('md5', public_path($this->src));
 
         $this->params['auto'] = 'compress';
         $this->params['fit'] = 'max';
