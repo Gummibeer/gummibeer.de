@@ -2,10 +2,8 @@
 
 namespace App\View\Components\Og;
 
-use App\Post;
 use App\Services\MetaBag;
 use Astrotomic\OpenGraph\OpenGraph;
-use Astrotomic\OpenGraph\StructuredProperties\Image;
 use Astrotomic\OpenGraph\Twitter;
 use Illuminate\View\Component;
 
@@ -30,7 +28,7 @@ class Profile extends Component
                 ->when($this->meta->description)->description($this->meta->description)
                 ->when($this->meta->image)->image($this->meta->image)
                 ->site(config('app.name'))
-                ->creator('@devgummibeer')
+                ->creator('@devgummibeer'),
         ]);
     }
 }

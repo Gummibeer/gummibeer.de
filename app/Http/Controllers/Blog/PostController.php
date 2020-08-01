@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Blog;
 
 use App\Post;
 use App\Services\MetaBag;
-use Intervention\Image\ImageManager;
-use Spatie\Browsershot\Browsershot;
-use Spatie\Image\Manipulations;
 
 class PostController
 {

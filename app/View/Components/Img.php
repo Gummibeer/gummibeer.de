@@ -8,9 +8,6 @@ use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Imgix\UrlBuilder;
-use Intervention\Image\Constraint;
-use Intervention\Image\Image;
-use Intervention\Image\ImageManager;
 
 class Img extends Component
 {
@@ -39,7 +36,7 @@ class Img extends Component
                 hash('md5', ltrim($src, '/'))
             ));
             @mkdir(dirname($path), 0755, true);
-            if(empty(glob($path.'.*'))) {
+            if (empty(glob($path.'.*'))) {
                 file_put_contents($path, file_get_contents($src));
                 $extension = Arr::first(MimeTypes::getExtensions(MimeTypes::guessMimeType($path)));
                 rename($path, $path.'.'.$extension);
@@ -52,20 +49,20 @@ class Img extends Component
         $this->params['auto'] = 'compress';
         $this->params['fit'] = 'max';
 
-        if($ratio) {
+        if ($ratio) {
             $crop = true;
             $this->params['ar'] = $ratio;
 
-            if($width !== null && $height === null) {
+            if ($width !== null && $height === null) {
                 $this->setHeight($width / explode(':', $ratio)[0] * explode(':', $ratio)[1]);
             }
 
-            if($width === null && $height !== null) {
+            if ($width === null && $height !== null) {
                 $this->setWidth($height / explode(':', $ratio)[1] * explode(':', $ratio)[0]);
             }
         }
 
-        if($crop) {
+        if ($crop) {
             $this->params['fit'] = 'crop';
             $this->params['crop'] = 'edges';
         }
@@ -78,7 +75,7 @@ class Img extends Component
 
     public function src(?string $format = null): string
     {
-        if(app()->environment('local')) {
+        if (app()->environment('local')) {
             return asset($this->src);
         }
 
@@ -90,7 +87,7 @@ class Img extends Component
 
     public function srcSet(?string $format = null, array $options = []): string
     {
-        if(app()->environment('local')) {
+        if (app()->environment('local')) {
             return asset($this->src).' 1x';
         }
 
@@ -105,7 +102,7 @@ class Img extends Component
     {
         $this->height = $height;
 
-        if($height) {
+        if ($height) {
             $this->params['h'] = $height;
         } else {
             unset($this->params['h']);
@@ -118,7 +115,7 @@ class Img extends Component
     {
         $this->width = $width;
 
-        if($width) {
+        if ($width) {
             $this->params['w'] = $width;
         } else {
             unset($this->params['w']);
