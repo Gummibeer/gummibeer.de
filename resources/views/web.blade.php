@@ -30,11 +30,13 @@
     @stack('head')
 </head>
 <body class="min-h-screen bg-snow-0 text-night-0 dark:bg-night-0 dark:text-snow-0 line-numbers">
-<x-menu></x-menu>
+<x-menu/>
 
 <div class="relative">
     @yield('content')
 </div>
+
+<x-footer/>
 
 <script async defer src="{{ mix('js/app.js') }}" integrity="{{ $sri->hash('js/app.js') }}" crossorigin="anonymous"></script>
 </body>

@@ -3,7 +3,9 @@
 use App\Http\Controllers\Blog;
 use App\Http\Controllers\CharityController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImprintController;
 use App\Http\Controllers\MeController;
+use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\UsesController;
 use App\Http\Middleware\Paginated;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +16,9 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('/me', MeController::class)->name('me');
 Route::get('/uses', UsesController::class)->name('uses');
 Route::get('/charity', CharityController::class)->name('charity');
+
+Route::get('/imprint', ImprintController::class)->name('imprint');
+Route::get('/privacy', PrivacyController::class)->name('privacy');
 
 Route::prefix('blog')->name('blog.')->group(function (): void {
     Route::get('{page?}', Blog\IndexController::class)->middleware(Paginated::class)->name('index');
