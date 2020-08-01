@@ -19,10 +19,10 @@ abstract class Model extends Sheet implements UrlRoutable
     public function resolveRouteBinding($value, $field = null)
     {
         if ($field !== null) {
-            return $this->all()->firstWhere($field, $value);
+            return static::all()->firstWhere($field, $value);
         }
 
-        return $this->find($value);
+        return static::find($value);
     }
 
     public function resolveChildRouteBinding($childType, $value, $field)
