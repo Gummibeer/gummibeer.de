@@ -22,10 +22,12 @@
                 :alt="$post->title"
                 :crop="true"/>
             <x-post.ul-categories :post="$post" class="mb-4"/>
-            <h1>{{ $post->title }}</h1>
             <x-post.aside :post="$post"/>
         </header>
-        <main>{{ $post->contents }}</main>
+        <main class="prose md:prose-lg lg:prose-xl">
+            <h1>{{ $post->title }}</h1>
+            {{ $post->contents }}
+        </main>
         <x-post.webmentions :url="$post->url" class="markdown" class="mt-12 pt-12 border-t-2 border-snow-10"/>
     </x-article>
 @endsection

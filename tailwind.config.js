@@ -89,9 +89,60 @@ module.exports = {
                 '1/4': '25%',
                 '1/2': '50%',
             }
-        }
+        },
+        typography: (theme) => ({
+            default: {
+                css: {
+                    color: 'inherit',
+
+                    'h1, h2, h3, h4, h5, h6': {
+                        color: 'inherit',
+                    },
+                    a: {
+                        color: 'inherit',
+                        borderBottomWidth: theme('borderWidth.2'),
+                        borderColor: theme('colors.brand'),
+                        borderStyle: 'dashed',
+                        textDecoration: 'none',
+
+                        '&:hover': {
+                            color: theme('colors.brand'),
+                            borderStyle: 'solid',
+                        },
+                    },
+                    code: {
+                        color: 'inherit',
+                    },
+                    ul: {
+                        '> li': {
+                            '&::before': {
+                                backgroundColor: theme('colors.night.0'),
+                                borderRadius: 0,
+
+                                '@screen dark': {
+                                    backgroundColor: theme('colors.snow.0'),
+                                }
+                            }
+                        }
+                    }
+                },
+            },
+            xl: {
+                css: {
+                    ul: {
+                        '> li': {
+                            marginTop: '0.25em',
+                            marginBottom: '0.25em',
+                        }
+                    }
+                }
+            }
+        }),
     },
     variants: {
         borderStyle: ['responsive', 'hover'],
     },
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 };
