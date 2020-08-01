@@ -30,9 +30,8 @@
         "steein/robots": "^1.4"
     },
     "require-dev": {
-        "bamarni/composer-bin-plugin": "^1.4",
         "facade/ignition": "^2.0",
-        "nunomaduro/collision": "^4.1"
+        "nunomaduro/collision": "^5.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -54,24 +53,24 @@
     "scripts": {
         "post-install-cmd": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "@php artisan key:generate --ansi",
-            "@composer bin all install --ansi",
-            "@composer normalize --ansi",
-            "@composer thanks --ansi"
+            "@php artisan key:generate --ansi --no-interaction --quiet"
         ],
         "post-update-cmd": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "@php artisan key:generate --ansi",
-            "@composer bin all update --ansi",
-            "@composer normalize --ansi",
-            "@composer thanks --ansi"
+            "@php artisan key:generate --ansi --no-interaction --quiet"
         ],
         "post-autoload-dump": [
+            "@composer validate --strict --ansi --no-interaction --quiet",
+            "@composer normalize --ansi --no-interaction --quiet",
+            "@composer thanks --ansi --no-interaction --quiet",
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi --no-interaction --quiet",
+            "@php artisan config:clear --ansi --no-interaction --quiet",
+            "@php artisan view:clear --ansi --no-interaction --quiet",
+            "@php artisan cache:clear --ansi --no-interaction --quiet",
+            "@php artisan route:clear --ansi --no-interaction --quiet"
         ],
-        "bin": "echo 'bin not installed'",
-        "normalize": "echo 'normalize not installed'",
-        "thanks": "echo 'thanks not installed'"
+        "normalize": "echo 'composer global require ergebnis/composer-normalize'",
+        "thanks": "echo 'composer global require symfony/thanks'"
     }
 }
