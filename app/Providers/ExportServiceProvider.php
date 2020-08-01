@@ -26,7 +26,6 @@ class ExportServiceProvider extends ServiceProvider
         Post::all()
             ->each(function (Post $post) use ($exporter): void {
                 $exporter
-                    ->urls($post->url, route('blog.post.jpg', $post))
                     ->urls(route('blog.year.index', ['year' => $post->date->year]))
                     ->urls([
                         $post->author->url,
