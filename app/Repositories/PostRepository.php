@@ -3,18 +3,21 @@
 namespace App\Repositories;
 
 use App\Post;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Collection;
 
+/** @mixin Collection */
 class PostRepository
 {
     public function all(): Collection
     {
         return sheets()->collection('posts')->all()
-            ->reject(fn (Post $post) => $post->date->isFuture())
+            ->reject(fn (Post $post): bool => $post->date->isFuture())
+            ->reject(fn (Post $post): bool => $post->is_draft)
             ->sortByDesc('date');
     }
 
-    public function latest(): Post
+    public function latest(): ?Post
     {
         return $this->all()->first();
     }
@@ -23,7 +26,15 @@ class PostRepository
     {
         [$year, $slug] = explode('/', $slug);
 
-        return $this->all()
-            ->first(fn (Post $post): bool => $post->date->year == $year && $post->slug == $slug);
+        $post = $this->all()->first(fn (Post $post): bool => $post->date->year == $year && $post->slug == $slug);
+
+        throw_if($post === null, (new ModelNotFoundException)->setModel(Post::class, $slug));
+
+        return $post;
+    }
+
+    public function __call(string $method, array $arguments)
+    {
+        return $this->all()->$method(...$arguments);
     }
 }

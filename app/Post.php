@@ -21,10 +21,14 @@ use Spatie\Feed\FeedItem;
  * @property-read string $description
  * @property-read string $slug
  * @property-read string $url
+ * @property-read bool $is_draft
  *
  * @method static Collection|Post[] all()
  * @method static Post latest()
  * @method static Post find(int $year, string $slug)
+ * @method static int count()
+ * @method static bool isEmpty()
+ * @method static bool isNotEmpty()
  */
 final class Post extends Model implements Feedable
 {
@@ -67,6 +71,11 @@ final class Post extends Model implements Feedable
         return Carbon::createFromTimestamp(filemtime(resource_path('content/posts/'.$this->path)), 'UTC');
     }
 
+    public function getIsDraftAttribute(?bool $value): bool
+    {
+        return $value ?? false;
+    }
+
     public function toFeedItem(): FeedItem
     {
         return FeedItem::create()
@@ -77,11 +86,6 @@ final class Post extends Model implements Feedable
             ->updated($this->date)
             ->link($this->url)
             ->category(...$this->categories);
-    }
-
-    public function __call($name, $arguments)
-    {
-        return call_user_func_array([app(PostRepository::class), $name], $arguments);
     }
 
     public static function __callStatic($name, $arguments)
