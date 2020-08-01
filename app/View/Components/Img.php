@@ -30,8 +30,8 @@ class Img extends Component
         bool $crop = false
     ) {
         $this->builder = $builder;
-        $this->width = $width;
-        $this->height = $height;
+        $this->setWidth($width);
+        $this->setHeight($height);
 
         if (Str::startsWith($src, ['http://', 'https://'])) {
             $path = public_path(sprintf(
@@ -49,21 +49,25 @@ class Img extends Component
             $this->src = $src;
         }
 
+        $this->params['auto'] = 'compress';
+        $this->params['fit'] = 'max';
+
+        if($ratio) {
+            $crop = true;
+            $this->params['ar'] = $ratio;
+
+            if($width !== null && $height === null) {
+                $this->setHeight($width / explode(':', $ratio)[0] * explode(':', $ratio)[1]);
+            }
+
+            if($width === null && $height !== null) {
+                $this->setWidth($height / explode(':', $ratio)[1] * explode(':', $ratio)[0]);
+            }
+        }
+
         if($crop) {
             $this->params['fit'] = 'crop';
             $this->params['crop'] = 'edges';
-        }
-
-        if($ratio) {
-            $this->params['ar'] = $ratio;
-        }
-
-        if($width) {
-            $this->params['w'] = $width;
-        }
-
-        if($height) {
-            $this->params['h'] = $height;
         }
     }
 
@@ -95,5 +99,31 @@ class Img extends Component
             array_merge($this->params, array_filter(['fm' => $format])),
             $options
         );
+    }
+
+    protected function setHeight(?int $height): self
+    {
+        $this->height = $height;
+
+        if($height) {
+            $this->params['h'] = $height;
+        } else {
+            unset($this->params['h']);
+        }
+
+        return $this;
+    }
+
+    protected function setWidth(?int $width): self
+    {
+        $this->width = $width;
+
+        if($width) {
+            $this->params['w'] = $width;
+        } else {
+            unset($this->params['w']);
+        }
+
+        return $this;
     }
 }
