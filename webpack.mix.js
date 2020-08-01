@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 require('laravel-mix-sri');
+require('laravel-mix-purgecss');
 const glob = require('glob');
 const path = require('path');
 
@@ -30,6 +31,11 @@ mix
     .version()
     .generateIntegrityHash({
         enabled: true,
+    })
+    .purgeCss({
+        content: [
+            './resources/views/**/*.blade.php',
+        ],
     })
 ;
 
