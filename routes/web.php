@@ -29,7 +29,6 @@ Route::prefix('blog')->name('blog.')->group(function (): void {
     });
 
     Route::get('{post}', Blog\PostController::class)->name('post');
-    Route::get('{post}.jpg', [Blog\PostController::class, 'image'])->name('post.jpg');
 });
 
 Route::get('404.html', fn () => '404');

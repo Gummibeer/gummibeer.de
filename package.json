@@ -16,7 +16,6 @@
         "laravel-mix": "^5.0.1",
         "laravel-mix-sri": "^0.0.4",
         "postcss-discard-comments": "^4.0.2",
-        "puppeteer": "^4.0.0",
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
