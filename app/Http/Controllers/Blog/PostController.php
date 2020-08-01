@@ -11,6 +11,7 @@ class PostController
     {
         $meta->title = $post->title.' | Blog';
         $meta->description = $post->description;
+        $meta->image = mix("images/og/posts/{$post->date->format('Y-m-d')}.{$post->slug}.png");
 
         return view('pages.blog.post', compact('post'));
     }

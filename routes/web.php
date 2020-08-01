@@ -1,16 +1,19 @@
 <?php
 
 use App\Http\Controllers\Blog;
+use App\Http\Controllers\CharityController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MeController;
+use App\Http\Controllers\UsesController;
 use App\Http\Middleware\Paginated;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\Sitemap;
 use Steein\Robots\Robots;
 
 Route::get('/', HomeController::class)->name('home');
-Route::view('/me', 'pages.me', sheets()->get('me')->toArray())->name('me');
-Route::view('/uses', 'pages.uses', sheets()->get('uses')->toArray())->name('uses');
-Route::view('/charity', 'pages.charity', sheets()->get('charity')->toArray())->name('charity');
+Route::get('/me', MeController::class)->name('me');
+Route::get('/uses', UsesController::class)->name('uses');
+Route::get('/charity', CharityController::class)->name('charity');
 
 Route::prefix('blog')->name('blog.')->group(function (): void {
     Route::get('{page?}', Blog\IndexController::class)->middleware(Paginated::class)->name('index');
