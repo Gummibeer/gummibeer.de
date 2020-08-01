@@ -6,7 +6,6 @@
 <figure @if(!empty((string) $slot)) role="group" @endif class="overflow-hidden">
     <picture>
         <source type="image/webp" srcset="{{ $srcSet('webp') }}"/>
-        <source type="image/jp2" srcset="{{ $srcSet('jp2') }}"/>
         <img
             src="{{ $src() }}"
             srcset="{{ $srcSet() }}"
