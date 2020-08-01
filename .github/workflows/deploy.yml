@@ -54,12 +54,24 @@ jobs:
         run: yarn production
 
       - name: Export page
-        run: php artisan export --env=prod --skip-all
+        run: php artisan export --env=netlify --skip-all
+        env:
+          IMGIX_SIGN_KEY: ${{ secrets.IMGIX_SIGN_KEY }}
 
       - name: Netlify deploy
+        if: github.ref == 'refs/heads/master' || github.event_name == 'schedule'
         run: |
           yarn global add netlify-cli
           "$(yarn global bin)/netlify" deploy --prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - name: Netlify deploy
+        if: github.ref != 'refs/heads/master' && github.event_name == 'push'
+        run: |
+          yarn global add netlify-cli
+          "$(yarn global bin)/netlify" deploy
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
