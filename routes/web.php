@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\Sitemap;
 use Steein\Robots\Robots;
 
-Route::sheet('/', 'pages.home', 'home', function (MetaBag $meta) {
+Route::get('/', function (MetaBag $meta) {
     $meta->description = 'I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.';
     $meta->image = mix('images/og/static/home.png');
+
+    return view('pages.home');
 })->name('home');
 
 Route::sheet('/me', 'pages.me', 'me', function (MetaBag $meta) {
