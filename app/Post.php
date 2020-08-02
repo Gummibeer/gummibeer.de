@@ -12,6 +12,7 @@ use Spatie\Feed\FeedItem;
 /**
  * @property-read string $title
  * @property-read string $image
+ * @property-read string $image_credits
  * @property-read string[] $categories
  * @property-read Carbon $date
  * @property-read Carbon $modified_at
