@@ -32,6 +32,12 @@ Route::sheet('/charity', 'pages.charity', 'charity', function (MetaBag $meta) {
     $meta->image = mix('images/og/static/charity.png');
 })->name('charity');
 
+Route::sheet('/portfolio', 'pages.portfolio', 'portfolio', function (MetaBag $meta) {
+    $meta->title = 'Portfolio';
+    $meta->description = 'In my free time I support several local business owners with everything I know.';
+    $meta->image = mix('images/og/static/portfolio.png');
+})->name('portfolio');
+
 Route::sheet('/imprint', 'pages.imprint', 'imprint', function (MetaBag $meta) {
     $meta->title = 'Imprint';
 })->name('imprint');

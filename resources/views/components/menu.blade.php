@@ -22,6 +22,7 @@
                 '/' => 'Home',
                 'me' => 'Me',
                 'blog' => 'Blog',
+                'portfolio' => 'Portfolio',
                 'charity' => 'Charity',
                 'uses' => 'Uses',
             ] as $route => $name)

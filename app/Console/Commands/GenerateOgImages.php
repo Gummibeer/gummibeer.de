@@ -39,6 +39,7 @@ class GenerateOgImages extends Command
             'home' => 'Developer / Biker / Gamer',
             'me' => 'Developer / Biker / Gamer',
             'blog' => 'Blog',
+            'portfolio' => 'Portfolio',
             'charity' => 'Charity',
             'uses' => 'Uses',
         ])->each(function (string $title, string $slug): void {
