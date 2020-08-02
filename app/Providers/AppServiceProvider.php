@@ -50,6 +50,7 @@ class AppServiceProvider extends ServiceProvider
             CommonMarkConverter::class,
             $this->app->make(ConverterInterface::class)
         );
+        $this->app->alias(CommonMarkConverter::class, 'markdown');
         $environment = $commonMark->getEnvironment();
         $environment->addBlockRenderer(FencedCode::class, new FencedCodeRenderer());
     }
