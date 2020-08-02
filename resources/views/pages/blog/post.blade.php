@@ -15,13 +15,15 @@
     <x-article class="markdown">
         <header class="mb-8">
             @isset($post->image)
-            <x-img
-                :src="$post->image"
-                width="768"
-                ratio="16:9"
-                class="mb-8"
-                :alt="$post->title"
-                :crop="true"/>
+                <x-figure class="mb-8">
+                    <x-img
+                        :src="$post->image"
+                        width="768"
+                        ratio="16:9"
+                        :alt="$post->title"
+                    />
+                    <x-slot name="caption">{{ $post->image_credits }}</x-slot>
+                </x-figure>
             @endisset
             @if($post->categories()->isNotEmpty())
                 <x-post.ul-categories :post="$post" class="mb-4"/>

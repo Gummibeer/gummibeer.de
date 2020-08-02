@@ -17,11 +17,14 @@
             @foreach(collect($charities)->sortBy('name') as $charity)
                 <div class="rounded-4 shadow bg-white dark:bg-night-20 overflow-hidden">
                     <a href="{{ $charity['href'] }}" target="_blank" rel="noreferrer noopener" class="block pb-1">
-                        <x-img
-                            :src="$charity['src']"
-                            width="768"
-                            ratio="16:9"
-                        >{{ $charity['name'] }}</x-img>
+                        <x-figure>
+                            <x-img
+                                :src="$charity['src']"
+                                width="768"
+                                ratio="16:9"
+                            />
+                            <x-slot name="caption">{{ $charity['name'] }}</x-slot>
+                        </x-figure>
                     </a>
                 </div>
             @endforeach
