@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Services\MetaBag;
+use Closure;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Illuminate\View\View;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -14,6 +17,14 @@ class RouteServiceProvider extends ServiceProvider
         Route::pattern('year', '[0-9]{4}');
         Route::pattern('page', 'p:([0-9]+)');
         Route::pattern('post', '[0-9]{4}\/[a-z0-9\-]+');
+
+        Route::macro('sheet', function (string $uri, string $view, string $sheet, Closure $callback) {
+            return Route::get($uri, function () use ($view, $sheet, $callback): View {
+                app()->call($callback);
+
+                return view($view, sheets()->get($sheet)->toArray());
+            });
+        });
 
         parent::boot();
     }

@@ -8,17 +8,41 @@ use App\Http\Controllers\MeController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\UsesController;
 use App\Http\Middleware\Paginated;
+use App\Services\MetaBag;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\Sitemap;
 use Steein\Robots\Robots;
 
-Route::get('/', HomeController::class)->name('home');
-Route::get('/me', MeController::class)->name('me');
-Route::get('/uses', UsesController::class)->name('uses');
-Route::get('/charity', CharityController::class)->name('charity');
+Route::sheet('/', 'pages.home', 'home', function (MetaBag $meta) {
+    $meta->description = 'I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.';
+    $meta->image = mix("images/og/static/home.png");
+})->name('home');
 
-Route::get('/imprint', ImprintController::class)->name('imprint');
-Route::get('/privacy', PrivacyController::class)->name('privacy');
+Route::sheet('/me', 'pages.me', 'me', function (MetaBag $meta) {
+    $meta->title = 'Me';
+    $meta->description = 'I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.';
+    $meta->image = mix("images/og/static/me.png");
+})->name('me');
+
+Route::sheet('/uses', 'pages.uses', 'uses', function (MetaBag $meta) {
+    $meta->title = 'Uses';
+    $meta->description = 'Software and Tools I use in my daily live for development and some little helpers to improve my experience.';
+    $meta->image = mix("images/og/static/uses.png");
+})->name('uses');
+
+Route::sheet('/charity', 'pages.charity', 'charity', function (MetaBag $meta) {
+    $meta->title = 'Charity';
+    $meta->description = 'For me it\'s part of my obligation and responsibility to support what I believe is important for me, us and our planet.';
+    $meta->image = mix("images/og/static/charity.png");
+})->name('charity');
+
+Route::sheet('/imprint', 'pages.imprint', 'imprint', function (MetaBag $meta) {
+    $meta->title = 'Imprint';
+})->name('imprint');
+
+Route::sheet('/privacy', 'pages.privacy', 'privacy', function (MetaBag $meta) {
+    $meta->title = 'Privacy';
+})->name('privacy');
 
 Route::prefix('blog')->name('blog.')->group(function (): void {
     Route::get('{page?}', Blog\IndexController::class)->middleware(Paginated::class)->name('index');
@@ -39,13 +63,17 @@ Route::prefix('blog')->name('blog.')->group(function (): void {
     Route::get('{post}', Blog\PostController::class)->name('post');
 });
 
-Route::get('404.html', fn () => '404');
-Route::get('sitemap.xml', fn () => Sitemap::create())->name('sitemap.xml');
-Route::get('robots.txt', function () {
-    return Robots::getInstance()
+Route::get('404.html', fn () => '404')->name('404');
+Route::get(
+    'sitemap.xml',
+    fn () => Sitemap::create()
+)->name('sitemap.xml');
+Route::get(
+    'robots.txt',
+    fn () => Robots::getInstance()
         ->userAgent('*')
         ->allow('/')
         ->spacer()
         ->sitemap(route('sitemap.xml'))
-        ->render();
-});
+        ->render()
+)->name('robots.txt');
