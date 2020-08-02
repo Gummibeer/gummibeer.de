@@ -11,12 +11,15 @@ projects:
   - name: Pandorya Photography
     description: Animal photographer in Hamburg.
     href: https://pandorya-photography.de/
+    src: images/portfolio/pandoryaphotography.png
   - name: Shootager
     description: Shooting management tool for photographers.
     href: http://shootager.de
+    src: images/portfolio/shootager.png
   - name: Finanzdiskurs
     description: Blog about finance, insurance and investment.
     href: http://finanzdiskurs.de/
+    src: images/portfolio/finanzdiskurs.png
   - name: Dogfit - Fitness mit Hund
     description: Human & Dog fitness training.
     href: http://dogfit-fitness.de/
@@ -69,6 +72,14 @@ projects:
     description: Travel platform and club aimed at sophisticated families.
     href: https://niche-traveller.com/
     src: images/portfolio/thenichetraveller.png
+  - name: Chocola Agency
+    description: Creative studio for the creation of visual content.
+    href: https://chocola.agency
+    src: images/portfolio/chocola.png
+  - name: Mareile Braun
+    description: Consultant and coach in Hamburg.
+    href: http://mareile-braun.de/
+    src: images/portfolio/mareilebraun.png
 ---
 
 # Portfolio

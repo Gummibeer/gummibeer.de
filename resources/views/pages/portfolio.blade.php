@@ -29,7 +29,7 @@
                         <a href="{{ $project['href'] }}" target="_blank" rel="noreferrer noopener" class="block hover:text-brand">
                             <strong>{{ $project['name'] }}</strong>
                         </a>
-                        <p class="text-sm text-snow-20 dark:text-snow-10 italic">{{ $project['description'] }}</p>
+                        <p class="text-sm text-snow-20 dark:text-snow-10">{{ $project['description'] }}</p>
                     </div>
                 </div>
             @endforeach
