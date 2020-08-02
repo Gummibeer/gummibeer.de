@@ -6,22 +6,22 @@
         <ul class="flex flex-row list-inline space-x-2">
             <li>
                 <a href="https://twitter.com/devgummibeer" target="_blank" rel="noreferrer noopener" class="hover:text-brand block p-1">
-                    <i class="fab fa-fw fa-twitter"></i>
+                    <x-icon class="fab fa-twitter"/>
                 </a>
             </li>
             <li>
                 <a href="https://github.com/Gummibeer" target="_blank" rel="noreferrer noopener" class="hover:text-brand block p-1">
-                    <i class="fab fa-fw fa-github"></i>
+                    <x-icon class="fab fa-github"/>
                 </a>
             </li>
             <li>
                 <a href="https://strava.com/athletes/22896286" target="_blank" rel="noreferrer noopener" class="hover:text-brand block p-1">
-                    <i class="fab fa-fw fa-strava"></i>
+                    <x-icon class="fab fa-strava"/>
                 </a>
             </li>
             <li>
                 <a href="https://steamcommunity.com/id/gummibeer" target="_blank" rel="noreferrer noopener" class="hover:text-brand block p-1">
-                    <i class="fab fa-fw fa-steam"></i>
+                    <x-icon class="fab fa-steam"/>
                 </a>
             </li>
         </ul>
@@ -29,15 +29,15 @@
     <div class="flex flex-col sm:flex-row sm:justify-between space-y-4 sm:space-y-0 sm:space-x-4 mt-4 sm:mt-2">
         <ul class="flex flex-col sm:flex-row list-inline space-y-2 sm:space-y-0 sm:space-x-4 text-xs">
             <li>
-                <x-icon class="fa-mobile"/>
+                <x-icon class="fal mr-1 fa-mobile"/>
                 <a href="tel:+491621525105" class="hover:text-brand">+49 162 1525105</a>
             </li>
             <li>
-                <x-icon class="fa-at"/>
+                <x-icon class="fal mr-1 fa-at"/>
                 <a href="mailto:dev@gummibeer.de" class="hover:text-brand">dev@gummibeer.de</a>
             </li>
             <li>
-                <i class="fab fa-fw mr-1 fa-telegram-plane"></i>
+                <x-icon class="fab mr-1 fa-telegram-plane"/>
                 <a href="https://t.me/gummibeer" class="hover:text-brand">@gummibeer</a>
             </li>
         </ul>

@@ -17,7 +17,7 @@
             {{ $lang }}
         </div>
         <button class="leading-none text-xs py-2" type="button" data-clipboard-text="{{ $slot }}" title="copy">
-            <x-icon class="fa-copy"></x-icon>
+            <x-icon class="fal fa-copy"/>
         </button>
     </header>
     <section class="bg-white dark:bg-night-10 border-2 border-t-0 border-snow-10 dark:border-night-20 rounded-b-2" x-ref="code" x-show.transition="show">

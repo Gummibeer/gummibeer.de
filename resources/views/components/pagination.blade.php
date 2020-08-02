@@ -9,7 +9,7 @@
                     rel="prev"
                     class="inline-block w-10 h-10 text-center leading-10 rounded-full shadow bg-white dark:bg-night-20 hover:bg-brand hover:text-white"
                 >
-                    <i class="fal fa-chevron-left"></i>
+                    <x-icon class="fal fa-chevron-left"/>
                 </a>
             @else
                 <span class="inline-block w-10 h-10"></span>
@@ -47,7 +47,7 @@
                     rel="next"
                     class="inline-block w-10 h-10 text-center leading-10 rounded-full shadow bg-white dark:bg-night-20 hover:bg-brand hover:text-white"
                 >
-                    <i class="fal fa-chevron-right"></i>
+                    <x-icon class="fal fa-chevron-right"/>
                 </a>
             @else
                 <span class="inline-block w-10 h-10"></span>
