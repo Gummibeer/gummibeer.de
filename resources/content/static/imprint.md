@@ -9,7 +9,7 @@ Benzenbergweg 3
 **Contact**
 
 - **Telephone** +49 162 1525105
-- **E-Mail** dev.gummibeer@gmail.com
+- **E-Mail** dev@gummibeer.de
 
 ## Disclaimer
 
