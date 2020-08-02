@@ -32,7 +32,7 @@ class Img extends Component
         $this->setHeight($height);
 
         if (Str::startsWith($src, ['http://', 'https://'])) {
-            if(!app()->environment('local')) {
+            if (! app()->environment('local')) {
                 throw new InvalidArgumentException(sprintf(
                     'Only local images allowed on "%s" - you requested "%s".',
                     app()->environment(),

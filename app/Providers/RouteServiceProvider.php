@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Services\MetaBag;
 use Closure;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;

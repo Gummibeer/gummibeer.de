@@ -1,12 +1,6 @@
 <?php
 
 use App\Http\Controllers\Blog;
-use App\Http\Controllers\CharityController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ImprintController;
-use App\Http\Controllers\MeController;
-use App\Http\Controllers\PrivacyController;
-use App\Http\Controllers\UsesController;
 use App\Http\Middleware\Paginated;
 use App\Services\MetaBag;
 use Illuminate\Support\Facades\Route;
@@ -15,25 +9,25 @@ use Steein\Robots\Robots;
 
 Route::sheet('/', 'pages.home', 'home', function (MetaBag $meta) {
     $meta->description = 'I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.';
-    $meta->image = mix("images/og/static/home.png");
+    $meta->image = mix('images/og/static/home.png');
 })->name('home');
 
 Route::sheet('/me', 'pages.me', 'me', function (MetaBag $meta) {
     $meta->title = 'Me';
     $meta->description = 'I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.';
-    $meta->image = mix("images/og/static/me.png");
+    $meta->image = mix('images/og/static/me.png');
 })->name('me');
 
 Route::sheet('/uses', 'pages.uses', 'uses', function (MetaBag $meta) {
     $meta->title = 'Uses';
     $meta->description = 'Software and Tools I use in my daily live for development and some little helpers to improve my experience.';
-    $meta->image = mix("images/og/static/uses.png");
+    $meta->image = mix('images/og/static/uses.png');
 })->name('uses');
 
 Route::sheet('/charity', 'pages.charity', 'charity', function (MetaBag $meta) {
     $meta->title = 'Charity';
     $meta->description = 'For me it\'s part of my obligation and responsibility to support what I believe is important for me, us and our planet.';
-    $meta->image = mix("images/og/static/charity.png");
+    $meta->image = mix('images/og/static/charity.png');
 })->name('charity');
 
 Route::sheet('/imprint', 'pages.imprint', 'imprint', function (MetaBag $meta) {
