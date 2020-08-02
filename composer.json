@@ -72,7 +72,7 @@
             "@php artisan route:clear --ansi --no-interaction --quiet"
         ],
         "alex": "alex resources/content/**/*.md",
-        "deploy": "@php artisan export --env=netlify",
+        "deploy": "@php artisan export --env=prod",
         "ide-helper": [
             "@php artisan ide-helper:generate --ansi --no-interaction --quiet",
             "@php artisan ide-helper:meta --ansi --no-interaction --quiet"

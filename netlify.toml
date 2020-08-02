@@ -8,24 +8,30 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer-when-downgrade"
-    Content-Security-Policy = "default-src 'self';base-uri 'self';connect-src 'none';form-action 'none';frame-src 'none';frame-ancestors 'none';child-src 'none';font-src 'self';img-src 'self' https://gummibeer-netlify.imgix.net https://gummibeer.imgix.net;media-src 'none';object-src 'none';script-src 'self' 'unsafe-eval';style-src 'self' 'unsafe-inline'"
+    Content-Security-Policy = "default-src 'self';base-uri 'self';connect-src 'none';form-action 'none';frame-src 'none';frame-ancestors 'none';child-src 'none';font-src 'self' https://cdn.gummibeer.dev;img-src 'self' https://img.gummibeer.dev;media-src 'none';object-src 'none';script-src 'self' 'unsafe-eval' https://cdn.gummibeer.dev;style-src 'self' 'unsafe-inline' https://cdn.gummibeer.dev"
 
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Access-Control-Allow-Origin = "*"
 
 [[headers]]
   for = "/fonts/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Access-Control-Allow-Origin = "*"
 
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Access-Control-Allow-Origin = "*"
 
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Access-Control-Allow-Origin = "*"
+
+[[redirects]]
+  from = "https://gummibeer.netlify.app/*"
+  to = "https://gummibeer.dev/:splat"
+  status = 301
+  force = true
