@@ -76,6 +76,7 @@
             "@php artisan ide-helper:meta --ansi --no-interaction --quiet"
         ],
         "normalize": "echo 'composer global require ergebnis/composer-normalize'",
+        "route:list": "@php artisan route:list --columns=method,name,uri,action | grep -Ev 'horizon|nova'",
         "thanks": "echo 'composer global require symfony/thanks'"
     }
 }
