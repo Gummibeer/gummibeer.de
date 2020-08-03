@@ -85,4 +85,4 @@ projects:
 # Portfolio
 
 In my free time I support several local business owners with everything I know.
-For some of them I've created a website and others I helped with SEO, SMO and design.
+For some of them I've created a website and helped others with SEO, SMO, design and emails.
