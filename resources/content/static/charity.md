@@ -54,6 +54,9 @@ charities:
   - name: Ecologi
     href: https://ecologi.com/
     src: images/charity/ecologi.png
+  - name: Let's Encrypt
+    href: https://letsencrypt.org/
+    src: images/charity/letsencrypt.png
 ---
 
 # Charity
