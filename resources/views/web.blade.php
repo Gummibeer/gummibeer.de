@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="dns-prefetch" href="{{ config('app.asset_url') }}">
+    @if(config('services.imgix.domain'))
+        <link rel="dns-prefetch" href="https://{{ config('services.imgix.domain') }}">
+    @endif
 
     <title>{{ $meta->title }}</title>
     @if($meta->description)
