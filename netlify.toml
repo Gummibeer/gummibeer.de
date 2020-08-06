@@ -8,7 +8,21 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer-when-downgrade"
-    Content-Security-Policy = "default-src 'self';base-uri 'self';connect-src 'none';form-action 'none';frame-src 'none';frame-ancestors 'none';child-src 'none';font-src 'self' https://cdn.gummibeer.dev;img-src 'self' https://img.gummibeer.dev;media-src 'none';object-src 'none';script-src 'self' 'unsafe-eval' https://cdn.gummibeer.dev;style-src 'self' 'unsafe-inline' https://cdn.gummibeer.dev"
+    Content-Security-Policy = '''
+      default-src 'self';
+      base-uri 'self';
+      connect-src 'none';
+      form-action 'none';
+      frame-src 'none';
+      frame-ancestors 'none';
+      child-src 'none';
+      font-src 'self' https://cdn.gummibeer.dev;
+      img-src 'self' https://img.gummibeer.dev https://cdn.gummibeer.dev;
+      media-src 'none';
+      object-src 'none';
+      script-src 'self' 'unsafe-eval' https://cdn.gummibeer.dev;
+      style-src 'self' 'unsafe-inline' https://cdn.gummibeer.dev
+    '''
 
 [[headers]]
   for = "/css/*"
