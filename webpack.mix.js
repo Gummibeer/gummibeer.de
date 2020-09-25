@@ -36,6 +36,13 @@ mix
         content: [
             './resources/views/**/*.blade.php',
         ],
+        whitelist: [
+            // resources/content/jobs
+            'fal',
+            'fa-ribbon',
+            'fa-briefcase',
+            'fa-graduation-cap',
+        ],
     })
 ;
 
