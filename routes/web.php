@@ -27,6 +27,7 @@ Route::sheet('/resume', 'pages.resume', 'resume', function (MetaBag $meta, Sheet
     $meta->image = mix('images/og/static/me.png');
 
     $data->jobs = Job::all();
+    $data->hacktoberfests = sheets('hacktoberfest')->all()->sortByDesc('slug');
 })->name('me');
 
 Route::sheet('/uses', 'pages.uses', 'uses', function (MetaBag $meta) {

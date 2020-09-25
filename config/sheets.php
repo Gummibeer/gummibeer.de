@@ -22,7 +22,11 @@ return [
         'jobs' => [
             'disk' => 'jobs',
             'sheet_class' => Job::class,
-            'path_parser' => SlugParser::class,
+            'content_parser' => YamlParser::class,
+            'extension' => 'yml',
+        ],
+        'hacktoberfest' => [
+            'disk' => 'hacktoberfest',
             'content_parser' => YamlParser::class,
             'extension' => 'yml',
         ],

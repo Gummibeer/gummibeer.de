@@ -70,6 +70,11 @@ return [
             'root' => resource_path('content/jobs'),
         ],
 
+        'hacktoberfest' => [
+            'driver' => 'local',
+            'root' => resource_path('content/hacktoberfest'),
+        ],
+
     ],
 
     /*
