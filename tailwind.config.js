@@ -1,7 +1,13 @@
 module.exports = {
-    purge: [
-        './resources/views/**/*.blade.php',
-    ],
+    purge: {
+        content: [
+            './resources/views/**/*.blade.php',
+        ],
+    },
+    future: {
+        removeDeprecatedGapUtilities: true,
+        purgeLayersByDefault: true,
+    },
     theme: {
         fontFamily: {
             sans: [
