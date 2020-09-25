@@ -22,6 +22,7 @@
                                 :src="$charity['src']"
                                 width="768"
                                 ratio="16:9"
+                                :alt="$charity['name']"
                             />
                             <x-slot name="caption">{{ $charity['name'] }}</x-slot>
                         </x-figure>

@@ -22,6 +22,7 @@
                             :src="$project['src']"
                             width="768"
                             ratio="16:9"
+                            :alt="$project['name']"
                         />
                     </a>
                     @endisset
