@@ -21,7 +21,7 @@
     <meta name="theme-color" content="#ffb300">
     <meta name="msapplication-TileColor" content="#ffb300">
 
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" integrity="{{ $sri->hash('css/app.css') }}" crossorigin="anonymous">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet" crossorigin="anonymous">
 
     <link rel="me" href="https://twitter.com/devgummibeer">
     <link rel="me" href="https://github.com/Gummibeer">
@@ -41,6 +41,6 @@
 
 <x-footer/>
 
-<script async defer src="{{ mix('js/app.js') }}" integrity="{{ $sri->hash('js/app.js') }}" crossorigin="anonymous"></script>
+<script async defer src="{{ mix('js/app.js') }}" crossorigin="anonymous"></script>
 </body>
 </html>

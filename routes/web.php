@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Blog;
 use App\Http\Middleware\Paginated;
+use App\Job;
 use App\Services\MetaBag;
 use Illuminate\Support\Facades\Route;
+use Spatie\Sheets\Sheet;
 use Spatie\Sitemap\Sitemap;
 use Steein\Robots\Robots;
 
@@ -18,6 +20,13 @@ Route::sheet('/me', 'pages.me', 'me', function (MetaBag $meta) {
     $meta->title = 'Me';
     $meta->description = 'I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.';
     $meta->image = mix('images/og/static/me.png');
+})->name('me');
+
+Route::sheet('/resume', 'pages.resume', 'resume', function (MetaBag $meta, Sheet $data) {
+    $meta->title = 'Resume';
+    $meta->image = mix('images/og/static/me.png');
+
+    $data->jobs = Job::all();
 })->name('me');
 
 Route::sheet('/uses', 'pages.uses', 'uses', function (MetaBag $meta) {

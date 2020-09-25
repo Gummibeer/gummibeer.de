@@ -65,6 +65,11 @@ return [
             'root' => resource_path('content/posts'),
         ],
 
+        'jobs' => [
+            'driver' => 'local',
+            'root' => resource_path('content/jobs'),
+        ],
+
     ],
 
     /*

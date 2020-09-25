@@ -21,6 +21,7 @@
             @foreach([
                 '/' => 'Home',
                 'me' => 'Me',
+                'resume' => 'Resume',
                 'blog' => 'Blog',
                 'portfolio' => 'Portfolio',
                 'charity' => 'Charity',
