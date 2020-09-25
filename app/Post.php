@@ -69,7 +69,7 @@ final class Post extends Model implements Feedable
 
     public function getModifiedAtAttribute(): Carbon
     {
-        return Carbon::createFromTimestamp(filemtime(resource_path('content/posts/'.$this->path)), 'UTC');
+        return Carbon::createFromTimestampUTC(filemtime(resource_path('content/posts/'.$this->path)));
     }
 
     public function getIsDraftAttribute(?bool $value): bool
