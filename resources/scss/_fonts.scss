@@ -1,25 +1,5 @@
-//@import "~typeface-inter";
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local("Inter Regular"), local("Inter-Regular"),
-    url("~typeface-inter/Inter (web)/Inter-Regular.woff2") format("woff2"),
-    url("~typeface-inter/Inter (web)/Inter-Regular.woff") format("woff");
-}
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local("Inter Bold"), local("Inter-Bold"),
-    url("~typeface-inter/Inter (web)/Inter-Bold.woff2") format("woff2"),
-    url("~typeface-inter/Inter (web)/Inter-Bold.woff") format("woff");
-}
-
+@import "~typeface-inter";
 @import "~typeface-fira-code";
-
 @import "~typeface-permanent-marker";
 
 @import "~@fortawesome/fontawesome-pro/scss/brands";
