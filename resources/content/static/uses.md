@@ -28,3 +28,4 @@ I will try to keep things updated, so this page will serve as a living document 
 - To manage my movies, music and so on I use [FileBot](https://www.filebot.net/) combined with [tinyMediaManager](https://www.tinymediamanager.org/).
 - To have a proper window manager I use [Rectangle](https://rectangleapp.com/).
 - [FontBase](https://fontba.se/) is the first tool I've found that's capable to manage/display multiple thousand fonts.
+- I'm using [Umbra](https://umbra.replay.software/) to toggle between light and dark theme with a simple shortcut.
