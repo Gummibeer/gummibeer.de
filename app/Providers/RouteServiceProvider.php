@@ -19,9 +19,11 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::macro('sheet', function (string $uri, string $view, string $sheet, Closure $callback) {
             return Route::get($uri, function () use ($view, $sheet, $callback): View {
-                app()->call($callback);
+                $data = sheets()->get($sheet);
 
-                return view($view, sheets()->get($sheet)->toArray());
+                app()->call($callback, ['data' => $data]);
+
+                return view($view, $data->toArray());
             });
         });
 
