@@ -7,6 +7,10 @@
 @endpush
 
 @section('content')
+    <x-article class="prose md:prose-lg lg:prose-xl">
+        {{ $me->contents }}
+    </x-article>
+
     @if(\App\Post::isNotEmpty())
     <x-section>
         <x-post.promo :post="\App\Post::latest()"/>

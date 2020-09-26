@@ -13,14 +13,10 @@ Route::get('/', function (MetaBag $meta) {
     $meta->description = 'I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.';
     $meta->image = mix('images/og/static/home.png');
 
-    return view('pages.home');
+    return view('pages.home', [
+        'me' => sheets('static')->get('me'),
+    ]);
 })->name('home');
-
-Route::sheet('/me', 'pages.me', 'me', function (MetaBag $meta) {
-    $meta->title = 'Me';
-    $meta->description = 'I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.';
-    $meta->image = mix('images/og/static/me.png');
-})->name('me');
 
 Route::sheet('/resume', 'pages.resume', 'resume', function (MetaBag $meta, Sheet $data) {
     $meta->title = 'Resume';
