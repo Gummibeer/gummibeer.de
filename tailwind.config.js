@@ -104,12 +104,16 @@ module.exports = {
                     'h1, h2, h3, h4, h5, h6': {
                         color: 'inherit',
                     },
+                    strong: {
+                        color: 'inherit',
+                    },
                     a: {
                         color: 'inherit',
                         borderBottomWidth: theme('borderWidth.2'),
                         borderColor: theme('colors.brand'),
                         borderStyle: 'dashed',
                         textDecoration: 'none',
+                        fontWeight: 500,
 
                         '&:hover': {
                             color: theme('colors.brand'),
