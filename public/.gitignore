@@ -1,6 +1,3 @@
-/css/
-/js/
-/fonts/
-/images/
-/mix-manifest.json
-/mix-sri.json
+*
+!index.php
+!.gitignore
