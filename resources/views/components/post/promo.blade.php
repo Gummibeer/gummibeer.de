@@ -9,7 +9,7 @@
             <x-img
                 src="{{ $post->image }}"
                 width="768"
-                ratio="1:1"
+                ratio="16:9"
                 :alt="$post->title"
                 class="rounded-4 shadow"
                 :crop="true"/>
