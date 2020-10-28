@@ -2,6 +2,7 @@
 
 use App\Job;
 use App\Post;
+use Spatie\Sheets\ContentParsers\JsonParser;
 use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;
 use Spatie\Sheets\ContentParsers\YamlParser;
 use Spatie\Sheets\PathParsers\SlugParser;
@@ -29,6 +30,11 @@ return [
             'disk' => 'hacktoberfest',
             'content_parser' => YamlParser::class,
             'extension' => 'yml',
+        ],
+        'strava' => [
+            'disk' => 'strava',
+            'content_parser' => JsonParser::class,
+            'extension' => 'json',
         ],
     ],
 ];

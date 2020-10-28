@@ -49,3 +49,5 @@ mix
 glob.sync(path.resolve(__dirname, 'resources', 'images') + '/**/*.@(png|jpg)').forEach(img => {
     mix.copy(img, img.replace(path.resolve(__dirname, 'resources', 'images'), 'public/images'));
 });
+
+mix.copyDirectory('node_modules/twemoji-emojis/vendor/svg', 'public/vendor/twemoji/svg');

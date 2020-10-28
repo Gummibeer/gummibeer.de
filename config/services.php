@@ -35,4 +35,11 @@ return [
         'sign_key' => env('IMGIX_SIGN_KEY'),
     ],
 
+    'strava' => [
+        'athlete_id' => env('STRAVA_ID', '22896286'),
+        'refresh_token' => env('STRAVA_REFRESH_TOKEN'),
+        'client_id' => env('STRAVA_CLIENT_ID'),
+        'client_secret' => env('STRAVA_CLIENT_SECRET'),
+    ],
+
 ];

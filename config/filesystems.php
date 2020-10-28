@@ -75,6 +75,11 @@ return [
             'root' => resource_path('content/hacktoberfest'),
         ],
 
+        'strava' => [
+            'driver' => 'local',
+            'root' => resource_path('content/strava'),
+        ],
+
     ],
 
     /*

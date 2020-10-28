@@ -64,6 +64,7 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'before' => [
+        'strava' => '/usr/local/bin/php artisan stats:strava',
         'assets' => '/usr/local/bin/yarn production',
     ],
 
