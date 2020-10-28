@@ -57,6 +57,9 @@ charities:
   - name: Let's Encrypt
     href: https://letsencrypt.org/
     src: images/charity/letsencrypt.png
+  - name: Webwide
+    href: https://webwide.io/
+    src: images/charity/webwide.png
 ---
 
 # Charity
