@@ -55,7 +55,11 @@
 
             <ul class="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-4 list-none text-center text-4xl">
                 @foreach(collect(['BG', 'CZ', 'DE', 'ES', 'FR', 'PL', 'PT', 'BE', 'NL', 'DK', 'LU', 'AT', 'CH', 'IT', 'GB'])->sort() as $country)
-                    <li>{{ \Spatie\Emoji\Emoji::countryFlag($country) }}</li>
+                    <li>
+                        <x-twemoji>
+                            {{ \Spatie\Emoji\Emoji::countryFlag($country) }}
+                        </x-twemoji>
+                    </li>
                 @endforeach
             </ul>
         </div>

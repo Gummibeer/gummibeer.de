@@ -18,6 +18,7 @@
         "ext-json": "*",
         "astrotomic/laravel-mime": "^0.2.1",
         "astrotomic/php-open-graph": "^0.3.0",
+        "astrotomic/php-twemoji": "^0.1.0",
         "elhebert/laravel-sri": "^2.2",
         "guzzlehttp/guzzle": "^6.3",
         "imgix/imgix-php": "^3.3",
