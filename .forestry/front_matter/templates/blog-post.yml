@@ -8,7 +8,7 @@ fields:
   default: true
 - name: author
   type: select
-  default: []
+  default: gummibeer
   config:
     required: false
     options:
