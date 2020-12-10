@@ -4,6 +4,10 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: document
+  path: resources/content/static/imprint.md
+  label: Imprint
+  match: "**/*"
 - type: directory
   path: resources/content/posts
   label: Posts
