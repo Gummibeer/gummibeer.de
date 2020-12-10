@@ -1,6 +1,11 @@
 name: prettier
 
-on: [push]
+on:
+  push:
+    paths:
+      - '**.md'
+      - '**.js'
+      - '**.scss'
 
 jobs:
   pretify:
