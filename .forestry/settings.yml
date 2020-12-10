@@ -23,6 +23,9 @@ sections:
 - type: document
   path: resources/content/static/resume.md
   label: Resume
+- type: document
+  path: resources/content/static/charity.md
+  label: Charity
   match: "**/*"
 - type: heading
   label: Legal
