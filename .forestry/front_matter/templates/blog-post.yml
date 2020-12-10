@@ -24,7 +24,8 @@ fields:
   default: []
   config:
     required: false
-    options: []
+    options:
+    - gummibeer
     source:
       type: simple
       section: 
