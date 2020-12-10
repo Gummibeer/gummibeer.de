@@ -11,38 +11,34 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Git checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - uses: shivammathur/setup-php@v2
         with:
           php-version: 7.4
           extensions: dom, curl, libxml, mbstring, zip, imagick
+          tools: composer:v2
 
       - name: Get composer cache directory
         id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-dir)"
-
-      - name: Cache composer dependencies
-        uses: actions/cache@v2
+      - uses: actions/cache@v2
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: composer-${{ hashFiles('composer.json') }}
           restore-keys: composer-
 
-      - name: Install Composer dependencies
-        run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader --no-interaction
-
       - name: Get Yarn Cache Directory
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Yarn
-        uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: yarn-${{ hashFiles('package.json') }}
           restore-keys: yarn-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader --no-interaction
 
       - name: Install Yarn Dependencies
         run: |
@@ -54,9 +50,12 @@ jobs:
         run: yarn production
 
       - name: Export page
-        run: php artisan export --env=netlify --skip-all
+        run: php artisan export --env=prod --skip-all
         env:
           IMGIX_SIGN_KEY: ${{ secrets.IMGIX_SIGN_KEY }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
 
       - name: Netlify deploy
         run: |
