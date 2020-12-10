@@ -17,6 +17,9 @@ sections:
 - type: document
   path: resources/content/static/me.md
   label: Me
+- type: document
+  path: resources/content/static/uses.md
+  label: Uses
   match: "**/*"
 - type: heading
   label: Legal
