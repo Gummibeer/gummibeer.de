@@ -37,28 +37,25 @@ jobs:
           key: yarn-${{ hashFiles('package.json') }}
           restore-keys: yarn-
 
-      - name: Install Composer dependencies
-        run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader --no-interaction
+      - run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader --no-interaction
 
-      - name: Install Yarn Dependencies
-        run: |
+      - run: |
           npm config set "@fortawesome:registry" https://npm.fontawesome.com/
           npm config set "//npm.fontawesome.com/:_authToken" ${{ secrets.FONTAWESOME_TOKEN }}
           yarn install
 
-      - name: Mix assets
-        run: yarn production
+      - run: yarn production
 
-      - name: Export page
-        run: php artisan export --env=prod --skip-all
+      - run: |
+          php artisan stats:strava
+          php artisan export --env=prod --skip-all
         env:
           IMGIX_SIGN_KEY: ${{ secrets.IMGIX_SIGN_KEY }}
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
           STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
           STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
 
-      - name: Netlify deploy
-        run: |
+      - run: |
           yarn global add netlify-cli
           "$(yarn global bin)/netlify" deploy --prod
         env:
