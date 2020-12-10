@@ -26,7 +26,6 @@ sections:
 - type: document
   path: resources/content/static/charity.md
   label: Charity
-  match: "**/*"
 - type: heading
   label: Legal
 - type: document
