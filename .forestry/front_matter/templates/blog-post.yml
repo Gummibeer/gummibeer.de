@@ -2,11 +2,16 @@
 label: Blog Post
 hide_body: false
 fields:
+- name: is_draft
+  type: boolean
+  label: is_draft
+  default: true
 - type: text
   name: title
   label: title
-- type: list
-  name: categories
+- name: categories
+  type: tag_list
+  default: []
   label: categories
 - type: file
   name: image
@@ -14,8 +19,17 @@ fields:
 - type: textarea
   name: image_credits
   label: image_credits
-- type: text
-  name: author
+- name: author
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
   label: author
 - type: text
   name: description
