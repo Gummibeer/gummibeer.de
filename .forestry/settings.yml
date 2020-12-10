@@ -15,6 +15,10 @@ sections:
 - type: heading
   label: Static
 - type: document
+  path: resources/content/static/privacy.md
+  label: Privacy
+  match: "**/*"
+- type: document
   path: resources/content/static/imprint.md
   label: Imprint
 upload_dir: uploads
