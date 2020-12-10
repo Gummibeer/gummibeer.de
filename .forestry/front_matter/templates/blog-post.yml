@@ -6,19 +6,6 @@ fields:
   type: boolean
   label: is_draft
   default: true
-- type: text
-  name: title
-  label: title
-- name: categories
-  type: tag_list
-  default: []
-  label: categories
-- type: file
-  name: image
-  label: image
-- type: textarea
-  name: image_credits
-  label: image_credits
 - name: author
   type: select
   default: []
@@ -32,6 +19,19 @@ fields:
       file: 
       path: 
   label: author
+- name: categories
+  type: tag_list
+  default: []
+  label: categories
+- type: text
+  name: title
+  label: title
 - type: text
   name: description
   label: description
+- type: file
+  name: image
+  label: image
+- type: textarea
+  name: image_credits
+  label: image_credits
