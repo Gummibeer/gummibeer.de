@@ -3,13 +3,9 @@
 namespace App;
 
 use App\Repositories\JobRepository;
-use App\Repositories\PostRepository;
-use App\Services\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
 use Spatie\Sheets\Sheet;
 
 /**
@@ -34,7 +30,7 @@ final class Job extends Sheet
 
     public function getEndAtAttribute(?string $value): ?Carbon
     {
-        if($value === null) {
+        if ($value === null) {
             return null;
         }
 

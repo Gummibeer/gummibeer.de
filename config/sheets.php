@@ -5,7 +5,6 @@ use App\Post;
 use Spatie\Sheets\ContentParsers\JsonParser;
 use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;
 use Spatie\Sheets\ContentParsers\YamlParser;
-use Spatie\Sheets\PathParsers\SlugParser;
 use Spatie\Sheets\PathParsers\SlugWithDateParser;
 
 return [

@@ -2,8 +2,6 @@
 
 namespace App\View\Components;
 
-use Astrotomic\LaravelMime\Facades\MimeTypes;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
@@ -44,7 +42,7 @@ class Img extends Component
             $this->src = parse_url($src, PHP_URL_PATH);
         }
 
-        if(!app()->environment('local')) {
+        if (! app()->environment('local')) {
             $this->setDefaultParams();
         }
     }
@@ -126,7 +124,7 @@ class Img extends Component
             }
         }
 
-        if ($this->crop ) {
+        if ($this->crop) {
             $this->params['fit'] = 'crop';
             $this->params['crop'] = 'edges';
         }
