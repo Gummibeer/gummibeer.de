@@ -1,51 +1,87 @@
 <?php
 
-/** @var \Laravel\Lumen\Routing\Router $router */
-$router->get('/', function () {
-    return view('pages.home')->with([
-        'contribute' => file_get_contents(storage_path('app/stats/contributions.txt')),
-        'playtime' => file_get_contents(storage_path('app/stats/playtime.txt')),
-        'rideDistance' => file_get_contents(storage_path('app/stats/ride_distance.txt')),
-        'rideElevation' => file_get_contents(storage_path('app/stats/ride_elevation.txt')),
-        'rideTime' => file_get_contents(storage_path('app/stats/ride_time.txt')),
-        'packages' => json_decode(file_get_contents(storage_path('app/stats/packagist.json')), true),
-        'title' => title(),
-        'countries' => selected_countries(),
+use App\Http\Controllers\Blog;
+use App\Http\Middleware\Paginated;
+use App\Job;
+use App\Services\MetaBag;
+use Illuminate\Support\Facades\Route;
+use Spatie\Sheets\Sheet;
+use Spatie\Sitemap\Sitemap;
+use Steein\Robots\Robots;
+
+Route::get('/', function (MetaBag $meta) {
+    $meta->description = 'I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.';
+    $meta->image = mix('images/og/static/home.png');
+
+    return view('pages.home', [
+        'me' => sheets('static')->get('me'),
     ]);
+})->name('home');
+
+Route::sheet('/resume', 'pages.resume', 'resume', function (MetaBag $meta, Sheet $data) {
+    $meta->title = 'Resume';
+    $meta->image = mix('images/og/static/me.png');
+
+    $data->jobs = Job::all();
+    $data->hacktoberfests = sheets('hacktoberfest')->all()->sortByDesc('slug');
+})->name('me');
+
+Route::sheet('/uses', 'pages.uses', 'uses', function (MetaBag $meta) {
+    $meta->title = 'Uses';
+    $meta->description = 'Software and Tools I use in my daily live for development and some little helpers to improve my experience.';
+    $meta->image = mix('images/og/static/uses.png');
+})->name('uses');
+
+Route::sheet('/charity', 'pages.charity', 'charity', function (MetaBag $meta) {
+    $meta->title = 'Charity';
+    $meta->description = 'For me it\'s part of my obligation and responsibility to support what I believe is important for me, us and our planet.';
+    $meta->image = mix('images/og/static/charity.png');
+})->name('charity');
+
+Route::sheet('/portfolio', 'pages.portfolio', 'portfolio', function (MetaBag $meta) {
+    $meta->title = 'Portfolio';
+    $meta->description = 'In my free time I support several local business owners with everything I know.';
+    $meta->image = mix('images/og/static/portfolio.png');
+})->name('portfolio');
+
+Route::sheet('/imprint', 'pages.imprint', 'imprint', function (MetaBag $meta) {
+    $meta->title = 'Imprint';
+})->name('imprint');
+
+Route::sheet('/privacy', 'pages.privacy', 'privacy', function (MetaBag $meta) {
+    $meta->title = 'Privacy';
+})->name('privacy');
+
+Route::prefix('blog')->name('blog.')->group(function (): void {
+    Route::get('{page?}', Blog\IndexController::class)->middleware(Paginated::class)->name('index');
+    Route::get('feed.{format}', Blog\FeedController::class)->name('feed');
+
+    Route::get('{year}/{page?}', Blog\Year\IndexController::class)->middleware(Paginated::class)->name('year.index');
+
+    Route::prefix('@{author}')->name('author.')->group(function (): void {
+        Route::get('{page?}', Blog\Author\IndexController::class)->middleware(Paginated::class)->name('index');
+        Route::get('feed.{format}', Blog\Author\FeedController::class)->name('feed');
+    });
+
+    Route::prefix('{category}')->name('category.')->group(function (): void {
+        Route::get('{page?}', Blog\Category\IndexController::class)->middleware(Paginated::class)->name('index');
+        Route::get('feed.{format}', Blog\Category\FeedController::class)->name('feed');
+    });
+
+    Route::get('{post}', Blog\PostController::class)->name('post');
 });
 
-$router->get('imprint', function () {
-    return view('pages.imprint')->with([
-        'title' => title('Imprint'),
-    ]);
-});
-
-$router->get('privacy', function () {
-    return view('pages.privacy')->with([
-        'title' => title('Privacy'),
-    ]);
-});
-
-$router->get('privacy-app', function () {
-    return view('pages.privacy_app')->with([
-        'title' => title('App Privacy'),
-    ]);
-});
-
-$router->get('slides/{slide}', function (string $slide) {
-    return view('slides.'.\Illuminate\Support\Str::slug($slide, '_'))->with([
-        'title' => title(str_replace('-', ' ', $slide).' | Slides'),
-    ]);
-});
-
-$router->get('blog/{post}', function (string $post) {
-    try {
-        return view('pages.post')->with([
-            'title' => title(str_replace('-', ' ', $post).' | Blog'),
-            'slug' => $post,
-            'content' => file_get_contents(resource_path('posts/'.$post.'.md')),
-        ]);
-    } catch (Exception $ex) {
-        abort(404);
-    }
-});
+Route::get('404.html', fn () => '404')->name('404');
+Route::get(
+    'sitemap.xml',
+    fn () => Sitemap::create()
+)->name('sitemap.xml');
+Route::get(
+    'robots.txt',
+    fn () => Robots::getInstance()
+        ->userAgent('*')
+        ->allow('/')
+        ->spacer()
+        ->sitemap(route('sitemap.xml'))
+        ->render()
+)->name('robots.txt');

@@ -1,24 +1,34 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+/*
+|--------------------------------------------------------------------------
+| Create The Application
+|--------------------------------------------------------------------------
+|
+| The first thing we will do is create a new Laravel application instance
+| which serves as the "glue" for all the components of Laravel, and is
+| the IoC container for the system binding all of the various parts.
+|
+*/
 
-try {
-    Dotenv\Dotenv::create(__DIR__.'/../')->load();
-} catch (Dotenv\Exception\InvalidPathException $e) {
-    //
-}
-
-$app = new Laravel\Lumen\Application(
-    realpath(__DIR__.'/../')
+$app = new Illuminate\Foundation\Application(
+    $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
-$app->withFacades();
-
-$app->configure('database');
+/*
+|--------------------------------------------------------------------------
+| Bind Important Interfaces
+|--------------------------------------------------------------------------
+|
+| Next, we need to bind some important interfaces into the container so
+| we will be able to resolve them when needed. The kernels serve the
+| incoming requests to this application from both the web and CLI.
+|
+*/
 
 $app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
+    Illuminate\Contracts\Http\Kernel::class,
+    App\Http\Kernel::class
 );
 
 $app->singleton(
@@ -26,12 +36,20 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
-$app->register(Illuminate\Redis\RedisServiceProvider::class);
-$app->register(Spatie\BladeX\BladeXServiceProvider::class);
-$app->register(App\Providers\AppServiceProvider::class);
+$app->singleton(
+    Illuminate\Contracts\Debug\ExceptionHandler::class,
+    App\Exceptions\Handler::class
+);
 
-$app->router->group([], function (Laravel\Lumen\Routing\Router $router) {
-    require __DIR__.'/../routes/web.php';
-});
+/*
+|--------------------------------------------------------------------------
+| Return The Application
+|--------------------------------------------------------------------------
+|
+| This script returns the application instance. The instance is given to
+| the calling script so we can separate the building of the instances
+| from the actual running of the application and sending responses.
+|
+*/
 
 return $app;
