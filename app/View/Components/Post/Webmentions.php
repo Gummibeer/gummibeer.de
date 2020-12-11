@@ -23,6 +23,7 @@ class Webmentions extends Component
         $page = 0;
         do {
             $entries = Http::get('https://webmention.io/api/mentions.jf2', [
+                'token' => config('services.webmention.token'),
                 'target' => $url,
                 'per-page' => 100,
                 'page' => $page,

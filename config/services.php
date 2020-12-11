@@ -42,4 +42,8 @@ return [
         'client_secret' => env('STRAVA_CLIENT_SECRET'),
     ],
 
+    'webmention' => [
+        'token' => env('WEBMENTION_TOKEN'),
+    ],
+
 ];
