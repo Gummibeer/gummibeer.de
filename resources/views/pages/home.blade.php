@@ -22,7 +22,7 @@
         <h2 class="text-4xl font-bold text-night-0 dark:text-white leading-none mb-8">Latest Posts</h2>
         <x-grid>
             @foreach(\App\Post::all()->reject(\App\Post::latest())->take(3) as $post)
-                <x-post.preview :post="$post" :class="$loop->last ? 'hidden lg:block' : ''"/>
+                <x-post.preview :post="$post" :class="$loop->iteration === 3 ? 'hidden lg:block' : ''"/>
             @endforeach
         </x-grid>
     </x-section>
