@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Imgix\UrlBuilder;
-use InvalidArgumentException;
 use Throwable;
 
 class Img extends Component
@@ -41,7 +40,7 @@ class Img extends Component
             $tmppath = public_path('vendor/images/'.$filename);
             $filepath = Arr::first(glob($tmppath.'.*'));
 
-            if(empty($filepath)) {
+            if (empty($filepath)) {
                 @mkdir(dirname($tmppath), 0755, true);
                 file_put_contents($tmppath, file_get_contents($src));
                 $mimetype = MimeTypes::guessMimeType($tmppath);
@@ -121,8 +120,8 @@ class Img extends Component
         try {
             parse_str(explode('?', mix($this->src))[1], $query);
             $this->params['cache-id'] = $query['id'];
-
-        } catch(Throwable $ex) {}
+        } catch (Throwable $ex) {
+        }
         $this->params['cache-md5'] = hash_file('md5', public_path($this->src));
 
         $this->params['auto'] = 'compress';

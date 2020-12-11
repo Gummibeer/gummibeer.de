@@ -21,12 +21,12 @@ class Webmentions extends Component
         $webmentions = collect(Http::get('https://webmention.io/api/mentions.jf2?target='.$url)->json()['children']);
 
         $this->likes = $webmentions
-            ->filter(fn(array $entry): bool => $entry['wm-property'] === 'like-of')
+            ->filter(fn (array $entry): bool => $entry['wm-property'] === 'like-of')
             ->mapInto(Like::class)
             ->sortByDesc('date');
 
         $this->comments = $webmentions
-            ->filter(fn(array $entry): bool => $entry['wm-property'] === 'mention-of')
+            ->filter(fn (array $entry): bool => $entry['wm-property'] === 'mention-of')
             ->mapInto(Comment::class)
             ->sortByDesc('date');
     }
