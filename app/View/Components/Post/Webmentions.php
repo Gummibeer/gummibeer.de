@@ -26,7 +26,7 @@ class Webmentions extends Component
                 'target' => $url,
                 'per-page' => 100,
                 'page' => $page,
-            ])->json()['children'];
+            ])->json()['children'] ?? [];
             $webmentions->push(...$entries);
 
             $page++;

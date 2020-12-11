@@ -53,9 +53,9 @@ jobs:
 
       - run: yarn production
 
-      - run: |
-          php artisan stats:strava
-          php artisan export --env=prod --skip-all
+      - run: php artisan stats:strava
+
+      - run: php artisan export --env=prod --skip-all
         env:
           IMGIX_SIGN_KEY: ${{ secrets.IMGIX_SIGN_KEY }}
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
