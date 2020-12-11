@@ -1,7 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Webmentions;
 
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\HtmlString;
 use Spatie\Sheets\Sheet;
@@ -16,7 +17,7 @@ final class Comment extends Sheet
 {
     public function getDateAttribute(): Carbon
     {
-        return Carbon::make($this['published']);
+        return Carbon::make($this['published'] ?? $this['wm-received']);
     }
 
     public function getAuthorAttribute(array $author): User
@@ -30,6 +31,6 @@ final class Comment extends Sheet
 
     public function getContentsAttribute(): HtmlString
     {
-        return new HtmlString($this['content']['html']);
+        return new HtmlString(nl2br($this['content']['html']));
     }
 }

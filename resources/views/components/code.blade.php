@@ -11,8 +11,9 @@
         <div class="font-mono flex-grow text-center leading-none text-xs truncate py-2">
             {{ $name }}
         </div>
-        <button class="leading-none text-xs py-2" type="button" data-clipboard-text="{{ $slot }}" title="copy">
+        <button class="leading-none text-xs py-2" type="button" data-clipboard-text="{{ $slot }}" title="copy code to clipboard">
             <x-icon class="fal fa-copy"/>
+            <span class="sr-only">copy code to clipboard</span>
         </button>
     </header>
     <section class="bg-white dark:bg-night-10 border-2 border-t-0 border-snow-10 dark:border-night-20 rounded-b-2">

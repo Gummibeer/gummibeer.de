@@ -2,11 +2,14 @@
 
 namespace App\View\Components;
 
+use Astrotomic\LaravelMime\Facades\MimeTypes;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Imgix\UrlBuilder;
 use InvalidArgumentException;
+use Throwable;
 
 class Img extends Component
 {
@@ -34,10 +37,20 @@ class Img extends Component
         $this->setHeight($height);
 
         if (Str::startsWith($src, ['http://', 'https://'])) {
-            throw new InvalidArgumentException(sprintf(
-                'Only local images allowed - you requested "%s".',
-                $src
-            ));
+            $filename = hash('md5', $src);
+            $tmppath = public_path('vendor/images/'.$filename);
+            $filepath = Arr::first(glob($tmppath.'.*'));
+
+            if(empty($filepath)) {
+                @mkdir(dirname($tmppath), 0755, true);
+                file_put_contents($tmppath, file_get_contents($src));
+                $mimetype = MimeTypes::guessMimeType($tmppath);
+                $extension = Arr::first(MimeTypes::getExtensions($mimetype));
+                $filepath = $tmppath.'.'.$extension;
+                rename($tmppath, $filepath);
+            }
+
+            $this->src = trim(str_replace(public_path(), '', $filepath), '/');
         } else {
             $this->src = parse_url($src, PHP_URL_PATH);
         }
@@ -105,9 +118,13 @@ class Img extends Component
 
     protected function setDefaultParams(): void
     {
-        parse_str(explode('?', mix($this->src))[1], $query);
-        $this->params['cache-id'] = $query['id'];
+        try {
+            parse_str(explode('?', mix($this->src))[1], $query);
+            $this->params['cache-id'] = $query['id'];
+
+        } catch(Throwable $ex) {}
         $this->params['cache-md5'] = hash_file('md5', public_path($this->src));
+
         $this->params['auto'] = 'compress';
         $this->params['fit'] = 'max';
 
