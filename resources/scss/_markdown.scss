@@ -7,7 +7,7 @@ a[href]:not([class]) {
 }
 
 h1:not([class]) {
-  @apply text-6xl font-black text-night-0 leading-none mb-8;
+  @apply text-5xl font-black text-night-0 leading-none mb-8;
 
   @screen dark {
     @apply text-white;
