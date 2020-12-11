@@ -30,7 +30,7 @@ class Webmentions extends Component
             $webmentions->push(...$entries);
 
             $page++;
-        } while(count($entries) >= 100);
+        } while (count($entries) >= 100);
 
         $this->likes = $webmentions
             ->filter(fn (array $entry): bool => $entry['wm-property'] === 'like-of')
