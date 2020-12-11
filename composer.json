@@ -81,6 +81,7 @@
         ],
         "normalize": "echo 'composer global require ergebnis/composer-normalize'",
         "route:list": "@php artisan route:list --columns=method,name,uri,action | grep -Ev 'horizon|nova'",
-        "thanks": "echo 'composer global require symfony/thanks'"
+        "thanks": "echo 'composer global require symfony/thanks'",
+        "og": "@php artisan generate:og:images && yarn dev"
     }
 }
