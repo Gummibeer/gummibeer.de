@@ -144,11 +144,13 @@ module.exports = {
                     ul: {
                         '> li': {
                             '&::before': {
-                                backgroundColor: theme('colors.night.0'),
-                                borderRadius: 0,
+                                content: 'none',
+                            },
+                            '&::marker': {
+                                color: theme('colors.night.0'),
 
                                 '@screen dark': {
-                                    backgroundColor: theme('colors.snow.0'),
+                                    color: theme('colors.snow.0'),
                                 }
                             }
                         }
