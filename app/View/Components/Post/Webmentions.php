@@ -4,6 +4,7 @@ namespace App\View\Components\Post;
 
 use App\Webmentions\Comment;
 use App\Webmentions\Like;
+use App\Webmentions\Repost;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
@@ -40,7 +41,7 @@ class Webmentions extends Component
 
         $this->reposts = $webmentions
             ->filter(fn (array $entry): bool => $entry['wm-property'] === 'repost-of')
-            ->mapInto(Like::class)
+            ->mapInto(Repost::class)
             ->sortByDesc('date');
 
         $this->comments = $webmentions
