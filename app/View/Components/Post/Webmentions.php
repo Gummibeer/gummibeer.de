@@ -17,7 +17,7 @@ class Webmentions extends Component
 
     public function __construct(?string $url = null)
     {
-        $url = Str::of($url ?? request()->url())->finish('/');
+        $url = Str::finish($url ?? request()->url(), '/');
 
         $webmentions = collect();
         $page = 0;
