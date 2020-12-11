@@ -54,13 +54,14 @@ jobs:
       - run: yarn production
 
       - run: php artisan stats:strava
+        env:
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
 
       - run: php artisan export --env=prod --skip-all
         env:
           IMGIX_SIGN_KEY: ${{ secrets.IMGIX_SIGN_KEY }}
-          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
-          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
-          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
 
       - run: |
           yarn global add netlify-cli
