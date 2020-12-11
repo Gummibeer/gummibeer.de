@@ -32,18 +32,6 @@ mix
     .generateIntegrityHash({
         enabled: true,
     })
-    .purgeCss({
-        content: [
-            './resources/views/**/*.blade.php',
-        ],
-        whitelist: [
-            // resources/content/jobs
-            'fal',
-            'fa-ribbon',
-            'fa-briefcase',
-            'fa-graduation-cap',
-        ],
-    })
 ;
 
 glob.sync(path.resolve(__dirname, 'resources', 'images') + '/**/*.@(png|jpg)').forEach(img => {
