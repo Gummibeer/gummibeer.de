@@ -8,6 +8,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 /**
+ * @property-read string $title
  * @property-read string $slug
  * @property-read string $url
  *
@@ -32,6 +33,13 @@ final class Category extends Model
     public function getUrlAttribute(): string
     {
         return route('blog.category.index', $this);
+    }
+
+    public function getTitleAttribute(): string
+    {
+        return Str::of($this->slug)
+            ->replace('+', ' & ')
+            ->title();
     }
 
     public function __call($name, $arguments)

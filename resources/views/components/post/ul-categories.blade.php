@@ -7,7 +7,7 @@
         <li>
             <strong>
                 <a href="{{ $category->url }}" class="text-brand">
-                    {{ $category->slug }}
+                    {{ $category->title }}
                 </a>
             </strong>
         </li>
