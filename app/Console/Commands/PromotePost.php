@@ -13,7 +13,7 @@ class PromotePost extends Command
     protected $name = 'post:promote';
     protected $description = 'Promote pending promotable posts.';
 
-    public function handle(): bool
+    public function handle(): int
     {
         $posts = collect(json_decode(json_encode(simplexml_load_string(Http::get(route('sitemap.xml')))), true)['url'])
             ->pluck('loc')
@@ -29,7 +29,7 @@ class PromotePost extends Command
         if ($posts->isEmpty()) {
             $this->warn('🔎 Nothing to promote');
 
-            return true;
+            return 0;
         }
 
         /** @var Post $post */
@@ -51,13 +51,12 @@ class PromotePost extends Command
             $post->promoted_at = now();
             $post->save();
 
-            return true;
+            return 0;
         }
 
         $this->error('❌ failed');
         $this->comment($response->body());
 
-        return false;
-
+        return 1;
     }
 }
