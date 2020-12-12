@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useTailwind();
 
-        Event::listen(RequestHandled::class, fn() => $this->registerMeta());
+        Event::listen(RequestHandled::class, fn () => $this->registerMeta());
     }
 
     public function registerMeta(): void
