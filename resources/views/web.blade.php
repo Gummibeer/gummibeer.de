@@ -25,6 +25,7 @@
 
     <link rel="me" href="https://twitter.com/devgummibeer">
     <link rel="me" href="https://github.com/Gummibeer">
+    <link rel="me" href="https://instagram.com/dev.gummibeer">
 
     <link rel="webmention" href="https://webmention.io/gummibeer.dev/webmention">
     <link rel="pingback" href="https://webmention.io/gummibeer.dev/xmlrpc">
