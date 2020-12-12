@@ -84,3 +84,7 @@ a[href] {
     transition-timing-function: linear;
   }
 }
+
+[x-cloak] {
+  display: none;
+}
