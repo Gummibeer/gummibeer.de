@@ -59,6 +59,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $builder = new UrlBuilder(config('services.imgix.domain'));
         $builder->setUseHttps(true);
+        $builder->setIncludeLibraryParam(false);
         if (config('services.imgix.sign_key')) {
             $builder->setSignKey(config('services.imgix.sign_key'));
         }
