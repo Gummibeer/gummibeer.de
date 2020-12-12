@@ -76,7 +76,11 @@ Route::prefix('blog')->name('blog.')->group(function (): void {
 
 Route::get(
     '404.html',
-    fn () => view('pages.404')
+    function (MetaBag $meta) {
+        $meta->title = 'Not Found';
+
+        return view('pages.404');
+    }
 )->name('404');
 
 Route::get(

@@ -20,6 +20,7 @@ return [
         '/blog/feed.atom',
         '/sitemap.xml',
         '/robots.txt',
+        '/404.html',
     ],
 
     /*
