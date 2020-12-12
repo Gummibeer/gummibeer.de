@@ -26,7 +26,7 @@ use Spatie\Feed\FeedItem;
  *
  * @method static Collection|Post[] all()
  * @method static Post latest()
- * @method static Post find(int $year, string $slug)
+ * @method static Post find(string $slug)
  * @method static int count()
  * @method static bool isEmpty()
  * @method static bool isNotEmpty()
