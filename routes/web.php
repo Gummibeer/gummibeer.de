@@ -5,8 +5,11 @@ use App\Http\Middleware\Paginated;
 use App\Job;
 use App\Services\MetaBag;
 use Illuminate\Support\Facades\Route;
+use Psr\Http\Message\ResponseInterface;
 use Spatie\Sheets\Sheet;
 use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\SitemapGenerator;
+use Spatie\Sitemap\Tags\Url;
 use Steein\Robots\Robots;
 
 Route::get('/', function (MetaBag $meta) {
@@ -24,7 +27,7 @@ Route::sheet('/resume', 'pages.resume', 'resume', function (MetaBag $meta, Sheet
 
     $data->jobs = Job::all();
     $data->hacktoberfests = sheets('hacktoberfest')->all()->sortByDesc('slug');
-})->name('me');
+})->name('resume');
 
 Route::sheet('/uses', 'pages.uses', 'uses', function (MetaBag $meta) {
     $meta->title = 'Uses';
@@ -71,11 +74,40 @@ Route::prefix('blog')->name('blog.')->group(function (): void {
     Route::get('{post}', Blog\PostController::class)->name('post');
 });
 
-Route::get('404.html', fn () => '404')->name('404');
+Route::get(
+    '404.html',
+    fn () => view('pages.404')
+)->name('404');
+
 Route::get(
     'sitemap.xml',
-    fn () => Sitemap::create()
+    fn () => SitemapGenerator::create(url('/'))
+        ->hasCrawled(function (Url $url): Url {
+            $url->setUrl(rtrim($url->url, '/'));
+
+            if (in_array($url->segment(1), ['resume', 'portfolio', 'charity', 'uses'])) {
+                $url
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                    ->setPriority(0.5);
+            }
+
+            if (in_array($url->segment(1), ['imprint', 'privacy'])) {
+                $url
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                    ->setPriority(0.1);
+            }
+
+            if ($url->segment(1) === 'blog') {
+                $url
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                    ->setPriority(1);
+            }
+
+            return $url;
+        })
+        ->getSitemap()
 )->name('sitemap.xml');
+
 Route::get(
     'robots.txt',
     fn () => Robots::getInstance()
