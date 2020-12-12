@@ -8,7 +8,9 @@ use App\Repositories\JobRepository;
 use App\Repositories\PostRepository;
 use App\Services\FencedCodeRenderer;
 use App\Services\MetaBag;
+use Illuminate\Foundation\Http\Events\RequestHandled;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Imgix\UrlBuilder;
@@ -29,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useTailwind();
+
+        Event::listen(RequestHandled::class, fn() => $this->registerMeta());
     }
 
     public function registerMeta(): void
