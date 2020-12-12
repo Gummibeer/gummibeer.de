@@ -46,4 +46,9 @@ return [
         'token' => env('WEBMENTION_TOKEN'),
     ],
 
+    'telegram' => [
+        'bot_token' => env('TELEGRAM_BOT_TOKEN'),
+        'chat_id' => '-1001286676640', // Http::get(sprintf('https://api.telegram.org/bot%s/getUpdates', $token))->json()['result'][0]['channel_post']['chat']['id']
+    ],
+
 ];

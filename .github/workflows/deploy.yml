@@ -1,5 +1,3 @@
-name: Deploy
-
 on:
   push:
     branches:
@@ -70,6 +68,10 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - run: php artisan post:promote --env=prod
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
       - uses: bobheadxi/deployments@v0.4.3
         if: always()

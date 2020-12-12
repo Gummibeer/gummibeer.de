@@ -5,9 +5,14 @@ namespace App;
 use App\Repositories\PostRepository;
 use App\Services\Model;
 use Carbon\Carbon;
+use Illuminate\Filesystem\FilesystemAdapter;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * @property-read string $title
@@ -17,12 +22,15 @@ use Spatie\Feed\FeedItem;
  * @property-read Carbon $date
  * @property-read Carbon $modified_at
  * @property-read string $contents
+ * @property-read string $markdown
  * @property-read float $read_time
  * @property-read Author $author
  * @property-read string $description
  * @property-read string $slug
  * @property-read string $url
  * @property-read bool $is_draft
+ * @property-read bool $should_promote
+ * @property Carbon $promoted_at
  *
  * @method static Collection|Post[] all()
  * @method static Post latest()
@@ -77,6 +85,25 @@ final class Post extends Model implements Feedable
         return $value ?? false;
     }
 
+    public function getShouldPromoteAttribute(?bool $value): bool
+    {
+        return $value ?? true;
+    }
+
+    public function getPromotedAtAttribute(?string $value): ?Carbon
+    {
+        if($value === null) {
+            return null;
+        }
+
+        return Carbon::createFromTimestampUTC($value);
+    }
+
+    public function getMarkdownAttribute(): string
+    {
+        return ltrim(YamlFrontMatter::parse($this->storage()->get($this->getPath()))->body());
+    }
+
     public function toFeedItem(): FeedItem
     {
         return FeedItem::create()
@@ -89,8 +116,29 @@ final class Post extends Model implements Feedable
             ->category(...$this->categories);
     }
 
+    public function save(): bool
+    {
+        $yaml = trim(Yaml::dump(Arr::except($this->attributes, ['contents', 'date', 'slug'])));
+
+        $content = <<<YAML
+        ---
+        {$yaml}
+        ---
+        
+        {$this->markdown}
+        YAML;
+
+        return Storage::disk(config('sheets.collections.posts.disk', 'posts'))->put($this->getPath(), $content);
+    }
+
     public static function __callStatic($name, $arguments)
     {
         return call_user_func_array([app(PostRepository::class), $name], $arguments);
+    }
+
+
+    protected function storage(): FilesystemAdapter
+    {
+        return Storage::disk(config('sheets.collections.posts.disk', 'posts'));
     }
 }

@@ -16,6 +16,7 @@
         "php": "^7.4",
         "ext-imagick": "*",
         "ext-json": "*",
+        "ext-simplexml": "*",
         "astrotomic/laravel-mime": "^0.2.1",
         "astrotomic/php-open-graph": "^0.3.0",
         "astrotomic/php-twemoji": "^0.1.0",
@@ -80,8 +81,8 @@
             "@php artisan ide-helper:meta --ansi --no-interaction --quiet"
         ],
         "normalize": "echo 'composer global require ergebnis/composer-normalize'",
+        "og": "@php artisan generate:og:images && yarn dev",
         "route:list": "@php artisan route:list --columns=method,name,uri,action | grep -Ev 'horizon|nova'",
-        "thanks": "echo 'composer global require symfony/thanks'",
-        "og": "@php artisan generate:og:images && yarn dev"
+        "thanks": "echo 'composer global require symfony/thanks'"
     }
 }
