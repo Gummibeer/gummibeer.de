@@ -25,6 +25,16 @@
     '''
 
 [[headers]]
+  for = "*.rss"
+  [headers.values]
+    Content-Type = "application/rss+xml"
+
+[[headers]]
+  for = "*.atom"
+  [headers.values]
+    Content-Type = "application/atom+xml"
+
+[[headers]]
   for = "/css/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
