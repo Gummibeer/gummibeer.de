@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\AuthorRepository;
 use App\Repositories\CategoryRepository;
+use App\Repositories\JobRepository;
 use App\Repositories\PostRepository;
 use App\Services\FencedCodeRenderer;
 use App\Services\MetaBag;
@@ -42,6 +43,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(PostRepository::class);
         $this->app->singleton(AuthorRepository::class);
         $this->app->singleton(CategoryRepository::class);
+        $this->app->singleton(JobRepository::class);
     }
 
     public function registerCommonmark(): void
