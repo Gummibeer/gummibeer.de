@@ -4,5 +4,6 @@
 <img
     src="{{ \Astrotomic\Twemoji\Twemoji::emoji($slot)->base(asset('vendor/twemoji'))->svg()->url() }}"
     alt="Emoji {{ $slot }}"
+    loading="lazy"
     {{ $attributes }}
 />
