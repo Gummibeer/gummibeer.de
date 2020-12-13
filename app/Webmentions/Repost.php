@@ -3,6 +3,7 @@
 namespace App\Webmentions;
 
 use App\User;
+use Astrotomic\LaravelUnavatar\Unavatar;
 use Carbon\Carbon;
 use Spatie\Sheets\Sheet;
 
@@ -21,9 +22,9 @@ final class Repost extends Sheet
     public function getAuthorAttribute(array $author): User
     {
         return new User([
-            'name' => $author['name'],
-            'url' => $author['url'],
-            'avatar' => $author['photo'],
+            'name' => $author['name'] ?: parse_url($this->url, PHP_URL_HOST),
+            'url' => $author['url'] ?: null,
+            'avatar' => $author['photo'] ?: Unavatar::domain(parse_url($this->url, PHP_URL_HOST))->toUrl(),
         ]);
     }
 }

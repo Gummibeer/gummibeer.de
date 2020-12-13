@@ -20,6 +20,8 @@ class Webmentions extends Component
     {
         $url = Str::finish($url ?? request()->url(), '/');
 
+        $url = 'https://gummibeer.dev/blog/2020/human-readable-intervals/';
+
         $webmentions = collect();
         $page = 0;
         do {
@@ -40,12 +42,23 @@ class Webmentions extends Component
             ->sortByDesc('date');
 
         $this->reposts = $webmentions
-            ->filter(fn (array $entry): bool => $entry['wm-property'] === 'repost-of')
+            ->filter(function (array $entry): bool {
+                if($entry['wm-property'] === 'repost-of') {
+                    return true;
+                }
+
+                if($entry['wm-property'] === 'mention-of') {
+                    return empty($entry['content']['text']);
+                }
+
+                return false;
+            })
             ->mapInto(Repost::class)
             ->sortByDesc('date');
 
         $this->comments = $webmentions
             ->filter(fn (array $entry): bool => in_array($entry['wm-property'], ['mention-of', 'in-reply-to']))
+            ->reject(fn (array $entry): bool => empty($entry['content']['text']))
             ->mapInto(Comment::class)
             ->sortBy('date');
     }
