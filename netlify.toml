@@ -67,3 +67,16 @@
   to = "https://gummibeer.dev/:splat"
   status = 301
   force = true
+
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+  [plugins.inputs]
+    contexts = [
+      'production'
+    ]
+  [plugins.inputs.minifierOptions]
+    html5 = true
+    removeComments = true
+    collapseWhitespace = true
+    conservativeCollapse = true
+    keepClosingSlash = false

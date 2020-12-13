@@ -76,6 +76,7 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'after' => [
+        'build' => '/usr/local/bin/netlify build --context=production',
         'deploy' => '/usr/local/bin/netlify deploy --prod',
     ],
 
