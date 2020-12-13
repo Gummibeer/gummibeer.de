@@ -29,3 +29,13 @@ I will try to keep things updated, so this page will serve as a living document 
 - To have a proper window manager I use [Rectangle](https://rectangleapp.com/).
 - [FontBase](https://fontba.se/) is the first tool I've found that's capable to manage/display multiple thousand fonts.
 - I'm using [Umbra](https://umbra.replay.software/) to toggle between light and dark theme with a simple shortcut.
+
+## Hardware
+
+- I'm using a MacBook Pro (15-inch, 2018) as my primary computer.
+- On my desk I have two DELL Ultrasharp U2515H as my screens.
+- I'm using a wired Apple Keyboard but waiting for german layout of the Keychron K1.
+- Since ~10 years my favorite mouse is a Logitech M500
+- On the go a Zendure Supertank powers my MacBook and phone.
+- As headset I'm using a Jabra Elite 85h.
+- Since >3 years I'm using a Huawei P10 but it has to be replaced in near future - think that I will go for a Google Pixel 4a.
