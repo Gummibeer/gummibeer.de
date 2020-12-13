@@ -92,7 +92,7 @@ final class Post extends Model implements Feedable
 
     public function getPromotedAtAttribute(?string $value): ?Carbon
     {
-        if($value === null) {
+        if ($value === null) {
             return null;
         }
 
@@ -135,7 +135,6 @@ final class Post extends Model implements Feedable
     {
         return call_user_func_array([app(PostRepository::class), $name], $arguments);
     }
-
 
     protected function storage(): FilesystemAdapter
     {

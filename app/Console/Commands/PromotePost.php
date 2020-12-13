@@ -17,14 +17,14 @@ class PromotePost extends Command
     {
         $posts = collect(json_decode(json_encode(simplexml_load_string(Http::get(route('sitemap.xml')))), true)['url'])
             ->pluck('loc')
-            ->map(fn(string $loc): string => str_replace(url('/'), '', $loc))
-            ->map(fn(string $path): string => trim($path, '/'))
-            ->filter(fn(string $path): bool => Str::startsWith($path, 'blog/'))
-            ->map(fn(string $path): string => str_replace('blog/', '', $path))
-            ->filter(fn(string $slug): bool => Str::contains($slug, '/'))
-            ->map(fn(string $slug): Post => Post::find($slug))
-            ->filter(fn(Post $post): bool => $post->should_promote)
-            ->filter(fn(Post $post): bool => $post->promoted_at === null);
+            ->map(fn (string $loc): string => str_replace(url('/'), '', $loc))
+            ->map(fn (string $path): string => trim($path, '/'))
+            ->filter(fn (string $path): bool => Str::startsWith($path, 'blog/'))
+            ->map(fn (string $path): string => str_replace('blog/', '', $path))
+            ->filter(fn (string $slug): bool => Str::contains($slug, '/'))
+            ->map(fn (string $slug): Post => Post::find($slug))
+            ->filter(fn (Post $post): bool => $post->should_promote)
+            ->filter(fn (Post $post): bool => $post->promoted_at === null);
 
         if ($posts->isEmpty()) {
             $this->warn('🔎 Nothing to promote');
@@ -45,7 +45,7 @@ class PromotePost extends Command
             ]
         );
 
-        if($response->json()['ok'] ?? false) {
+        if ($response->json()['ok'] ?? false) {
             $this->info('✅ promoted');
 
             $post->promoted_at = now();
