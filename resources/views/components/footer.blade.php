@@ -42,6 +42,7 @@
             </li>
         </ul>
         <ul class="flex flex-row list-inline space-x-4 text-xs">
+            <li><a href="https://t.me/GummibeerDev" class="hover:text-brand">Newsletter</a></li>
             <li><a href="{{ route('imprint') }}" class="hover:text-brand">Imprint</a></li>
             <li><a href="{{ route('privacy') }}" class="hover:text-brand">Privacy</a></li>
         </ul>
