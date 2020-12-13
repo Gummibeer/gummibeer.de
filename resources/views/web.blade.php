@@ -21,6 +21,8 @@
     <meta name="theme-color" content="#ffb300">
     <meta name="msapplication-TileColor" content="#ffb300">
 
+    <x-favicons/>
+
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" crossorigin="anonymous">
 
     <link rel="me" href="https://twitter.com/devgummibeer">
