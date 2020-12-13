@@ -64,7 +64,7 @@ jobs:
 
       - run: |
           yarn global add netlify-cli
-          "$(yarn global bin)/netlify" deploy --prod
+          "$(yarn global bin)/netlify" deploy --prod --message "${GITHUB_SHA::8}: ${{ github.event.head_commit.message }}"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
