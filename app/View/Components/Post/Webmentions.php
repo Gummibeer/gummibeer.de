@@ -20,8 +20,6 @@ class Webmentions extends Component
     {
         $url = Str::finish($url ?? request()->url(), '/');
 
-        $url = 'https://gummibeer.dev/blog/2020/human-readable-intervals/';
-
         $webmentions = collect();
         $page = 0;
         do {
