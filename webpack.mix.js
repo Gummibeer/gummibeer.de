@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-require('laravel-mix-sri');
 const glob = require('glob');
 const path = require('path');
 
@@ -28,9 +27,6 @@ mix
         ],
     })
     .version()
-    .generateIntegrityHash({
-        enabled: true,
-    })
 ;
 
 glob.sync(path.resolve(__dirname, 'resources', 'images') + '/**/*.@(png|jpg|gif|ico)').forEach(img => {

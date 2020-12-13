@@ -1,6 +1,4 @@
 <?php /** @var App\Services\MetaBag $meta */ ?>
-<?php /** @var Elhebert\SubresourceIntegrity\Sri $sri */ ?>
-@inject('sri', 'sri')
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="antialiased">
