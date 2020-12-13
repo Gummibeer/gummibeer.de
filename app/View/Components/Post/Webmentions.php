@@ -41,11 +41,11 @@ class Webmentions extends Component
 
         $this->reposts = $webmentions
             ->filter(function (array $entry): bool {
-                if($entry['wm-property'] === 'repost-of') {
+                if ($entry['wm-property'] === 'repost-of') {
                     return true;
                 }
 
-                if($entry['wm-property'] === 'mention-of') {
+                if ($entry['wm-property'] === 'mention-of') {
                     return empty($entry['content']['text']);
                 }
 
