@@ -18,14 +18,14 @@ class Webmentions extends Component
 
     public function __construct(?string $url = null)
     {
-        $url = Str::finish($url ?? request()->url(), '/');
+        $url = $url ?? request()->url();
 
         $webmentions = collect();
         $page = 0;
         do {
             $entries = Http::get('https://webmention.io/api/mentions.jf2', [
                 'token' => config('services.webmention.token'),
-                'target' => $url,
+                'domain' => parse_url($url, PHP_URL_HOST),
                 'per-page' => 100,
                 'page' => $page,
             ])->json()['children'] ?? [];
@@ -33,6 +33,9 @@ class Webmentions extends Component
 
             $page++;
         } while (count($entries) >= 100);
+
+        $webmentions = $webmentions
+            ->filter(fn (array $entry): bool => trim(parse_url($entry['wm-target'], PHP_URL_PATH), '/') === trim(parse_url($url, PHP_URL_PATH), '/'));
 
         $this->likes = $webmentions
             ->filter(fn (array $entry): bool => $entry['wm-property'] === 'like-of')
