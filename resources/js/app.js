@@ -10,43 +10,40 @@ Prism.highlightAll();
 import Clipboard from "clipboard/src/clipboard";
 new Clipboard("button[data-clipboard-text]");
 
-import Fuse from 'fuse.js';
-window._ = require('lodash');
+import Fuse from "fuse.js";
+window._ = require("lodash");
 window.search = {
-    items: null,
-    fuse: null,
-    query: '',
-    results: [],
-    init() {
-        let url = new URL(window.location);
-        url.pathname = 'blog/search.json';
-        url.searchParams.set('t', Date.now());
+  items: null,
+  fuse: null,
+  query: "",
+  results: [],
+  init() {
+    let url = new URL(window.location);
+    url.pathname = "blog/search.json";
+    url.searchParams.set("t", Date.now());
 
-        fetch(url.toString())
-            .then(response => response.json())
-            .then(items => {
-                this.items = items;
+    fetch(url.toString())
+      .then((response) => response.json())
+      .then((items) => {
+        this.items = items;
 
-                this.fuse = new Fuse(this.items, {
-                    includeScore: true,
-                    keys: [
-                        'title',
-                        'description',
-                        'categories',
-                    ],
-                });
-            }).catch(console.error);
-    },
-    search() {
-        if(this.fuse === null) {
-            this.results = [];
-            return false;
-        }
-
-        this.results = _(this.fuse.search(this.query))
-            .orderBy('score', 'desc')
-            .take(3)
-            .map(r => r.item)
-            .values();
+        this.fuse = new Fuse(this.items, {
+          includeScore: true,
+          keys: ["title", "description", "categories"],
+        });
+      })
+      .catch(console.error);
+  },
+  search() {
+    if (this.fuse === null) {
+      this.results = [];
+      return false;
     }
+
+    this.results = _(this.fuse.search(this.query))
+      .orderBy("score", "desc")
+      .take(3)
+      .map((r) => r.item)
+      .values();
+  },
 };
