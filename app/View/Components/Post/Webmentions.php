@@ -7,7 +7,6 @@ use App\Webmentions\Like;
 use App\Webmentions\Repost;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 use Illuminate\View\Component;
 
 class Webmentions extends Component
