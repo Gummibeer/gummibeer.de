@@ -11,7 +11,7 @@
     Content-Security-Policy = '''
       default-src 'self';
       base-uri 'self';
-      connect-src 'none';
+      connect-src 'self';
       form-action 'none';
       frame-src 'none';
       frame-ancestors 'none';
