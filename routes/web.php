@@ -5,6 +5,7 @@ use App\Http\Middleware\Paginated;
 use App\Job;
 use App\Post;
 use App\Services\MetaBag;
+use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sheets\Sheet;
 use Spatie\Sitemap\SitemapGenerator;
@@ -55,7 +56,7 @@ Route::sheet('/privacy', 'pages.privacy', 'privacy', function (MetaBag $meta) {
 })->name('privacy');
 
 Route::prefix('blog')->name('blog.')->group(function (): void {
-    Route::get('search.json', fn () => Post::all()->map(fn (Post $post) => [
+    Route::get('search.json', fn (): Jsonable => Post::all()->map(fn (Post $post): array => [
         'url' => $post->url,
         'title' => $post->title,
         'date' => $post->date->format('M jS, Y'),
