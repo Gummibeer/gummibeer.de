@@ -10,7 +10,7 @@ Prism.highlightAll();
 import Clipboard from "clipboard/src/clipboard";
 new Clipboard("button[data-clipboard-text]");
 
-import Fuse from "fuse.js";
+import Fuse from "fuse.js/dist/fuse.basic.esm";
 window._ = require("lodash");
 window.search = {
   items: null,
@@ -29,6 +29,7 @@ window.search = {
 
         this.fuse = new Fuse(this.items, {
           includeScore: true,
+          minMatchCharLength: 3,
           keys: ["title", "description", "categories"],
         });
       })
