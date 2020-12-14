@@ -3,6 +3,7 @@
 use App\Http\Controllers\Blog;
 use App\Http\Middleware\Paginated;
 use App\Job;
+use App\Post;
 use App\Services\MetaBag;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sheets\Sheet;
@@ -54,6 +55,13 @@ Route::sheet('/privacy', 'pages.privacy', 'privacy', function (MetaBag $meta) {
 })->name('privacy');
 
 Route::prefix('blog')->name('blog.')->group(function (): void {
+    Route::get('search.json', fn() => Post::all()->map(fn(Post $post) => [
+        'url' => $post->url,
+        'title' => $post->title,
+        'date' => $post->date->format('M jS, Y'),
+        'categories' => $post->categories,
+        'description' => $post->description,
+    ]))->name('search');
     Route::get('{page?}', Blog\IndexController::class)->middleware(Paginated::class)->name('index');
     Route::get('feed.{format}', Blog\FeedController::class)->name('feed');
 

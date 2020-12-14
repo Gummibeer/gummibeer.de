@@ -16,8 +16,7 @@ return [
      */
     'paths' => [
         '/blog',
-        '/blog/feed.rss',
-        '/blog/feed.atom',
+        '/blog/search.json',
         '/sitemap.xml',
         '/robots.txt',
         '/404.html',

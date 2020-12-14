@@ -171,6 +171,7 @@ module.exports = {
     },
     variants: {
         borderStyle: ['responsive', 'hover'],
+        textColor: ['responsive', 'hover', 'focus', 'group-hover'],
     },
     plugins: [
         require('@tailwindcss/typography'),
