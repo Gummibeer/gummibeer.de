@@ -4,6 +4,13 @@ module.exports = {
         content: [
             './resources/views/**/*.blade.php',
         ],
+        options: {
+            whitelist: [
+                'fa-briefcase',
+                'fa-ribbon',
+                'fa-graduation-cap',
+            ],
+        }
     },
     future: {
         removeDeprecatedGapUtilities: true,
