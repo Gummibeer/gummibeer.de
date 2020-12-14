@@ -14,7 +14,8 @@ class PostRepository
         return sheets()->collection('posts')->all()
             ->reject(fn (Post $post): bool => $post->is_draft)
             ->reject(fn (Post $post): bool => $post->date->startOfDay()->isFuture())
-            ->sortByDesc('date');
+            ->sortByDesc('date')
+            ->values();
     }
 
     public function latest(): ?Post
