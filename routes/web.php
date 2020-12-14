@@ -55,7 +55,7 @@ Route::sheet('/privacy', 'pages.privacy', 'privacy', function (MetaBag $meta) {
 })->name('privacy');
 
 Route::prefix('blog')->name('blog.')->group(function (): void {
-    Route::get('search.json', fn() => Post::all()->map(fn(Post $post) => [
+    Route::get('search.json', fn () => Post::all()->map(fn (Post $post) => [
         'url' => $post->url,
         'title' => $post->title,
         'date' => $post->date->format('M jS, Y'),
