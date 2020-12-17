@@ -28,7 +28,12 @@
             </div>
         </div>
 
-        <ul class="md:flex w-full md:w-auto list-none md:space-x-2 lg:space-x-4" :class="{'flex flex-col': show, 'hidden': !show}" id="menu-list">
+        <ul
+            class="flex flex-col md:flex-row w-full md:w-auto list-none md:space-x-2 lg:space-x-4 x-cloak md:-x-cloak"
+            :class="{'hidden md:flex': !show}"
+            x-cloak
+            id="menu-list"
+        >
             @foreach([
                 '/' => 'Home',
                 'resume' => 'Resume',

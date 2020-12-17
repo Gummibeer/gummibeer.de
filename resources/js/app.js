@@ -4,6 +4,7 @@ const Prism = require("prismjs");
 require("prismjs/components/prism-markup-templating");
 require("prismjs/components/prism-php");
 require("prismjs/components/prism-ini");
+require("prismjs/components/prism-scss");
 require("prismjs/plugins/line-numbers/prism-line-numbers");
 Prism.highlightAll();
 
