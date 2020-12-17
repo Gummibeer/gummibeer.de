@@ -18,18 +18,18 @@ window.search = {
   query: "",
   results: [],
   search() {
-    let url = new URL('https://fuse-search.gummibeer.workers.dev/');
+    let url = new URL("https://fuse-search.gummibeer.workers.dev/");
     url.searchParams.set("q", this.query);
     url.searchParams.set("t", Date.now());
 
     fetch(url)
-        .then(res => res.json())
-        .then(results => {
-          this.results = _(results)
-              .orderBy("score", "desc")
-              .take(3)
-              .map((r) => r.item)
-              .values();
-        });
+      .then((res) => res.json())
+      .then((results) => {
+        this.results = _(results)
+          .orderBy("score", "desc")
+          .take(3)
+          .map((r) => r.item)
+          .values();
+      });
   },
 };
