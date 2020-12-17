@@ -11,7 +11,7 @@
     Content-Security-Policy = '''
       default-src 'self';
       base-uri 'self';
-      connect-src 'self';
+      connect-src 'https://fuse-search.gummibeer.workers.dev';
       form-action 'none';
       frame-src 'none';
       frame-ancestors 'none';
