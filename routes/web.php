@@ -62,6 +62,7 @@ Route::prefix('blog')->name('blog.')->group(function (): void {
         'date' => $post->date->format('M jS, Y'),
         'categories' => $post->categories,
         'description' => $post->description,
+        'content' => $post->markdown,
     ]))->name('search');
     Route::get('{page?}', Blog\IndexController::class)->middleware(Paginated::class)->name('index');
     Route::get('feed.{format}', Blog\FeedController::class)->name('feed');

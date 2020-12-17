@@ -14,16 +14,15 @@
         <div
                 class="space-y-2 mb-4 md:mb-8 lg:mb-10 xl:mb-12"
                 x-data="window.search"
-                x-init="init"
         >
             <input
-                    type="search"
-                    name="search"
-                    placeholder="Search &mldr;"
-                    autocomplete="off"
-                    @input.debounce.250ms="search"
-                    x-model="query"
-                    class="px-4 py-2 w-full bg-white dark:bg-night-10 border-b-2 border-night-10 dark:border-snow-10 rounded-1 focus:outline-none focus:border-brand shadow"
+                type="search"
+                name="search"
+                placeholder="Search &mldr;"
+                autocomplete="off"
+                @input.debounce.250ms="search"
+                x-model="query"
+                class="px-4 py-2 w-full bg-white dark:bg-night-10 border-b-2 border-night-10 dark:border-snow-10 rounded-1 focus:outline-none focus:border-brand shadow"
             />
             <ol class="list-none space-y-2" :class="{'hidden': results.length == 0}">
                 <template x-for="result in results">
