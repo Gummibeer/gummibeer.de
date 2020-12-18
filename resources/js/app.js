@@ -18,7 +18,7 @@ window.search = {
   query: "",
   results: [],
   search() {
-    let url = new URL("https://fuse-search.gummibeer.workers.dev/");
+    let url = new URL("https://search.gummibeer.dev");
     url.searchParams.set("q", this.query);
     url.searchParams.set("t", Date.now());
 
