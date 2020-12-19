@@ -1,3 +1,14 @@
+<aside class="relative bg-brand text-night-0 py-2 px-4 md:px-8 lg:px-10 xl:px-12 flex flex-row justify-between items-center space-x-2  text-sm">
+    <p>
+        Never want to miss a post?
+        <span class="hidden sm:inline">You can join my Telegram channel.</span>
+    </p>
+    <a href="https://t.me/GummibeerDev" class="flex items-center bg-white rounded-1 p-1 sm:p-2">
+        <x-icon class="fab fa-telegram-plane mr-1"/>
+        <span class="leading-none">subscribe</span>
+    </a>
+</aside>
+
 <header class="bg-white dark:bg-night-10 shadow sticky top-0 left-0 right-0 z-10">
     <nav
         class="px-4 md:px-8 lg:px-10 xl:px-12 flex flex-col md:flex-row flex-no-wrap md:justify-between"
