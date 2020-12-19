@@ -5,23 +5,51 @@
         </div>
         <ul class="flex flex-row list-inline space-x-2">
             <li>
-                <a href="https://twitter.com/devgummibeer" target="_blank" rel="noreferrer noopener" class="hover:text-brand block p-1">
+                <a
+                    href="https://twitter.com/devgummibeer"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    class="hover:text-brand block p-1"
+                    title="Twitter"
+                >
                     <x-icon class="fab fa-twitter"/>
+                    <span class="sr-only">Twitter</span>
                 </a>
             </li>
             <li>
-                <a href="https://github.com/Gummibeer" target="_blank" rel="noreferrer noopener" class="hover:text-brand block p-1">
+                <a
+                    href="https://github.com/Gummibeer"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    class="hover:text-brand block p-1"
+                    title="GitHub"
+                >
                     <x-icon class="fab fa-github"/>
+                    <span class="sr-only">GitHub</span>
                 </a>
             </li>
             <li>
-                <a href="https://strava.com/athletes/22896286" target="_blank" rel="noreferrer noopener" class="hover:text-brand block p-1">
+                <a
+                    href="https://strava.com/athletes/22896286"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    class="hover:text-brand block p-1"
+                    title="Strava"
+                >
                     <x-icon class="fab fa-strava"/>
+                    <span class="sr-only">Strava</span>
                 </a>
             </li>
             <li>
-                <a href="https://steamcommunity.com/id/gummibeer" target="_blank" rel="noreferrer noopener" class="hover:text-brand block p-1">
+                <a
+                    href="https://steamcommunity.com/id/gummibeer"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    class="hover:text-brand block p-1"
+                    title="Steam"
+                >
                     <x-icon class="fab fa-steam"/>
+                    <span class="sr-only">Steam</span>
                 </a>
             </li>
         </ul>
