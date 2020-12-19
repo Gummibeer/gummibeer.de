@@ -26,7 +26,7 @@ window.search = {
       .then((res) => res.json())
       .then((results) => {
         this.results = _(results)
-          .orderBy("score", "desc")
+          .orderBy("score", "asc")
           .take(3)
           .map((r) => r.item)
           .values();
