@@ -118,7 +118,7 @@ class Img extends Component
     protected function setDefaultParams(): void
     {
         try {
-            parse_str(explode('?', mix($this->src))[1], $query);
+            parse_str(explode('?', mix($this->src), 2)[1], $query);
             $this->params['cache-id'] = $query['id'];
         } catch (Throwable $ex) {
         }

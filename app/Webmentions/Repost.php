@@ -3,7 +3,7 @@
 namespace App\Webmentions;
 
 use App\User;
-use Astrotomic\LaravelUnavatar\Unavatar;
+use Astrotomic\Unavatar\Laravel\Unavatar;
 use Carbon\Carbon;
 use Spatie\Sheets\Sheet;
 
