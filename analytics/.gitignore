@@ -1,0 +1,13 @@
+/target
+/dist
+**/*.rs.bk
+Cargo.lock
+bin/
+pkg/
+wasm-pack.log
+worker/
+node_modules/
+.cargo-ok
+yarn.lock
+wrangler.toml
+gummibeer-8f413f037759.json

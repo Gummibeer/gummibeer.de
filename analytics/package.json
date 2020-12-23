@@ -1,0 +1,18 @@
+{
+    "private": true,
+    "name": "analytics",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "format": "prettier --write '**/*.{js,css,json,md}'"
+    },
+    "author": "Tom Witkowski <dev.gummibeer@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "prettier": "^1.18.2"
+    },
+    "dependencies": {
+        "platform": "^1.3.6",
+        "str-trim": "^1.2.0"
+    }
+}
