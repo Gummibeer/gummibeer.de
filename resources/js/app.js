@@ -1,5 +1,7 @@
 fetch(
-  `https://analytics.gummibeer.dev/?l=${window.location}&r=${document.referrer}&t=${Date.now()}`
+  `https://analytics.gummibeer.dev/?l=${window.location}&r=${
+    document.referrer
+  }&t=${Date.now()}`
 ).catch(console.error);
 
 require("alpinejs");
