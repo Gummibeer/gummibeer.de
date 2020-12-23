@@ -1,4 +1,6 @@
-fetch(`https://analytics.gummibeer.dev/?l=${window.location}&r=${document.referrer}`).catch(console.error);
+fetch(
+  `https://analytics.gummibeer.dev/?l=${window.location}&r=${document.referrer}`
+).catch(console.error);
 
 require("alpinejs");
 
