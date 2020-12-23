@@ -1,6 +1,8 @@
-fetch(
-  `https://analytics.gummibeer.dev/?l=${window.location}&r=${document.referrer}&t=${Date.now()}`
-).catch(console.error);
+if(document.getElementById('ANALYTICS_URL')) {
+  fetch(
+      `${document.getElementById('ANALYTICS_URL').getAttribute('href')}?l=${window.location}&r=${document.referrer}&t=${Date.now()}`
+  ).catch(console.error);
+}
 
 require("alpinejs");
 

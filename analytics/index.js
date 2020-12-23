@@ -9,6 +9,7 @@ const CORS = {
 async function handleRequest(request) {
     try {
         const url = new URL(request.url);
+        const referrer = url.searchParams.get('r');
 
         const origin = request.headers.get('origin');
         if (!origin) {
@@ -24,8 +25,6 @@ async function handleRequest(request) {
             throw new Error('Domain mismatch');
         }
 
-        const referer = new URL(url.searchParams.get('r'));
-
         const ua = request.headers.get('user-agent');
         if (!ua) {
             throw new Error('User-Agent missing');
@@ -33,14 +32,11 @@ async function handleRequest(request) {
         const agent = platform.parse(ua);
 
         const data = {
-            location: location.pathname.trim('/'),
-            referer: referer.hostname,
-            referer_url: referer,
+            location: '/'+location.pathname.trim('/'),
+            referrer: referrer ? (new URL(referrer)).hostname : null,
             country: request.cf.country,
             browser: agent.name,
-            browser_version: agent.version,
-            os_name: agent.os.family,
-            os_version: agent.os.version,
+            os: agent.os.family,
             at: (new Date).toISOString(),
         };
 
@@ -60,7 +56,7 @@ async function handleRequest(request) {
         });
 
         const SHEET_ID = '1d4Ar8Er1UBNQEmxk26T5JyxG0StQmf3-bRKvRs_sHmI';
-        const TABLE_RANGE = domain + '!A2:I';
+        const TABLE_RANGE = domain + '!A2:F';
         await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TABLE_RANGE}:append?valueInputOption=RAW`, {
             method: 'POST',
             headers: {

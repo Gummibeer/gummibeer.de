@@ -10,6 +10,10 @@
     @if(config('services.imgix.domain'))
         <link rel="dns-prefetch" href="https://{{ config('services.imgix.domain') }}">
     @endif
+    @if(app()->environment('prod'))
+        <link rel="dns-prefetch" href="https://analytics.gummibeer.dev" id="ANALYTICS_URL">
+        <link rel="dns-prefetch" href="https://search.gummibeer.dev" id="SEARCH_URL">
+    @endif
 
     <title>{{ $meta->title }}</title>
     @if($meta->description)
