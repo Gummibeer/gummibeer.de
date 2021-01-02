@@ -109,7 +109,7 @@ final class Post extends Model implements Feedable
         return FeedItem::create()
             ->id($this->url)
             ->title($this->title)
-            ->author($this->author)
+            ->author(sprintf('%s, %s', $this->author->name, $this->author->email))
             ->summary($this->description)
             ->updated($this->date)
             ->link($this->url)
