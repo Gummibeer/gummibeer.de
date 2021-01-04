@@ -1,11 +1,3 @@
-if (document.getElementById("ANALYTICS_URL")) {
-  fetch(
-    `${document.getElementById("ANALYTICS_URL").getAttribute("href")}?l=${
-      window.location
-    }&r=${document.referrer}&t=${Date.now()}`
-  ).catch(console.error);
-}
-
 require("alpinejs");
 
 const Prism = require("prismjs");
