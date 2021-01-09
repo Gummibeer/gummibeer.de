@@ -22,13 +22,13 @@ class ParagraphRenderer implements BlockRendererInterface
      */
     public function render(AbstractBlock $block, ElementRendererInterface $htmlRenderer, bool $inTightList = false)
     {
-        if (!($block instanceof Paragraph)) {
-            throw new InvalidArgumentException('Incompatible block type: ' . get_class($block));
+        if (! ($block instanceof Paragraph)) {
+            throw new InvalidArgumentException('Incompatible block type: '.get_class($block));
         }
 
         $children = $block->children();
 
-        if(count($children) === 1 && Arr::first($children) instanceof Image) {
+        if (count($children) === 1 && Arr::first($children) instanceof Image) {
             return $htmlRenderer->renderInlines($children);
         }
 

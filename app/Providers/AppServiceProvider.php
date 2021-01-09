@@ -20,7 +20,6 @@ use League\CommonMark\Block\Element\FencedCode;
 use League\CommonMark\Block\Element\Paragraph;
 use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\ConverterInterface;
-use League\CommonMark\EnvironmentInterface;
 use League\CommonMark\Inline\Element\Image;
 
 class AppServiceProvider extends ServiceProvider

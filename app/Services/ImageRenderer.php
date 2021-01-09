@@ -16,8 +16,8 @@ class ImageRenderer implements InlineRendererInterface
 
     public function render(AbstractInline $inline, ElementRendererInterface $htmlRenderer)
     {
-        if (!($inline instanceof Image)) {
-            throw new InvalidArgumentException('Incompatible inline type: ' . get_class($inline));
+        if (! ($inline instanceof Image)) {
+            throw new InvalidArgumentException('Incompatible inline type: '.get_class($inline));
         }
 
         $alt = preg_replace(
