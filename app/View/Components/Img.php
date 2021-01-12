@@ -150,6 +150,7 @@ class Img extends Component
         );
 
         if(isset($params['ar'])) {
+            unset($params['w']);
             unset($params['h']);
         }
 
