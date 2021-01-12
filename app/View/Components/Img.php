@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Imgix\UrlBuilder;
-use Throwable;
 
 class Img extends Component
 {
@@ -72,7 +71,7 @@ class Img extends Component
 
         return $this->builder->createURL(
             $this->src,
-            array_merge($this->params, array_filter(['fm' => $format]))
+            $this->getParams($format),
         );
     }
 
@@ -84,7 +83,7 @@ class Img extends Component
 
         return $this->builder->createSrcSet(
             $this->src,
-            array_merge($this->params, array_filter(['fm' => $format])),
+            $this->getParams($format),
             $options
         );
     }
@@ -117,11 +116,6 @@ class Img extends Component
 
     protected function setDefaultParams(): void
     {
-        try {
-            parse_str(explode('?', mix($this->src), 2)[1], $query);
-            $this->params['cache-id'] = $query['id'];
-        } catch (Throwable $ex) {
-        }
         $this->params['cache-md5'] = hash_file('md5', public_path($this->src));
 
         $this->params['auto'] = 'compress';
@@ -144,5 +138,21 @@ class Img extends Component
             $this->params['fit'] = 'crop';
             $this->params['crop'] = 'edges';
         }
+    }
+
+    protected function getParams(?string $format = null): array
+    {
+        $params = array_merge(
+            $this->params,
+            array_filter([
+                'fm' => $format,
+            ])
+        );
+
+        if(isset($params['ar'])) {
+            unset($params['h']);
+        }
+
+        return $params;
     }
 }
