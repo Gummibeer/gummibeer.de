@@ -132,6 +132,7 @@ module.exports = {
                     },
                     strong: {
                         color: 'inherit',
+                        fontWeight: 700,
                     },
                     a: {
                         color: 'inherit',
