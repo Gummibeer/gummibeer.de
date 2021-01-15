@@ -11,11 +11,6 @@ class StatsStrava extends Command
     protected $name = 'stats:strava';
     protected $description = 'Load strava statistics.';
 
-    /**
-     * @var Collection
-     */
-    protected $data;
-
     public function handle()
     {
         $url = sprintf(
