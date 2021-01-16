@@ -18,7 +18,7 @@ class StatsCategory extends Command
                 'title' => 'Title',
                 'post_count' => 'Posts',
             ],
-            Category::all()->map(fn(Category $category): array => [
+            Category::all()->map(fn (Category $category): array => [
                 'slug' => $category->slug,
                 'title' => $category->title,
                 'post_count' => $category->posts()->count(),
