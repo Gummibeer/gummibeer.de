@@ -45,6 +45,7 @@
 
 <x-footer/>
 
-<script async defer src="{{ mix('js/app.js') }}" crossorigin="anonymous"></script>
+<script defer src="{{ mix('js/app.js') }}" crossorigin="anonymous"></script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c378395538554284b7ccee3cc90cc627"}'></script>
 </body>
 </html>
