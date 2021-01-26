@@ -77,7 +77,7 @@ class TwitterGiveaway extends Command
                 <div style="font-size:8rem;">
                     <div class="inline-block font-logo text-center text-brand bg-white" style="font-size:10rem;margin-bottom:0.5em;padding:0 0.25em;border-radius:50px;">Congratulations</div>
                     <img src="{$user['avatar']}" style="margin-left:auto;margin-right:auto;margin-bottom:0.125em;width:512px;height:512px;border-radius:50%;object-fit:cover;border:#ffffff solid 0.25em;"/>
-                    <h1 class="inline-block text-black text-center bg-white" style="margin-bottom:0.5em;padding:0 0.25em;border-radius:50px;">{$user['username']}</h1>
+                    <h1 class="inline-block text-black text-center bg-white" style="margin-bottom:0.5em;padding:0 0.25em;border-radius:50px;">{$user['name']}</h1>
                 </div>
             HTML;
 
