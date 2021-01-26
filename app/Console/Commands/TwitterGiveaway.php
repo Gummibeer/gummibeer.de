@@ -26,10 +26,10 @@ class TwitterGiveaway extends Command
 
         $excluded = collect($this->option('exclude'))
             ->push('devgummibeer', 'astrotomic_oss')
-            ->map(fn(string $name): string => str_replace('@', '', $name));
+            ->map(fn (string $name): string => str_replace('@', '', $name));
 
         $added = collect($this->option('add'))
-            ->map(fn(string $name): string => str_replace('@', '', $name));
+            ->map(fn (string $name): string => str_replace('@', '', $name));
 
         $this->warn('🎁 Twitter Giveaway Picker');
         $this->line($tweet);
@@ -46,33 +46,33 @@ class TwitterGiveaway extends Command
             );
             $ids->push(...$response->ids);
             $cursor = $response->next_cursor;
-        } while($cursor != 0);
+        } while ($cursor != 0);
 
         $users = $ids
             ->chunk(100)
-            ->map(fn(Collection $ids): array => $twitter->request(
+            ->map(fn (Collection $ids): array => $twitter->request(
                 sprintf('users/lookup.json?user_id=%s', $ids->implode(',')),
                 'GET'
             ))
             ->collapse()
-            ->map(fn(stdClass $user): string => $user->screen_name)
+            ->map(fn (stdClass $user): string => $user->screen_name)
             ->push(...$added)
-            ->reject(fn(string $username): bool => $excluded->contains($username))
+            ->reject(fn (string $username): bool => $excluded->contains($username))
             ->values();
 
         $this->info(sprintf('» found %d eligible users ', $users->count()));
 
         $winners = collect($this->option('winner'))
-            ->map(fn(string $username): array => $this->getUser($username));
+            ->map(fn (string $username): array => $this->getUser($username));
         do {
             $winners = $winners->merge(
                 $users->random($count)
-                    ->map(fn(string $username): array => $this->getUser($username))
-                    ->reject(fn(array $user): bool => Str::contains($user['avatar'], 'default'))
+                    ->map(fn (string $username): array => $this->getUser($username))
+                    ->reject(fn (array $user): bool => Str::contains($user['avatar'], 'default'))
             )->unique('username')->take($count);
-        } while($winners->count() < $count);
+        } while ($winners->count() < $count);
 
-        $winners->each(function(array $user): void {
+        $winners->each(function (array $user): void {
             $html = <<<HTML
                 <div style="font-size:8rem;">
                     <div class="inline-block font-logo text-center text-brand bg-white" style="font-size:10rem;margin-bottom:0.5em;padding:0 0.25em;border-radius:50px;">Congratulations</div>
@@ -84,13 +84,13 @@ class TwitterGiveaway extends Command
             $this->saveImage("images/giveaway/{$user['username']}.png", $html);
         });
 
-        if($this->option('live')) {
+        if ($this->option('live')) {
             $delay = 10;
             $interval = 100;
             $start = microtime(true);
 
             $this->line('');
-            while(microtime(true) < $start + $delay) {
+            while (microtime(true) < $start + $delay) {
                 $this->output->write("\33[2K\r");
                 $this->output->write(sprintf(
                     '🎰 %s',

@@ -50,12 +50,12 @@ return [
         'bot_token' => env('TELEGRAM_BOT_TOKEN'),
         'chat_id' => '-1001286676640', // Http::get(sprintf('https://api.telegram.org/bot%s/getUpdates', $token))->json()['result'][0]['channel_post']['chat']['id']
     ],
-    
+
     'twitter' => [
         'consumer_key' => null,
         'consumer_secret' => null,
         'access_token' => null,
-        'access_token_secret' => null
+        'access_token_secret' => null,
     ],
 
 ];
