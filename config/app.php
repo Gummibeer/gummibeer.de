@@ -175,6 +175,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
         App\Providers\ExportServiceProvider::class,
+        App\Providers\TwitterServiceProvider::class,
 
     ],
 

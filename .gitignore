@@ -17,3 +17,4 @@ yarn.lock
 /.netlify/
 .phpstorm.meta.php
 _ide_helper.php
+.twitter.json
