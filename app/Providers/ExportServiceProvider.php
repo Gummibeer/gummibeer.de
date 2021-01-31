@@ -7,6 +7,7 @@ use App\Category;
 use App\Post;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Export\Exporter;
+use Throwable;
 
 class ExportServiceProvider extends ServiceProvider
 {
@@ -26,21 +27,25 @@ class ExportServiceProvider extends ServiceProvider
                     route('blog.feed', ['format' => 'atom']),
                 ]);
 
-                Category::all()->each(fn (Category $category) => $exporter->urls([
-                    $category->url,
-                    route('blog.category.feed', ['category' => $category, 'format' => 'rss']),
-                    route('blog.category.feed', ['category' => $category, 'format' => 'atom']),
-                ]));
+                try {
+                    Category::all()->each(fn(Category $category) => $exporter->urls([
+                        $category->url,
+                        route('blog.category.feed', ['category' => $category, 'format' => 'rss']),
+                        route('blog.category.feed', ['category' => $category, 'format' => 'atom']),
+                    ]));
 
-                Author::all()->each(fn (Author $author) => $exporter->urls([
-                    $author->url,
-                    route('blog.author.feed', ['author' => $author, 'format' => 'rss']),
-                    route('blog.author.feed', ['author' => $author, 'format' => 'atom']),
-                ]));
+                    Author::all()->each(fn(Author $author) => $exporter->urls([
+                        $author->url,
+                        route('blog.author.feed', ['author' => $author, 'format' => 'rss']),
+                        route('blog.author.feed', ['author' => $author, 'format' => 'atom']),
+                    ]));
 
-                Post::all()->each(fn (Post $post) => $exporter->urls(
-                    route('blog.year.index', ['year' => $post->date->year])
-                ));
+                    Post::all()->each(fn(Post $post) => $exporter->urls(
+                        route('blog.year.index', ['year' => $post->date->year])
+                    ));
+                } catch(Throwable $ex) {
+                    report($ex);
+                }
             });
         }
     }
