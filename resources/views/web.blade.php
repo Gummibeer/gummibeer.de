@@ -11,6 +11,8 @@
         <link rel="dns-prefetch" href="https://{{ config('services.imgix.domain') }}">
     @endif
     @if(app()->environment('prod'))
+        <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
+        <link rel="dns-prefetch" href="https://cloudflareinsights.com">
         <link rel="dns-prefetch" href="https://search.gummibeer.dev" id="SEARCH_URL">
     @endif
 
@@ -46,6 +48,8 @@
 <x-footer/>
 
 <script defer src="{{ mix('js/app.js') }}" crossorigin="anonymous"></script>
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c378395538554284b7ccee3cc90cc627"}'></script>
+@if(app()->environment('prod'))
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c378395538554284b7ccee3cc90cc627"}'></script>
+@endif
 </body>
 </html>
