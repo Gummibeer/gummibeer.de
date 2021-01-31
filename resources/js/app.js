@@ -1,6 +1,7 @@
-window.ASSET_URL = document.querySelector('head > link[rel=dns-prefetch]#ASSET_URL')
-    .getAttribute('href')
-    .replace(/\/+$/, '');
+window.ASSET_URL = document
+  .querySelector("head > link[rel=dns-prefetch]#ASSET_URL")
+  .getAttribute("href")
+  .replace(/\/+$/, "");
 
 require("alpinejs");
 
@@ -40,40 +41,38 @@ window.search = {
 
 window.components = {};
 window.components.slider = (delay) => ({
-    delay: delay ? delay * 1000 : 3000,
-    images: [],
-    index: 0,
-    init() {
-        this.images = Array.from(this.$el.getElementsByTagName('img'));
+  delay: delay ? delay * 1000 : 3000,
+  images: [],
+  index: 0,
+  init() {
+    this.images = Array.from(this.$el.getElementsByTagName("img"));
 
-        this.render();
+    this.render();
 
-        setInterval(() => {
-            this.next();
-        }, this.delay);
-    },
-    next() {
-        this.index = this.index < (this.images.length - 1)
-            ? this.index + 1
-            : 0;
+    setInterval(() => {
+      this.next();
+    }, this.delay);
+  },
+  next() {
+    this.index = this.index < this.images.length - 1 ? this.index + 1 : 0;
 
-        this.render();
-    },
-    render() {
-        this.images.forEach(img => {
-            img.classList.add('hidden');
-        });
+    this.render();
+  },
+  render() {
+    this.images.forEach((img) => {
+      img.classList.add("hidden");
+    });
 
-        this.images[this.index].classList.remove('hidden');
-    },
+    this.images[this.index].classList.remove("hidden");
+  },
 });
 
 window.twemoji = function (content) {
-    const parse = require("twemoji").default.parse;
-    parse(content, {
-        base: window.ASSET_URL + "/vendor/twemoji/",
-        folder: "svg",
-        ext: ".svg",
-    });
+  const parse = require("twemoji").default.parse;
+  parse(content, {
+    base: window.ASSET_URL + "/vendor/twemoji/",
+    folder: "svg",
+    ext: ".svg",
+  });
 };
 window.twemoji(document.body);
