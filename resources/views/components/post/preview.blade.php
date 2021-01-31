@@ -3,7 +3,7 @@
 <?php /** @var App\Post $post */ ?>
 
 <article {{ $attributes->except('post')->merge(['class' => 'rounded-4 shadow bg-white dark:bg-night-20 overflow-hidden']) }}>
-    @isset($post->image)
+    @if($post->image)
     <a href="{{ $post->url }}">
         <x-img
             src="{{ $post->image }}"
@@ -12,7 +12,7 @@
             :alt="$post->title"
             :crop="true"/>
     </a>
-    @endisset
+    @endif
     <div class="p-4">
         @if($post->categories()->isNotEmpty())
             <x-post.ul-categories :post="$post" class="mb-4"/>

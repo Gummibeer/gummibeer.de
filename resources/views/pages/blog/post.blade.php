@@ -14,17 +14,7 @@
 @section('content')
     <x-article class="markdown">
         <header class="mb-8">
-            @isset($post->image)
-                <x-figure class="mb-8">
-                    <x-img
-                        :src="$post->image"
-                        width="768"
-                        ratio="16:9"
-                        :alt="$post->title"
-                    />
-                    <x-slot name="caption">{{ $post->image_credits }}</x-slot>
-                </x-figure>
-            @endisset
+            <x-post.image :post="$post"/>
             @if($post->categories()->isNotEmpty())
                 <x-post.ul-categories :post="$post" class="mb-4"/>
             @endif

@@ -17,6 +17,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * @property-read string $title
  * @property-read string $image
+ * @property-read string[]|null $images
  * @property-read string $image_credits
  * @property-read string[] $categories
  * @property-read Carbon $date
@@ -73,6 +74,11 @@ final class Post extends Model implements Feedable
     public function getUrlAttribute(): string
     {
         return route('blog.post', $this);
+    }
+
+    public function getImageAttribute(?string $value): string
+    {
+        return $value ?? Arr::first($this->images);
     }
 
     public function getModifiedAtAttribute(): Carbon
