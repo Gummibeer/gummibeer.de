@@ -30,6 +30,7 @@
         "prism-themes": "^1.4.0",
         "prismjs": "^1.20.0",
         "tailwindcss": "^1.9.0",
+        "twemoji": "^13.0.1",
         "twemoji-emojis": "^13.0.1",
         "typeface-fira-code": "^1.1.4",
         "typeface-inter": "^3.12.0",
