@@ -1,7 +1,7 @@
 <?php /** @var Illuminate\View\ComponentAttributeBag $attributes */ ?>
-<?php /** @var \Illuminate\Support\Collection|\App\Webmentions\Like[] $likes */ ?>
-<?php /** @var \Illuminate\Support\Collection|\App\Webmentions\Repost[] $reposts */ ?>
-<?php /** @var \Illuminate\Support\Collection|\App\Webmentions\Comment[] $comments */ ?>
+<?php /** @var \Illuminate\Support\Collection|\Astrotomic\Webmentions\Models\Like[] $likes */ ?>
+<?php /** @var \Illuminate\Support\Collection|\Astrotomic\Webmentions\Models\Repost[] $reposts */ ?>
+<?php /** @var \Illuminate\Support\Collection|\Astrotomic\Webmentions\Models\Mention[]|\Astrotomic\Webmentions\Models\Reply[] $comments */ ?>
 
 @if($likes->isNotEmpty())
 <footer {{ $attributes->merge(['class' => 'space-y-12']) }}>
@@ -80,12 +80,12 @@
                             <strong>{{ $comment->author->name }}</strong>
                         </a>
                         <a href="{{ $comment->url }}" class="block leading-none text-snow-20 dark:text-snow-10 hover:text-brand">
-                            <time datetime="{{ $comment->date->toIso8601String() }}">
-                                {{ $comment->date->format('M jS, Y') }}
+                            <time datetime="{{ $comment->created_at->toIso8601String() }}">
+                                {{ $comment->created_at->format('M jS, Y') }}
                             </time>
                         </a>
                     </header>
-                    <blockquote>{{ $comment->contents }}</blockquote>
+                    <blockquote>{{ $comment->text }}</blockquote>
                 </article>
             </li>
         @endforeach
