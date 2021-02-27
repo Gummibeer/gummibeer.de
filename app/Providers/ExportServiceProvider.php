@@ -28,22 +28,22 @@ class ExportServiceProvider extends ServiceProvider
                 ]);
 
                 try {
-                    Category::all()->each(fn(Category $category) => $exporter->urls([
+                    Category::all()->each(fn (Category $category) => $exporter->urls([
                         $category->url,
                         route('blog.category.feed', ['category' => $category, 'format' => 'rss']),
                         route('blog.category.feed', ['category' => $category, 'format' => 'atom']),
                     ]));
 
-                    Author::all()->each(fn(Author $author) => $exporter->urls([
+                    Author::all()->each(fn (Author $author) => $exporter->urls([
                         $author->url,
                         route('blog.author.feed', ['author' => $author, 'format' => 'rss']),
                         route('blog.author.feed', ['author' => $author, 'format' => 'atom']),
                     ]));
 
-                    Post::all()->each(fn(Post $post) => $exporter->urls(
+                    Post::all()->each(fn (Post $post) => $exporter->urls(
                         route('blog.year.index', ['year' => $post->date->year])
                     ));
-                } catch(Throwable $ex) {
+                } catch (Throwable $ex) {
                     report($ex);
                 }
             });
