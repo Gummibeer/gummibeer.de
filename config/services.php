@@ -30,11 +30,6 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'imgix' => [
-        'domain' => env('IMGIX_DOMAIN', 'gummibeer.imgix.local'),
-        'sign_key' => env('IMGIX_SIGN_KEY'),
-    ],
-
     'strava' => [
         'athlete_id' => env('STRAVA_ID', '22896286'),
         'refresh_token' => env('STRAVA_REFRESH_TOKEN'),

@@ -2,33 +2,30 @@
 
 namespace App\View\Components;
 
+use Astrotomic\Imgix\Facades\Imgix;
 use Astrotomic\LaravelMime\Facades\MimeTypes;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\View;
-use Imgix\UrlBuilder;
 
 class Img extends Component
 {
     public ?int $width;
     public ?int $height;
 
-    private UrlBuilder $builder;
     private array $params = [];
     private string $src;
     private ?string $ratio;
     private bool $crop;
 
     public function __construct(
-        UrlBuilder $builder,
         string $src,
         ?int $width = null,
         ?int $height = null,
         ?string $ratio = null,
         bool $crop = false
     ) {
-        $this->builder = $builder;
         $this->ratio = $ratio;
         $this->crop = $crop;
         $this->setWidth($width);
@@ -69,7 +66,7 @@ class Img extends Component
             return asset($this->src);
         }
 
-        return $this->builder->createURL(
+        return Imgix::createURL(
             $this->src,
             $this->getParams($format),
         );
@@ -81,7 +78,7 @@ class Img extends Component
             return asset($this->src).' 1x';
         }
 
-        return $this->builder->createSrcSet(
+        return Imgix::createSrcSet(
             $this->src,
             $this->getParams($format),
             $options
