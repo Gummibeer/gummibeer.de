@@ -116,8 +116,6 @@ class Img extends Component
 
     protected function setDefaultParams(): void
     {
-        $this->params['cache-md5'] = hash_file('md5', public_path($this->src));
-
         $this->params['auto'] = 'compress';
         $this->params['fit'] = 'max';
 
