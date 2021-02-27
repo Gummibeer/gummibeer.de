@@ -1,0 +1,1 @@
+<x-img :src="$url()" {{ $attributes->merge(['ratio' => '1:1', 'class' => 'inline-block rounded-full']) }} />

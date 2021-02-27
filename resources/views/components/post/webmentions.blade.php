@@ -11,12 +11,12 @@
             <ul class="flex -space-x-2 overflow-hidden">
                 @foreach($likes->take(6) as $like)
                 <li class="block h-8 w-8">
-                    <x-img
+                    <x-avatar
+                        :search="parse_url($like->url, PHP_URL_HOST)"
                         :src="$like->author->avatar"
                         width="64"
                         height="64"
-                        ratio="1:1"
-                        class="inline-block rounded-full border-2 border-solid border-snow-0 dark:border-night-0"
+                        class="border-2 border-solid border-snow-0 dark:border-night-0"
                         :alt="$like->author->name"
                         :title="$like->author->name"
                     />
@@ -37,12 +37,12 @@
                 @foreach($reposts->take(6) as $repost)
                 <li class="block h-8 w-8">
                     <a href="{{ $repost->url }}" class="block" title="{{ $repost->author->name }}">
-                        <x-img
+                        <x-avatar
+                            :search="parse_url($repost->url, PHP_URL_HOST)"
                             :src="$repost->author->avatar"
                             width="64"
                             height="64"
-                            ratio="1:1"
-                            class="inline-block rounded-full border-2 border-solid border-snow-0 dark:border-night-0"
+                            class="border-2 border-solid border-snow-0 dark:border-night-0"
                             :alt="$repost->author->name"
                         />
                     </a>
@@ -67,12 +67,11 @@
                 <article>
                     <header class="flex space-x-4 items-center mb-2">
                         <a href="{{ $comment->author->url }}" class="block h-8 w-8" title="{{ $comment->author->name }}">
-                            <x-img
+                            <x-avatar
+                                :search="parse_url($comment->url, PHP_URL_HOST)"
                                 :src="$comment->author->avatar"
                                 width="64"
                                 height="64"
-                                ratio="1:1"
-                                class="rounded-full min-w-8"
                                 :alt="$comment->author->name"
                             />
                         </a>
