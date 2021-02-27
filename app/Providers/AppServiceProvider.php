@@ -29,7 +29,6 @@ class AppServiceProvider extends ServiceProvider
         $this->registerMeta();
         $this->registerRepositories();
         $this->registerCommonmark();
-        $this->registerImgix();
     }
 
     public function boot(): void
@@ -66,17 +65,5 @@ class AppServiceProvider extends ServiceProvider
         $environment->addBlockRenderer(FencedCode::class, new FencedCodeRenderer());
         $environment->addBlockRenderer(Paragraph::class, new ParagraphRenderer());
         $environment->addInlineRenderer(Image::class, new ImageRenderer());
-    }
-
-    public function registerImgix(): void
-    {
-        $builder = new UrlBuilder(config('services.imgix.domain'));
-        $builder->setUseHttps(true);
-        $builder->setIncludeLibraryParam(false);
-        if (config('services.imgix.sign_key')) {
-            $builder->setSignKey(config('services.imgix.sign_key'));
-        }
-
-        $this->app->instance(UrlBuilder::class, $builder);
     }
 }
