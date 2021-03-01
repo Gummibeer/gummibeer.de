@@ -32,8 +32,7 @@
     <link rel="me" href="https://github.com/Gummibeer">
     <link rel="me" href="https://instagram.com/dev.gummibeer">
 
-    <link rel="webmention" href="https://webmention.io/gummibeer.dev/webmention">
-    <link rel="pingback" href="https://webmention.io/gummibeer.dev/xmlrpc">
+    <x-webmention-links />
     <link rel="sitemap" type="application/xml" href="{{ route('sitemap.xml') }}">
     <link rel="canonical" href="{{ request()->url() }}">
     @stack('head')
