@@ -5,12 +5,12 @@
 
 @if($likes->isNotEmpty())
 <footer {{ $attributes->merge(['class' => 'space-y-12']) }}>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
         @if($likes->isNotEmpty())
-        <div class="flex space-x-3 items-center">
-            <ul class="flex -space-x-2 overflow-hidden">
+        <div class="flex items-center space-x-3">
+            <ul class="flex overflow-hidden -space-x-2">
                 @foreach($likes->take(6) as $like)
-                <li class="block h-8 w-8">
+                <li class="block w-8 h-8">
                     <x-avatar
                         :search="parse_url($like->url, PHP_URL_HOST)"
                         :src="$like->author->avatar"
@@ -25,17 +25,17 @@
             </ul>
 
             <p class="block flex-grow text-snow-20 dark:text-snow-10">
-                <x-icon class="fal mr-1 fa-heart"/>
+                <x-icon class="mr-1 fal fa-heart"/>
                 {{ $likes->count() }} likes
             </p>
         </div>
         @endif
 
         @if($reposts->isNotEmpty())
-        <div class="flex space-x-3 items-center">
-            <ul class="flex -space-x-2 overflow-hidden">
+        <div class="flex items-center space-x-3">
+            <ul class="flex overflow-hidden -space-x-2">
                 @foreach($reposts->take(6) as $repost)
-                <li class="block h-8 w-8">
+                <li class="block w-8 h-8">
                     <a href="{{ $repost->url }}" class="block" title="{{ $repost->author->name }}">
                         <x-avatar
                             :search="parse_url($repost->url, PHP_URL_HOST)"
@@ -51,7 +51,7 @@
             </ul>
 
             <p class="block flex-grow text-snow-20 dark:text-snow-10">
-                <x-icon class="fal mr-1 fa-retweet"/>
+                <x-icon class="mr-1 fal fa-retweet"/>
                 {{ $reposts->count() }} reposts
             </p>
         </div>
@@ -61,12 +61,12 @@
     @if($comments->isNotEmpty())
     <section>
         <h2>Comments</h2>
-        <ol class="list-none space-y-8" reversed>
+        <ol class="space-y-8 list-none" reversed>
         @foreach($comments as $comment)
             <li>
                 <article>
-                    <header class="flex space-x-4 items-center mb-2">
-                        <a href="{{ $comment->author->url }}" class="block h-8 w-8" title="{{ $comment->author->name }}">
+                    <header class="flex items-center mb-2 space-x-4">
+                        <a href="{{ $comment->author->url }}" class="block w-8 h-8" title="{{ $comment->author->name }}">
                             <x-avatar
                                 :search="parse_url($comment->url, PHP_URL_HOST)"
                                 :src="$comment->author->avatar"

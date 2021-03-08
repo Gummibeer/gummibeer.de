@@ -3,20 +3,20 @@
 <?php /** @var string $name */ ?>
 <?php /** @var string $lang */ ?>
 
-<div class="mb-6 mt-4">
-    <header class="flex bg-snow-10 dark:bg-night-20 rounded-t-2 px-4 space-x-2">
-        <div class="text-right leading-none text-xs font-bold uppercase py-2">
+<div class="mt-4 mb-6">
+    <header class="flex px-4 space-x-2 bg-snow-10 dark:bg-night-20 rounded-t-2">
+        <div class="py-2 text-xs font-bold leading-none text-right uppercase">
             {{ $lang }}
         </div>
-        <div class="font-mono flex-grow text-center leading-none text-xs truncate py-2">
+        <div class="flex-grow py-2 font-mono text-xs leading-none text-center truncate">
             {{ $name }}
         </div>
-        <button class="leading-none text-xs py-2" type="button" data-clipboard-text="{{ $slot }}" title="copy code to clipboard">
+        <button class="py-2 text-xs leading-none" type="button" data-clipboard-text="{{ $slot }}" title="copy code to clipboard">
             <x-icon class="fal fa-copy"/>
             <span class="sr-only">copy code to clipboard</span>
         </button>
     </header>
-    <section class="bg-white dark:bg-night-10 border-2 border-t-0 border-snow-10 dark:border-night-20 rounded-b-2">
+    <section class="bg-white border-2 border-t-0 dark:bg-night-10 border-snow-10 dark:border-night-20 rounded-b-2">
         <pre><code class="language-{{ $lang }}">{{ $slot }}</code></pre>
     </section>
 </div>

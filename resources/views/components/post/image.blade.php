@@ -1,7 +1,7 @@
 <?php /** @var App\Post $post */ ?>
 
 @if($post->images)
-    <div class="aspect-w-16 aspect-h-9 overflow-hidden mb-8" x-data="window.components.slider(3)" x-init="init" x-cloak>
+    <div class="overflow-hidden mb-8 aspect-w-16 aspect-h-9" x-data="window.components.slider(3)" x-init="init" x-cloak>
         @foreach($post->images as $image)
         <x-img
             :src="$image"

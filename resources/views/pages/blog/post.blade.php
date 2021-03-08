@@ -24,6 +24,6 @@
             <h1>{{ $post->title }}</h1>
             {{ $post->contents }}
         </main>
-        <x-post.webmentions :url="$post->url" class="mt-12 pt-12 border-t-2 border-snow-10"/>
+        <x-post.webmentions :url="$post->url" class="pt-12 mt-12 border-t-2 border-snow-10"/>
     </x-article>
 @endsection

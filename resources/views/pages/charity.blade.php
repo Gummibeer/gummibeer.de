@@ -15,7 +15,7 @@
     <x-section class="bg-dotted">
         <x-grid class="xl:grid-cols-4">
             @foreach(collect($charities)->sortBy('name') as $charity)
-                <div class="rounded-4 shadow bg-white dark:bg-night-20 overflow-hidden">
+                <div class="overflow-hidden bg-white shadow rounded-4 dark:bg-night-20">
                     <a href="{{ $charity['href'] }}" target="_blank" rel="noreferrer noopener" class="block pb-1">
                         <x-figure>
                             <x-img

@@ -15,7 +15,7 @@
     <x-section class="bg-dotted">
         <x-grid class="xl:grid-cols-4">
             @foreach(collect($projects)->sortBy('name') as $project)
-                <div class="rounded-4 shadow bg-white dark:bg-night-20 overflow-hidden">
+                <div class="overflow-hidden bg-white shadow rounded-4 dark:bg-night-20">
                     @isset($project['src'])
                     <a href="{{ $project['href'] }}" target="_blank" rel="noreferrer noopener" class="block pb-1">
                         <x-img
@@ -26,7 +26,7 @@
                         />
                     </a>
                     @endisset
-                    <div class="px-4 py-2">
+                    <div class="py-2 px-4">
                         <a href="{{ $project['href'] }}" target="_blank" rel="noreferrer noopener" class="block hover:text-brand">
                             <strong>{{ $project['name'] }}</strong>
                         </a>

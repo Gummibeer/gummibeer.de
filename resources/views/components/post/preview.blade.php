@@ -17,7 +17,7 @@
         @if($post->categories()->isNotEmpty())
             <x-post.ul-categories :post="$post" class="mb-4"/>
         @endif
-        <h3 class="text-2xl font-bold text-night-0 dark:text-white leading-none mb-4">
+        <h3 class="mb-4 text-2xl font-bold leading-none text-night-0 dark:text-white">
             <a href="{{ $post->url }}" class="hover:underlined">
                 {{ $post->title }}
             </a>

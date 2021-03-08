@@ -1,23 +1,23 @@
-<aside class="relative bg-brand text-night-0 py-2 px-4 md:px-8 lg:px-10 xl:px-12 flex flex-row justify-between items-center space-x-2  text-sm">
+<aside class="flex relative flex-row justify-between items-center py-2 px-4 space-x-2 text-sm bg-brand text-night-0 md:px-8 lg:px-10 xl:px-12">
     <p>
         Never want to miss a post?
         <span class="hidden sm:inline">You can join my Telegram channel.</span>
     </p>
-    <a href="https://t.me/GummibeerDev" class="flex items-center bg-white rounded-1 p-1 sm:p-2">
-        <x-icon class="fab fa-telegram-plane mr-1"/>
+    <a href="https://t.me/GummibeerDev" class="flex items-center p-1 bg-white rounded-1 sm:p-2">
+        <x-icon class="mr-1 fab fa-telegram-plane"/>
         <span class="leading-none">subscribe</span>
     </a>
 </aside>
 
-<header class="bg-white dark:bg-night-10 shadow sticky top-0 left-0 right-0 z-10">
+<header class="sticky top-0 right-0 left-0 z-10 bg-white shadow dark:bg-night-10">
     <nav
-        class="px-4 md:px-8 lg:px-10 xl:px-12 flex flex-col md:flex-row flex-no-wrap md:justify-between"
+        class="flex flex-col px-4 md:px-8 lg:px-10 xl:px-12 md:flex-row flex-no-wrap md:justify-between"
         x-data="{show: false}"
         :class="{'h-screen': show}"
     >
-        <div class="flex-shrink flex flex-row w-full">
-            <div class="flex flex-grow md:flex-auto items-center">
-                <a href="{{ route('home') }}" class="inline-block font-logo text-2xl lg:text-3xl leading-none tracking-wider py-4 whitespace-no-wrap">
+        <div class="flex flex-row flex-shrink w-full">
+            <div class="flex flex-grow items-center md:flex-auto">
+                <a href="{{ route('home') }}" class="inline-block py-4 text-2xl tracking-wider leading-none font-logo lg:text-3xl whitespace-no-wrap">
                     Tom Witkowski
                 </a>
             </div>
@@ -40,7 +40,7 @@
         </div>
 
         <ul
-            class="flex flex-col md:flex-row w-full md:w-auto list-none md:space-x-2 lg:space-x-4 x-cloak md:-x-cloak"
+            class="flex flex-col w-full list-none md:flex-row md:w-auto md:space-x-2 lg:space-x-4 x-cloak md:-x-cloak"
             :class="{'hidden md:flex': !show}"
             x-cloak
             id="menu-list"
