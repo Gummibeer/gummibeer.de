@@ -7,7 +7,7 @@ I will try to keep things updated, so this page will serve as a living document 
 ## Editor & IDE
 
 - [PhpStorm](https://www.jetbrains.com/phpstorm) after half a year with NetBeans it's my IDE of choice since over 5 years.
-- [Sublime Test](https://www.sublimetext.com/) is my editor for single files - I use it often to edit Kodi-NFO, JSON, bash and others.
+- [Sublime Text](https://www.sublimetext.com/) is my editor for single files - I use it often to edit Kodi-NFO, JSON, bash and others.
 - [WakaTime](https://wakatime.com/) beside several other plugins this is one of my most used to track my project activity.
 - [Nord](https://www.nordtheme.com/) is my theme of choice since some time.
 - [Fira Code](https://github.com/tonsky/FiraCode) is my font of choice with enabled ligatures.
