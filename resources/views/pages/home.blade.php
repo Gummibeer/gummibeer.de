@@ -28,6 +28,15 @@
     </x-section>
     @endif
 
+    <x-section>
+        <h2 class="mb-8 text-4xl font-bold leading-none text-night-0 dark:text-white">Latest Streams</h2>
+        <x-grid>
+            @foreach($streams->take(3) as $stream)
+                <x-stream.preview :stream="$stream"/>
+            @endforeach
+        </x-grid>
+    </x-section>
+
     <x-section class="overflow-hidden relative">
         <x-svg.tire class="hidden absolute bottom-0 left-0 max-h-full opacity-10 md:block -z-10"/>
 

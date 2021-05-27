@@ -2,6 +2,7 @@
 
 use App\Job;
 use App\Post;
+use App\Stream;
 use Spatie\Sheets\ContentParsers\JsonParser;
 use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;
 use Spatie\Sheets\ContentParsers\YamlParser;
@@ -18,6 +19,13 @@ return [
             'path_parser' => SlugWithDateParser::class,
             'content_parser' => MarkdownWithFrontMatterParser::class,
             'extension' => 'md',
+        ],
+        'streams' => [
+            'disk' => 'streams',
+            'sheet_class' => Stream::class,
+            'path_parser' => SlugWithDateParser::class,
+            'content_parser' => YamlParser::class,
+            'extension' => 'yml',
         ],
         'jobs' => [
             'disk' => 'jobs',

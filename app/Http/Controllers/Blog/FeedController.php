@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Blog;
 
 use App\Post;
 use App\Services\Feed;
+use App\Stream;
 
 class FeedController
 {
@@ -12,7 +13,7 @@ class FeedController
         return Feed::make(
             'Blog',
             'Feed of all blog posts.',
-            Post::all(),
+            Post::all()->merge(Stream::all())->sortByDesc('date'),
             $format
         );
     }

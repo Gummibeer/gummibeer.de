@@ -5,6 +5,7 @@ use App\Http\Middleware\Paginated;
 use App\Job;
 use App\Post;
 use App\Services\MetaBag;
+use Carbon\CarbonInterval;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sheets\Sheet;
@@ -18,6 +19,7 @@ Route::get('/', function (MetaBag $meta) {
 
     return view('pages.home', [
         'me' => sheets('static')->get('me'),
+        'streams' => sheets('streams')->all()->sortByDesc('date'),
     ]);
 })->name('home');
 

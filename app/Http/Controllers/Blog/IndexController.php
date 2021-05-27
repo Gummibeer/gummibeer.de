@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Blog;
 
 use App\Post;
 use App\Services\MetaBag;
+use App\Stream;
 
 class IndexController
 {
@@ -13,6 +14,8 @@ class IndexController
         $meta->image = mix('images/og/static/blog.png');
 
         $posts = Post::all()
+            ->merge(Stream::all())
+            ->sortByDesc('date')
             ->paginate($page)
             ->withRoute('blog.index');
 
