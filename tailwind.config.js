@@ -7,6 +7,7 @@ module.exports = {
         options: {
             whitelist: [
                 'fa-briefcase',
+                'fa-tractor',
                 'fa-ribbon',
                 'fa-graduation-cap',
             ],
