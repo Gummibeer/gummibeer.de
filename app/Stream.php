@@ -2,19 +2,12 @@
 
 namespace App;
 
-use App\Repositories\PostRepository;
 use App\Repositories\StreamRepository;
 use App\Services\Model;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
-use Illuminate\Filesystem\FilesystemAdapter;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Storage;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * @property-read string $title

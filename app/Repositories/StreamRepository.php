@@ -2,9 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Post;
 use App\Stream;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Collection;
 
 /** @mixin Collection */

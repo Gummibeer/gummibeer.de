@@ -5,7 +5,6 @@ use App\Http\Middleware\Paginated;
 use App\Job;
 use App\Post;
 use App\Services\MetaBag;
-use Carbon\CarbonInterval;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sheets\Sheet;

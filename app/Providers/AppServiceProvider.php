@@ -15,7 +15,6 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Imgix\UrlBuilder;
 use League\CommonMark\Block\Element\FencedCode;
 use League\CommonMark\Block\Element\Paragraph;
 use League\CommonMark\CommonMarkConverter;
