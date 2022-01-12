@@ -48,7 +48,7 @@
 
 <script defer src="{{ mix('js/app.js') }}" crossorigin="anonymous"></script>
 @if(app()->environment('prod'))
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c378395538554284b7ccee3cc90cc627"}'></script>
+    <script async defer data-website-id="be9ee75f-5cb1-4446-be0c-bbcc3ba54b85" src="https://u.gummibeer.dev/umami.js"></script>
 @endif
 </body>
 </html>
