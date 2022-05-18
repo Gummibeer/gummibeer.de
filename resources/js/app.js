@@ -14,7 +14,7 @@ require("prismjs/plugins/line-numbers/prism-line-numbers");
 Prism.highlightAll();
 
 require("clipboard/dist/clipboard");
-new Clipboard("button[data-clipboard-text]");
+new ClipboardJS("button[data-clipboard-text]");
 
 window._ = require("lodash");
 window.search = {
