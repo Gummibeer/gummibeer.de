@@ -1,0 +1,8 @@
+name: Kraken-Life
+role: Head of Engineering
+start_at: 2021-09-24
+end_at: null
+website: https://kraken-life.de/
+stack: [Laravel, Splade, AlpineJS, VueJS, TailwindCSS, Lua, FiveM]
+icon: fa-joystick
+logo: images/company/kraken-life.png

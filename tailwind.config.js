@@ -9,6 +9,8 @@ module.exports = {
                 'fa-briefcase',
                 'fa-tractor',
                 'fa-ribbon',
+                'fa-hotel',
+                'fa-joystick',
                 'fa-graduation-cap',
             ],
         }
