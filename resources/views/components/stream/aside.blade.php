@@ -13,7 +13,7 @@
         </li>
         <li>
             <x-icon class="mr-1 fal fa-clock"/>
-            {{ \Carbon\CarbonInterval::fromString($stream->duration)->forHumans(['minimumUnit' => 'minute']) }}
+            {{ $stream->duration->forHumans(['minimumUnit' => 'minute']) }}
         </li>
     </ul>
 </aside>
