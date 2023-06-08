@@ -19,7 +19,7 @@
         "ext-intl": "*",
         "astrotomic/laravel-imgix": "^0.1.1",
         "astrotomic/laravel-mime": "^0.3.0",
-        "astrotomic/laravel-unavatar": "^0.2.1",
+        "astrotomic/laravel-unavatar": "^0.3.0",
         "astrotomic/laravel-webmentions": "^0.3.0",
         "astrotomic/php-open-graph": "^0.5.1",
         "astrotomic/php-twemoji": "^0.1.0",
