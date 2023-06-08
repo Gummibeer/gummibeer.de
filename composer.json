@@ -16,6 +16,7 @@
         "php": "^7.4",
         "ext-json": "*",
         "ext-simplexml": "*",
+        "ext-intl": "*",
         "astrotomic/laravel-imgix": "^0.1.1",
         "astrotomic/laravel-mime": "^0.3.0",
         "astrotomic/laravel-unavatar": "^0.2.1",

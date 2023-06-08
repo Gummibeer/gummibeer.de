@@ -28,7 +28,7 @@
                             </div>
                         @endif
                         <div class="flex-grow">
-                            <div class="flex flex-col justify-between sm:flex-row">
+                            <div class="flex flex-col items-center justify-between sm:flex-row">
                                 <div class="flex flex-col sm:flex-row sm:space-x-4 sm:items-center">
                                     <h3 class="text-2xl @if(!$job->hasEnd()) font-medium text-brand @endif">
                                         <x-icon :class="$job->icon"/>
@@ -42,15 +42,18 @@
                                         {{ $job->website_host }}
                                     </a>
                                 </div>
-                                <div class="text-sm">
-                                    <time datetime="{{ $job->start_at->toIso8601String() }}">
-                                        {{ $job->start_at->year }}
-                                    </time>
-                                    -
-                                    <time datetime="{{ ($job->end_at ?? now())->toIso8601String() }}">
-                                        {{ optional($job->end_at)->year ?? 'now' }}
-                                    </time>
-                                </div>
+                                <aside class="text-sm text-right">
+                                    <div>
+                                        <time datetime="{{ $job->start_at->toIso8601String() }}">
+                                            {{ $job->start_at->year }}
+                                        </time>
+                                        -
+                                        <time datetime="{{ ($job->end_at ?? now())->toIso8601String() }}">
+                                            {{ optional($job->end_at)->year ?? 'now' }}
+                                        </time>
+                                    </div>
+                                    <span class="text-snow-20 dark:text-snow-10">{{ \Illuminate\Support\Str::money($job->salary ?? 0) }}</span>
+                                </aside>
                             </div>
                             <strong class="block @if(!$job->hasEnd()) font-bold @else text-sm font-normal @endif">{{ $job->role }}</strong>
                             <ul class="flex list-none space-x-4 @if(!$job->hasEnd()) text-sm @else text-xs @endif mt-1">

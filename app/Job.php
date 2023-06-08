@@ -18,6 +18,7 @@ use Spatie\Sheets\Sheet;
  * @property-read string $website_host
  * @property-read string|null $logo
  * @property-read string[] $stack
+ * @property-read int $salary
  *
  * @method static Collection|Job[] all()
  */
