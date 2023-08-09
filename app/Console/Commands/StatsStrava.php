@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 class StatsStrava extends Command
 {
     protected $name = 'stats:strava';
+
     protected $description = 'Load strava statistics.';
 
     public function handle()

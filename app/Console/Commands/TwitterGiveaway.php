@@ -11,6 +11,7 @@ use stdClass;
 class TwitterGiveaway extends Command
 {
     protected $signature = 'twitter:giveaway {id} {--count=1} {--exclude=*} {--add=*} {--live} {--winner=*}';
+
     protected $description = 'Pick a Twitter retweet giveaway winner.';
 
     protected Twitter $twitter;

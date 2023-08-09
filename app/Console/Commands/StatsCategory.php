@@ -8,6 +8,7 @@ use Illuminate\Console\Command;
 class StatsCategory extends Command
 {
     protected $name = 'stats:category';
+
     protected $description = 'Show category statistics.';
 
     public function handle()

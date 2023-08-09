@@ -11,7 +11,9 @@ use Illuminate\View\Component;
 class Webmentions extends Component
 {
     public Collection $likes;
+
     public Collection $reposts;
+
     public Collection $comments;
 
     public function __construct(?string $url = null)

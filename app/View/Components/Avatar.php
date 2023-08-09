@@ -9,7 +9,9 @@ use Illuminate\View\Component;
 class Avatar extends Component
 {
     public string $search;
+
     public ?string $src = null;
+
     public ?string $provider = null;
 
     public function __construct(string $search, ?string $src = null, ?string $provider = null)

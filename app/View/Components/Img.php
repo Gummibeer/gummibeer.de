@@ -12,11 +12,15 @@ use Illuminate\View\View;
 class Img extends Component
 {
     public ?int $width;
+
     public ?int $height;
 
     private array $params = [];
+
     private string $src;
+
     private ?string $ratio;
+
     private bool $crop;
 
     public function __construct(

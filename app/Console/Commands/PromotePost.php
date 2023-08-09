@@ -11,6 +11,7 @@ use Spatie\Emoji\Emoji;
 class PromotePost extends Command
 {
     protected $name = 'post:promote';
+
     protected $description = 'Promote pending promotable posts.';
 
     public function handle(): int

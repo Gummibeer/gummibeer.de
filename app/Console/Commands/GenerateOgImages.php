@@ -8,6 +8,7 @@ use Illuminate\Console\Command;
 class GenerateOgImages extends Command
 {
     protected $signature = 'generate:og:images';
+
     protected $description = 'Generate all og:images for posts and static pages.';
 
     public function handle(): void

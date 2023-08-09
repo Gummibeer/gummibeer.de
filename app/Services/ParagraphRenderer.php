@@ -15,8 +15,6 @@ class ParagraphRenderer implements BlockRendererInterface
 {
     /**
      * @param  Paragraph  $block
-     * @param  ElementRendererInterface  $htmlRenderer
-     * @param  bool  $inTightList
      * @return HtmlElement|string
      */
     public function render(AbstractBlock $block, ElementRendererInterface $htmlRenderer, bool $inTightList = false)

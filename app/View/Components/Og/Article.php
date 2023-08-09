@@ -11,6 +11,7 @@ use Illuminate\View\Component;
 class Article extends Component
 {
     protected MetaBag $meta;
+
     protected Post $post;
 
     public function __construct(MetaBag $meta, Post $post)

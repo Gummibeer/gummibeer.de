@@ -18,7 +18,7 @@
         <div class="flex flex-row flex-shrink w-full">
             <div class="flex flex-grow items-center md:flex-auto">
                 <a href="{{ route('home') }}" class="inline-block py-4 text-2xl tracking-wider leading-none font-logo lg:text-3xl whitespace-no-wrap">
-                    Tom Witkowski
+                    Tom Herrmann
                 </a>
             </div>
 

@@ -6,11 +6,11 @@ use App\Job;
 use App\Post;
 use App\Services\MetaBag;
 use Illuminate\Contracts\Support\Jsonable;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sheets\Sheet;
 use Spatie\Sitemap\SitemapGenerator;
 use Spatie\Sitemap\Tags\Url;
-use Steein\Robots\Robots;
 
 Route::get('/', function (MetaBag $meta) {
     $meta->description = 'I\'m an enthusiastic web developer and free time gamer from Hamburg, Germany.';
@@ -121,12 +121,16 @@ Route::get(
         ->getSitemap()
 )->name('sitemap.xml');
 
-Route::get(
-    'robots.txt',
-    fn () => Robots::getInstance()
-        ->userAgent('*')
-        ->allow('/')
-        ->spacer()
-        ->sitemap(route('sitemap.xml'))
-        ->render()
-)->name('robots.txt');
+Route::get('robots.txt', static function (): Response {
+    $content = collect([
+        'User-agent' => '*',
+        'Allow' => '/',
+        null,
+        'Sitemap' => route('sitemap.xml'),
+    ])
+        ->map(fn (?string $value, string $key): string => $value ? "{$key}: {$value}" : '')
+        ->implode(PHP_EOL);
+
+    return response($content)
+        ->header('Content-Type', 'text/plain; charset=UTF-8');
+})->name('robots.txt');
