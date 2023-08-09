@@ -19,7 +19,7 @@
         "ext-simplexml": "*",
         "astrotomic/laravel-imgix": "^0.1.1",
         "astrotomic/laravel-mime": "^0.3.0",
-        "astrotomic/laravel-unavatar": "^0.3.0",
+        "astrotomic/laravel-unavatar": "^0.4.0",
         "astrotomic/laravel-webmentions": "^0.3.0",
         "astrotomic/php-open-graph": "^0.5.2",
         "astrotomic/php-twemoji": "^0.1.1",
@@ -66,7 +66,6 @@
             "@php artisan key:generate --ansi --no-interaction --quiet"
         ],
         "post-autoload-dump": [
-            "@composer validate --strict --ansi --no-interaction --quiet",
             "@composer normalize --ansi --no-interaction --quiet",
             "@composer thanks --ansi --no-interaction --quiet",
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
@@ -78,11 +77,11 @@
         ],
         "alex": "alex resources/content/**/*.md",
         "deploy": "@php artisan export --env=prod",
+        "fix": "@php vendor/bin/pint",
         "ide-helper": [
             "@php artisan ide-helper:generate --ansi --no-interaction --quiet",
             "@php artisan ide-helper:meta --ansi --no-interaction --quiet"
         ],
-        "fix": "@php vendor/bin/pint",
         "normalize": "echo 'composer global require ergebnis/composer-normalize'",
         "og": "@php artisan generate:og:images && yarn dev",
         "route:list": "@php artisan route:list --columns=method,name,uri,action | grep -Ev 'horizon|nova'",
