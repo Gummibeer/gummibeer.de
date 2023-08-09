@@ -4,10 +4,13 @@ namespace App\Console\Commands;
 
 use App\Post;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
+use Symfony\Component\Process\ExecutableFinder;
+use Symfony\Component\Process\Process;
 
 class GenerateOgImages extends Command
 {
-    protected $signature = 'generate:og:images';
+    protected $signature = 'generate:og:images {--force}';
 
     protected $description = 'Generate all og:images for posts and static pages.';
 
@@ -16,7 +19,7 @@ class GenerateOgImages extends Command
         Post::all()->each(function (Post $post): void {
             $html = <<<HTML
                 <div style="font-size:8rem;">
-                    <div class="font-logo text-center text-brand" style="font-size:10rem;margin-bottom: 0.75em;">Tom Witkowski</div>
+                    <div class="font-logo text-center text-brand" style="font-size:10rem;margin-bottom: 0.75em;">Tom Herrmann</div>
                     <h1 class="text-black text-center" style="margin-bottom: 0.5em;">{$post->title}</h1>
                     <div class="text-snow-20 text-sm" style="font-size:0.5em;">
                         <ul class="flex flex-row list-none" style="justify-content:center;">
@@ -46,7 +49,7 @@ class GenerateOgImages extends Command
         ])->each(function (string $title, string $slug): void {
             $html = <<<HTML
                 <div style="font-size:8rem;">
-                    <div class="font-logo text-center text-brand" style="font-size:10rem;margin-bottom: 0.75em;">Tom Witkowski</div>
+                    <div class="font-logo text-center text-brand" style="font-size:10rem;margin-bottom: 0.75em;">Tom Herrmann</div>
                     <h1 class="text-black text-center">{$title}</h1>
                 </div>
             HTML;
@@ -57,9 +60,17 @@ class GenerateOgImages extends Command
 
     protected function saveImage(string $path, string $html): void
     {
-        $url = 'https://gummibeer-og-image.vercel.app/'.rawurlencode(trim($html)).'.png';
+        $path = resource_path($path);
+        File::ensureDirectoryExists(dirname($path));
 
-        @mkdir(dirname(resource_path($path)), 0755, true);
-        file_put_contents(resource_path($path), file_get_contents($url));
+        if(!File::exists($path) || $this->option('force')) {
+            $process = new Process([
+                (new ExecutableFinder)->find('node'),
+                base_path('.og/index.js'),
+                '--path=' . $path,
+                trim($html),
+            ]);
+            $process->mustRun();
+        }
     }
 }
