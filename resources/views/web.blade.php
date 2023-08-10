@@ -48,7 +48,7 @@
 
 <script defer src="{{ mix('js/app.js') }}" crossorigin="anonymous"></script>
 @if(app()->environment('prod'))
-    <script async defer data-website-id="be9ee75f-5cb1-4446-be0c-bbcc3ba54b85" src="https://u.gummibeer.dev/umami.js"></script>
+    <script async defer data-website-id="5790432b-8e52-4f5d-b458-937bb1ddedc6" src="https://u.gummibeer.dev/script.js"></script>
 @endif
 </body>
 </html>
