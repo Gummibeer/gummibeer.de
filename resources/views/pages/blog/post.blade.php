@@ -24,6 +24,14 @@
             <h1>{{ $post->title }}</h1>
             {{ $post->contents }}
         </main>
+        <script src="https://utteranc.es/client.js"
+            repo="Gummibeer/gummibeer.de"
+            issue-term="pathname"
+            label="💬 comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async
+        ></script>
         <x-post.webmentions :url="$post->url" class="pt-12 mt-12 border-t-2 border-snow-10"/>
     </x-article>
 @endsection
