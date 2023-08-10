@@ -13,14 +13,14 @@
       base-uri 'self';
       connect-src https://search.gummibeer.dev https://u.gummibeer.dev;
       form-action 'none';
-      frame-src 'none';
+      frame-src https://utteranc.es;
       frame-ancestors 'none';
       child-src 'none';
       font-src 'self' https://cdn.gummibeer.dev;
       img-src 'self' https://img.gummibeer.dev https://cdn.gummibeer.dev;
       media-src 'none';
       object-src 'none';
-      script-src 'self' 'unsafe-eval' https://cdn.gummibeer.dev https://u.gummibeer.dev;
+      script-src 'self' 'unsafe-eval' https://cdn.gummibeer.dev https://u.gummibeer.dev https://utteranc.es/client.js;
       style-src 'self' 'unsafe-inline' https://cdn.gummibeer.dev
     '''
 
