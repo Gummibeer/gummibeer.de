@@ -13,7 +13,7 @@ require("prismjs/components/prism-scss");
 require("prismjs/plugins/line-numbers/prism-line-numbers");
 Prism.highlightAll();
 
-require("clipboard/dist/clipboard");
+import ClipboardJS from "clipboard";
 new ClipboardJS("button[data-clipboard-text]");
 
 window._ = require("lodash");
