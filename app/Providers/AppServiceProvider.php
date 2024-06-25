@@ -54,11 +54,11 @@ class AppServiceProvider extends ServiceProvider
 
     public function registerCommonmark(): void
     {
-        $commonMark = $this->app->instance(
-            CommonMarkConverter::class,
-            $this->app->make(ConverterInterface::class)
-        );
-        $this->app->alias(CommonMarkConverter::class, 'markdown');
+        $this->app->singleton(ConverterInterface::class, \App\Services\CommonMarkConverter::class);
+        $this->app->alias(ConverterInterface::class, CommonMarkConverter::class);
+        $this->app->alias(ConverterInterface::class, 'markdown');
+
+        $commonMark = $this->app->make(ConverterInterface::class);
         /** @var \League\CommonMark\Environment $environment */
         $environment = $commonMark->getEnvironment();
         $environment->addBlockRenderer(FencedCode::class, new FencedCodeRenderer());
